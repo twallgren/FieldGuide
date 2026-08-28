@@ -412,7 +412,11 @@ h1, h2, h3, p { margin: 0; }
 }
 
 /* index: last-updated column */
-.trow__updated { font-size: 12px; font-weight: 500; color: var(--muted); letter-spacing: 0.06em; }
+/* One plain sentence saying what the technique IS. The deltas carry the
+   verdict; this only has to stop a reader guessing from the name. */
+.trow__desc { font-family: var(--serif); font-size: 15px; line-height: 1.5;
+              color: var(--muted); margin-top: 6px; max-width: 62ch; text-wrap: pretty; }
+.trow__updated { font-size: 12px; font-weight: 500; color: var(--muted); letter-spacing: 0.06em; margin-top: 8px; }
 
 @media (max-width: 720px) {
   .history__entry { grid-template-columns: 1fr; gap: 12px; }

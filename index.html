@@ -154,6 +154,7 @@
     <div class="trow">
       <div>
         <div class="trow__title"><a href="techniques/cache-stable-agent-thread-architecture.html">Cache-Stable Agent Thread Architecture</a></div>
+        <div class="trow__desc">Structure a long thread so the prompt cache keeps hitting: stable prefix, append-only history, deferred tools.</div>
         <div class="trow__updated">Updated <time datetime="2026-08-04">4 Aug 2026</time></div>
       </div>
       <div class="trow__class">No-regret</div>
@@ -164,6 +165,7 @@
     <div class="trow">
       <div>
         <div class="trow__title"><a href="techniques/deterministic-agent-workflows.html">Deterministic Agent Workflows</a></div>
+        <div class="trow__desc">Freeze a proven multi-step pattern into versioned code, so later runs execute instead of re-reasoning.</div>
         <div class="trow__updated">Updated <time datetime="2026-08-26">26 Aug 2026</time></div>
       </div>
       <div class="trow__class">Dial</div>
@@ -174,6 +176,7 @@
     <div class="trow">
       <div>
         <div class="trow__title"><a href="techniques/multi-agent-debate.html">Multi-Agent Debate</a></div>
+        <div class="trow__desc">Several agents propose and challenge each other&rsquo;s answers from different angles until they converge.</div>
         <div class="trow__updated">Updated <time datetime="2026-08-28">28 Aug 2026</time></div>
       </div>
       <div class="trow__class">Trade</div>
@@ -184,6 +187,7 @@
     <div class="trow">
       <div>
         <div class="trow__title"><a href="techniques/model-routing.html">Model Routing</a></div>
+        <div class="trow__desc">Send each request to the cheapest model that can handle it, reserving frontier models for hard reasoning.</div>
         <div class="trow__updated">Updated <time datetime="2026-08-24">24 Aug 2026</time></div>
       </div>
       <div class="trow__class">Dial</div>
@@ -194,6 +198,7 @@
     <div class="trow">
       <div>
         <div class="trow__title"><a href="techniques/hedged-llm-requests.html">Hedged LLM Requests</a></div>
+        <div class="trow__desc">Fire the same request twice in parallel, take whichever returns first, cancel the loser.</div>
         <div class="trow__updated">Updated <time datetime="2026-08-24">24 Aug 2026</time></div>
       </div>
       <div class="trow__class">Dial</div>
@@ -204,6 +209,7 @@
     <div class="trow">
       <div>
         <div class="trow__title"><a href="techniques/low-cost-model-swarms.html">Low-Cost Model Swarms</a></div>
+        <div class="trow__desc">Many cheap models in structured collaboration &mdash; voting, cross-review &mdash; betting orchestration substitutes for model strength.</div>
         <div class="trow__updated">Updated <time datetime="2026-08-04">4 Aug 2026</time></div>
       </div>
       <div class="trow__class">Trade</div>
@@ -214,6 +220,7 @@
     <div class="trow">
       <div>
         <div class="trow__title"><a href="techniques/fine-tuning-open-weight-models.html">Fine-Tuning Open-Weight Models</a></div>
+        <div class="trow__desc">Put tribal knowledge in the weights instead of re-injecting it into context every session.</div>
         <div class="trow__updated">Updated <time datetime="2026-08-04">4 Aug 2026</time></div>
       </div>
       <div class="trow__class">Trade</div>
@@ -224,6 +231,7 @@
     <div class="trow">
       <div>
         <div class="trow__title"><a href="techniques/agent-fleet-dashboards.html">Agent Fleet Dashboards</a></div>
+        <div class="trow__desc">Supervise many running agents at once: status, blockers, token burn, and fast attach into any session.</div>
         <div class="trow__updated">Updated <time datetime="2026-08-24">24 Aug 2026</time></div>
       </div>
       <div class="trow__class">Dial</div>
@@ -234,6 +242,7 @@
     <div class="trow">
       <div>
         <div class="trow__title"><a href="techniques/composable-tests.html">Composable Tests</a></div>
+        <div class="trow__desc">Build suites from small orthogonal tests that compose, rather than overlapping assertions across similar cases.</div>
         <div class="trow__updated">Updated <time datetime="2026-08-24">24 Aug 2026</time></div>
       </div>
       <div class="trow__class">No-regret</div>
@@ -244,6 +253,7 @@
     <div class="trow trow--last">
       <div>
         <div class="trow__title trow__title--muted">Speculative Programmatic Tool Calling</div>
+        <div class="trow__desc">Start executing a tool call before the model has finished deciding it needs one.</div>
         <div class="trow__flag trow__flag--muted">Read, not yet evaluated</div>
         <div class="trow__updated">Updated <time datetime="2026-08-28">28 Aug 2026</time></div>
       </div>
