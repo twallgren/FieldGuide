@@ -1,0 +1,329 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Skills vs MCP Servers — Field Guide</title>
+<meta name="description" content="Swapping always-loaded MCP servers for skills plus plain scripts buys token cost and speed at flat quality — but the note scores it a trade, not a no-regret, and the delta vector does not show why. Scored: cost +1, quality 0, speed +1, attention +1.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600;700&family=IBM+Plex+Serif:ital,wght@0,400;0,600;1,400&display=swap">
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+
+<header class="masthead masthead--compact wrap">
+  <a class="masthead__name" href="../index.html">Field Guide</a>
+  <nav class="nav">
+    <a href="../index.html#method">Method</a>
+    <a href="../index.html#index">Index</a>
+    <a href="../index.html#index">Rejected</a>
+    <a href="../index.html#about">About</a>
+  </nav>
+</header>
+
+<article>
+<div class="post-head wrap">
+  <div class="post-kicker">
+    <div class="post-kicker__bar"><i style="flex-grow:1; background: var(--pos);"></i></div>
+    <div class="post-kicker__class">Class: Trade</div>
+    <div class="post-kicker__sep"></div>
+    <div class="post-kicker__meta">Last updated <time datetime="2026-08-25">25 Aug 2026</time></div>
+  </div>
+
+  <div class="post-grid">
+    <div>
+      <h1 class="post-title">Skills vs MCP Servers</h1>
+      <p class="standfirst">Replacing always-loaded MCP servers with skills and plain scripts genuinely undercuts the token tax — but it is <em>not</em> a blanket replacement, and the harness has already closed part of the gap that motivated it.</p>
+    </div>
+    <aside class="conf-box">
+      <div class="conf-box__label">Confidence</div>
+      <div class="conf-box__meter"><span class="on"></span><span class="on"></span><span></span></div>
+      <div class="conf-box__scale"><span class="on">guess</span><span class="on">researched</span><span>measured</span></div>
+      <div class="conf-box__value">researched</div>
+      <div class="conf-box__body">Someone else measured the token overhead. No local trial run recorded against this note, so not <span class="tok">measured</span>.</div>
+    </aside>
+  </div>
+</div>
+
+<div class="section wrap" style="padding-top: 56px;">
+  <div class="baseline">
+    <div class="baseline__label">Compared to what</div>
+    <div class="baseline__text">Always-loaded MCP servers with full tool schemas resident in context every turn (this note's original framing, and still the default in any harness without deferred/filtered tool loading), compared to the skills + plain-scripts alternative for the same integrations.</div>
+  </div>
+</div>
+
+<div class="section wrap" style="padding-top: 56px;">
+  <div class="section__head section__head--spread">
+    <h2 class="section__label">The deltas</h2>
+    <div class="section__note">+ is always better for you &middot; never summed</div>
+  </div>
+
+  <div class="delta-cards">
+    <div class="delta-card delta-card--pos">
+      <div class="delta-card__label">cost-delta</div>
+      <div class="delta-card__val">+1</div>
+      <div class="track"><i class="track__cell"></i><i class="track__cell"></i><i class="track__zero"></i><i class="track__cell track__cell--pos"></i><i class="track__cell"></i></div>
+      <div class="delta-card__read">Cheaper &mdash; real, but smaller than it once looked.</div>
+    </div>
+    <div class="delta-card">
+      <div class="delta-card__label">quality-delta</div>
+      <div class="delta-card__val">0</div>
+      <div class="track"><i class="track__cell"></i><i class="track__cell"></i><i class="track__zero"></i><i class="track__cell"></i><i class="track__cell"></i></div>
+      <div class="delta-card__read">No evidence either direction. A real but uncertain trade sits inside it.</div>
+    </div>
+    <div class="delta-card delta-card--pos">
+      <div class="delta-card__label">speed-delta</div>
+      <div class="delta-card__val">+1</div>
+      <div class="track"><i class="track__cell"></i><i class="track__cell"></i><i class="track__zero"></i><i class="track__cell track__cell--pos"></i><i class="track__cell"></i></div>
+      <div class="delta-card__read">Faster. Less resident context to process per turn.</div>
+    </div>
+    <div class="delta-card delta-card--pos">
+      <div class="delta-card__label">attention-delta</div>
+      <div class="delta-card__val">+1</div>
+      <div class="track"><i class="track__cell"></i><i class="track__cell"></i><i class="track__zero"></i><i class="track__cell track__cell--pos"></i><i class="track__cell"></i></div>
+      <div class="delta-card__read">Fewer moving parts to keep alive, once built.</div>
+    </div>
+  </div>
+
+  <div class="meta-row">
+    <div class="meta"><span class="meta__k">dial</span><span class="meta__v">false</span></div>
+    <div class="meta"><span class="meta__k">effort</span><span class="meta__v">medium</span></div>
+    <div class="meta"><span class="meta__k">levers</span><span class="meta__v">tools, context</span></div>
+    <div class="meta"><span class="meta__k">mechanisms</span><span class="meta__v">capability, noise-reduction</span></div>
+  </div>
+</div>
+
+<div class="section wrap" style="padding-top: 56px;">
+  <div class="section__head section__head--spread">
+    <h2 class="section__label">Score history</h2>
+    <div class="section__note">What moved, when, and why</div>
+  </div>
+
+  <p class="prose" style="margin-bottom: 28px;">Scores here are not fixed at a publication date. When evidence arrives that changes an assessment, the score changes and the change is recorded — including the times it was re-examined and held.</p>
+
+  <div class="history">
+    <div class="history__entry">
+      <div class="history__date"><time datetime="2026-08-25">25 Aug 2026</time></div>
+      <div>
+        <div class="history__what">First tracked state</div>
+        <div class="history__vector">
+          <span class="hv"><i>cost</i><b class="pos">+1</b></span>
+          <span class="hv"><i>quality</i><b>0</b></span>
+          <span class="hv"><i>speed</i><b class="pos">+1</b></span>
+          <span class="hv"><i>attention</i><b class="pos">+1</b></span>
+          <span class="hv"><i>confidence</i><b>researched</b></span>
+        </div>
+        <p class="history__why">Scored against always-loaded MCP servers with full tool schemas resident in context every turn, for the same integrations.</p>
+      </div>
+    </div>
+  </div>
+
+  <p class="history__note">History tracking began 28 Aug 2026. Any revisions before that date were not recorded, and are not reconstructed here.</p>
+</div>
+
+<div class="section wrap" style="padding-top: 56px;">
+  <div class="when">
+    <div class="when__col">
+      <div class="when__kicker when__kicker--pos">Reach for it when</div>
+      <div class="when__title">You are cost-bound or latency-bound</div>
+      <div class="when__body">Fewer resident tokens per turn is a direct win under both regimes. This is where the note says the trade is best evaluated.</div>
+    </div>
+    <div class="when__col">
+      <div class="when__kicker when__kicker--neg">It needs a case-by-case call when</div>
+      <div class="when__title">You are quality-bound</div>
+      <div class="when__body">The typed-schema-vs-prose-instructions gap means the swap needs a case-by-case call rather than a default "skills win." And regardless of regime, this is not a blanket replacement: MCP remains the right choice for stateful and auth-brokered integrations.</div>
+    </div>
+  </div>
+</div>
+
+<div class="section wrap">
+  <div class="section__head"><h2 class="section__label">Why each delta reads the way it does</h2></div>
+
+  <div style="margin-top: 44px;">
+    <div class="arg">
+      <div class="arg__axis">
+        <div class="arg__name">cost-delta</div>
+        <div class="arg__val arg__val--pos">+1</div>
+        <div class="arg__note">Not +2, deliberately</div>
+      </div>
+      <div>
+        <p class="prose">Skills genuinely undercut naive always-loaded MCP on token spend: 30-50 tokens per skill at rest versus tens of thousands for a handful of MCP servers with many tools. The numbers behind that — a five-server MCP setup can cost 50k+ tokens upfront, and the GitHub MCP server alone (43 tools, every schema loaded regardless of use) has been measured at ~62,000 tokens of overhead per 20-turn session before it does anything. Fifty skills is ~2,500 tokens.</p>
+        <p class="prose">Not <span class="tok">+2</span>: Claude Code's own deferred tool loading has closed a real chunk of this gap for MCP specifically, and a script still costs tokens to write and maintain (captured separately in <span class="tok">effort</span>) and to invoke when it runs. The delta is real but smaller than it would have looked before deferred loading existed.</p>
+      </div>
+    </div>
+
+    <div class="arg">
+      <div class="arg__axis">
+        <div class="arg__name">quality-delta</div>
+        <div class="arg__val">0</div>
+        <div class="arg__note">A trade hides inside the zero</div>
+      </div>
+      <div>
+        <p class="prose">No source found evidence this changes task accuracy either direction. There is a real but uncertain trade inside it: an MCP tool's typed schema constrains what the model can even attempt to call — the Intervention Levers grid classifies Tools-lever constraint as "free, hard compliance" — while a skill's instructions are read and followed probabilistically, more like a rules file.</p>
+        <p class="prose">For simple stateless commands a deterministic script recovers that reliability; for anything more complex, swapping a typed tool for prose instructions could be a quiet quality cost that hasn't surfaced in any source reviewed here.</p>
+      </div>
+    </div>
+
+    <div class="arg">
+      <div class="arg__axis">
+        <div class="arg__name">speed-delta</div>
+        <div class="arg__val arg__val--pos">+1</div>
+        <div class="arg__note">Consistent across sources</div>
+      </div>
+      <div>
+        <p class="prose">Smaller resident context per turn means less to process before the model can act, consistent across every source discussing MCP overhead — "slower response times" is cited directly for large tool schemas.</p>
+      </div>
+    </div>
+
+    <div class="arg">
+      <div class="arg__axis">
+        <div class="arg__name">attention-delta</div>
+        <div class="arg__val arg__val--pos">+1</div>
+        <div class="arg__note">Once built</div>
+      </div>
+      <div>
+        <p class="prose">Once built, a skill+script is lower-friction per task than babysitting an MCP server connection and auth for something used occasionally — fewer moving parts to keep alive. This is separate from the one-time authoring cost, which is captured in <span class="tok">effort: medium</span> rather than here.</p>
+      </div>
+    </div>
+
+    <div class="arg">
+      <div class="arg__axis">
+        <div class="arg__name">dial</div>
+        <div class="arg__val">false</div>
+        <div class="arg__note">Design-time, not runtime</div>
+      </div>
+      <div>
+        <p class="prose">The hybrid rule is a design-time choice per integration — pick the right lever when building it — not a runtime knob a single task can flip the way model routing or reasoning-effort can.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="section wrap" style="padding-top: 80px;">
+  <div class="plog">
+    <div class="plog__head">
+      <h2 class="plog__title">Perspectives log</h2>
+      <div class="plog__blurb">Sources that complicate or contradict the score above. Kept on the record whether or not they were convenient.</div>
+    </div>
+
+    <div class="plog__entry">
+      <div class="plog__meta">
+        <div class="plog__date">2026-08-25</div>
+        <div class="tag tag--aligns">Aligns</div>
+        <div class="plog__src">newsletter.port.io<br><a href="https://newsletter.port.io/p/how-uber-built-a-software-factory">via TLDR</a></div>
+      </div>
+      <div>
+        <div class="plog__paper">How Uber Built a Software Factory for Agentic Coding: The MCP Gateway and the Platform Underneath</div>
+        <p class="plog__body">Uber built an internal MCP gateway as the tool-access layer for a coding-agent platform now producing 70%+ of PRs, giving thousands of engineers' agents safe, governed tool access rather than one-off per-agent server connections — a large-scale, production instance of exactly the auth-brokered/governed use case this note's hybrid rule already reserves for MCP over skills.</p>
+      </div>
+    </div>
+
+    <div class="plog__entry">
+      <div class="plog__meta">
+        <div class="plog__date">2026-08-24</div>
+        <div class="tag tag--nuances">Nuances</div>
+        <div class="plog__src">blog.modelcontextprotocol.io<br><a href="https://blog.modelcontextprotocol.io/posts/mcp-roadmap/">via TLDR/TLDR Dev</a></div>
+      </div>
+      <div>
+        <div class="plog__paper">The New MCP Roadmap</div>
+        <p class="plog__body">MCP's updated roadmap sets five priority areas for the protocol — agentic messaging primitives, HTTP-native transport unification/hardening, agent identity and enterprise-ready security, improved primitives, and SDK developer experience. None of these touch this note's cost/token tradeoff directly, but "agent identity and enterprise-ready security" and "improved SDK developer experience" are exactly the auth-brokered, stateful-connection use cases this note's hybrid rule already reserves for MCP — evidence the protocol is investing in the side of the tradeoff where it's meant to keep winning, rather than trying to close the context-tax gap with skills.</p>
+      </div>
+    </div>
+
+    <div class="plog__entry">
+      <div class="plog__meta">
+        <div class="plog__date">2026-08-19</div>
+        <div class="tag tag--nuances">Nuances</div>
+        <div class="plog__src">ai-sdk.dev<br><a href="https://ai-sdk.dev/docs/ai-sdk-core/code-mode">via TLDR</a></div>
+      </div>
+      <div>
+        <div class="plog__paper">Code Mode</div>
+        <p class="plog__body">Code Mode has models write JavaScript/TypeScript that calls AI SDK tools programmatically instead of emitting individual tool-call messages — a third pattern alongside this note's skills-vs-MCP tradeoff, trading direct tool-schema exposure for a code-execution layer that can compose multiple tool calls in one turn. Doesn't resolve the skills-vs-MCP question directly but is a distinct capability/noise-reduction mechanism at the same Tools×Context lever worth tracking if it recurs.</p>
+      </div>
+    </div>
+
+    <div class="plog__entry">
+      <div class="plog__meta">
+        <div class="plog__date">2026-08-14</div>
+        <div class="tag tag--nuances">Nuances</div>
+        <div class="plog__src">TLDR AI<br><a href="https://links.tldrnewsletter.com/rWdewB">source</a></div>
+      </div>
+      <div>
+        <div class="plog__paper">Agent Plugins as "the future of agent skills"</div>
+        <p class="plog__body">A follow-up opinion piece on Agent Plugins argues the format is "the future of agent skills" specifically because it reduces fragmented per-client setup via shared manifests, portable paths, and isolated failure boundaries — but explicitly flags authentication as still unresolved by the standard, a gap the original 2026-08-07 announcement entry below didn't call out.</p>
+      </div>
+    </div>
+
+    <div class="plog__entry">
+      <div class="plog__meta">
+        <div class="plog__date">2026-08-12</div>
+        <div class="tag tag--nuances">Nuances</div>
+        <div class="plog__src">GitHub<br><a href="https://github.com/mu-mcp/mu">via TLDR Dev</a></div>
+      </div>
+      <div>
+        <div class="plog__paper">Mu</div>
+        <p class="plog__body">Mu is a self-hosted OSS tool that bundles web search, email, weather, and other services behind one MCP-style connection instead of one MCP server per integration — a consolidation play on the MCP side of this note's tradeoff, not a skills-vs-MCP resolution. If it genuinely collapses N servers' schema tax into one connection's, it narrows this note's cost-delta argument for MCP specifically (the same direction as deferred tool loading, via a different mechanism: fewer servers instead of deferred schemas) without touching the procedural-knowledge case for skills.</p>
+      </div>
+    </div>
+
+    <div class="plog__entry">
+      <div class="plog__meta">
+        <div class="plog__date">2026-08-10</div>
+        <div class="tag tag--nuances">Nuances</div>
+        <div class="plog__src">Vercel/skills.sh<br><a href="https://vercel.com/changelog/skill-packs-are-now-available">via TLDR AI</a></div>
+      </div>
+      <div>
+        <div class="plog__paper">Skill packs are now available</div>
+        <p class="plog__body">skills.sh now supports "skill packs" — bundling multiple agent skills into one shareable, unlisted URL so a team can standardize a skill set across projects with one link. A distribution-ergonomics improvement on top of skills' existing progressive-disclosure cost advantage, not a change to the cost/capability tradeoff itself — same category as the Agent Plugins entry below.</p>
+      </div>
+    </div>
+
+    <div class="plog__entry">
+      <div class="plog__meta">
+        <div class="plog__date">2026-08-07</div>
+        <div class="tag tag--nuances">Nuances</div>
+        <div class="plog__src">Vercel + collaborators<br><a href="https://vercel.com/blog/introducing-agent-plugins">via TLDR/TLDR Dev/TLDR AI</a></div>
+      </div>
+      <div>
+        <div class="plog__paper">Introducing Agent Plugins</div>
+        <p class="plog__body">"Agent Plugins" 1.0.0 is a new open standard for packaging Agent Skills and MCP servers into one portable format that clients can discover and load consistently — a distribution/interoperability move, not a resolution of the cost or capability tradeoffs this note scores; skills and MCP servers become co-packagable rather than competing formats, while distribution, permissions, and client-specific behavior stay under each client's control.</p>
+      </div>
+    </div>
+
+    <div class="plog__entry">
+      <div class="plog__meta">
+        <div class="plog__date">2026-08-05</div>
+        <div class="tag tag--nuances">Nuances</div>
+        <div class="plog__src">Simon Willison<br><a href="https://simonwillison.net/2026/Jul/31/stateless-mcp/">via TLDR Dev</a></div>
+      </div>
+      <div>
+        <div class="plog__paper">Stateless MCP 2.0</div>
+        <p class="plog__body">A rollout of "stateless MCP 2.0" makes MCP simpler to implement for both clients and servers — a different friction than this note's token-cost argument (implementation complexity, not context tax), so it narrows one reason to prefer skills over MCP without touching the cost/quality tradeoffs already scored here.</p>
+      </div>
+    </div>
+
+    <div class="plog__entry">
+      <div class="plog__meta">
+        <div class="plog__date">2026-08-04</div>
+        <div class="tag tag--nuances">Nuances</div>
+        <div class="plog__src">themenonlab.blog<br><a href="https://themenonlab.blog/blog/skills-vs-mcp-token-efficiency-ai-agents">source</a></div>
+      </div>
+      <div>
+        <div class="plog__paper">Skills vs MCP: The Token Efficiency War (And Why It's Not Either/Or)</div>
+        <p class="plog__body">Frames the two as composable rather than a binary swap — the practical guidance converges with this note's own "hybrid rule" (skills for knowledge, MCP for state/auth) rather than arguing skills should replace MCP outright.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="wrap">
+  <div class="endnote">
+    <div class="endnote__label">The class and the vector disagree</div>
+    <div class="endnote__body">The delta vector here is <span class="tok">+1 / 0 / +1 / +1</span> — nothing is negative. Read strictly by the rubric, that derives to <strong>no-regret</strong>: nothing gets worse. The note nonetheless states the class as <strong>trade</strong>, and this page follows the note. The two are mutually exclusive, both are derived from the same vector, and this page does not resolve which is right. The note does give its reasoning, verbatim: "<strong>Class: trade</strong>, not no-regret. It spends build effort to buy cost and speed at flat-to-uncertain quality, and — per the hybrid rule this note already converged on and the Perspectives log entry above corroborates — it's not a blanket replacement: MCP remains the right choice for stateful/auth-brokered integrations regardless of regime." The spent axis it names is build effort, which lives in <span class="tok">effort: medium</span> and not in any of the four deltas — so the cost the class is claiming is one the vector structurally cannot show. Whether that is enough to override a derivation the rubric says falls out of the vector is left open here rather than decided.</div>
+  </div>
+</div>
+</article>
+
+</body>
+</html>

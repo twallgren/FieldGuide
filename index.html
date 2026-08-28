@@ -33,8 +33,8 @@
     <p class="lede">Nothing here is a dated post. Each entry is maintained: when evidence arrives that changes an assessment, the score changes and the change is on the record — including where I was wrong.</p>
   </div>
   <div class="stats">
-    <div class="stat"><div class="stat__num">25</div><div class="stat__label">Techniques scored</div></div>
-    <div class="stat"><div class="stat__num">3</div><div class="stat__label">Left deliberately blank</div></div>
+    <div class="stat"><div class="stat__num" data-count="scored">26</div><div class="stat__label">Techniques scored</div></div>
+    <div class="stat"><div class="stat__num" data-count="blank">2</div><div class="stat__label">Left deliberately blank</div></div>
     <div class="stat"><div class="stat__num">0</div><div class="stat__label">Composite scores</div></div>
   </div>
 </section>
@@ -103,19 +103,19 @@
 
   <div class="classes">
     <div class="class-card">
-      <div class="class-card__head"><div class="class-card__name">NO-REGRET</div><div class="class-card__count">5</div></div>
+      <div class="class-card__head"><div class="class-card__name">NO-REGRET</div><div class="class-card__count" data-count="no-regret">4</div></div>
       <div class="bar bar--pos"></div>
       <div class="class-card__body">Nothing gets worse. Adopt unconditionally — no regime needed, no argument required.</div>
       <div class="class-card__eg">Cache-Stable Agent Thread Architecture &middot; Composable Tests &middot; Skills vs MCP Servers</div>
     </div>
     <div class="class-card">
-      <div class="class-card__head"><div class="class-card__name">TRADE</div><div class="class-card__count">11</div></div>
+      <div class="class-card__head"><div class="class-card__name">TRADE</div><div class="class-card__count" data-count="trade">13</div></div>
       <div class="bar bar--trade"><i></i><i></i></div>
       <div class="class-card__body">Spends one axis to buy another. Only evaluable against a regime — correct in one, indefensible in the next.</div>
       <div class="class-card__eg">Multi-Agent Debate &middot; Low-Cost Model Swarms &middot; Fine-Tuning Open-Weight Models</div>
     </div>
     <div class="class-card">
-      <div class="class-card__head"><div class="class-card__name">DIAL</div><div class="class-card__count">9</div></div>
+      <div class="class-card__head"><div class="class-card__name">DIAL</div><div class="class-card__count" data-count="dial">9</div></div>
       <div class="bar bar--dial"><i></i><i></i><i></i><i class="off"></i><i class="off"></i></div>
       <div class="class-card__body">Hands you a per-task knob you did not have. Worth more than either endpoint, because regimes change inside a single day.</div>
       <div class="class-card__eg">Model Routing &middot; Hedged LLM Requests &middot; Deterministic Agent Workflows</div>
@@ -141,6 +141,7 @@
   <div class="section__head"><span class="section__num">04</span><h2 class="section__label">The index</h2></div>
 
   <div class="index">
+    <!-- INDEX:START -->
     <div class="trow trow--head">
       <div class="th">Technique</div>
       <div class="th">Class</div>
@@ -150,84 +151,16 @@
       </div>
       <div class="th">Confidence</div>
     </div>
-
     <div class="trow">
       <div>
-        <div class="trow__title"><a href="techniques/cache-stable-agent-thread-architecture.html">Cache-Stable Agent Thread Architecture</a></div>
-        <div class="trow__desc">Structure a long thread so the prompt cache keeps hitting: stable prefix, append-only history, deferred tools.</div>
-        <div class="trow__updated">Updated <time datetime="2026-08-04">4 Aug 2026</time></div>
-      </div>
-      <div class="trow__class">No-regret</div>
-      <div class="deltas"><div class="delta delta--pos">+2</div><div class="delta">0</div><div class="delta delta--pos">+1</div><div class="delta">0</div></div>
-      <div class="conf"><i class="conf__bar conf__bar--on"></i><i class="conf__bar conf__bar--on"></i><i class="conf__bar"></i><span class="conf__label">Researched</span></div>
-    </div>
-
-    <div class="trow">
-      <div>
-        <div class="trow__title"><a href="techniques/deterministic-agent-workflows.html">Deterministic Agent Workflows</a></div>
-        <div class="trow__desc">Freeze a proven multi-step pattern into versioned code, so later runs execute instead of re-reasoning.</div>
-        <div class="trow__updated">Updated <time datetime="2026-08-26">26 Aug 2026</time></div>
-      </div>
-      <div class="trow__class">Dial</div>
-      <div class="deltas"><div class="delta delta--pos">+1</div><div class="delta delta--pos">+1</div><div class="delta delta--pos">+1</div><div class="delta delta--pos">+1</div></div>
-      <div class="conf"><i class="conf__bar conf__bar--on"></i><i class="conf__bar conf__bar--on"></i><i class="conf__bar"></i><span class="conf__label">Researched</span></div>
-    </div>
-
-    <div class="trow">
-      <div>
-        <div class="trow__title"><a href="techniques/multi-agent-debate.html">Multi-Agent Debate</a></div>
-        <div class="trow__desc">Several agents propose and challenge each other&rsquo;s answers from different angles until they converge.</div>
+        <div class="trow__title"><a href="techniques/agent-access-model.html">Agent Access Model</a></div>
+        <div class="trow__desc">Give agents task-specific, short-lived credentials enforced at the harness, instead of inheriting a human's standing access.</div>
         <div class="trow__updated">Updated <time datetime="2026-08-28">28 Aug 2026</time></div>
       </div>
       <div class="trow__class">Trade</div>
-      <div class="deltas"><div class="delta delta--neg">&minus;2</div><div class="delta delta--pos">+1</div><div class="delta delta--neg">&minus;1</div><div class="delta delta--neg">&minus;1</div></div>
+      <div class="deltas"><div class="delta">0</div><div class="delta delta--pos">+1</div><div class="delta delta--neg">&minus;1</div><div class="delta delta--neg">&minus;1</div></div>
       <div class="conf"><i class="conf__bar conf__bar--on"></i><i class="conf__bar conf__bar--on"></i><i class="conf__bar"></i><span class="conf__label">Researched</span></div>
     </div>
-
-    <div class="trow">
-      <div>
-        <div class="trow__title"><a href="techniques/model-routing.html">Model Routing</a></div>
-        <div class="trow__desc">Send each request to the cheapest model that can handle it, reserving frontier models for hard reasoning.</div>
-        <div class="trow__updated">Updated <time datetime="2026-08-24">24 Aug 2026</time></div>
-      </div>
-      <div class="trow__class">Dial</div>
-      <div class="deltas"><div class="delta delta--pos">+1</div><div class="delta">0</div><div class="delta delta--pos">+1</div><div class="delta delta--neg">&minus;1</div></div>
-      <div class="conf"><i class="conf__bar conf__bar--on"></i><i class="conf__bar conf__bar--on"></i><i class="conf__bar"></i><span class="conf__label">Researched</span></div>
-    </div>
-
-    <div class="trow">
-      <div>
-        <div class="trow__title"><a href="techniques/hedged-llm-requests.html">Hedged LLM Requests</a></div>
-        <div class="trow__desc">Fire the same request twice in parallel, take whichever returns first, cancel the loser.</div>
-        <div class="trow__updated">Updated <time datetime="2026-08-24">24 Aug 2026</time></div>
-      </div>
-      <div class="trow__class">Dial</div>
-      <div class="deltas"><div class="delta delta--neg">&minus;1</div><div class="delta">0</div><div class="delta delta--pos">+2</div><div class="delta">0</div></div>
-      <div class="conf"><i class="conf__bar conf__bar--on"></i><i class="conf__bar conf__bar--on"></i><i class="conf__bar"></i><span class="conf__label">Researched</span></div>
-    </div>
-
-    <div class="trow">
-      <div>
-        <div class="trow__title"><a href="techniques/low-cost-model-swarms.html">Low-Cost Model Swarms</a></div>
-        <div class="trow__desc">Many cheap models in structured collaboration &mdash; voting, cross-review &mdash; betting orchestration substitutes for model strength.</div>
-        <div class="trow__updated">Updated <time datetime="2026-08-04">4 Aug 2026</time></div>
-      </div>
-      <div class="trow__class">Trade</div>
-      <div class="deltas"><div class="delta delta--neg">&minus;1</div><div class="delta delta--pos">+1</div><div class="delta delta--neg">&minus;1</div><div class="delta delta--neg">&minus;1</div></div>
-      <div class="conf"><i class="conf__bar conf__bar--on"></i><i class="conf__bar conf__bar--on"></i><i class="conf__bar"></i><span class="conf__label">Researched</span></div>
-    </div>
-
-    <div class="trow">
-      <div>
-        <div class="trow__title"><a href="techniques/fine-tuning-open-weight-models.html">Fine-Tuning Open-Weight Models</a></div>
-        <div class="trow__desc">Put tribal knowledge in the weights instead of re-injecting it into context every session.</div>
-        <div class="trow__updated">Updated <time datetime="2026-08-04">4 Aug 2026</time></div>
-      </div>
-      <div class="trow__class">Trade</div>
-      <div class="deltas"><div class="delta delta--pos">+1</div><div class="delta delta--neg">&minus;1</div><div class="delta">0</div><div class="delta delta--pos">+1</div></div>
-      <div class="conf"><i class="conf__bar conf__bar--on"></i><i class="conf__bar conf__bar--on"></i><i class="conf__bar"></i><span class="conf__label">Researched</span></div>
-    </div>
-
     <div class="trow">
       <div>
         <div class="trow__title"><a href="techniques/agent-fleet-dashboards.html">Agent Fleet Dashboards</a></div>
@@ -238,7 +171,36 @@
       <div class="deltas"><div class="delta">0</div><div class="delta">0</div><div class="delta delta--pos">+1</div><div class="delta delta--pos">+2</div></div>
       <div class="conf"><i class="conf__bar conf__bar--on"></i><i class="conf__bar conf__bar--on"></i><i class="conf__bar"></i><span class="conf__label">Researched</span></div>
     </div>
-
+    <div class="trow">
+      <div>
+        <div class="trow__title"><a href="techniques/agentic-code-quality.html">Agentic Code Quality</a></div>
+        <div class="trow__desc">Move the quality gate out of human review and into the environment itself — tests, thresholds, automated checks.</div>
+        <div class="trow__updated">Updated <time datetime="2026-08-28">28 Aug 2026</time></div>
+      </div>
+      <div class="trow__class">Trade</div>
+      <div class="deltas"><div class="delta">0</div><div class="delta delta--pos">+1</div><div class="delta delta--neg">&minus;1</div><div class="delta delta--pos">+1</div></div>
+      <div class="conf"><i class="conf__bar conf__bar--on"></i><i class="conf__bar conf__bar--on"></i><i class="conf__bar"></i><span class="conf__label">Researched</span></div>
+    </div>
+    <div class="trow">
+      <div>
+        <div class="trow__title"><a href="techniques/autonomous-work-loops.html">Autonomous Work Loops</a></div>
+        <div class="trow__desc">Scheduled and self-pacing loops that keep work moving: nightly jobs, recurring scans, watchers that act on changes.</div>
+        <div class="trow__updated">Updated <time datetime="2026-08-19">19 Aug 2026</time></div>
+      </div>
+      <div class="trow__class">Dial</div>
+      <div class="deltas"><div class="delta delta--neg">&minus;1</div><div class="delta">0</div><div class="delta delta--pos">+2</div><div class="delta delta--pos">+1</div></div>
+      <div class="conf"><i class="conf__bar conf__bar--on"></i><i class="conf__bar conf__bar--on"></i><i class="conf__bar"></i><span class="conf__label">Researched</span></div>
+    </div>
+    <div class="trow">
+      <div>
+        <div class="trow__title"><a href="techniques/cache-stable-agent-thread-architecture.html">Cache-Stable Agent Thread Architecture</a></div>
+        <div class="trow__desc">Structure a long thread so the prompt cache keeps hitting: stable prefix, append-only history, deferred tools.</div>
+        <div class="trow__updated">Updated <time datetime="2026-08-04">4 Aug 2026</time></div>
+      </div>
+      <div class="trow__class">No-regret</div>
+      <div class="deltas"><div class="delta delta--pos">+2</div><div class="delta">0</div><div class="delta delta--pos">+1</div><div class="delta">0</div></div>
+      <div class="conf"><i class="conf__bar conf__bar--on"></i><i class="conf__bar conf__bar--on"></i><i class="conf__bar"></i><span class="conf__label">Researched</span></div>
+    </div>
     <div class="trow">
       <div>
         <div class="trow__title"><a href="techniques/composable-tests.html">Composable Tests</a></div>
@@ -249,20 +211,229 @@
       <div class="deltas"><div class="delta delta--pos">+1</div><div class="delta">0</div><div class="delta delta--pos">+2</div><div class="delta delta--pos">+1</div></div>
       <div class="conf"><i class="conf__bar conf__bar--on"></i><i class="conf__bar"></i><i class="conf__bar"></i><span class="conf__label conf__label--warn">Guess</span></div>
     </div>
-
-    <div class="trow trow--last">
+    <div class="trow">
       <div>
-        <div class="trow__title trow__title--muted">Speculative Programmatic Tool Calling</div>
-        <div class="trow__desc">Start executing a tool call before the model has finished deciding it needs one.</div>
-        <div class="trow__flag trow__flag--muted">Read, not yet evaluated</div>
+        <div class="trow__title"><a href="techniques/computer-use-verification-for-coding-agents.html">Computer-Use Verification for Coding Agents</a></div>
+        <div class="trow__desc">Let the agent drive the real UI to verify its own work, and attach the evidence to the pull request.</div>
+        <div class="trow__updated">Updated <time datetime="2026-08-10">10 Aug 2026</time></div>
+      </div>
+      <div class="trow__class">Dial</div>
+      <div class="deltas"><div class="delta delta--neg">&minus;1</div><div class="delta delta--pos">+1</div><div class="delta delta--neg">&minus;1</div><div class="delta delta--pos">+1</div></div>
+      <div class="conf"><i class="conf__bar conf__bar--on"></i><i class="conf__bar conf__bar--on"></i><i class="conf__bar"></i><span class="conf__label">Researched</span></div>
+    </div>
+    <div class="trow">
+      <div>
+        <div class="trow__title"><a href="techniques/context-management-via-subagents.html">Context Management via Subagents</a></div>
+        <div class="trow__desc">Delegate self-contained work to subagents that burn their own context and return only conclusions.</div>
         <div class="trow__updated">Updated <time datetime="2026-08-28">28 Aug 2026</time></div>
+      </div>
+      <div class="trow__class">Dial</div>
+      <div class="deltas"><div class="delta delta--neg">&minus;1</div><div class="delta delta--pos">+1</div><div class="delta delta--pos">+1</div><div class="delta delta--neg">&minus;1</div></div>
+      <div class="conf"><i class="conf__bar conf__bar--on"></i><i class="conf__bar conf__bar--on"></i><i class="conf__bar"></i><span class="conf__label">Researched</span></div>
+    </div>
+    <div class="trow">
+      <div>
+        <div class="trow__title"><a href="techniques/deterministic-agent-workflows.html">Deterministic Agent Workflows</a></div>
+        <div class="trow__desc">Freeze a proven multi-step pattern into versioned code, so later runs execute instead of re-reasoning.</div>
+        <div class="trow__updated">Updated <time datetime="2026-08-26">26 Aug 2026</time></div>
+      </div>
+      <div class="trow__class">Dial</div>
+      <div class="deltas"><div class="delta delta--pos">+1</div><div class="delta delta--pos">+1</div><div class="delta delta--pos">+1</div><div class="delta delta--pos">+1</div></div>
+      <div class="conf"><i class="conf__bar conf__bar--on"></i><i class="conf__bar conf__bar--on"></i><i class="conf__bar"></i><span class="conf__label">Researched</span></div>
+    </div>
+    <div class="trow">
+      <div>
+        <div class="trow__title"><a href="techniques/fine-tuning-open-weight-models.html">Fine-Tuning Open-Weight Models</a></div>
+        <div class="trow__desc">Put tribal knowledge in the weights instead of re-injecting it into context every session.</div>
+        <div class="trow__updated">Updated <time datetime="2026-08-04">4 Aug 2026</time></div>
+      </div>
+      <div class="trow__class">Trade</div>
+      <div class="deltas"><div class="delta delta--pos">+1</div><div class="delta delta--neg">&minus;1</div><div class="delta">0</div><div class="delta delta--pos">+1</div></div>
+      <div class="conf"><i class="conf__bar conf__bar--on"></i><i class="conf__bar conf__bar--on"></i><i class="conf__bar"></i><span class="conf__label">Researched</span></div>
+    </div>
+    <div class="trow">
+      <div>
+        <div class="trow__title"><a href="techniques/fresh-context-review-agents.html">Fresh-Context Review Agents</a></div>
+        <div class="trow__desc">Review with an agent that sees only the artifact, never the conversation that produced it.</div>
+        <div class="trow__updated">Updated <time datetime="2026-08-17">17 Aug 2026</time></div>
+      </div>
+      <div class="trow__class">Dial</div>
+      <div class="deltas"><div class="delta">0</div><div class="delta delta--pos">+1</div><div class="delta delta--neg">&minus;1</div><div class="delta delta--pos">+1</div></div>
+      <div class="conf"><i class="conf__bar conf__bar--on"></i><i class="conf__bar conf__bar--on"></i><i class="conf__bar"></i><span class="conf__label">Researched</span></div>
+    </div>
+    <div class="trow">
+      <div>
+        <div class="trow__title"><a href="techniques/hedged-llm-requests.html">Hedged LLM Requests</a></div>
+        <div class="trow__desc">Fire the same request twice in parallel, take whichever returns first, cancel the loser.</div>
+        <div class="trow__updated">Updated <time datetime="2026-08-24">24 Aug 2026</time></div>
+      </div>
+      <div class="trow__class">Dial</div>
+      <div class="deltas"><div class="delta delta--neg">&minus;1</div><div class="delta">0</div><div class="delta delta--pos">+2</div><div class="delta">0</div></div>
+      <div class="conf"><i class="conf__bar conf__bar--on"></i><i class="conf__bar conf__bar--on"></i><i class="conf__bar"></i><span class="conf__label">Researched</span></div>
+    </div>
+    <div class="trow">
+      <div>
+        <div class="trow__title"><a href="techniques/knowledge-injection-hooks.html">Knowledge-Injection Hooks</a></div>
+        <div class="trow__desc">Hooks that check a knowledge base on every prompt and inject what is relevant before the agent runs.</div>
+        <div class="trow__updated">Updated <time datetime="2026-08-28">28 Aug 2026</time></div>
+      </div>
+      <div class="trow__class">Trade</div>
+      <div class="deltas"><div class="delta delta--neg">&minus;1</div><div class="delta delta--pos">+1</div><div class="delta delta--neg">&minus;1</div><div class="delta delta--pos">+1</div></div>
+      <div class="conf"><i class="conf__bar conf__bar--on"></i><i class="conf__bar conf__bar--on"></i><i class="conf__bar"></i><span class="conf__label">Researched</span></div>
+    </div>
+    <div class="trow">
+      <div>
+        <div class="trow__title"><a href="techniques/low-cost-model-swarms.html">Low-Cost Model Swarms</a></div>
+        <div class="trow__desc">Many cheap models in structured collaboration — voting, cross-review — betting orchestration substitutes for model strength.</div>
+        <div class="trow__updated">Updated <time datetime="2026-08-04">4 Aug 2026</time></div>
+      </div>
+      <div class="trow__class">Trade</div>
+      <div class="deltas"><div class="delta delta--neg">&minus;1</div><div class="delta delta--pos">+1</div><div class="delta delta--neg">&minus;1</div><div class="delta delta--neg">&minus;1</div></div>
+      <div class="conf"><i class="conf__bar conf__bar--on"></i><i class="conf__bar conf__bar--on"></i><i class="conf__bar"></i><span class="conf__label">Researched</span></div>
+    </div>
+    <div class="trow">
+      <div>
+        <div class="trow__title"><a href="techniques/model-routing.html">Model Routing</a></div>
+        <div class="trow__desc">Send each request to the cheapest model that can handle it, reserving frontier models for hard reasoning.</div>
+        <div class="trow__updated">Updated <time datetime="2026-08-24">24 Aug 2026</time></div>
+      </div>
+      <div class="trow__class">Dial</div>
+      <div class="deltas"><div class="delta delta--pos">+1</div><div class="delta">0</div><div class="delta delta--pos">+1</div><div class="delta delta--neg">&minus;1</div></div>
+      <div class="conf"><i class="conf__bar conf__bar--on"></i><i class="conf__bar conf__bar--on"></i><i class="conf__bar"></i><span class="conf__label">Researched</span></div>
+    </div>
+    <div class="trow">
+      <div>
+        <div class="trow__title"><a href="techniques/multi-agent-debate.html">Multi-Agent Debate</a></div>
+        <div class="trow__desc">Several agents propose and challenge each other's answers from different angles until they converge.</div>
+        <div class="trow__updated">Updated <time datetime="2026-08-28">28 Aug 2026</time></div>
+      </div>
+      <div class="trow__class">Trade</div>
+      <div class="deltas"><div class="delta delta--neg">&minus;2</div><div class="delta delta--pos">+1</div><div class="delta delta--neg">&minus;1</div><div class="delta delta--neg">&minus;1</div></div>
+      <div class="conf"><i class="conf__bar conf__bar--on"></i><i class="conf__bar conf__bar--on"></i><i class="conf__bar"></i><span class="conf__label">Researched</span></div>
+    </div>
+    <div class="trow">
+      <div>
+        <div class="trow__title"><a href="techniques/plan-first-development.html">Plan-First Development</a></div>
+        <div class="trow__desc">Always produce and review a plan before the agent writes any code.</div>
+        <div class="trow__updated">Updated <time datetime="2026-08-28">28 Aug 2026</time></div>
+      </div>
+      <div class="trow__class">Dial</div>
+      <div class="deltas"><div class="delta delta--neg">&minus;1</div><div class="delta delta--pos">+1</div><div class="delta delta--neg">&minus;1</div><div class="delta delta--neg">&minus;1</div></div>
+      <div class="conf"><i class="conf__bar conf__bar--on"></i><i class="conf__bar conf__bar--on"></i><i class="conf__bar"></i><span class="conf__label">Researched</span></div>
+    </div>
+    <div class="trow">
+      <div>
+        <div class="trow__title"><a href="techniques/proactive-memory-agents.html">Proactive Memory Agents</a></div>
+        <div class="trow__desc">Counter behavioural state decay on long tasks by resurfacing requirements before the agent drifts off them.</div>
+        <div class="trow__updated">Updated <time datetime="2026-08-04">4 Aug 2026</time></div>
+      </div>
+      <div class="trow__class">Trade</div>
+      <div class="deltas"><div class="delta delta--neg">&minus;1</div><div class="delta delta--pos">+1</div><div class="delta delta--neg">&minus;1</div><div class="delta delta--pos">+1</div></div>
+      <div class="conf"><i class="conf__bar conf__bar--on"></i><i class="conf__bar conf__bar--on"></i><i class="conf__bar"></i><span class="conf__label">Researched</span></div>
+    </div>
+    <div class="trow">
+      <div>
+        <div class="trow__title"><a href="techniques/programming-language-choice-for-coding-agents.html">Programming Language Choice for Coding Agents</a></div>
+        <div class="trow__desc">Whether the language a repo is written in measurably changes coding-agent performance.</div>
+        <div class="trow__updated">Updated <time datetime="2026-08-14">14 Aug 2026</time></div>
+      </div>
+      <div class="trow__class">No-regret</div>
+      <div class="deltas"><div class="delta delta--pos">+1</div><div class="delta">0</div><div class="delta">0</div><div class="delta">0</div></div>
+      <div class="conf"><i class="conf__bar conf__bar--on"></i><i class="conf__bar"></i><i class="conf__bar"></i><span class="conf__label conf__label--warn">Guess</span></div>
+    </div>
+    <div class="trow">
+      <div>
+        <div class="trow__title"><a href="techniques/revision-prompting.html">Revision Prompting</a></div>
+        <div class="trow__desc">When the input changes slightly, send the diff and the old output instead of regenerating from scratch.</div>
+        <div class="trow__updated">Updated <time datetime="2026-08-26">26 Aug 2026</time></div>
+      </div>
+      <div class="trow__class">Trade</div>
+      <div class="deltas"><div class="delta delta--pos">+1</div><div class="delta">0</div><div class="delta delta--pos">+1</div><div class="delta delta--neg">&minus;1</div></div>
+      <div class="conf"><i class="conf__bar conf__bar--on"></i><i class="conf__bar"></i><i class="conf__bar"></i><span class="conf__label conf__label--warn">Guess</span></div>
+    </div>
+    <div class="trow">
+      <div>
+        <div class="trow__title"><a href="techniques/self-improving-agent-harnesses.html">Self-Improving Agent Harnesses</a></div>
+        <div class="trow__desc">Agents that read their own transcripts and propose changes to their own rules, tools and skills.</div>
+        <div class="trow__updated">Updated <time datetime="2026-08-27">27 Aug 2026</time></div>
+      </div>
+      <div class="trow__class">Trade</div>
+      <div class="deltas"><div class="delta delta--neg">&minus;1</div><div class="delta delta--pos">+1</div><div class="delta delta--neg">&minus;1</div><div class="delta delta--neg">&minus;1</div></div>
+      <div class="conf"><i class="conf__bar conf__bar--on"></i><i class="conf__bar conf__bar--on"></i><i class="conf__bar"></i><span class="conf__label">Researched</span></div>
+    </div>
+    <div class="trow">
+      <div>
+        <div class="trow__title"><a href="techniques/skills-vs-mcp-servers.html">Skills vs MCP Servers</a></div>
+        <div class="trow__desc">Swap always-loaded MCP tool definitions for progressively-loaded skills plus plain scripts.</div>
+        <div class="trow__updated">Updated <time datetime="2026-08-25">25 Aug 2026</time></div>
+      </div>
+      <div class="trow__class">Trade</div>
+      <div class="deltas"><div class="delta delta--pos">+1</div><div class="delta">0</div><div class="delta delta--pos">+1</div><div class="delta delta--pos">+1</div></div>
+      <div class="conf"><i class="conf__bar conf__bar--on"></i><i class="conf__bar conf__bar--on"></i><i class="conf__bar"></i><span class="conf__label">Researched</span></div>
+    </div>
+    <div class="trow">
+      <div>
+        <div class="trow__title"><a href="techniques/specula.html">Specula</a></div>
+        <div class="trow__desc">Auto-derive TLA+ specifications from code, model-check them for concurrency bugs, and reproduce what it finds.</div>
+        <div class="trow__updated">Updated <time datetime="2026-08-19">19 Aug 2026</time></div>
+      </div>
+      <div class="trow__class">Trade</div>
+      <div class="deltas"><div class="delta delta--neg">&minus;1</div><div class="delta delta--pos">+1</div><div class="delta">0</div><div class="delta delta--pos">+1</div></div>
+      <div class="conf"><i class="conf__bar conf__bar--on"></i><i class="conf__bar conf__bar--on"></i><i class="conf__bar"></i><span class="conf__label">Researched</span></div>
+    </div>
+    <div class="trow">
+      <div>
+        <div class="trow__title"><a href="techniques/speculative-programmatic-tool-calling.html">Speculative Programmatic Tool Calling</a></div>
+        <div class="trow__desc">Start executing a tool call before the model has finished deciding it needs one.</div>
+        <div class="trow__updated">Updated <time datetime="2026-08-28">28 Aug 2026</time></div>
+      </div>
+      <div class="trow__class">Trade</div>
+      <div class="deltas"><div class="delta delta--neg">&minus;1</div><div class="delta">0</div><div class="delta delta--pos">+1</div><div class="delta">0</div></div>
+      <div class="conf"><i class="conf__bar conf__bar--on"></i><i class="conf__bar conf__bar--on"></i><i class="conf__bar"></i><span class="conf__label">Researched</span></div>
+    </div>
+    <div class="trow">
+      <div>
+        <div class="trow__title"><a href="techniques/task-runners-for-coding-tasks.html">Task Runners for Coding Tasks</a></div>
+        <div class="trow__desc">Give every repo one command surface — just test, just build — instead of stack-specific incantations.</div>
+        <div class="trow__updated">Updated <time datetime="2026-08-14">14 Aug 2026</time></div>
+      </div>
+      <div class="trow__class">No-regret</div>
+      <div class="deltas"><div class="delta">0</div><div class="delta delta--pos">+1</div><div class="delta delta--pos">+1</div><div class="delta">0</div></div>
+      <div class="conf"><i class="conf__bar conf__bar--on"></i><i class="conf__bar"></i><i class="conf__bar"></i><span class="conf__label conf__label--warn">Guess</span></div>
+    </div>
+    <div class="trow">
+      <div>
+        <div class="trow__title"><a href="techniques/task-vs-job-delegation.html">Task vs Job Delegation</a></div>
+        <div class="trow__desc">The task is not the job: cheap execution exposes what delegating the implementation leaves undone.</div>
+        <div class="trow__updated">Updated <time datetime="2026-08-28">28 Aug 2026</time></div>
+      </div>
+      <div class="trow__class">Trade</div>
+      <div class="deltas"><div class="delta">0</div><div class="delta delta--pos">+1</div><div class="delta delta--neg">&minus;1</div><div class="delta delta--neg">&minus;1</div></div>
+      <div class="conf"><i class="conf__bar conf__bar--on"></i><i class="conf__bar"></i><i class="conf__bar"></i><span class="conf__label conf__label--warn">Guess</span></div>
+    </div>
+    <div class="trow">
+      <div>
+        <div class="trow__title trow__title--muted">Agent-Runtime-as-a-Service Substrates</div>
+        <div class="trow__desc">Vendors selling an agent its own hosted sandbox: isolated execution plus state that survives between runs.</div>
+        <div class="trow__flag trow__flag--muted">Read, not yet evaluated</div>
+        <div class="trow__updated">Updated <time datetime="2026-08-17">17 Aug 2026</time></div>
       </div>
       <div class="trow__class trow__class--none">&mdash;</div>
       <div class="deltas"><div class="delta delta--blank"></div><div class="delta delta--blank"></div><div class="delta delta--blank"></div><div class="delta delta--blank"></div></div>
       <div class="conf"><i class="conf__bar"></i><i class="conf__bar"></i><i class="conf__bar"></i><span class="conf__label">None</span></div>
     </div>
-
-    <p class="prose" style="margin: 20px 0 32px;">This table is the primary artifact, not an archive of posts. It shows the <em>current</em> assessment of every technique tracked, with the date each was last revised.</p>
+    <div class="trow trow--last">
+      <div>
+        <div class="trow__title trow__title--muted">Knowledge Compressor</div>
+        <div class="trow__desc">Compress technical documentation for model consumption before it ever reaches an agent's context.</div>
+        <div class="trow__flag trow__flag--muted">Read, not yet evaluated</div>
+        <div class="trow__updated">Updated <time datetime="2026-08-26">26 Aug 2026</time></div>
+      </div>
+      <div class="trow__class trow__class--none">&mdash;</div>
+      <div class="deltas"><div class="delta delta--blank"></div><div class="delta delta--blank"></div><div class="delta delta--blank"></div><div class="delta delta--blank"></div></div>
+      <div class="conf"><i class="conf__bar"></i><i class="conf__bar"></i><i class="conf__bar"></i><span class="conf__label">None</span></div>
+    </div>
+    <!-- INDEX:END -->
 
     <p class="index__note">A blank row is not an oversight. A guess recorded as a fact would be worse than nothing, so unevaluated techniques sit in the index with their scores empty until they are earned.</p>
   </div>

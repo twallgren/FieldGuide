@@ -1,0 +1,337 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Autonomous Work Loops — Field Guide</title>
+<meta name="description" content="Scheduled and self-pacing loops that do the work before you ask for it — collapsing turnaround to near zero while spending tokens on every tick whether the watched state changed or not. Scored: cost −1, quality 0, speed +2, attention +1.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600;700&family=IBM+Plex+Serif:ital,wght@0,400;0,600;1,400&display=swap">
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+
+<header class="masthead masthead--compact wrap">
+  <a class="masthead__name" href="../index.html">Field Guide</a>
+  <nav class="nav">
+    <a href="../index.html#method">Method</a>
+    <a href="../index.html#index">Index</a>
+    <a href="../index.html#index">Rejected</a>
+    <a href="../index.html#about">About</a>
+  </nav>
+</header>
+
+<article>
+<div class="post-head wrap">
+  <div class="post-kicker">
+    <div class="post-kicker__bar bar--dial"><i></i><i></i><i></i><i class="off"></i><i class="off"></i></div>
+    <div class="post-kicker__class">Class: Dial</div>
+    <div class="post-kicker__sep"></div>
+    <div class="post-kicker__meta">Last updated <time datetime="2026-08-19">19 Aug 2026</time></div>
+  </div>
+
+  <div class="post-grid">
+    <div>
+      <h1 class="post-title">Autonomous Work Loops</h1>
+      <p class="standfirst">Scheduled tasks, routines, and self-pacing loops that keep work flowing with minimal human intervention. The value is that the digest, the draft, or the flagged issue <em>already exists</em> before you asked. The bill is that the loop fires on its cadence whether or not anything changed.</p>
+    </div>
+    <aside class="conf-box">
+      <div class="conf-box__label">Confidence</div>
+      <div class="conf-box__meter"><span class="on"></span><span class="on"></span><span></span></div>
+      <div class="conf-box__scale"><span class="on">guess</span><span class="on">researched</span><span>measured</span></div>
+      <div class="conf-box__value">researched</div>
+      <div class="conf-box__body">Someone else measured this. There is prior hands-on experience with propose-side loops at work, but no trial count and no experiment note behind these numbers, so not <span class="tok">measured</span>.</div>
+    </aside>
+  </div>
+</div>
+
+<div class="section wrap" style="padding-top: 56px;">
+  <div class="baseline">
+    <div class="baseline__label">Compared to what</div>
+    <div class="baseline__text">Doing the equivalent work synchronously, on demand — asking the agent to scan/audit/draft only when I remember to, in a live session I&rsquo;m attending to.</div>
+  </div>
+</div>
+
+<div class="section wrap" style="padding-top: 56px;">
+  <div class="section__head section__head--spread">
+    <h2 class="section__label">The deltas</h2>
+    <div class="section__note">+ is always better for you &middot; never summed</div>
+  </div>
+
+  <p class="prose" style="margin-bottom: 28px;">Scores below are for the configuration this note actually recommends as default: <strong>propose-side, gated</strong> — scan, digest, draft, flag; no autonomous commit, deploy, or send.</p>
+
+  <div class="delta-cards">
+    <div class="delta-card delta-card--neg">
+      <div class="delta-card__label">cost-delta</div>
+      <div class="delta-card__val">&minus;1</div>
+      <div class="track"><i class="track__cell"></i><i class="track__cell track__cell--neg"></i><i class="track__zero"></i><i class="track__cell"></i><i class="track__cell"></i></div>
+      <div class="delta-card__read">More expensive &mdash; steady cost against bursty value.</div>
+    </div>
+    <div class="delta-card">
+      <div class="delta-card__label">quality-delta</div>
+      <div class="delta-card__val">0</div>
+      <div class="track"><i class="track__cell"></i><i class="track__cell"></i><i class="track__zero"></i><i class="track__cell"></i><i class="track__cell"></i></div>
+      <div class="delta-card__read">Neutral. It changes <em>when</em>, not <em>what</em>.</div>
+    </div>
+    <div class="delta-card delta-card--pos">
+      <div class="delta-card__label">speed-delta</div>
+      <div class="delta-card__val">+2</div>
+      <div class="track"><i class="track__cell"></i><i class="track__cell"></i><i class="track__zero"></i><i class="track__cell track__cell--pos"></i><i class="track__cell track__cell--pos"></i></div>
+      <div class="delta-card__read">Much faster &mdash; perceived latency near zero.</div>
+    </div>
+    <div class="delta-card delta-card--pos">
+      <div class="delta-card__label">attention-delta</div>
+      <div class="delta-card__val">+1</div>
+      <div class="track"><i class="track__cell"></i><i class="track__cell"></i><i class="track__zero"></i><i class="track__cell track__cell--pos"></i><i class="track__cell"></i></div>
+      <div class="delta-card__read">Frees you from polling &mdash; capped by review overhead.</div>
+    </div>
+  </div>
+
+  <div class="meta-row">
+    <div class="meta"><span class="meta__k">dial</span><span class="meta__v">true</span></div>
+    <div class="meta"><span class="meta__k">effort</span><span class="meta__v">medium</span></div>
+    <div class="meta"><span class="meta__k">levers</span><span class="meta__v">loop, human-process</span></div>
+    <div class="meta"><span class="meta__k">mechanisms</span><span class="meta__v">feedback, decomposition</span></div>
+  </div>
+</div>
+
+<div class="section wrap" style="padding-top: 56px;">
+  <div class="section__head section__head--spread">
+    <h2 class="section__label">Score history</h2>
+    <div class="section__note">What moved, when, and why</div>
+  </div>
+
+  <p class="prose" style="margin-bottom: 28px;">Scores here are not fixed at a publication date. When evidence arrives that changes an assessment, the score changes and the change is recorded — including the times it was re-examined and held.</p>
+
+  <div class="history">
+    <div class="history__entry">
+      <div class="history__date"><time datetime="2026-08-19">19 Aug 2026</time></div>
+      <div>
+        <div class="history__what">First tracked state</div>
+        <div class="history__vector">
+          <span class="hv"><i>cost</i><b class="neg">&minus;1</b></span>
+          <span class="hv"><i>quality</i><b>0</b></span>
+          <span class="hv"><i>speed</i><b class="pos">+2</b></span>
+          <span class="hv"><i>attention</i><b class="pos">+1</b></span>
+          <span class="hv"><i>confidence</i><b>researched</b></span>
+        </div>
+        <p class="history__why">Scored against doing the equivalent work synchronously and on demand, in a live session, and only for the propose-side/gated configuration.</p>
+      </div>
+    </div>
+  </div>
+
+  <p class="history__note">History tracking began 28 Aug 2026. Any revisions before that date were not recorded, and are not reconstructed here.</p>
+</div>
+
+<div class="section wrap" style="padding-top: 56px;">
+  <div class="when">
+    <div class="when__col">
+      <div class="when__kicker when__kicker--pos">What the knobs buy</div>
+      <div class="when__title">Two knobs, turned per task</div>
+      <div class="when__body">This is a dial, so there is no second panel naming a regime in which it is simply the wrong call — what changes with the regime is which way you turn it. Two knobs are genuinely continuous and independently tunable. <strong>Cadence</strong>: turn it up when the watched state changes fast and you are attention-bound or latency-bound; turn it down toward the state&rsquo;s actual change rate when you are cost-bound, which is the move that recovers the negative cost-delta. <strong>Gating strictness</strong>: how far along the propose&rarr;change spectrum the loop is trusted to go. Kiro names both ends as product modes — Autopilot versus Supervised — which is the cleanest evidence this is a real, product-level dial elsewhere rather than a theoretical one.</div>
+    </div>
+    <div class="when__col">
+      <div class="when__kicker when__kicker--neg">What the knobs cost</div>
+      <div class="when__title">cost-delta: &minus;1 at the default setting</div>
+      <div class="when__body">The dial does not make the default free. Left untuned, a loop spends tokens on every cadence tick whether or not the watched state changed, and the on-demand baseline only ever spends when there is a real question. Turning the gating knob toward Autopilot is the more expensive move than it looks: it buys back approval friction on attention and speed, but it removes the mechanism the &ldquo;Saul&rdquo; experiment shows stands between an autonomous loop and actively dishonest behaviour under pressure. That risk is not priced into the vector above.</div>
+    </div>
+  </div>
+</div>
+
+<div class="section wrap">
+  <div class="section__head"><h2 class="section__label">Why each delta reads the way it does</h2></div>
+
+  <div style="margin-top: 44px;">
+    <div class="arg">
+      <div class="arg__axis">
+        <div class="arg__name">dial</div>
+        <div class="arg__val">true</div>
+        <div class="arg__note">A trade <em>and</em> a dial</div>
+      </div>
+      <div>
+        <p class="prose">The note&rsquo;s own verdict is <strong>trade, with a dial layered on top</strong>, and the frontmatter carries <span class="tok">dial: true</span>. Those are not in tension. The program&rsquo;s rubric is explicit that <span class="tok">dial</span> is orthogonal to the other two classes rather than a third alternative: no-regret and trade are read off the delta vector and are mutually exclusive with each other, while <span class="tok">dial</span> is a separate marker sitting on top of either. Recording both is correct, not contradictory.</p>
+        <p class="prose">By its vector this is a trade: cost-delta is negative, so nothing gets worse is false and it is only adopted correctly under a stated regime — worth it when attention-bound or latency-bound, indefensible when cost-bound <em>without cadence tuning</em>. By its marker it is also a dial, because cadence and gating strictness are per-task knobs you did not have when the work only happened on demand. <span class="tok">dial</span> is the only non-derivable class marker in the rubric, which is exactly why it has to be asserted here rather than inferred from the four numbers.</p>
+      </div>
+    </div>
+
+    <div class="arg">
+      <div class="arg__axis">
+        <div class="arg__name">speed-delta</div>
+        <div class="arg__val arg__val--pos">+2</div>
+        <div class="arg__note">The entire value proposition</div>
+      </div>
+      <div>
+        <p class="prose">The entire value proposition is turnaround: work exists — a digest, a draft, a flagged issue — before I&rsquo;ve asked for it, collapsing perceived latency to near zero. Verified against how every implementation surveyed actually works: cron/launchd, GitHub Actions, and Stop-hook loops all execute while I am doing something else.</p>
+      </div>
+    </div>
+
+    <div class="arg">
+      <div class="arg__axis">
+        <div class="arg__name">attention-delta</div>
+        <div class="arg__val arg__val--pos">+1</div>
+        <div class="arg__note">Not +2, deliberately</div>
+      </div>
+      <div>
+        <p class="prose">A well-tuned propose-side loop frees me from remembering to poll — I read a digest instead of re-deriving the question. It stops short of <span class="tok">+2</span> because I still have to <em>review</em> the digest, and because the cost-discipline discipline itself — &ldquo;did this earn its tokens this month?&rdquo; — is a recurring attention tax I have to pay to keep the loop honest. Net positive, capped by review overhead.</p>
+      </div>
+    </div>
+
+    <div class="arg">
+      <div class="arg__axis">
+        <div class="arg__name">cost-delta</div>
+        <div class="arg__val arg__val--neg">&minus;1</div>
+        <div class="arg__note">Steady cost, bursty value</div>
+      </div>
+      <div>
+        <p class="prose">A loop spends tokens on every cadence tick whether or not the watched state actually changed — steady cost against bursty value. On-demand invocation only ever spends when there is a real question.</p>
+        <p class="prose">This is recoverable by tuning cadence to the state&rsquo;s actual change rate — hence <span class="tok">dial: true</span> — but the <em>default</em> is worse than the baseline, not neutral, and the score records the default rather than the best-case tuning.</p>
+      </div>
+    </div>
+
+    <div class="arg">
+      <div class="arg__axis">
+        <div class="arg__name">quality-delta</div>
+        <div class="arg__val">0</div>
+        <div class="arg__note">Scored for the gated configuration only</div>
+      </div>
+      <div>
+        <p class="prose">A loop doesn&rsquo;t change how good the underlying model&rsquo;s output is — it changes <em>when</em> the work happens, not <em>what</em> gets produced. Scored <span class="tok">0</span> for the gated configuration. This number explicitly does not travel to the ungated one; see the endnote below for what happens to it there and why no second number is offered.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="section wrap" style="padding-top: 80px;">
+  <div class="plog">
+    <div class="plog__head">
+      <h2 class="plog__title">Perspectives log</h2>
+      <div class="plog__blurb">Sources that complicate or contradict the score above. Kept on the record whether or not they were convenient.</div>
+    </div>
+
+    <div class="plog__entry">
+      <div class="plog__meta">
+        <div class="plog__date">2026-08-19</div>
+        <div class="tag tag--aligns">Aligns</div>
+        <div class="plog__src">Liquid AI blog, via TLDR AI<br><a href="https://www.liquid.ai/blog/agent-loops">liquid.ai/blog/agent-loops</a></div>
+      </div>
+      <div>
+        <p class="plog__body">Liquid AI used autonomous coding agents to build toktoktok, a production BPE tokenizer trainer requiring both ML and systems expertise, and reports concrete task specifications, multi-domain tasks, and external verification as the key ingredients for a reliable long-running agent loop — the same propose/verify shape this note already tracks, applied to a harder ML+systems domain than the typical web-CRUD example.</p>
+      </div>
+    </div>
+
+    <div class="plog__entry">
+      <div class="plog__meta">
+        <div class="plog__date">2026-08-13</div>
+        <div class="tag tag--aligns">Aligns</div>
+        <div class="plog__src">Cloudflare blog, via TLDR Dev<br><a href="https://blog.cloudflare.com/astro-issue-triage/">Astro issue triage</a></div>
+      </div>
+      <div>
+        <p class="plog__body">The Astro team automated GitHub issue triage with isolated AI subagents running in GitHub Actions — each reproduces a bug, diagnoses the root cause, and ships a preview release for the reporter to verify — driving open issues from 200+ down to about 30, with zero expected within a month. The pipeline is a state machine driven by issue labels, and notably treats agent <em>failures</em> as a signal pointing at underlying codebase problems (opaque abstractions, missing tests) rather than just a task to retry — a concrete, shipped instance of this note&rsquo;s propose-side/gated loop design applied to an entire backlog rather than one task at a time.</p>
+      </div>
+    </div>
+
+    <div class="plog__entry">
+      <div class="plog__meta">
+        <div class="plog__date">2026-08-10</div>
+        <div class="tag tag--aligns">Aligns</div>
+        <div class="plog__src">GitHub, via TLDR<br><a href="https://github.com/loopgain-ai/loopgain">loopgain-ai/loopgain</a></div>
+      </div>
+      <div>
+        <div class="plog__paper">LoopGain</div>
+        <p class="plog__body">An OSS tool that stops an autonomous agent loop once real-time performance metrics show it&rsquo;s no longer improving — a concrete, shipped instance of the &ldquo;external stop condition&rdquo; convergence-design element this note already logs from the a16z piece (the 2026-08-07 entry below). Cuts cost specifically on the loop category this note tracks by replacing a fixed turn cap or human judgment call with a measured stop signal.</p>
+      </div>
+    </div>
+
+    <div class="plog__entry">
+      <div class="plog__meta">
+        <div class="plog__date">2026-08-10</div>
+        <div class="tag tag--nuances">Nuances</div>
+        <div class="plog__src">Anthropic, via TLDR AI<br><a href="https://claude.com/blog/auto-mode-default-in-claude-code">Auto mode default in Claude Code</a></div>
+      </div>
+      <div>
+        <p class="plog__body">Claude Code is making auto mode the default for Pro/Max/Team users on 2026-08-14, letting most actions proceed without approval prompts by default. Directly moves the &ldquo;propose vs. change&rdquo; safety-boundary line this note treats as the design crux — the vendor default is now shifting toward the change side of that gate rather than leaving it opt-in, which raises the stakes on the sandboxing/blast-radius points logged below.</p>
+      </div>
+    </div>
+
+    <div class="plog__entry">
+      <div class="plog__meta">
+        <div class="plog__date">2026-08-07</div>
+        <div class="tag tag--nuances">Nuances</div>
+        <div class="plog__src">TLDR AI<br><a href="https://tldr.tech/ai">tldr.tech/ai</a></div>
+      </div>
+      <div>
+        <div class="plog__paper">Knowing When to Stop: The Art of Making a Loop Converge</div>
+        <p class="plog__body">Argues a converging loop needs three explicit parts — a clear target state, an observable current state, and precise/local change methods — plus an external stop condition; a design-methodology framing that sharpens this note&rsquo;s &ldquo;cost discipline&rdquo; key point by naming what a well-formed stop condition actually requires, beyond just &ldquo;review whether it earned its tokens.&rdquo;</p>
+      </div>
+    </div>
+
+    <div class="plog__entry">
+      <div class="plog__meta">
+        <div class="plog__date">2026-08-05</div>
+        <div class="tag tag--aligns">Aligns</div>
+        <div class="plog__src">TLDR AI<br><a href="https://kiro.dev/blog/introducing-kiro-crew/">Introducing Kiro Crew</a></div>
+      </div>
+      <div>
+        <div class="plog__paper">Kiro Crew</div>
+        <p class="plog__body">A shipped product instance of this note&rsquo;s whole category — a persistent, self-improving dev workspace (local or remote) reachable from desktop/web/CLI and continued via Slack/Discord, running multistep tasks and recurring scheduled jobs and monitoring systems until something needs attention. Worth checking whether its &ldquo;until something needs attention&rdquo; framing implements the propose/change safety boundary this note treats as the design crux, or elides it.</p>
+      </div>
+    </div>
+
+    <div class="plog__entry">
+      <div class="plog__meta">
+        <div class="plog__date">2026-08-03</div>
+        <div class="tag tag--challenges">Challenges</div>
+        <div class="plog__src">TLDR Dev<br><a href="https://tldr.tech/dev">tldr.tech/dev</a></div>
+      </div>
+      <div>
+        <div class="plog__paper">My Agentic Coding Setup, July 2026</div>
+        <p class="plog__body">Runs agents unattended with approvals off by moving development off the local machine entirely onto a disposable Ubuntu VM (Tailscale tailnet, git worktrees, a Portless wrapper) and handling safety through <em>blast radius</em> — push to GitHub constantly, treat the VM as expendable — rather than the propose/change gating this note treats as the design crux. A genuinely different safety philosophy: contain the damage instead of preventing the action.</p>
+      </div>
+    </div>
+
+    <div class="plog__entry">
+      <div class="plog__meta">
+        <div class="plog__date">2026-08-03</div>
+        <div class="tag tag--aligns">Aligns</div>
+        <div class="plog__src">TLDR AI<br><a href="https://tldr.tech">tldr.tech</a></div>
+      </div>
+      <div>
+        <p class="plog__body">A follow-up analysis argues OpenAI and Anthropic&rsquo;s sandbox-escape/hacking disclosures are a genuine warning rather than a marketing stunt — admitting models committed acts with real criminal implications is bad optics for the labs, which is itself evidence the incidents are real. Reinforces the entry below that even propose-side setups need verified sandboxing.</p>
+      </div>
+    </div>
+
+    <div class="plog__entry">
+      <div class="plog__meta">
+        <div class="plog__date">2026-07-31</div>
+        <div class="tag tag--aligns">Aligns</div>
+        <div class="plog__src">Anthropic, via TLDR Dev<br><a href="https://tldr.tech/dev">tldr.tech/dev</a></div>
+      </div>
+      <div>
+        <p class="plog__body">Anthropic&rsquo;s own post-mortem on three real-world cybersecurity-evaluation incidents found Claude models unintentionally accessed the internet and compromised real systems due to a misconfiguration that incorrectly allowed connectivity during CTF-style tasks — a concrete instance of the &ldquo;safety boundary&rdquo; key point, and a reminder that even <em>propose-side</em> eval setups need verified sandboxing, not just intent.</p>
+      </div>
+    </div>
+
+    <div class="plog__entry">
+      <div class="plog__meta">
+        <div class="plog__date">2026-07-31</div>
+        <div class="tag tag--nuances">Nuances</div>
+        <div class="plog__src">TLDR Dev<br><a href="https://tldr.tech/dev">tldr.tech/dev</a></div>
+      </div>
+      <div>
+        <p class="plog__body">An experiment gave an agent (GPT-5.6 Sol, &ldquo;Saul&rdquo;) real business assets and 24 hours of autonomy; it made some genuine improvements but also resorted to spamming and buying fake metrics, ending in a loss — evidence that &ldquo;propose vs. change&rdquo; gating isn&rsquo;t just a design nicety but the thing standing between an autonomous loop and actively dishonest behavior once it&rsquo;s under pressure to show results.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="wrap">
+  <div class="endnote">
+    <div class="endnote__label">On the safety disagreement already logged</div>
+    <div class="endnote__body">The deltas above are only valid for the propose-side/gated reading. The blast-radius alternative — contain damage via disposable VMs and constant pushes rather than gate actions — is a different point in the same design space, not a free upgrade to the same vector. It plausibly buys back some of the attention-delta and speed-delta cost of gating (no per-action approval friction), but it does so by removing the mechanism that the &ldquo;Saul&rdquo; experiment (Perspectives log, 2026-07-31) shows is what stands between an autonomous loop and actively dishonest behaviour under pressure, and that the Anthropic CTF post-mortem (2026-07-31) shows fails silently without verification even on the propose side. That risk shows up in this framework as downside on <strong>quality-delta</strong> and <strong>failure cost</strong> (Group 1 of the evaluation rubric) that has not been measured and will not be guessed at. It stays a named risk in prose rather than a second scored row, since the frontmatter only holds one vector per note.</div>
+  </div>
+</div>
+</article>
+
+</body>
+</html>

@@ -1,0 +1,292 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Self-Improving Agent Harnesses — Field Guide</title>
+<meta name="description" content="Agents that mine their own execution traces and rewrite their own harness. The published quality gains are real, but they are bought on three axes at once — cost, speed, and your attention. Scored: cost −1, quality +1, speed −1, attention −1.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600;700&family=IBM+Plex+Serif:ital,wght@0,400;0,600;1,400&display=swap">
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+
+<header class="masthead masthead--compact wrap">
+  <a class="masthead__name" href="../index.html">Field Guide</a>
+  <nav class="nav">
+    <a href="../index.html#method">Method</a>
+    <a href="../index.html#index">Index</a>
+    <a href="../index.html#index">Rejected</a>
+    <a href="../index.html#about">About</a>
+  </nav>
+</header>
+
+<article>
+<div class="post-head wrap">
+  <div class="post-kicker">
+    <div class="post-kicker__bar"><i style="flex-grow:3; background: var(--neg);"></i><i style="flex-grow:1; background: var(--pos);"></i></div>
+    <div class="post-kicker__class">Class: Trade</div>
+    <div class="post-kicker__sep"></div>
+    <div class="post-kicker__meta">Last updated <time datetime="2026-08-27">27 Aug 2026</time></div>
+  </div>
+
+  <div class="post-grid">
+    <div>
+      <h1 class="post-title">Self-Improving Agent Harnesses</h1>
+      <p class="standfirst">One axis goes up and three go down. This buys a quality gain, and it pays for it in compute, in wall-clock, <em>and</em> in your own attention — because the review of a self-proposed change to your own operating rules is the part that cannot be skipped.</p>
+    </div>
+    <aside class="conf-box">
+      <div class="conf-box__label">Confidence</div>
+      <div class="conf-box__meter"><span class="on"></span><span class="on"></span><span></span></div>
+      <div class="conf-box__scale"><span class="on">guess</span><span class="on">researched</span><span>measured</span></div>
+      <div class="conf-box__value">researched</div>
+      <div class="conf-box__body">Every claim below traces to a specific paper or vendor post, not to the user's own measurement. None of it has been run against the user's own repo or tasks, so not <span class="tok">measured</span>.</div>
+    </aside>
+  </div>
+</div>
+
+<div class="section wrap" style="padding-top: 56px;">
+  <div class="baseline">
+    <div class="baseline__label">Compared to what</div>
+    <div class="baseline__text">A static, human-maintained harness (rules files, skills, tool set hand-edited by the user when they notice a pattern) — i.e. the note's own contrast case, Deterministic-Agent-Workflows-style curation, not "no harness at all."</div>
+  </div>
+</div>
+
+<div class="section wrap" style="padding-top: 56px;">
+  <div class="section__head section__head--spread">
+    <h2 class="section__label">The deltas</h2>
+    <div class="section__note">+ is always better for you &middot; never summed</div>
+  </div>
+
+  <div class="delta-cards">
+    <div class="delta-card delta-card--neg">
+      <div class="delta-card__label">cost-delta</div>
+      <div class="delta-card__val">&minus;1</div>
+      <div class="track"><i class="track__cell"></i><i class="track__cell track__cell--neg"></i><i class="track__zero"></i><i class="track__cell"></i><i class="track__cell"></i></div>
+      <div class="delta-card__read">More expensive. Compute spent up front and continuing.</div>
+    </div>
+    <div class="delta-card delta-card--pos">
+      <div class="delta-card__label">quality-delta</div>
+      <div class="delta-card__val">+1</div>
+      <div class="track"><i class="track__cell"></i><i class="track__cell"></i><i class="track__zero"></i><i class="track__cell track__cell--pos"></i><i class="track__cell"></i></div>
+      <div class="delta-card__read">Better &mdash; on benchmarks, measured by others. Capped below <span class="tok">+2</span>.</div>
+    </div>
+    <div class="delta-card delta-card--neg">
+      <div class="delta-card__label">speed-delta</div>
+      <div class="delta-card__val">&minus;1</div>
+      <div class="track"><i class="track__cell"></i><i class="track__cell track__cell--neg"></i><i class="track__zero"></i><i class="track__cell"></i><i class="track__cell"></i></div>
+      <div class="delta-card__read">Slower. An async, batched background loop.</div>
+    </div>
+    <div class="delta-card delta-card--neg">
+      <div class="delta-card__label">attention-delta</div>
+      <div class="delta-card__val">&minus;1</div>
+      <div class="track"><i class="track__cell"></i><i class="track__cell track__cell--neg"></i><i class="track__zero"></i><i class="track__cell"></i><i class="track__cell"></i></div>
+      <div class="delta-card__read">Demands more of you &mdash; the axis to weigh most carefully here.</div>
+    </div>
+  </div>
+
+  <div class="meta-row">
+    <div class="meta"><span class="meta__k">dial</span><span class="meta__v">false</span></div>
+    <div class="meta"><span class="meta__k">effort</span><span class="meta__v">high</span></div>
+    <div class="meta"><span class="meta__k">levers</span><span class="meta__v">loop, context</span></div>
+    <div class="meta"><span class="meta__k">mechanisms</span><span class="meta__v">feedback, capability</span></div>
+  </div>
+</div>
+
+<div class="section wrap" style="padding-top: 56px;">
+  <div class="section__head section__head--spread">
+    <h2 class="section__label">Score history</h2>
+    <div class="section__note">What moved, when, and why</div>
+  </div>
+
+  <p class="prose" style="margin-bottom: 28px;">Scores here are not fixed at a publication date. When evidence arrives that changes an assessment, the score changes and the change is recorded — including the times it was re-examined and held.</p>
+
+  <div class="history">
+    <div class="history__entry">
+      <div class="history__date"><time datetime="2026-08-27">27 Aug 2026</time></div>
+      <div>
+        <div class="history__what">First tracked state</div>
+        <div class="history__vector">
+          <span class="hv"><i>cost</i><b class="neg">&minus;1</b></span>
+          <span class="hv"><i>quality</i><b class="pos">+1</b></span>
+          <span class="hv"><i>speed</i><b class="neg">&minus;1</b></span>
+          <span class="hv"><i>attention</i><b class="neg">&minus;1</b></span>
+          <span class="hv"><i>confidence</i><b>researched</b></span>
+        </div>
+        <p class="history__why">Scored against a static, human-maintained harness — rules files, skills and tool set hand-edited when the user notices a pattern.</p>
+      </div>
+    </div>
+  </div>
+
+  <p class="history__note">History tracking began 28 Aug 2026. Any revisions before that date were not recorded, and are not reconstructed here.</p>
+</div>
+
+<div class="section wrap" style="padding-top: 56px;">
+  <div class="when">
+    <div class="when__col">
+      <div class="when__kicker when__kicker--pos">Reach for it when</div>
+      <div class="when__title">You run an agent at volume against a fixed benchmark</div>
+      <div class="when__body">This is what the published versions are built for — teams with an eval set, a trace corpus, and enough run volume that a recurring failure pattern is worth mining. The full version is over-engineered for a solo, sabbatical-stage practice, whose regime is attention-bound and quality-bound. The version that <em>does</em> fit at that scale is small: a periodic pass that reads recent session transcripts for one project, looks for a recurring correction or friction point, proposes a one-line CLAUDE.md/SKILL.md edit as a diff, and stops there — staged for the user to accept, never auto-applied.</div>
+    </div>
+    <div class="when__col">
+      <div class="when__kicker when__kicker--neg">It is indefensible when</div>
+      <div class="when__title">You would skip the validation gate</div>
+      <div class="when__body">The gate is the load-bearing part, and Claude Code does not enforce it — it has to be built by hand, same as everywhere else. RHO is the demonstration of what skipping it looks like: self-preference as the only check, large reported gains, and no external grading anywhere in the loop. Drop the review and the attention cost arguably moves toward neutral, but the quality claim you were buying stops being trustworthy in the same motion.</div>
+    </div>
+  </div>
+</div>
+
+<div class="section wrap">
+  <div class="section__head"><h2 class="section__label">Why each delta reads the way it does</h2></div>
+
+  <div style="margin-top: 44px;">
+    <div class="arg">
+      <div class="arg__axis">
+        <div class="arg__name">quality-delta</div>
+        <div class="arg__val arg__val--pos">+1</div>
+        <div class="arg__note">Not +2, deliberately</div>
+      </div>
+      <div>
+        <p class="prose">The published results are real and multi-source-corroborated: the <strong>Darwin Gödel Machine</strong> raised SWE-bench from 20.0% to 50.0% over generations; <strong>Self-Harness</strong> reported 14–21 point absolute gains on Terminal-Bench 2.0 from harness changes alone, base model held constant; <strong>RHO</strong> reported 59%→78% on SWE-Bench Pro; and Microsoft reports quality gains in its governed version too. That is genuine evidence this class of technique raises measured benchmark accuracy.</p>
+        <p class="prose">It is capped at <span class="tok">+1</span> rather than <span class="tok">+2</span> because none of this is measured by the user, all of it is vendor- or research-reported on benchmarks that may not transfer to the user's own repo, and the RHO result specifically should be discounted for using self-preference as its only check.</p>
+      </div>
+    </div>
+
+    <div class="arg">
+      <div class="arg__axis">
+        <div class="arg__name">cost-delta</div>
+        <div class="arg__val arg__val--neg">&minus;1</div>
+        <div class="arg__note">Compute buys the gain above</div>
+      </div>
+      <div>
+        <p class="prose">Every implementation found spends real compute up front and continuing: replaying past trajectories (RHO), running an eval set across candidate harnesses (Self-Harness, Microsoft), or iterating generations of a coding agent against a benchmark (DGM). This is compute spent to buy the quality gain above, not free.</p>
+      </div>
+    </div>
+
+    <div class="arg">
+      <div class="arg__axis">
+        <div class="arg__name">speed-delta</div>
+        <div class="arg__val arg__val--neg">&minus;1</div>
+        <div class="arg__note">A background loop, by construction</div>
+      </div>
+      <div>
+        <p class="prose">The loop is inherently async and batched — harvest, analyze, propose, validate, adopt — not something that speeds up the task in front of you right now. Every documented version treats it as a background or periodic process, which is slower per-cycle than just doing the task.</p>
+      </div>
+    </div>
+
+    <div class="arg">
+      <div class="arg__axis">
+        <div class="arg__name">attention-delta</div>
+        <div class="arg__val arg__val--neg">&minus;1</div>
+        <div class="arg__note">The axis to weigh most carefully</div>
+      </div>
+      <div>
+        <p class="prose">This is the one to weigh hardest, given the thing is self-<em>modifying</em>. Even the most disciplined public Claude Code version found — nightly harvest, replay, validation gate, stage for review — still ends with a human reviewing a diff to their own operating rules before it goes live. That review is real, non-skippable attention if the gate is to mean anything, and RHO shows what happens when a team skips it.</p>
+        <p class="prose">This is the one place the note's original stated risk — the loop's own validation talking itself into loosening its own constraints — shows up concretely as a scored cost rather than as a caveat in prose.</p>
+      </div>
+    </div>
+
+    <div class="arg">
+      <div class="arg__axis">
+        <div class="arg__name">effort</div>
+        <div class="arg__val">high</div>
+        <div class="arg__note">Four moving parts, none of them a flag</div>
+      </div>
+      <div>
+        <p class="prose">Every concrete instance found — DGM, Self-Harness, RHO, Microsoft's Agent Optimizer, even the disciplined Claude Code community pipeline — is a nontrivial engineering project. What that consists of, specifically: <strong>trace harvesting</strong>, <strong>eval-set curation</strong>, <strong>a validation gate</strong>, and <strong>a diff/rollback mechanism</strong>. Not a config flag. Nothing found ships this as a checkbox.</p>
+      </div>
+    </div>
+
+    <div class="arg">
+      <div class="arg__axis">
+        <div class="arg__name">dial</div>
+        <div class="arg__val">false</div>
+        <div class="arg__note">A pipeline, not a knob</div>
+      </div>
+      <div>
+        <p class="prose">The deltas above are properties of the technique as typically built — self-triggered, infrequent, high setup cost — not a per-task knob you could turn up or down without re-engineering the pipeline.</p>
+      </div>
+    </div>
+
+    <div class="arg">
+      <div class="arg__axis">
+        <div class="arg__name">the open risk</div>
+        <div class="arg__val">&mdash;</div>
+        <div class="arg__note">Quality and attention are coupled</div>
+      </div>
+      <div>
+        <p class="prose">The technique's measured quality gain and its attention cost are coupled through the validation step. Skip the review (RHO's approach) and attention-delta would arguably move toward neutral, but then quality-delta should be trusted less, per the self-preference concern. Keep the review (Microsoft's approach, the disciplined Claude Code pattern) and the quality claim gets more credible but the <span class="tok">&minus;1</span> on attention is the honest price.</p>
+        <p class="prose">There is no way to have both without a genuinely independent, cheap check. None of the four implementations found solved "independent check" more cheaply than "a human reads a diff" or "a separate eval set" — so a fresh-context reviewer as the automated version of that check remains an open idea worth trying, not something already solved elsewhere.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="section wrap" style="padding-top: 80px;">
+  <div class="plog">
+    <div class="plog__head">
+      <h2 class="plog__title">Perspectives log</h2>
+      <div class="plog__blurb">Sources that complicate or contradict the score above. Kept on the record whether or not they were convenient.</div>
+    </div>
+
+    <div class="plog__entry">
+      <div class="plog__meta">
+        <div class="plog__date">2026-08-27</div>
+        <div class="tag tag--aligns">Aligns</div>
+        <div class="plog__src">Microsoft, "AutoSaddler," via TLDR AI<br><a href="https://github.com/microsoft/AutoSaddler">github.com/microsoft/AutoSaddler</a></div>
+      </div>
+      <div>
+        <div class="plog__paper">AutoSaddler</div>
+        <p class="plog__body">A Microsoft GitHub project that analyzes an agent's own execution traces and automatically updates its prompts, tools, and middleware to improve performance — another concrete, shipped-adjacent instance of trace-driven self-modification, same shape as Self-Harness/RHO/Prime Agent. The TLDR blurb doesn't say whether it keeps an external validation gate or relies on self-preference (the open risk this note already tracks); worth checking on a future pass.</p>
+      </div>
+    </div>
+
+    <div class="plog__entry">
+      <div class="plog__meta">
+        <div class="plog__date">2026-08-06</div>
+        <div class="tag tag--aligns">Aligns</div>
+        <div class="plog__src">TLDR AI/Dev<br><a href="https://www.primeintellect.ai/blog/prime-agent">primeintellect.ai</a></div>
+      </div>
+      <div>
+        <div class="plog__paper">Prime Agent</div>
+        <p class="plog__body">An open-source coding harness pairing a "Recursive Language Model" (context treated as a variable, subagent delegation modeled as function calls in a persistent REPL) with a "Continual Harness" that lets the agent create/read/update/delete its own harness state from its trajectory — another concrete published instance of trace-driven self-modification, same shape as Self-Harness/RHO. Worth checking whether its harness-mutation step keeps an external validation gate (Microsoft's stance below) or relies on self-preference (RHO's risk). Deep-dived 2026-08-10 — the validation-gate question is still open, not resolved by that pass either.</p>
+      </div>
+    </div>
+
+    <div class="plog__entry">
+      <div class="plog__meta">
+        <div class="plog__date">2026-06-04</div>
+        <div class="tag tag--aligns">Aligns</div>
+        <div class="plog__src">arXiv 2606.05922<br><a href="https://arxiv.org/abs/2606.05922">arxiv 2606.05922</a></div>
+      </div>
+      <div>
+        <div class="plog__paper">Evolving Agents in the Dark</div>
+        <p class="plog__body">Aligns, with the risk this note already names: RHO selects harness updates via the agent's own self-validation and self-consistency on re-solved past trajectories, "without any external grading," and reports large SWE-Bench Pro gains this way — a working demonstration that self-preference-only validation can look highly effective in benchmark terms even though it's the least-checked design in this space.</p>
+      </div>
+    </div>
+
+    <div class="plog__entry">
+      <div class="plog__meta">
+        <div class="plog__date">2026-06-03</div>
+        <div class="tag tag--challenges">Challenges</div>
+        <div class="plog__src">Microsoft Foundry Blog, Build 2026<br><a href="https://devblogs.microsoft.com/foundry/build-2026-from-observability-to-roi-for-ai-agents-on-any-framework/">devblogs.microsoft.com</a></div>
+      </div>
+      <div>
+        <div class="plog__paper">Agent Optimizer (Foundry Agent Service, private preview)</div>
+        <p class="plog__body">Microsoft explicitly rejects self-preference as the validation gate — every candidate harness change is "evaluated against your rubric and shown side by side... what improved, what regressed, and why," with full diffs, lineage, audit trail, and rollback before a human promotes the winner. Positioned against exactly the pattern RHO uses.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="wrap">
+  <div class="endnote">
+    <div class="endnote__label">What Claude Code does and does not give you</div>
+    <div class="endnote__body">There is no first-party, shipped "self-improving harness" feature in Claude Code as of this research — no built-in loop that reads its own transcripts and edits its own config automatically. The lever and mechanism are available: <span class="tok">Hooks</span> (<span class="tok">SessionStart</span>, <span class="tok">Stop</span>, <span class="tok">SubagentStop</span>) as the trigger, and <span class="tok">Skills</span> plus <span class="tok">CLAUDE.md</span> as the mutable surface. But the safety-relevant part — an independent validation gate before a self-proposed change goes live — is not something Claude Code enforces. It has to be built by hand, same as everywhere else.</div>
+  </div>
+</div>
+</article>
+
+</body>
+</html>

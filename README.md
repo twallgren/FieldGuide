@@ -57,8 +57,23 @@ Copy `techniques/multi-agent-debate.html` and replace, in order:
 - the `.arg` blocks, one per axis
 - the `.plog__entry` list, tagged `challenges` or `nuances`
 
-Then add a `.trow` to the index in `index.html` with its **Updated** stamp,
-and update the class counts on the three `.class-card`s.
+The index is **generated**, not hand-edited. Add a one-line description to
+`descriptions.json`, then run:
+
+```
+python3 ~/Documents/code/scripts/obsidian/fieldguide_index.py
+```
+
+It derives every row from the vault — scores, dates, class, confidence — and
+rewrites the block between the `INDEX:START` / `INDEX:END` markers plus the
+class counts. Hand-editing ~30 rows of signed deltas invites exactly the
+transcription error this site exists to avoid.
+
+Check the result against the source notes with:
+
+```
+python3 ~/Documents/code/scripts/obsidian/fieldguide_verify.py
+```
 
 **When revising an existing entry** — which is the normal case, not the
 exception — change the scores, bump the kicker's `Last updated` date and

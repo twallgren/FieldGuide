@@ -1,0 +1,283 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Plan-First Development — Field Guide</title>
+<meta name="description" content="Producing and reviewing a plan before the agent writes any code. A per-task knob — the interesting question is the complexity threshold where you flip it, not whether to plan. Scored: cost −1, quality +1, speed −1, attention −1.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600;700&family=IBM+Plex+Serif:ital,wght@0,400;0,600;1,400&display=swap">
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+
+<header class="masthead masthead--compact wrap">
+  <a class="masthead__name" href="../index.html">Field Guide</a>
+  <nav class="nav">
+    <a href="../index.html#method">Method</a>
+    <a href="../index.html#index">Index</a>
+    <a href="../index.html#index">Rejected</a>
+    <a href="../index.html#about">About</a>
+  </nav>
+</header>
+
+<article>
+<div class="post-head wrap">
+  <div class="post-kicker">
+    <div class="post-kicker__bar bar--dial"><i></i><i></i><i></i><i class="off"></i><i class="off"></i></div>
+    <div class="post-kicker__class">Class: Dial</div>
+    <div class="post-kicker__sep"></div>
+    <div class="post-kicker__meta">Last updated <time datetime="2026-08-28">28 Aug 2026</time></div>
+  </div>
+
+  <div class="post-grid">
+    <div>
+      <h1 class="post-title">Plan-First Development</h1>
+      <p class="standfirst">Always producing — and reviewing — a plan before the agent writes any code. Harnesses increasingly bake this in, on the theory that steering is cheapest before implementation starts. The interesting question is the <em>threshold</em>, not whether to plan.</p>
+    </div>
+    <aside class="conf-box">
+      <div class="conf-box__label">Confidence</div>
+      <div class="conf-box__meter"><span class="on"></span><span class="on"></span><span></span></div>
+      <div class="conf-box__scale"><span class="on">guess</span><span class="on">researched</span><span>measured</span></div>
+      <div class="conf-box__value">researched</div>
+      <div class="conf-box__body">Someone else measured this — LangChain's plan-and-execute writeup, Kiro and Nearform practitioner reports, spec-driven-overhead critiques. I have not run a trial myself. Read every delta below as a reading of the evidence, not as a result I produced.</div>
+    </aside>
+  </div>
+</div>
+
+<div class="section wrap" style="padding-top: 56px;">
+  <div class="baseline">
+    <div class="baseline__label">Compared to what</div>
+    <div class="baseline__text">An agent session that goes straight from prompt to implementation with no explicit plan step (Claude Code&rsquo;s <span class="tok">default</span>/manual mode used conversationally, no <span class="tok">/plan</span>), on a moderately ambiguous multi-file task — the regime where the plan/no-plan choice is actually live. On trivially small mechanical edits the honest baseline comparison flips, which is exactly why this is scored as a dial rather than a flat trade.</div>
+  </div>
+</div>
+
+<div class="section wrap" style="padding-top: 56px;">
+  <div class="section__head section__head--spread">
+    <h2 class="section__label">The deltas</h2>
+    <div class="section__note">+ is always better for you &middot; never summed</div>
+  </div>
+
+  <div class="delta-cards">
+    <div class="delta-card delta-card--neg">
+      <div class="delta-card__label">cost-delta</div>
+      <div class="delta-card__val">&minus;1</div>
+      <div class="track"><i class="track__cell"></i><i class="track__cell track__cell--neg"></i><i class="track__zero"></i><i class="track__cell"></i><i class="track__cell"></i></div>
+      <div class="delta-card__read">More expensive. The plan turn plus the approve/refine cycles.</div>
+    </div>
+    <div class="delta-card delta-card--pos">
+      <div class="delta-card__label">quality-delta</div>
+      <div class="delta-card__val">+1</div>
+      <div class="track"><i class="track__cell"></i><i class="track__cell"></i><i class="track__zero"></i><i class="track__cell track__cell--pos"></i><i class="track__cell"></i></div>
+      <div class="delta-card__read">Better. Real, but bounded to the feature scope.</div>
+    </div>
+    <div class="delta-card delta-card--neg">
+      <div class="delta-card__label">speed-delta</div>
+      <div class="delta-card__val">&minus;1</div>
+      <div class="track"><i class="track__cell"></i><i class="track__cell track__cell--neg"></i><i class="track__zero"></i><i class="track__cell"></i><i class="track__cell"></i></div>
+      <div class="delta-card__read">Slower by construction. Added wall-clock before any code.</div>
+    </div>
+    <div class="delta-card delta-card--neg">
+      <div class="delta-card__label">attention-delta</div>
+      <div class="delta-card__val">&minus;1</div>
+      <div class="track"><i class="track__cell"></i><i class="track__cell track__cell--neg"></i><i class="track__zero"></i><i class="track__cell"></i><i class="track__cell"></i></div>
+      <div class="delta-card__read">Demands more of you. A human checkpoint, deliberately.</div>
+    </div>
+  </div>
+
+  <p class="prose" style="margin-top: 28px;">Three of the four deltas are negative. This technique buys exactly one thing — quality — and it pays for it on every other axis: tokens, wall-clock, and your own attention. It is not a free upgrade, and nothing below softens that. What makes it worth having anyway is the class: it is a knob, and the knob is off by default.</p>
+
+  <div class="meta-row">
+    <div class="meta"><span class="meta__k">dial</span><span class="meta__v">true</span></div>
+    <div class="meta"><span class="meta__k">effort</span><span class="meta__v">low</span></div>
+    <div class="meta"><span class="meta__k">levers</span><span class="meta__v">human-process, context, loop</span></div>
+    <div class="meta"><span class="meta__k">mechanisms</span><span class="meta__v">decomposition, constraint, feedback</span></div>
+  </div>
+</div>
+
+<div class="section wrap" style="padding-top: 56px;">
+  <div class="section__head section__head--spread">
+    <h2 class="section__label">Score history</h2>
+    <div class="section__note">What moved, when, and why</div>
+  </div>
+
+  <p class="prose" style="margin-bottom: 28px;">Scores here are not fixed at a publication date. When evidence arrives that changes an assessment, the score changes and the change is recorded — including the times it was re-examined and held.</p>
+
+  <div class="history">
+    <div class="history__entry">
+      <div class="history__date"><time datetime="2026-08-28">28 Aug 2026</time></div>
+      <div>
+        <div class="history__what">First tracked state</div>
+        <div class="history__vector">
+          <span class="hv"><i>cost</i><b class="neg">&minus;1</b></span>
+          <span class="hv"><i>quality</i><b class="pos">+1</b></span>
+          <span class="hv"><i>speed</i><b class="neg">&minus;1</b></span>
+          <span class="hv"><i>attention</i><b class="neg">&minus;1</b></span>
+          <span class="hv"><i>confidence</i><b>researched</b></span>
+        </div>
+        <p class="history__why">Scored against a session that goes straight from prompt to implementation with no explicit plan step, on a moderately ambiguous multi-file task.</p>
+      </div>
+    </div>
+  </div>
+
+  <p class="history__note">History tracking began 28 Aug 2026. Any revisions before that date were not recorded, and are not reconstructed here.</p>
+</div>
+
+<div class="section wrap" style="padding-top: 56px;">
+  <div class="when">
+    <div class="when__col">
+      <div class="when__kicker when__kicker--pos">What the knob buys</div>
+      <div class="when__title">It turns both ways</div>
+      <div class="when__body">This is a dial, so there is no regime in which it is the wrong call and no second panel naming one — what changes with the task is which way you turn it. Turn it on for multi-file changes, ambiguous requirements, and unfamiliar codebases, where steering before any code exists is cheaper and more effective than steering a diff. Turn it off for small mechanical edits, where it is pure overhead: practitioner writeups on spec-driven development converge on the line that process overhead can exceed the actual work on a minor refactor or UI tweak, and reviewers have complained that Kiro-style spec files are more to review than the code itself. The switch is per-task in Claude Code — <span class="tok">Shift+Tab</span>, <span class="tok">/plan</span>, or a project default — which is what makes the threshold a live question rather than a policy.</div>
+    </div>
+    <div class="when__col">
+      <div class="when__kicker when__kicker--neg">What the knob costs</div>
+      <div class="when__title">Three axes, every time you turn it on</div>
+      <div class="when__body">Unlike a dial that trades one axis for another depending on position, this one bills on three whenever it is on: extra tokens for the plan turn and the approve/refine cycles, added wall-clock before any code is written, and a human checkpoint that <span class="tok">acceptEdits</span>/auto-mode workflows do not require. The attention charge is the one to watch, because it is load-bearing rather than incidental — a bad plan approved without reading is worse than no plan at all.</div>
+    </div>
+  </div>
+</div>
+
+<div class="section wrap">
+  <div class="section__head"><h2 class="section__label">Why each delta reads the way it does</h2></div>
+
+  <div style="margin-top: 44px;">
+    <div class="arg">
+      <div class="arg__axis">
+        <div class="arg__name">dial</div>
+        <div class="arg__val">true</div>
+        <div class="arg__note">Not a flat trade</div>
+      </div>
+      <div>
+        <p class="prose">The technique is explicitly per-task-switchable in Claude Code (<span class="tok">Shift+Tab</span>, <span class="tok">/plan</span>, or a project default), and the entire question this note circles is finding the complexity threshold where the switch should flip — that is the definition of a dial in the program's rubric, not an unconditional trade.</p>
+        <p class="prose">Kiro's implementation leans toward a fixed policy — spec-first as the default posture, with Quick Spec as the escape hatch — which is a <em>narrower</em> dial than Claude Code's. Worth noting, since &ldquo;Kiro made it mandatory&rdquo; is closer to &ldquo;defaulted the dial to on&rdquo; than &ldquo;removed the dial,&rdquo; given Quick Spec exists.</p>
+      </div>
+    </div>
+
+    <div class="arg">
+      <div class="arg__axis">
+        <div class="arg__name">quality-delta</div>
+        <div class="arg__val arg__val--pos">+1</div>
+        <div class="arg__note">Real but bounded in scope</div>
+      </div>
+      <div>
+        <p class="prose">Plan mode's own selling point — and the reason harnesses converged on it (Kiro, Magentic, LangGraph's plan-and-execute) — is that steering before any code exists is cheaper and more effective than steering a diff. LangChain's own writeup on plan-and-execute claims better task-completion rate versus ReAct-style no-plan agents by forcing the planner to think through the full step sequence up front, and Magentic's task ledger exists to keep multi-step work coherent.</p>
+        <p class="prose">This isn't free, though. Nearform's critique is that plan mode alone doesn't cover product-level coherence, only feature-level — so <span class="tok">+1</span> (better) rather than <span class="tok">+2</span> (much better) reflects that the mechanism is real but bounded in scope.</p>
+      </div>
+    </div>
+
+    <div class="arg">
+      <div class="arg__axis">
+        <div class="arg__name">speed-delta</div>
+        <div class="arg__val arg__val--neg">&minus;1</div>
+        <div class="arg__note">By construction</div>
+      </div>
+      <div>
+        <p class="prose">Writing and reviewing a plan before touching code is by construction added wall-clock versus jumping straight in. This is the same overhead multiple independent sources (Nearform, allegro.tech, xpromx.me) call out specifically for Kiro-style spec-driven flows on small tasks, where the process outlasts the change itself.</p>
+      </div>
+    </div>
+
+    <div class="arg">
+      <div class="arg__axis">
+        <div class="arg__name">cost-delta</div>
+        <div class="arg__val arg__val--neg">&minus;1</div>
+        <div class="arg__note">Smaller hit than a swarm</div>
+      </div>
+      <div>
+        <p class="prose">Extra tokens for the plan-generation turn and the back-and-forth to approve and refine it (<span class="tok">Ctrl+G</span> edits, &ldquo;no, keep planning&rdquo; cycles) beyond what a single implementation turn would cost. It is a smaller hit than a multi-agent debate or swarm, since it is still a single agent and a single extra artifact, not multiple independent attempts.</p>
+      </div>
+    </div>
+
+    <div class="arg">
+      <div class="arg__axis">
+        <div class="arg__name">attention-delta</div>
+        <div class="arg__val arg__val--neg">&minus;1</div>
+        <div class="arg__note">The mechanism <em>is</em> the cost</div>
+      </div>
+      <div>
+        <p class="prose">The plan is a document the user is meant to actually read and approve, not a fire-and-forget step — that is the entire mechanism (constraint plus feedback happening before code exists), but it means a human checkpoint that <span class="tok">acceptEdits</span>/auto-mode workflows don't require.</p>
+        <p class="prose">This is the axis most likely to flip sign in the attention-bound regime specifically <em>because</em> a bad plan approved without reading is worse than no plan at all — plan-as-theater. So the honest score treats the read-it-properly cost as real rather than assuming rubber-stamping.</p>
+      </div>
+    </div>
+
+    <div class="arg">
+      <div class="arg__axis">
+        <div class="arg__name">the failure mode</div>
+        <div class="arg__val">drift</div>
+        <div class="arg__note">A loop problem, not a context one</div>
+      </div>
+      <div>
+        <p class="prose">Plan-as-theater: the agent writes a plan, then drifts from it during implementation with nothing enforcing consistency. This is a <em>loop</em> problem, not a <em>context</em> problem — nothing re-checks the plan against the diff once implementation starts, which is why the mechanism only holds if something closes the loop: a fresh-context reviewer diffing implementation against the approved plan, or a checklist re-read before declaring done. Plan mode itself does not do this. Plans are also a review surface in their own right — a fresh-context agent can critique a plan far more cheaply than it can review a diff.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="section wrap" style="padding-top: 80px;">
+  <div class="plog">
+    <div class="plog__head">
+      <h2 class="plog__title">Perspectives log</h2>
+      <div class="plog__blurb">Sources that complicate or contradict the score above. Kept on the record whether or not they were convenient.</div>
+    </div>
+
+    <div class="plog__entry">
+      <div class="plog__meta">
+        <div class="plog__date">2026-08-28</div>
+        <div class="tag tag--nuances">Nuances</div>
+        <div class="plog__src">GitHub, via TLDR Dev<br><a href="https://github.com/NeoLabHQ/context-engineering-kit">NeoLabHQ Context Engineering Kit</a></div>
+      </div>
+      <div>
+        <div class="plog__paper">NeoLabHQ Context Engineering Kit</div>
+        <p class="plog__body">A shipped 13-plugin toolkit whose Spec-Driven Development component (<span class="tok">/plan-task</span>, <span class="tok">/implement-task</span>) uses arc42-based templates plus multi-agent orchestration (researcher, architect, developer, code-reviewer agents) rather than a single planner — closer to Kiro's persisted-artifact spec flow than to Claude Code's single-message plan mode, but with the plan-authoring step itself split across role-specific agents. Checked the repo directly rather than trusting the TLDR summary; most of the toolkit's other components (Reflexion, Tree of Thoughts, multi-agent debate, LLM-as-judge) are cited from known academic papers and repackage techniques this program already tracks individually rather than adding a new plan-first mechanism.</p>
+      </div>
+    </div>
+
+    <div class="plog__entry">
+      <div class="plog__meta">
+        <div class="plog__date">2026-08-17</div>
+        <div class="tag tag--challenges">Challenges</div>
+        <div class="plog__src">blog.exe.dev, via TLDR<br><a href="https://blog.exe.dev/planning">Planning</a></div>
+      </div>
+      <div>
+        <div class="plog__paper">Planning</div>
+        <p class="plog__body">Argues agents (not humans) should bear the cost of upfront exploration — build first, then extract the design from what got built, since &ldquo;a plan that's been prototyped is a better plan.&rdquo; A second, independent source making a build-before-plan argument alongside the 2026-08-13 &ldquo;Build Wide, Ship Narrow&rdquo; entry below, but with a different justification: not exploratory-task tolerance, but that agent compute is cheap enough to spend on throwaway prototypes before committing human attention to a design.</p>
+      </div>
+    </div>
+
+    <div class="plog__entry">
+      <div class="plog__meta">
+        <div class="plog__date">2026-08-13</div>
+        <div class="tag tag--challenges">Challenges</div>
+        <div class="plog__src">adapt.com, via TLDR Dev<br><a href="https://adapt.com/blog/build-wide-ship-narrow">Build Wide, Ship Narrow</a></div>
+      </div>
+      <div>
+        <div class="plog__paper">Build Wide, Ship Narrow</div>
+        <p class="plog__body">Argues the tight-planning-before-coding workflow has evolved under AI-assisted development toward broader initial builds explored before review, with a demo of working code preceding code review and the change then broken into smaller, independently reviewable PRs afterward. This inverts this note's core sequencing claim (plan and steer before implementation, because steering is cheapest early) for at least some task shapes — worth weighing against the note's own regime-fit reasoning rather than treated as a blanket rebuttal, since exploratory/uncertain-scope work may tolerate build-first better than well-specified work does.</p>
+      </div>
+    </div>
+
+    <div class="plog__entry">
+      <div class="plog__meta">
+        <div class="plog__date">2026-03-18</div>
+        <div class="tag tag--nuances">Nuances</div>
+        <div class="plog__src">Nearform<br><a href="https://nearform.com/digital-community/why-plan-mode-is-not-enough-better-outcomes-with-spec-driven-development/">Why plan mode is not enough</a></div>
+      </div>
+      <div>
+        <div class="plog__paper">Why plan mode is not enough: better outcomes with spec-driven development</div>
+        <p class="plog__body">Luca Lanziani (Nearform) argues plan mode works well for implementing a single feature but doesn't scale to planning a whole product — composing features into a coherent whole needs product-owner/business input that a single-agent plan mode doesn't solicit. Nearform's proposed fix is BMAD (Breakthrough Method of Agile AI-Driven Development), a multi-role agent framework (PM, architect, scrum-master, dev agents). This doesn't contradict plan-first as a technique so much as bound its scope: it's a claim about <em>what unit of work</em> plan-first is good at, not about whether planning-before-coding helps.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="wrap">
+  <div class="endnote">
+    <div class="endnote__label">Where the confidence stops</div>
+    <div class="endnote__body">The quality claim rests on LangChain's own writeup of its own pattern — a vendor reporting better task-completion rate for plan-and-execute versus ReAct-style no-plan agents — plus the fact that several harnesses independently converged on planning gates. That is convergence, not a controlled trial, and no trial count sits behind any delta here. The threshold this whole note turns on — where the complexity of a task crosses from &ldquo;planning is overhead&rdquo; to &ldquo;planning pays&rdquo; — is named as the interesting question and is not answered anywhere in the source material, by me or by anyone cited. Two of the four logged perspectives argue the sequencing should invert for at least some task shapes, and that challenge is unresolved rather than dismissed.</div>
+  </div>
+</div>
+</article>
+
+</body>
+</html>

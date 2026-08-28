@@ -1,0 +1,238 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Programming Language Choice for Coding Agents — Field Guide</title>
+<meta name="description" content="Does a codebase's programming language change how well a coding agent performs? After a direct read of the primary source, almost nothing measurable moves: cost +1 on a token-count estimate, quality, speed and attention all 0, on a guess.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600;700&family=IBM+Plex+Serif:ital,wght@0,400;0,600;1,400&display=swap">
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+
+<header class="masthead masthead--compact wrap">
+  <a class="masthead__name" href="../index.html">Field Guide</a>
+  <nav class="nav">
+    <a href="../index.html#method">Method</a>
+    <a href="../index.html#index">Index</a>
+    <a href="../index.html#index">Rejected</a>
+    <a href="../index.html#about">About</a>
+  </nav>
+</header>
+
+<article>
+<div class="post-head wrap">
+  <div class="post-kicker">
+    <div class="post-kicker__bar"><i style="flex-grow:1; background: var(--pos);"></i></div>
+    <div class="post-kicker__class">Class: No-regret</div>
+    <div class="post-kicker__sep"></div>
+    <div class="post-kicker__meta">Last updated <time datetime="2026-08-14">14 Aug 2026</time></div>
+  </div>
+
+  <div class="post-grid">
+    <div>
+      <h1 class="post-title">Programming Language Choice for Coding Agents</h1>
+      <p class="standfirst">Whether a codebase's own language measurably changes coding-agent performance. One delta moves — dynamic languages cost fewer tokens per unit of code — and the three that would make this interesting are all zero. The note's own verdict: <em>no-regret, but nearly trivial</em>.</p>
+    </div>
+    <aside class="conf-box">
+      <div class="conf-box__label">Confidence</div>
+      <div class="conf-box__meter"><span class="on"></span><span></span><span></span></div>
+      <div class="conf-box__scale"><span class="on">guess</span><span>researched</span><span>measured</span></div>
+      <div class="conf-box__value">guess</div>
+      <div class="conf-box__body">The lowest rung. <span class="tok">guess</span> means <em>my prior</em> — nobody measured this, the author of the note included. The surviving <span class="tok">+1</span> rests on a general token-ratio estimate from a search-summarized source that this pass could not trace to a specific study; the three zeros rest on the <em>absence</em> of confirming evidence, not on a measurement showing no effect. Both are judgment.</div>
+    </aside>
+  </div>
+</div>
+
+<div class="section wrap" style="padding-top: 56px;">
+  <div class="baseline">
+    <div class="baseline__label">Compared to what</div>
+    <div class="baseline__text">Choosing a project's language by the reasons that already apply today (team familiarity, ecosystem, existing codebase convention) with no agent-performance consideration factored in.</div>
+  </div>
+</div>
+
+<div class="section wrap" style="padding-top: 56px;">
+  <div class="section__head section__head--spread">
+    <h2 class="section__label">The deltas</h2>
+    <div class="section__note">+ is always better for you &middot; never summed</div>
+  </div>
+
+  <div class="delta-cards">
+    <div class="delta-card delta-card--pos">
+      <div class="delta-card__label">cost-delta</div>
+      <div class="delta-card__val">+1</div>
+      <div class="track"><i class="track__cell"></i><i class="track__cell"></i><i class="track__zero"></i><i class="track__cell track__cell--pos"></i><i class="track__cell"></i></div>
+      <div class="delta-card__read">Cheaper &mdash; by token count, on an untraced estimate.</div>
+    </div>
+    <div class="delta-card">
+      <div class="delta-card__label">quality-delta</div>
+      <div class="delta-card__val">0</div>
+      <div class="track"><i class="track__cell"></i><i class="track__cell"></i><i class="track__zero"></i><i class="track__cell"></i><i class="track__cell"></i></div>
+      <div class="delta-card__read">Neutral. The claim that would have moved this did not survive the dive.</div>
+    </div>
+    <div class="delta-card">
+      <div class="delta-card__label">speed-delta</div>
+      <div class="delta-card__val">0</div>
+      <div class="track"><i class="track__cell"></i><i class="track__cell"></i><i class="track__zero"></i><i class="track__cell"></i><i class="track__cell"></i></div>
+      <div class="delta-card__read">Neutral. Nobody measured wall-clock by language.</div>
+    </div>
+    <div class="delta-card">
+      <div class="delta-card__label">attention-delta</div>
+      <div class="delta-card__val">0</div>
+      <div class="track"><i class="track__cell"></i><i class="track__cell"></i><i class="track__zero"></i><i class="track__cell"></i><i class="track__cell"></i></div>
+      <div class="delta-card__read">Neutral. A one-time setup decision either way.</div>
+    </div>
+  </div>
+
+  <div class="meta-row">
+    <div class="meta"><span class="meta__k">dial</span><span class="meta__v">false</span></div>
+    <div class="meta"><span class="meta__k">effort</span><span class="meta__v">low</span></div>
+    <div class="meta"><span class="meta__k">levers</span><span class="meta__v">environment</span></div>
+    <div class="meta"><span class="meta__k">mechanisms</span><span class="meta__v">noise-reduction</span></div>
+  </div>
+</div>
+
+<div class="section wrap" style="padding-top: 56px;">
+  <div class="section__head section__head--spread">
+    <h2 class="section__label">How thin this vector actually is</h2>
+  </div>
+
+  <p class="prose" style="margin-top: 28px;">Read the four cards above as a set rather than one at a time. Three of the four recurring axes are flat, and the fourth is a <span class="tok">+1</span> asserted at the weakest confidence rung. That is not a recommendation — it is close to a null result with one unmeasured exception attached.</p>
+
+  <p class="prose">The claim that would have made this page worth acting on was the original framing: that dynamic languages suit simpler tasks and static languages match or beat them once a project gets complex. A direct read of the primary source walked that back. The author ran two evals — a zstd-decoder implementation and a Pandoc task-driven-development task — and the pattern <em>did not agree between them</em>: dynamic languages clustered better on zstd at medium effort, while on Pandoc "neither language type dominates the other" even at the highest (ultra) effort level tested. The author's own strongest conclusion is that most claims about a particular language being good for LLM use "seem to be wrong... but it's not clear what's right." No independent source was found that measures a complexity threshold at all.</p>
+
+  <p class="prose">So <span class="tok">quality-delta</span> is <span class="tok">0</span> not because language choice was shown not to matter, but because the evidence that it matters fell apart on inspection. Scoring a lift here would have been repeating an unconfirmed claim as fact.</p>
+
+  <p class="prose">What is left is the token-cost observation, and it should be sized honestly: a minor tiebreaker on a decision you are already making for other reasons, not a reason to pick a language.</p>
+</div>
+
+<div class="section wrap" style="padding-top: 56px;">
+  <div class="section__head section__head--spread">
+    <h2 class="section__label">Score history</h2>
+    <div class="section__note">What moved, when, and why</div>
+  </div>
+
+  <p class="prose" style="margin-bottom: 28px;">Scores here are not fixed at a publication date. When evidence arrives that changes an assessment, the score changes and the change is recorded — including the times it was re-examined and held.</p>
+
+  <div class="history">
+    <div class="history__entry">
+      <div class="history__date"><time datetime="2026-08-14">14 Aug 2026</time></div>
+      <div>
+        <div class="history__what">First tracked state</div>
+        <div class="history__vector">
+          <span class="hv"><i>cost</i><b class="pos">+1</b></span>
+          <span class="hv"><i>quality</i><b>0</b></span>
+          <span class="hv"><i>speed</i><b>0</b></span>
+          <span class="hv"><i>attention</i><b>0</b></span>
+          <span class="hv"><i>confidence</i><b>guess</b></span>
+        </div>
+        <p class="history__why">Scored by the unattended triage-and-dive pass on 2026-08-14, against choosing a language by the reasons that already apply today. The note's own caveat on these numbers: the deltas rest on published evidence and judgment, not on outcomes the user has observed directly — confirm or revise before treating them as settled.</p>
+      </div>
+    </div>
+  </div>
+
+  <p class="history__note">History tracking began 28 Aug 2026. Any revisions before that date were not recorded, and are not reconstructed here.</p>
+</div>
+
+<div class="section wrap" style="padding-top: 56px;">
+  <div class="when">
+    <div class="when__col">
+      <div class="when__kicker when__kicker--pos">What it does</div>
+      <div class="when__title">Nothing gets worse</div>
+      <div class="when__body">None of the four recurring deltas goes negative, so there is no regime under which this is the wrong call and no second panel naming one. Choosing a dynamic language for token-cost reasons costs nothing and plausibly saves a little. The honest qualifier is the confidence rung rather than a hidden cost: this is a no-regret asserted on a <span class="tok">guess</span> over a vector that is almost entirely zeros — the shape of the verdict is unconditional, and there is very little inside it. The note's own words: <em>no-regret, but nearly trivial</em>.</div>
+    </div>
+    <div class="when__col">
+      <div class="when__kicker when__kicker--neg">What it costs to set up</div>
+      <div class="when__title">effort: low</div>
+      <div class="when__body">There is nothing to build. Language choice happens once, at project setup, outside any harness feature — there is no dedicated mechanism in Claude Code, and <span class="tok">CLAUDE.md</span>/<span class="tok">AGENTS.md</span> can document the chosen language and its conventions but that is downstream of the choice, not a tool for making it. Kept separate from the delta vector per program convention, because it amortizes and the deltas don't.</div>
+    </div>
+  </div>
+</div>
+
+<div class="section wrap">
+  <div class="section__head"><h2 class="section__label">Why each delta reads the way it does</h2></div>
+
+  <div style="margin-top: 44px;">
+    <div class="arg">
+      <div class="arg__axis">
+        <div class="arg__name">cost-delta</div>
+        <div class="arg__val arg__val--pos">+1</div>
+        <div class="arg__note">The only thing that moved</div>
+      </div>
+      <div>
+        <p class="prose">The one claim from this technique that survives independent cross-checking: dynamic languages run meaningfully cheaper per unit of code by token count. A separately-sourced estimate puts concise dynamic languages at roughly 1/2 to 1/3 the token cost of static languages like Rust, Go, and C++ for equivalent code.</p>
+        <p class="prose">Not <span class="tok">+2</span> because this is a token-count estimate for equivalent code, not a measured end-to-end session-cost comparison, and it says nothing about whether fewer tokens actually translates to fewer accepted-outcome dollars once retries are counted. The rubric's "token cost is per-outcome in reality" caveat applies and was not tested here.</p>
+      </div>
+    </div>
+
+    <div class="arg">
+      <div class="arg__axis">
+        <div class="arg__name">quality-delta</div>
+        <div class="arg__val">0</div>
+        <div class="arg__note">The corrected half of the note</div>
+      </div>
+      <div>
+        <p class="prose">The original candidate's central actionable claim — static languages match or exceed dynamic on complex projects — is not something the primary source itself asserts with confidence. Its own two evals (zstd, Pandoc) disagreed with each other, and the author's conclusion is that most language-performance claims "seem to be wrong" with no clear alternative. The article also explicitly cautions that patterns from smaller, simpler evals do not generalize to the larger case.</p>
+        <p class="prose">No independent source was found that measures a complexity threshold. Academic work on static analysis as an LLM feedback mechanism — type-checker-guided fix verification, static-analysis-driven prompting reducing defect rates over iterative passes — shows static <em>analysis</em> can improve LLM output quality as a feedback loop, but that is a different mechanism (post-hoc verification signal) from "static languages are better project-scale substrate."</p>
+      </div>
+    </div>
+
+    <div class="arg">
+      <div class="arg__axis">
+        <div class="arg__name">speed-delta</div>
+        <div class="arg__val">0</div>
+        <div class="arg__note">Absence of evidence, stated as such</div>
+      </div>
+      <div>
+        <p class="prose">No source, primary or corroborating, measured wall-clock differences by language choice specifically. This zero records that nothing was found, not that a difference was ruled out.</p>
+      </div>
+    </div>
+
+    <div class="arg">
+      <div class="arg__axis">
+        <div class="arg__name">attention-delta</div>
+        <div class="arg__val">0</div>
+        <div class="arg__note">A one-time decision</div>
+      </div>
+      <div>
+        <p class="prose">Nothing found changes how much of the user's own attention this technique demands either way — it is a one-time setup decision either way, not a recurring per-task cost.</p>
+      </div>
+    </div>
+
+    <div class="arg">
+      <div class="arg__axis">
+        <div class="arg__name">dial</div>
+        <div class="arg__val">false</div>
+        <div class="arg__note">The knob that isn't there</div>
+      </div>
+      <div>
+        <p class="prose">The genuine, defensible finding — dynamic is cheaper per token — is flat, not complexity-conditioned. There is no evidenced "switch it based on task size" knob here, which is what would make this a dial. The original framing implied one; the evidence does not support it.</p>
+      </div>
+    </div>
+
+    <div class="arg">
+      <div class="arg__axis">
+        <div class="arg__name">confidence</div>
+        <div class="arg__val">guess</div>
+        <div class="arg__note">The rung that governs the rest</div>
+      </div>
+      <div>
+        <p class="prose">Nobody measured this — not the author of the note, and not anyone whose work this pass could trace. The surviving <span class="tok">cost-delta</span> claim rests on a general token-ratio estimate from a search-summarized source, not a controlled benchmark that could be traced to a specific study. The zeroed-out deltas rest on the absence of confirming evidence rather than a measurement showing no effect. Both count as judgment.</p>
+        <p class="prose">In the rubric, <span class="tok">guess</span> is defined as <em>my prior</em>; <span class="tok">researched</span> would mean someone else measured it, and <span class="tok">measured</span> would mean it was measured here, in an experiment note with a trial count. Neither applies. The rubric is also explicit that class and confidence must be read together: a no-regret at <span class="tok">guess</span> is a hypothesis that nothing gets worse, not a finding, and should not be acted on with the same freedom as one at <span class="tok">researched</span> or <span class="tok">measured</span>.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="wrap">
+  <div class="endnote">
+    <div class="endnote__label">Where to look instead</div>
+    <div class="endnote__body">The one place in the primary source where a static-leaning pattern showed up at all was at the <em>ultra</em> effort setting on the harder (Pandoc) task — which points at reasoning-effort level as a more evidenced lever for complex-task performance than a language choice made once and locked in. "Raise reasoning effort on hard tasks" is the better-supported move than "pick a static language for hard projects." This note is kept on the board as a genuine instance of the Environment lever with a mechanism the other Environment notes don't use — noise-reduction, fewer tokens per unit of code — and as a textbook case of a claim repeated confidently from a source that is itself far less confident than the summary suggested.</div>
+  </div>
+</div>
+</article>
+
+</body>
+</html>

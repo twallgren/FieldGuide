@@ -1,0 +1,283 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Context Management via Subagents — Field Guide</title>
+<meta name="description" content="Delegating self-contained work to subagents that burn their own context and return only conclusions keeps the orchestrator far from the compaction cliff — and moves the bottleneck to verification. Scored: cost −1, quality +1, speed +1, attention −1.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600;700&family=IBM+Plex+Serif:ital,wght@0,400;0,600;1,400&display=swap">
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+
+<header class="masthead masthead--compact wrap">
+  <a class="masthead__name" href="../index.html">Field Guide</a>
+  <nav class="nav">
+    <a href="../index.html#method">Method</a>
+    <a href="../index.html#index">Index</a>
+    <a href="../index.html#index">Rejected</a>
+    <a href="../index.html#about">About</a>
+  </nav>
+</header>
+
+<article>
+<div class="post-head wrap">
+  <div class="post-kicker">
+    <div class="post-kicker__bar bar--dial"><i></i><i></i><i></i><i class="off"></i><i class="off"></i></div>
+    <div class="post-kicker__class">Class: Dial</div>
+    <div class="post-kicker__sep"></div>
+    <div class="post-kicker__meta">Last updated <time datetime="2026-08-28">28 Aug 2026</time></div>
+  </div>
+
+  <div class="post-grid">
+    <div>
+      <h1 class="post-title">Context Management via Subagents</h1>
+      <p class="standfirst">Protecting the main agent's context window by aggressively delegating self-contained work to subagents that burn their own context and return only conclusions. The orchestrator stays small, coherent, and far from the compaction cliff. The core mechanism is <em>isolation</em>, not compression.</p>
+    </div>
+    <aside class="conf-box">
+      <div class="conf-box__label">Confidence</div>
+      <div class="conf-box__meter"><span class="on"></span><span class="on"></span><span></span></div>
+      <div class="conf-box__scale"><span class="on">guess</span><span class="on">researched</span><span>measured</span></div>
+      <div class="conf-box__value">researched</div>
+      <div class="conf-box__body">No rigorous benchmarks exist yet; the deep dive found mostly qualitative reports. Treat magnitudes as directional. Moving this to <span class="tok">measured</span> is what the planned three-way experiment is for.</div>
+    </aside>
+  </div>
+</div>
+
+<div class="section wrap" style="padding-top: 56px;">
+  <div class="baseline">
+    <div class="baseline__label">Compared to what</div>
+    <div class="baseline__text">A single long-running agent session that hits compaction.</div>
+  </div>
+</div>
+
+<div class="section wrap" style="padding-top: 56px;">
+  <div class="section__head section__head--spread">
+    <h2 class="section__label">The deltas</h2>
+    <div class="section__note">+ is always better for you &middot; never summed</div>
+  </div>
+
+  <div class="delta-cards">
+    <div class="delta-card delta-card--neg">
+      <div class="delta-card__label">cost-delta</div>
+      <div class="delta-card__val">&minus;1</div>
+      <div class="track"><i class="track__cell"></i><i class="track__cell track__cell--neg"></i><i class="track__zero"></i><i class="track__cell"></i><i class="track__cell"></i></div>
+      <div class="delta-card__read">Genuinely mixed, netting slightly costlier.</div>
+    </div>
+    <div class="delta-card delta-card--pos">
+      <div class="delta-card__label">quality-delta</div>
+      <div class="delta-card__val">+1</div>
+      <div class="track"><i class="track__cell"></i><i class="track__cell"></i><i class="track__zero"></i><i class="track__cell track__cell--pos"></i><i class="track__cell"></i></div>
+      <div class="delta-card__read">Better &mdash; when the boundaries are clean.</div>
+    </div>
+    <div class="delta-card delta-card--pos">
+      <div class="delta-card__label">speed-delta</div>
+      <div class="delta-card__val">+1</div>
+      <div class="track"><i class="track__cell"></i><i class="track__cell"></i><i class="track__zero"></i><i class="track__cell track__cell--pos"></i><i class="track__cell"></i></div>
+      <div class="delta-card__read">Faster &mdash; and it degrades at larger team sizes.</div>
+    </div>
+    <div class="delta-card delta-card--neg">
+      <div class="delta-card__label">attention-delta</div>
+      <div class="delta-card__val">&minus;1</div>
+      <div class="track"><i class="track__cell"></i><i class="track__cell track__cell--neg"></i><i class="track__zero"></i><i class="track__cell"></i><i class="track__cell"></i></div>
+      <div class="delta-card__read">Demands more of you. The bottleneck moves, it does not vanish.</div>
+    </div>
+  </div>
+
+  <div class="meta-row">
+    <div class="meta"><span class="meta__k">dial</span><span class="meta__v">true</span></div>
+    <div class="meta"><span class="meta__k">effort</span><span class="meta__v">medium</span></div>
+    <div class="meta"><span class="meta__k">levers</span><span class="meta__v">loop, context</span></div>
+    <div class="meta"><span class="meta__k">mechanisms</span><span class="meta__v">noise-reduction, decomposition</span></div>
+  </div>
+</div>
+
+<div class="section wrap" style="padding-top: 56px;">
+  <div class="section__head section__head--spread">
+    <h2 class="section__label">Score history</h2>
+    <div class="section__note">What moved, when, and why</div>
+  </div>
+
+  <p class="prose" style="margin-bottom: 28px;">Scores here are not fixed at a publication date. When evidence arrives that changes an assessment, the score changes and the change is recorded — including the times it was re-examined and held.</p>
+
+  <div class="history">
+    <div class="history__entry">
+      <div class="history__date"><time datetime="2026-08-28">28 Aug 2026</time></div>
+      <div>
+        <div class="history__what">First tracked state</div>
+        <div class="history__vector">
+          <span class="hv"><i>cost</i><b class="neg">&minus;1</b></span>
+          <span class="hv"><i>quality</i><b class="pos">+1</b></span>
+          <span class="hv"><i>speed</i><b class="pos">+1</b></span>
+          <span class="hv"><i>attention</i><b class="neg">&minus;1</b></span>
+          <span class="hv"><i>confidence</i><b>researched</b></span>
+        </div>
+        <p class="history__why">Scored against a single long-running agent session that hits compaction.</p>
+      </div>
+    </div>
+  </div>
+
+  <p class="history__note">History tracking began 28 Aug 2026. Any revisions before that date were not recorded, and are not reconstructed here.</p>
+</div>
+
+<div class="section wrap" style="padding-top: 56px;">
+  <div class="when">
+    <div class="when__col">
+      <div class="when__kicker when__kicker--pos">Turn the knob up when</div>
+      <div class="when__title">You are quality- or latency-bound</div>
+      <div class="when__body">The note places it plainly: correct under a quality-bound or latency-bound regime. Turning it up means more delegation depth, a wider team (3–5 concurrent subagents is where informal guidance converges), and cheaper per-subagent models. The rule-of-thumb candidate for <em>what</em> to push down: delegate anything whose <em>output</em> is much smaller than its <em>working set</em> — searching, reading, analyzing.</div>
+    </div>
+    <div class="when__col">
+      <div class="when__kicker when__kicker--neg">Turn the knob down when</div>
+      <div class="when__title">The decomposition is not clean</div>
+      <div class="when__body">This is a dial, so the low end is not a failure mode — it is the single-session baseline you already run. The note is specific about where turning it up stops paying: it &ldquo;needs the decomposition to be genuinely clean before it's defensible under cost-bound.&rdquo; Keep anything requiring accumulated session judgment in the parent. Over-delegation is a named failure mode, not a theoretical one.</div>
+    </div>
+  </div>
+</div>
+
+<div class="section wrap">
+  <div class="section__head"><h2 class="section__label">Why each delta reads the way it does</h2></div>
+
+  <div style="margin-top: 44px;">
+    <div class="arg">
+      <div class="arg__axis">
+        <div class="arg__name">dial</div>
+        <div class="arg__val arg__val--pos">true</div>
+        <div class="arg__note">Both markers apply</div>
+      </div>
+      <div>
+        <p class="prose">This technique is a <strong>trade by its vector</strong> and a <strong>dial by its marker</strong>, and recording both is correct rather than contradictory. The rubric is explicit that <span class="tok">dial</span> is the only non-derivable class marker and is <em>orthogonal</em> to the other two: no-regret and trade are read off the delta vector and are mutually exclusive with each other, while <span class="tok">dial</span> sits on top of either. The source note's own verdict line says the same thing in one phrase — <strong>&ldquo;Class: trade, with a dial.&rdquo;</strong></p>
+        <p class="prose">The trade half is visible in the vector: it spends tokens and attention to buy quality and speed. Nothing about that is no-regret. The dial half is not in the vector at all, which is exactly why the rubric keeps it as a separate field: delegation depth, team size (3–5 sweet spot), and per-subagent model are all per-task knobs, not a one-time architectural commitment.</p>
+      </div>
+    </div>
+
+    <div class="arg">
+      <div class="arg__axis">
+        <div class="arg__name">cost-delta</div>
+        <div class="arg__val arg__val--neg">&minus;1</div>
+        <div class="arg__note">Mixed, netting slightly costlier</div>
+      </div>
+      <div>
+        <p class="prose">Genuinely mixed. Delegation saves <em>parent-context</em> tokens, but each subagent re-derives context the orchestrator already had, and total token cost scales roughly linearly with team size. The net depends almost entirely on decomposition quality: a clean split can reach neutral, a sloppy one is worse than <span class="tok">&minus;1</span>.</p>
+        <p class="prose">The interface choice bears directly on this axis. Providing a retrieval tool — &ldquo;search the parent's prior findings&rdquo; — beats forking the full parent transcript into every child: forking preserves prompt-cache reuse but costs child tokens re-reading it.</p>
+      </div>
+    </div>
+
+    <div class="arg">
+      <div class="arg__axis">
+        <div class="arg__name">quality-delta</div>
+        <div class="arg__val arg__val--pos">+1</div>
+        <div class="arg__note">Conditional on the interface</div>
+      </div>
+      <div>
+        <p class="prose">Positive when boundaries are clean — specialization appears to beat generalism at the same task; a subagent scoped to &ldquo;just db.js&rdquo; reportedly writes better DB code than one holding the whole codebase in view, suggesting narrower framing and not merely fewer tokens is doing the work. Negative when over-delegated or under-specified.</p>
+        <p class="prose">The <span class="tok">+1</span> assumes the disciplined interface, and only that: scoped prompt down, tool allowlist, summary-only return. Interface design is the whole game. Bad task decomposition makes results worse, not just slower, and information is lost at each boundary.</p>
+      </div>
+    </div>
+
+    <div class="arg">
+      <div class="arg__axis">
+        <div class="arg__name">speed-delta</div>
+        <div class="arg__val arg__val--pos">+1</div>
+        <div class="arg__note">Degrades past ~5 agents</div>
+      </div>
+      <div>
+        <p class="prose">Independent subagents run concurrently. Coordination overhead grows faster than linearly past roughly 5 concurrent agents, so this degrades at larger team sizes — which is the same ceiling that sets the 3–5 sweet spot on the team-size knob.</p>
+      </div>
+    </div>
+
+    <div class="arg">
+      <div class="arg__axis">
+        <div class="arg__name">attention-delta</div>
+        <div class="arg__val arg__val--neg">&minus;1</div>
+        <div class="arg__note">The finding the old scalar fields had no slot for</div>
+      </div>
+      <div>
+        <p class="prose">Offloading generation moves the bottleneck to verification: reviewing and merging several agents' output is <em>more</em> of your time, not less. Delegating generation without also strengthening review relocates the bottleneck rather than removing it.</p>
+        <p class="prose">This is the Token cost ↔ Attention cost tension pair the rubric names as the most common bad trade — and here it is not even a favourable one, since cost goes negative too. Both axes move the wrong way; quality and speed are what is being bought.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="section wrap" style="padding-top: 80px;">
+  <div class="plog">
+    <div class="plog__head">
+      <h2 class="plog__title">Perspectives log</h2>
+      <div class="plog__blurb">Sources that complicate or contradict the score above. Kept on the record whether or not they were convenient.</div>
+    </div>
+
+    <div class="plog__entry">
+      <div class="plog__meta">
+        <div class="plog__date">2026-08-28</div>
+        <div class="tag tag--aligns">Aligns</div>
+        <div class="plog__src">GitHub, via TLDR Dev<br><a href="https://github.com/NeoLabHQ/context-engineering-kit">NeoLabHQ Context Engineering Kit</a></div>
+      </div>
+      <div>
+        <div class="plog__paper">NeoLabHQ Context Engineering Kit</div>
+        <p class="plog__body">The toolkit's Subagent-Driven Development (SADD) component launches isolated sub-agents per task via <span class="tok">/do-and-judge</span>, <span class="tok">/do-in-steps</span>, and <span class="tok">/do-competitively</span> commands — a concrete shipped instance of the delegate-and-return-conclusions pattern this note already tracks, with <span class="tok">/do-competitively</span> notably instantiating <strong>Multi-Agent Debate</strong>-style independent attempts at the per-task-command level rather than as a separate harness feature. Checked the repo directly; most of the toolkit's other plugins repackage techniques already tracked individually elsewhere in this program.</p>
+      </div>
+    </div>
+
+    <div class="plog__entry">
+      <div class="plog__meta">
+        <div class="plog__date">2026-08-25</div>
+        <div class="tag tag--nuances">Nuances</div>
+        <div class="plog__src">vedanshh.com, via TLDR<br><a href="https://www.vedanshh.com/blog/context-engineering">The State Machine Nobody Designed</a></div>
+      </div>
+      <div>
+        <div class="plog__paper">The State Machine Nobody Designed</div>
+        <p class="plog__body">Argues every harness component either adds information to context, controls what's allowed in, or checks output after generation — all three are &ldquo;context engineering,&rdquo; and since context is limited, the real design question is what's worth <em>keeping</em>, not just what to add. Reframes this note's own isolation mechanism (subagents keep noise out entirely rather than compressing it) as one specific answer to a more general framing the article poses.</p>
+      </div>
+    </div>
+
+    <div class="plog__entry">
+      <div class="plog__meta">
+        <div class="plog__date">2026-08-18</div>
+        <div class="tag tag--nuances">Nuances</div>
+        <div class="plog__src">Google, via TLDR AI<br><a href="https://antigravity.google/blog/introducing-custom-agents">Introducing Custom Agents</a></div>
+      </div>
+      <div>
+        <div class="plog__paper">Introducing Custom Agents</div>
+        <p class="plog__body">Google Antigravity's Custom Agents are file-based, team-shared subagent configs (<span class="tok">.agents/agents/*.md</span>) that curate a scoped subset of skills, tools, and permissions per role, and — distinct from typical dynamic subagents — can be launched directly as a primary agent, not just delegated to. A different shape of the same delegation-to-protect-context bet this note tracks: pre-defined, reusable specialist configs rather than ad-hoc fan-out, closer to Foreman's staged-agent pattern but standardized as a harness feature instead of a bespoke template.</p>
+      </div>
+    </div>
+
+    <div class="plog__entry">
+      <div class="plog__meta">
+        <div class="plog__date">2026-08-14</div>
+        <div class="tag tag--aligns">Aligns</div>
+        <div class="plog__src">GitHub, via TLDR<br><a href="https://github.com/vercel-labs/eve-software-factory-template">Foreman software factory template</a></div>
+      </div>
+      <div>
+        <div class="plog__paper">Foreman — an open-source &ldquo;software factory&rdquo; template</div>
+        <p class="plog__body">Runs a task through four staged agents (Classifier, Analyst, Implementer, Reviewer), each in its own sandbox, and delivers a reviewed draft PR for a human to merge — a concrete shipped instance of the multi-stage delegation pattern this note already discusses under the &ldquo;software factories fail without review&rdquo; point, and notably keeps a human-reviewed PR as the final gate rather than auto-merging.</p>
+      </div>
+    </div>
+
+    <div class="plog__entry">
+      <div class="plog__meta">
+        <div class="plog__date">2026-08-14</div>
+        <div class="tag tag--nuances">Nuances</div>
+        <div class="plog__src">TLDR AI<br><a href="https://links.tldrnewsletter.com/Z7DqEC">Subagents on Subagents</a></div>
+      </div>
+      <div>
+        <div class="plog__paper">Subagents on Subagents: How Many Layers Deep is Too Many?</div>
+        <p class="plog__body">Argues recursive agent systems should be designed as dependency graphs rather than judged by nesting depth alone — upstream mistakes propagate across many downstream workers while leaf-node errors stay localized, so reliability depends on blast radius and requires provenance tracking, verification, and stronger controls concentrated at high-impact nodes. Sharpens this note's own &ldquo;hierarchical delegation compounds the benefit&rdquo; point with a caution about where the compounding can go wrong.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="wrap">
+  <div class="endnote">
+    <div class="endnote__label">Where the confidence stops</div>
+    <div class="endnote__body">There are no rigorous benchmarks for this yet — the evidence is mostly qualitative reports, including &ldquo;3-person teams outperform 1 generalist working 3x as long&rdquo; and roughly 220k tokens for a three-part app build. Those magnitude claims are directional, not proven, and are recorded here as such. Two further gaps are carried forward rather than smoothed over: the 3–5 concurrent-subagent ceiling is <em>informal guidance</em> that several sources converge on, not a measured threshold; and Kiro's current state is explicitly unverified — no first-class subagent primitive was used at work, and the note flags that this must be re-checked before being claimed anywhere it matters.</div>
+  </div>
+</div>
+</article>
+
+</body>
+</html>

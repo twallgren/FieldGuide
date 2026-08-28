@@ -1,0 +1,239 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Computer-Use Verification for Coding Agents — Field Guide</title>
+<meta name="description" content="Coding agents driving a real browser or simulator to check their own UI work, and attaching the evidence. The delta is real only when judgment is separated from capture. Scored: cost −1, quality +1, speed −1, attention +1.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600;700&family=IBM+Plex+Serif:ital,wght@0,400;0,600;1,400&display=swap">
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+
+<header class="masthead masthead--compact wrap">
+  <a class="masthead__name" href="../index.html">Field Guide</a>
+  <nav class="nav">
+    <a href="../index.html#method">Method</a>
+    <a href="../index.html#index">Index</a>
+    <a href="../index.html#index">Rejected</a>
+    <a href="../index.html#about">About</a>
+  </nav>
+</header>
+
+<article>
+<div class="post-head wrap">
+  <div class="post-kicker">
+    <div class="post-kicker__bar bar--dial"><i></i><i></i><i></i><i class="off"></i><i class="off"></i></div>
+    <div class="post-kicker__class">Class: Dial</div>
+    <div class="post-kicker__sep"></div>
+    <div class="post-kicker__meta">Last updated <time datetime="2026-08-10">10 Aug 2026</time></div>
+  </div>
+
+  <div class="post-grid">
+    <div>
+      <h1 class="post-title">Computer-Use Verification for Coding Agents</h1>
+      <p class="standfirst">Coding agents using screen and computer-use tools to verify their own work — reproducing a reported bug by actually driving the UI, exercising an implementation against its spec, attaching screenshots or video to a PR as evidence. The framing that matters is a split: evidence-<em>capture</em> is solid and shipping widely; evidence-<em>judgment</em> — who decides pass/fail — is contested, and is where the risk lives.</p>
+    </div>
+    <aside class="conf-box">
+      <div class="conf-box__label">Confidence</div>
+      <div class="conf-box__meter"><span class="on"></span><span class="on"></span><span></span></div>
+      <div class="conf-box__scale"><span class="on">guess</span><span class="on">researched</span><span>measured</span></div>
+      <div class="conf-box__value">researched</div>
+      <div class="conf-box__body">Rests on secondhand practitioner writeups — Vadim's blog, DevAssure, Arize AI — rather than the user's own measurement. No experiment has been run, and the hold on running experiments stays in effect.</div>
+    </aside>
+  </div>
+</div>
+
+<div class="section wrap" style="padding-top: 56px;">
+  <div class="baseline">
+    <div class="baseline__label">Compared to what</div>
+    <div class="baseline__text">The user personally driving the browser/simulator to check UI work, as the existing system-prompt instruction currently implies by default.</div>
+  </div>
+</div>
+
+<div class="section wrap" style="padding-top: 56px;">
+  <div class="section__head section__head--spread">
+    <h2 class="section__label">The deltas</h2>
+    <div class="section__note">+ is always better for you &middot; never summed</div>
+  </div>
+
+  <div class="delta-cards">
+    <div class="delta-card delta-card--neg">
+      <div class="delta-card__label">cost-delta</div>
+      <div class="delta-card__val">&minus;1</div>
+      <div class="track"><i class="track__cell"></i><i class="track__cell track__cell--neg"></i><i class="track__zero"></i><i class="track__cell"></i><i class="track__cell"></i></div>
+      <div class="delta-card__read">More expensive &mdash; extra tool calls and turns.</div>
+    </div>
+    <div class="delta-card delta-card--pos">
+      <div class="delta-card__label">quality-delta</div>
+      <div class="delta-card__val">+1</div>
+      <div class="track"><i class="track__cell"></i><i class="track__cell"></i><i class="track__zero"></i><i class="track__cell track__cell--pos"></i><i class="track__cell"></i></div>
+      <div class="delta-card__read">Better &mdash; but only when judgment is separated from capture.</div>
+    </div>
+    <div class="delta-card delta-card--neg">
+      <div class="delta-card__label">speed-delta</div>
+      <div class="delta-card__val">&minus;1</div>
+      <div class="track"><i class="track__cell"></i><i class="track__cell track__cell--neg"></i><i class="track__zero"></i><i class="track__cell"></i><i class="track__cell"></i></div>
+      <div class="delta-card__read">Slower. An extra step before &ldquo;done&rdquo; is claimable.</div>
+    </div>
+    <div class="delta-card delta-card--pos">
+      <div class="delta-card__label">attention-delta</div>
+      <div class="delta-card__val">+1</div>
+      <div class="track"><i class="track__cell"></i><i class="track__cell"></i><i class="track__zero"></i><i class="track__cell track__cell--pos"></i><i class="track__cell"></i></div>
+      <div class="delta-card__read">Real time back &mdash; conditional, not automatic.</div>
+    </div>
+  </div>
+
+  <div class="meta-row">
+    <div class="meta"><span class="meta__k">dial</span><span class="meta__v">true</span></div>
+    <div class="meta"><span class="meta__k">effort</span><span class="meta__v">medium</span></div>
+    <div class="meta"><span class="meta__k">levers</span><span class="meta__v">tools, human-process</span></div>
+    <div class="meta"><span class="meta__k">mechanisms</span><span class="meta__v">feedback</span></div>
+  </div>
+</div>
+
+<div class="section wrap" style="padding-top: 56px;">
+  <div class="section__head section__head--spread">
+    <h2 class="section__label">Score history</h2>
+    <div class="section__note">What moved, when, and why</div>
+  </div>
+
+  <p class="prose" style="margin-bottom: 28px;">Scores here are not fixed at a publication date. When evidence arrives that changes an assessment, the score changes and the change is recorded — including the times it was re-examined and held.</p>
+
+  <div class="history">
+    <div class="history__entry">
+      <div class="history__date"><time datetime="2026-08-10">10 Aug 2026</time></div>
+      <div>
+        <div class="history__what">First tracked state</div>
+        <div class="history__vector">
+          <span class="hv"><i>cost</i><b class="neg">&minus;1</b></span>
+          <span class="hv"><i>quality</i><b class="pos">+1</b></span>
+          <span class="hv"><i>speed</i><b class="neg">&minus;1</b></span>
+          <span class="hv"><i>attention</i><b class="pos">+1</b></span>
+          <span class="hv"><i>confidence</i><b>researched</b></span>
+        </div>
+        <p class="history__why">Scored against the user personally driving the browser or simulator to check UI work, as the existing system-prompt instruction currently implies by default.</p>
+      </div>
+    </div>
+  </div>
+
+  <p class="history__note">History tracking began 28 Aug 2026. Any revisions before that date were not recorded, and are not reconstructed here.</p>
+</div>
+
+<div class="section wrap" style="padding-top: 56px;">
+  <div class="when">
+    <div class="when__col">
+      <div class="when__kicker when__kicker--pos">Turn the knob up when</div>
+      <div class="when__title">You are quality-bound or attention-bound</div>
+      <div class="when__body">Verification depth is a genuine per-task knob distinct from the underlying capability. Turned up, it runs capture plus a deterministic check for anything shipped, and capture plus human review for anything high-stakes. Regime fit is favorable under quality-bound and attention-bound — the user's stated current regime.</div>
+    </div>
+    <div class="when__col">
+      <div class="when__kicker when__kicker--neg">Turn the knob down when</div>
+      <div class="when__title">You are latency-bound</div>
+      <div class="when__body">The low settings are skip it entirely for a low-stakes internal tool, or capture-only for a quick sanity check. Under a latency-bound regime the note calls this a straight tax <em>unless skipped via the dial</em> — which is what the knob is for. Worth actively using as a dial rather than an all-or-nothing default.</div>
+    </div>
+  </div>
+  <p class="prose" style="margin-top: 28px;">This panel departs from the usual pair. A trade gets a regime where it is simply the wrong call; a dial does not, because the knob is per-task and its lowest setting <em>is</em> the baseline. So the second column names where you turn it down rather than inventing a regime in which having the knob is a mistake.</p>
+</div>
+
+<div class="section wrap">
+  <div class="section__head"><h2 class="section__label">Why each delta reads the way it does</h2></div>
+
+  <div style="margin-top: 44px;">
+    <div class="arg">
+      <div class="arg__axis">
+        <div class="arg__name">dial</div>
+        <div class="arg__val">true</div>
+        <div class="arg__note">Both a trade and a dial</div>
+      </div>
+      <div>
+        <p class="prose">This note records a <span class="tok">trade</span> in its evaluation and <span class="tok">dial: true</span> in its scoring, and both are correct. The rubric is explicit: no-regret and trade are read off the delta vector and are mutually exclusive with each other, while <span class="tok">dial</span> is a separate, non-derivable marker that sits on top of either. By vector this is a trade — it buys quality and attention with cost and speed. By marker it is a dial.</p>
+        <p class="prose">The knob is verification depth, and the note names four settings: skip it for a low-stakes internal tool, capture-only for a quick sanity check, capture plus a deterministic check for anything shipped, capture plus human review for anything high-stakes. That knob is distinct from the underlying capability — having browser and simulator tools available does not itself decide how deep to go on a given task.</p>
+        <p class="prose">The note also records that the class reads differently at different settings of that same knob: <strong>trade</strong> at the capture-only, self-graded end, where it buys some quality and attention at real cost with a live risk of false &ldquo;done&rdquo; claims; and closer to <strong>no-regret</strong> in the capture-plus-deterministic-check design, relative to no verification at all, since that design does not introduce the self-grading risk.</p>
+      </div>
+    </div>
+
+    <div class="arg">
+      <div class="arg__axis">
+        <div class="arg__name">quality-delta</div>
+        <div class="arg__val arg__val--pos">+1</div>
+        <div class="arg__note">Not +2, deliberately</div>
+      </div>
+      <div>
+        <p class="prose">Real UI evidence beats no verification at all and catches classes of bugs a code-only check cannot — visual regressions, actual click-through breakage.</p>
+        <p class="prose">It stops at <span class="tok">+1</span> because the practitioner evidence is explicit that agent self-grading of screenshots is unreliable: the Reward Hacking Benchmark reports 0–13.9% exploit/&ldquo;cheating&rdquo; rates across frontier models, correlated with RL-heavy post-training, and Cognition's own docs admit agents sometimes force application state via JS instead of genuinely exercising the UI. The delta is real only when judgment is separated from capture — deterministic or human-graded. Collapsed into pure agent self-grading, this could easily be a wash or a regression on Failure cost: confident-looking but wrong &ldquo;done&rdquo; claims fail silently instead of loudly.</p>
+      </div>
+    </div>
+
+    <div class="arg">
+      <div class="arg__axis">
+        <div class="arg__name">cost-delta</div>
+        <div class="arg__val arg__val--neg">&minus;1</div>
+        <div class="arg__note">Tool calls, not just tokens</div>
+      </div>
+      <div>
+        <p class="prose">Extra tool calls — navigate, interact, screenshot, and ideally a separate non-LLM check — cost more tokens and turns than skipping verification, or than a pure code-check gate like Merge Queue's <span class="tok">checkCommand</span>.</p>
+      </div>
+    </div>
+
+    <div class="arg">
+      <div class="arg__axis">
+        <div class="arg__name">speed-delta</div>
+        <div class="arg__val arg__val--neg">&minus;1</div>
+        <div class="arg__note">The shape every gate has</div>
+      </div>
+      <div>
+        <p class="prose">Same shape as every other Environment/Tools-lever gate scored so far in this program — Merge Queue, Cloudflare Codex. An extra step before &ldquo;done&rdquo; is claimable.</p>
+      </div>
+    </div>
+
+    <div class="arg">
+      <div class="arg__axis">
+        <div class="arg__name">attention-delta</div>
+        <div class="arg__val arg__val--pos">+1</div>
+        <div class="arg__note">Conditional on the design choice</div>
+      </div>
+      <div>
+        <p class="prose">When the verification is trustworthy — meaning judgment is separated from capture — it genuinely substitutes for the user personally checking the UI. Real time back. This is conditional on that design choice, not automatic.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="section wrap" style="padding-top: 56px;">
+  <div class="section__head"><h2 class="section__label">Who judges the evidence</h2></div>
+  <p class="prose" style="margin-top: 32px;">The strongest practitioner evidence explicitly rejects agent self-grading of its own screenshots. Vadim's &ldquo;Agent Explores, Code Judges&rdquo; architecture strips the LLM out of the verdict step entirely — a Playwright navigator collects evidence, a pure-Python verifier makes the pass/fail call — specifically because &ldquo;self-grading systems collapse audit trails when agents decide both what to check and whether checks passed.&rdquo;</p>
+  <p class="prose">The note's concrete hardening path, in its stated order of strength: a <span class="tok">ui-verify</span> skill standardizing the loop — start dev server, navigate and interact via the browser or simulator tools, capture a screenshot, then run a <em>separate, non-LLM check</em> where one exists (console-error scan, network-status scan) <em>before</em> the model narrates success. Then a Stop hook that blocks marking a UI task complete unless a verification artifact exists for the session. Then PR and commit templates requiring a linked artifact path, so the evidence is inspectable by the human afterward rather than only claimed in prose.</p>
+  <p class="prose">Note the asymmetry with Cloudflare Codex's gate: that one is deterministic by construction — a build or test command either passes or it does not. A screenshot has no such built-in oracle. The verifier still has to decide what the pixels mean, which is exactly why <em>who or what judges the evidence</em> matters more here than in a code-only gate.</p>
+</div>
+
+<div class="section wrap" style="padding-top: 56px;">
+  <div class="section__head"><h2 class="section__label">Where it is shipping</h2></div>
+  <p class="prose" style="margin-top: 32px;"><strong>Kiro</strong> — verified: wires Playwright/browser MCP into its spec workflow for cross-breakpoint UI checks (<a href="https://kiro.dev/blog/one-agent/">Kiro blog</a>).</p>
+  <p class="prose"><strong>Cursor</strong> — not one of the four named frameworks, but the strongest shipped evidence found. Verified: cloud agents run apps in VMs, click through UI, and attach video, screenshots and logs to PRs. Reportedly 30–40% of Cursor-ecosystem PRs merge without human review off that evidence — per a secondhand characterization (Arize AI), not a primary Cursor statement.</p>
+  <p class="prose"><strong>LangGraph, OpenAI Agents SDK, Microsoft Agent Framework</strong> — unverified. No evidence found of a built-in, wired implement→verify computer-use loop specifically for coding tasks in any of the three.</p>
+</div>
+
+<div class="section wrap" style="padding-top: 80px;">
+  <div class="plog">
+    <div class="plog__head">
+      <h2 class="plog__title">Perspectives log</h2>
+      <div class="plog__blurb">Sources that complicate or contradict the score above. Kept on the record whether or not they were convenient.</div>
+    </div>
+
+    <p class="prose">None yet. The log was created on the dive that produced this note and no disagreeing source has been entered into it since. Future scans log disagreement here rather than re-deriving it. Nothing has been back-filled to make this section look fuller than the record is.</p>
+  </div>
+</div>
+
+<div class="wrap">
+  <div class="endnote">
+    <div class="endnote__label">Where the confidence stops</div>
+    <div class="endnote__body">The score rests on secondhand practitioner writeups — Vadim's blog, DevAssure, Arize AI — rather than the user's own measurement. No experiment has been run, and the hold on running experiments stays in effect, so this is <span class="tok">researched</span> and not <span class="tok">measured</span>. One provenance gap is carried forward rather than smoothed out: the TLDR AI source was traced and confirmed real — &ldquo;The Computer Use Verification Skill That Every Agent Needs,&rdquo; Aug 5 2026 edition — but its own primary author and URL could not be recovered, so provenance beyond the newsletter itself is unverified. The natural experiment, once the hold lifts, is self-graded versus code-graded verification on the same UI-change task, checking how often the two disagree — which the Verifiability axis is built to measure directly.</div>
+  </div>
+</div>
+</article>
+
+</body>
+</html>

@@ -1,0 +1,237 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Specula — Field Guide</title>
+<meta name="description" content="Specula is an agentic system that auto-derives formal TLA+ specifications from code, model-checks them for concurrency bugs, and reproduces each finding as a timed integration test. Scored: cost −1, quality +1, speed 0, attention +1.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600;700&family=IBM+Plex+Serif:ital,wght@0,400;0,600;1,400&display=swap">
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+
+<header class="masthead masthead--compact wrap">
+  <a class="masthead__name" href="../index.html">Field Guide</a>
+  <nav class="nav">
+    <a href="../index.html#method">Method</a>
+    <a href="../index.html#index">Index</a>
+    <a href="../index.html#index">Rejected</a>
+    <a href="../index.html#about">About</a>
+  </nav>
+</header>
+
+<article>
+<div class="post-head wrap">
+  <div class="post-kicker">
+    <div class="post-kicker__bar"><i style="flex-grow:1; background: var(--neg);"></i><i style="flex-grow:2; background: var(--pos);"></i></div>
+    <div class="post-kicker__class">Class: Trade</div>
+    <div class="post-kicker__sep"></div>
+    <div class="post-kicker__meta">Last updated <time datetime="2026-08-19">19 Aug 2026</time></div>
+  </div>
+
+  <div class="post-grid">
+    <div>
+      <h1 class="post-title">Specula</h1>
+      <p class="standfirst">A named tool, not a general pattern: <strong>an agentic system that auto-derives formal TLA+ specifications from code, model-checks them to find concurrency bugs, validates code-spec conformance via trace validation, and reproduces any bug it finds at the code layer as a precisely-timed integration test.</strong> A formal-verification approach to agent-driven bug finding.</p>
+    </div>
+    <aside class="conf-box">
+      <div class="conf-box__label">Confidence</div>
+      <div class="conf-box__meter"><span class="on"></span><span class="on"></span><span></span></div>
+      <div class="conf-box__scale"><span class="on">guess</span><span class="on">researched</span><span>measured</span></div>
+      <div class="conf-box__value">researched</div>
+      <div class="conf-box__body">All numbers trace to the paper itself (arXiv 2607.25333) and the tool's own GitHub docs, cross-checked against the blog's independent reading rather than taken from either source alone. Nothing here rests on the user's own trial; <span class="tok">measured</span> would require actually running Specula against one of their own repos.</div>
+    </aside>
+  </div>
+</div>
+
+<div class="section wrap" style="padding-top: 56px;">
+  <div class="baseline">
+    <div class="baseline__label">Compared to what</div>
+    <div class="baseline__text">The user's current state for concurrency/race-condition bugs specifically — caught only incidentally, by code review, ordinary test suites, or in production/CI flakiness, none of which reliably reach this bug class. Not compared against a general test suite or lint baseline, since this targets a failure class those don't reach at all.</div>
+  </div>
+</div>
+
+<div class="section wrap" style="padding-top: 56px;">
+  <div class="section__head section__head--spread">
+    <h2 class="section__label">The deltas</h2>
+    <div class="section__note">+ is always better for you &middot; never summed</div>
+  </div>
+
+  <div class="delta-cards">
+    <div class="delta-card delta-card--neg">
+      <div class="delta-card__label">cost-delta</div>
+      <div class="delta-card__val">&minus;1</div>
+      <div class="track"><i class="track__cell"></i><i class="track__cell track__cell--neg"></i><i class="track__zero"></i><i class="track__cell"></i><i class="track__cell"></i></div>
+      <div class="delta-card__read">More expensive. Real added spend against a baseline of zero.</div>
+    </div>
+    <div class="delta-card delta-card--pos">
+      <div class="delta-card__label">quality-delta</div>
+      <div class="delta-card__val">+1</div>
+      <div class="track"><i class="track__cell"></i><i class="track__cell"></i><i class="track__zero"></i><i class="track__cell track__cell--pos"></i><i class="track__cell"></i></div>
+      <div class="delta-card__read">Better. Capped below <span class="tok">+2</span> by two unresolved limits.</div>
+    </div>
+    <div class="delta-card">
+      <div class="delta-card__label">speed-delta</div>
+      <div class="delta-card__val">0</div>
+      <div class="track"><i class="track__cell"></i><i class="track__cell"></i><i class="track__zero"></i><i class="track__cell"></i><i class="track__cell"></i></div>
+      <div class="delta-card__read">Neutral. Runs out-of-band, not in the interactive loop.</div>
+    </div>
+    <div class="delta-card delta-card--pos">
+      <div class="delta-card__label">attention-delta</div>
+      <div class="delta-card__val">+1</div>
+      <div class="track"><i class="track__cell"></i><i class="track__cell"></i><i class="track__zero"></i><i class="track__cell track__cell--pos"></i><i class="track__cell"></i></div>
+      <div class="delta-card__read">Demands less of you. The genuine unlock.</div>
+    </div>
+  </div>
+
+  <div class="meta-row">
+    <div class="meta"><span class="meta__k">dial</span><span class="meta__v">false</span></div>
+    <div class="meta"><span class="meta__k">effort</span><span class="meta__v">medium</span></div>
+    <div class="meta"><span class="meta__k">levers</span><span class="meta__v">environment, tools</span></div>
+    <div class="meta"><span class="meta__k">mechanisms</span><span class="meta__v">feedback, compute</span></div>
+  </div>
+</div>
+
+<div class="section wrap" style="padding-top: 56px;">
+  <div class="section__head section__head--spread">
+    <h2 class="section__label">Score history</h2>
+    <div class="section__note">What moved, when, and why</div>
+  </div>
+
+  <p class="prose" style="margin-bottom: 28px;">Scores here are not fixed at a publication date. When evidence arrives that changes an assessment, the score changes and the change is recorded — including the times it was re-examined and held.</p>
+
+  <div class="history">
+    <div class="history__entry">
+      <div class="history__date"><time datetime="2026-08-19">19 Aug 2026</time></div>
+      <div>
+        <div class="history__what">First tracked state</div>
+        <div class="history__vector">
+          <span class="hv"><i>cost</i><b class="neg">&minus;1</b></span>
+          <span class="hv"><i>quality</i><b class="pos">+1</b></span>
+          <span class="hv"><i>speed</i><b>0</b></span>
+          <span class="hv"><i>attention</i><b class="pos">+1</b></span>
+          <span class="hv"><i>confidence</i><b>researched</b></span>
+        </div>
+        <p class="history__why">Scored by the unattended triage-and-dive pass on 2026-08-19 — deltas rest on published evidence and judgment, not on outcomes the user has observed directly. Confirm or revise before treating these numbers as settled.</p>
+      </div>
+    </div>
+  </div>
+
+  <p class="history__note">History tracking began 28 Aug 2026. Any revisions before that date were not recorded, and are not reconstructed here.</p>
+</div>
+
+<div class="section wrap" style="padding-top: 56px;">
+  <div class="when">
+    <div class="when__col">
+      <div class="when__kicker when__kicker--pos">Reach for it when</div>
+      <div class="when__title">You are quality-bound, with genuine concurrency exposure</div>
+      <div class="when__body">Async coordination, shared state, locking, distributed protocols. It spends real compute cost and real one-time setup effort to buy a bug class the user's current workflow has no other way to reach, at the price of frontier-model spend and a real toolchain to stand up.</div>
+    </div>
+    <div class="when__col">
+      <div class="when__kicker when__kicker--neg">It is not a fit when</div>
+      <div class="when__title">You are cost-bound, or there is no concurrency</div>
+      <div class="when__body">Not a fit at all under a pure cost-bound regime — weak models don't work — or for codebases without meaningful concurrency, where there is nothing to find.</div>
+    </div>
+  </div>
+</div>
+
+<div class="section wrap">
+  <div class="section__head"><h2 class="section__label">Why each delta reads the way it does</h2></div>
+
+  <div style="margin-top: 44px;">
+    <div class="arg">
+      <div class="arg__axis">
+        <div class="arg__name">quality-delta</div>
+        <div class="arg__val arg__val--pos">+1</div>
+        <div class="arg__note">Not +2, deliberately</div>
+      </div>
+      <div>
+        <p class="prose">The reported results are strong on their own terms — 249 bugs across 48 real systems, 68 independently confirmed and 24 already fixed by upstream maintainers (external validation the paper doesn't control), and a measured 0-false-positive rate on the current version because every finding is reproduced as a runnable integration test rather than reported as an abstract counterexample.</p>
+        <p class="prose">Capped below <span class="tok">+2</span> by two unresolved limits the paper itself surfaces or that the blog's close reading identifies: the <strong>tautology problem</strong> (spec quality is bounded by how well the self-improving loop escapes the very code it's checking — strong empirical results, unresolved in principle) and the <strong>composition gap</strong> (no reasoning across service boundaries, so the technique's real scope is single-service concurrency bugs, not distributed-system bugs generally despite the "distributed systems" framing).</p>
+      </div>
+    </div>
+
+    <div class="arg">
+      <div class="arg__axis">
+        <div class="arg__name">cost-delta</div>
+        <div class="arg__val arg__val--neg">&minus;1</div>
+        <div class="arg__note">No cheap-model way in</div>
+      </div>
+      <div>
+        <p class="prose">This is real added spend against the baseline of zero — a $57-median-per-system figure (per the blog; not independently re-confirmed here) for 1.4–9.9 hours of agent compute, and critically, spend that only pays off at frontier-model tier: the SysMoBench and bug-count-by-model results both show the technique effectively stops working below Opus-class capability, so there's no cheap-model way to capture partial value the way, say, Model Routing's tiering pattern allows elsewhere.</p>
+      </div>
+    </div>
+
+    <div class="arg">
+      <div class="arg__axis">
+        <div class="arg__name">speed-delta</div>
+        <div class="arg__val">0</div>
+        <div class="arg__note">Out-of-band, not blocking</div>
+      </div>
+      <div>
+        <p class="prose">Framed and run as an out-of-band batch/CI-style pass (<span class="tok">specula run</span>, hours of wall-clock) rather than a blocking step in the interactive coding loop the way a <span class="tok">PreToolUse</span> gate in Agentic Code Quality is — it doesn't slow down the turn-by-turn Claude Code session, so no delta against the baseline's interactive speed, even though it costs real wall-clock elsewhere.</p>
+      </div>
+    </div>
+
+    <div class="arg">
+      <div class="arg__axis">
+        <div class="arg__name">attention-delta</div>
+        <div class="arg__val arg__val--pos">+1</div>
+        <div class="arg__note">Removes an expertise requirement</div>
+      </div>
+      <div>
+        <p class="prose">The genuine unlock: formal verification of concurrency properties has historically required a human who can write TLA+ by hand, which the user does not have and would otherwise have to acquire or hire for. Push-button spec derivation removes that expertise requirement entirely for the cases it handles.</p>
+        <p class="prose">Not <span class="tok">+2</span>: the 249 findings still need human triage and real fixes — this automates the <em>finding</em> step, not the <em>deciding what to do about it</em> step, and the self-improving loop's own tautology risk means results still warrant a skeptical read rather than blind trust.</p>
+      </div>
+    </div>
+
+    <div class="arg">
+      <div class="arg__axis">
+        <div class="arg__name">dial</div>
+        <div class="arg__val">false</div>
+        <div class="arg__note">A pass you run or don't</div>
+      </div>
+      <div>
+        <p class="prose">Not a dial: this is a whole-system verification pass the user runs or doesn't, not a per-task knob with a cheap-and-expensive setting the way effort levels or model routing are.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="section wrap" style="padding-top: 56px;">
+  <div class="section__head"><h2 class="section__label">The load-bearing constraint</h2></div>
+
+  <div style="margin-top: 44px;">
+    <p class="prose"><strong>Model capability gates the whole technique — this is the single most load-bearing finding.</strong> The paper's own SysMoBench scores (syntax/runtime/conformance/invariants/overall) show Opus-4.8 at 100% across the board, Sonnet-4.6 at 93% overall, and Haiku-4.5 collapsing to 47% overall (56% runtime, 51% conformance, 17% invariants) — and separately, Sonnet-4.6 found only 10 of 62 bugs Opus found on the same systems, Haiku found none. This isn't a technique that degrades gracefully with a cheaper model; below frontier tier it stops working.</p>
+
+    <p class="prose">Two further limits sit alongside it. The <strong>tautology problem</strong>: specs are derived from the code being checked, so a bug baked into the implementation can get baked into the spec too, silently escaping detection. The paper's own self-improving loop (trace validation pulling specs toward code behavior, model checking pushing back toward the invariants) is the stated mitigation, and the reported false-positive rate is genuinely strong evidence it works in practice — 0 false positives across 136 bugs in 14 systems for the current version, versus 5 (Agent-Raw baseline) and 2 (Agent-TLA+ baseline) on a 5-project comparison — but the paper doesn't fully resolve the circularity concern in principle, only shows it doesn't manifest much in these results. Only 21.1% of derived invariants are protocol-level (implementation-independent) per the blog's reading, which is the more precise version of the same worry.</p>
+
+    <p class="prose">And <strong>no composition across services</strong>: Specula builds a monolithic per-module model with mocked interactions rather than reasoning across a distributed system's service boundaries — a real scope limit for anything beyond a single-service concurrency bug.</p>
+
+    <p class="prose"><strong>Resource floor.</strong> Python 3.10+, Java 21+ with Maven, GitHub CLI, a TLA+ model-checker toolchain, and the README's own recommendation of 32GB RAM / 100GB disk — this is not a lightweight hook, it's closer to standing up a second local toolchain.</p>
+  </div>
+</div>
+
+<div class="section wrap" style="padding-top: 80px;">
+  <div class="plog">
+    <div class="plog__head">
+      <h2 class="plog__title">Perspectives log</h2>
+      <div class="plog__blurb">Sources that complicate or contradict the score above. Kept on the record whether or not they were convenient.</div>
+    </div>
+
+    <p class="prose">No perspectives have been logged for this entry. The source note records sources and links, but no dated perspective entries with a stated stance — so there is nothing to render here, and nothing has been back-filled to fill the space.</p>
+  </div>
+</div>
+
+<div class="wrap">
+  <div class="endnote">
+    <div class="endnote__label">One number flagged as secondary</div>
+    <div class="endnote__body">Traced to the primary source (arXiv 2607.25333, <em>Specula: Scaling formal specifications for autonomous model checking of system code</em>, and the tool's own GitHub repo) rather than relying on the blog summary alone. The two agree: across 48 open-source distributed/concurrent systems, Specula found 249 bugs (207 new, 42 known-but-unfixed); of a reported subset of 89, 68 were confirmed and 24 fixed by upstream maintainers. Wall-clock ran 1.43–9.86 hours per system (median 3.69h); the blog's separately-sourced <span class="tok">$57</span> median cost figure was not independently confirmed in the paper text fetched here, so treat that specific number as secondary, not primary-verified.</div>
+  </div>
+</div>
+</article>
+
+</body>
+</html>

@@ -1,0 +1,380 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Agent Access Model — Field Guide</title>
+<meta name="description" content="Task-specific, short-lived agent credentials with real enforcement buy a narrower blast radius per task — paid for in per-task issuance overhead and in broker infrastructure a single-user setup does not have. Scored: cost 0, quality +1, speed −1, attention −1.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600;700&family=IBM+Plex+Serif:ital,wght@0,400;0,600;1,400&display=swap">
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+
+<header class="masthead masthead--compact wrap">
+  <a class="masthead__name" href="../index.html">Field Guide</a>
+  <nav class="nav">
+    <a href="../index.html#method">Method</a>
+    <a href="../index.html#index">Index</a>
+    <a href="../index.html#index">Rejected</a>
+    <a href="../index.html#about">About</a>
+  </nav>
+</header>
+
+<article>
+<div class="post-head wrap">
+  <div class="post-kicker">
+    <div class="post-kicker__bar"><i style="flex-grow:1; background: var(--neg);"></i><i style="flex-grow:1; background: var(--pos);"></i></div>
+    <div class="post-kicker__class">Class: Trade</div>
+    <div class="post-kicker__sep"></div>
+    <div class="post-kicker__meta">Last updated <time datetime="2026-08-28">28 Aug 2026</time></div>
+  </div>
+
+  <div class="post-grid">
+    <div>
+      <h1 class="post-title">Agent Access Model</h1>
+      <p class="standfirst">Give an agent task-specific, short-lived credentials with enforcement at the harness and network layer, instead of letting it inherit whatever your own standing credentials can reach. Guardrails with real enforcement — not a policy document nobody checks.</p>
+    </div>
+    <aside class="conf-box">
+      <div class="conf-box__label">Confidence</div>
+      <div class="conf-box__meter"><span class="on"></span><span class="on"></span><span></span></div>
+      <div class="conf-box__scale"><span class="on">guess</span><span class="on">researched</span><span>measured</span></div>
+      <div class="conf-box__value">researched</div>
+      <div class="conf-box__body">Someone else measured this. It rests on Cloudflare's own architecture writeup and Microsoft's independent, shipping just-in-time-elevation guidance pointing the same direction — not on anything I have run.</div>
+    </aside>
+  </div>
+</div>
+
+<div class="section wrap" style="padding-top: 56px;">
+  <div class="baseline">
+    <div class="baseline__label">Compared to what</div>
+    <div class="baseline__text">Claude Code's own <span class="tok">settings.json</span> static allow/deny/ask permission model, as currently used by the user across projects.</div>
+  </div>
+</div>
+
+<div class="section wrap" style="padding-top: 56px;">
+  <div class="section__head section__head--spread">
+    <h2 class="section__label">The deltas</h2>
+    <div class="section__note">+ is always better for you &middot; never summed</div>
+  </div>
+
+  <div class="delta-cards">
+    <div class="delta-card">
+      <div class="delta-card__label">cost-delta</div>
+      <div class="delta-card__val">0</div>
+      <div class="track"><i class="track__cell"></i><i class="track__cell"></i><i class="track__zero"></i><i class="track__cell"></i><i class="track__cell"></i></div>
+      <div class="delta-card__read">Not a token lever at all, either direction.</div>
+    </div>
+    <div class="delta-card delta-card--pos">
+      <div class="delta-card__label">quality-delta</div>
+      <div class="delta-card__val">+1</div>
+      <div class="track"><i class="track__cell"></i><i class="track__cell"></i><i class="track__zero"></i><i class="track__cell track__cell--pos"></i><i class="track__cell"></i></div>
+      <div class="delta-card__read">A genuinely narrower blast radius per task.</div>
+    </div>
+    <div class="delta-card delta-card--neg">
+      <div class="delta-card__label">speed-delta</div>
+      <div class="delta-card__val">&minus;1</div>
+      <div class="track"><i class="track__cell"></i><i class="track__cell track__cell--neg"></i><i class="track__zero"></i><i class="track__cell"></i><i class="track__cell"></i></div>
+      <div class="delta-card__read">An issuance step per task a static allowlist never pays.</div>
+    </div>
+    <div class="delta-card delta-card--neg">
+      <div class="delta-card__label">attention-delta</div>
+      <div class="delta-card__val">&minus;1</div>
+      <div class="track"><i class="track__cell"></i><i class="track__cell track__cell--neg"></i><i class="track__zero"></i><i class="track__cell"></i><i class="track__cell"></i></div>
+      <div class="delta-card__read">The deciding axis. Infrastructure to build and maintain.</div>
+    </div>
+  </div>
+
+  <div class="meta-row">
+    <div class="meta"><span class="meta__k">dial</span><span class="meta__v">false</span></div>
+    <div class="meta"><span class="meta__k">effort</span><span class="meta__v">high</span></div>
+    <div class="meta"><span class="meta__k">levers</span><span class="meta__v">tools</span></div>
+    <div class="meta"><span class="meta__k">mechanisms</span><span class="meta__v">constraint</span></div>
+  </div>
+</div>
+
+<div class="section wrap" style="padding-top: 56px;">
+  <div class="section__head section__head--spread">
+    <h2 class="section__label">Score history</h2>
+    <div class="section__note">What moved, when, and why</div>
+  </div>
+
+  <p class="prose" style="margin-bottom: 28px;">Scores here are not fixed at a publication date. When evidence arrives that changes an assessment, the score changes and the change is recorded — including the times it was re-examined and held.</p>
+
+  <div class="history">
+    <div class="history__entry">
+      <div class="history__date"><time datetime="2026-08-28">28 Aug 2026</time></div>
+      <div>
+        <div class="history__what">First tracked state</div>
+        <div class="history__vector">
+          <span class="hv"><i>cost</i><b>0</b></span>
+          <span class="hv"><i>quality</i><b class="pos">+1</b></span>
+          <span class="hv"><i>speed</i><b class="neg">&minus;1</b></span>
+          <span class="hv"><i>attention</i><b class="neg">&minus;1</b></span>
+          <span class="hv"><i>confidence</i><b>researched</b></span>
+        </div>
+        <p class="history__why">Scored against Claude Code's own <span class="tok">settings.json</span> static allow/deny/ask permission model, as currently used across projects.</p>
+      </div>
+    </div>
+  </div>
+
+  <p class="history__note">History tracking began 28 Aug 2026. Any revisions before that date were not recorded, and are not reconstructed here.</p>
+</div>
+
+<div class="section wrap" style="padding-top: 56px;">
+  <div class="when">
+    <div class="when__col">
+      <div class="when__kicker when__kicker--pos">Reach for it when</div>
+      <div class="when__title">You are quality-bound, or exposed</div>
+      <div class="when__body">Many agents, shared credentials, or a genuine risk of one compromised task cascading into standing access. That is the regime the trade is worth making under — it buys containment at the cost of speed and attention, and only an exposure-driven or quality-bound threat model justifies the bill.</div>
+    </div>
+    <div class="when__col">
+      <div class="when__kicker when__kicker--neg">The trade goes thin when</div>
+      <div class="when__title">One harness, one machine, one human</div>
+      <div class="when__body">AAM is designed for a multi-agent, multi-tenant enterprise problem. Under a single-machine, attention-bound regime the marginal benefit over Claude Code's existing static allowlist is thin relative to the setup cost — unless the threat model changes, e.g. running several concurrent agents against shared production credentials.</div>
+    </div>
+  </div>
+</div>
+
+<div class="section wrap">
+  <div class="section__head"><h2 class="section__label">Why each delta reads the way it does</h2></div>
+
+  <div style="margin-top: 44px;">
+    <div class="arg">
+      <div class="arg__axis">
+        <div class="arg__name">quality-delta</div>
+        <div class="arg__val arg__val--pos">+1</div>
+        <div class="arg__note">Containment, in principle</div>
+      </div>
+      <div>
+        <p class="prose">Task-scoped, sender-constrained, expiring credentials give a genuinely narrower blast radius per task than a ceiling set once and left in place. If an agent is compromised or goes off-script mid-task, there is less standing access to abuse than under a static allowlist. This is a real containment improvement in principle.</p>
+        <p class="prose">It is <span class="tok">researched</span>, not measured: the reading rests on Cloudflare's own architecture writeup and on Microsoft's independent, shipping just-in-time-elevation guidance pointing the same direction — not on anything run locally.</p>
+      </div>
+    </div>
+
+    <div class="arg">
+      <div class="arg__axis">
+        <div class="arg__name">cost-delta</div>
+        <div class="arg__val">0</div>
+        <div class="arg__note">Wrong axis entirely</div>
+      </div>
+      <div>
+        <p class="prose">This is not a token or spend lever at all — it is about credential exposure and access scope, not LLM call efficiency. No plausible cost impact in either direction.</p>
+      </div>
+    </div>
+
+    <div class="arg">
+      <div class="arg__axis">
+        <div class="arg__name">speed-delta</div>
+        <div class="arg__val arg__val--neg">&minus;1</div>
+        <div class="arg__note">Small per task, but unavoidable</div>
+      </div>
+      <div>
+        <p class="prose">Real task-scoped credentials require an actual issuance step — token exchange, key binding — at the start of each task, overhead a static, already-resolved allowlist does not pay. Small per task, but real, and there is no way to get the containment benefit without paying it somewhere.</p>
+      </div>
+    </div>
+
+    <div class="arg">
+      <div class="arg__axis">
+        <div class="arg__name">attention-delta</div>
+        <div class="arg__val arg__val--neg">&minus;1</div>
+        <div class="arg__note">The deciding axis</div>
+      </div>
+      <div>
+        <p class="prose">AAM is designed for a multi-agent, multi-tenant enterprise problem — many agents, many humans, shared infrastructure, credentials that need central revocation. A single harness, run locally under one person's standing trust, is not that problem.</p>
+        <p class="prose">Building or adopting the broker/proxy infrastructure AAM actually needs — a token-exchange service, sender-constrained key management — to realize its benefit costs real setup and maintenance attention that a single-user <span class="tok">settings.json</span> allowlist does not ask for. And the Grant Review Loop's own attention-saving pitch only pays off once that infrastructure exists to generate the activity logs it reviews.</p>
+      </div>
+    </div>
+
+    <div class="arg">
+      <div class="arg__axis">
+        <div class="arg__name">dial</div>
+        <div class="arg__val">false</div>
+        <div class="arg__note">An architecture, not a knob</div>
+      </div>
+      <div>
+        <p class="prose">Recorded as <span class="tok">false</span> in the note's frontmatter. There is no per-task knob handed to the user here — the technique is an access architecture you either stand up or do not.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="section wrap" style="padding-top: 56px;">
+  <div class="section__head section__head--spread">
+    <h2 class="section__label">What <span class="tok">effort: high</span> actually consists of</h2>
+    <div class="section__note">One-time setup cost &middot; amortizes, unlike the deltas</div>
+  </div>
+
+  <p class="prose" style="margin-top: 32px;">Cheap to run, expensive to adopt — a distinction the four deltas do not show. The note is specific about where the setup cost lands:</p>
+
+  <p class="prose"><strong>A token-issuance layer the harness does not have.</strong> Claude Code's permission system (<span class="tok">settings.json</span> allow/deny/ask, evaluated deny → ask → allow with rules merging across managed/CLI/local/project/user scopes) is the existing Constraint-at-Tools mechanism — but it is a static ceiling set once, not task-scoped or time-boxed. There is no built-in primitive for &ldquo;this permission expires when this task ends&rdquo; or &ldquo;this token is bound to this specific run.&rdquo; Expiring and sender-constrained credentials need an actual token-issuance layer.</p>
+
+  <p class="prose"><strong>A Grant Review Loop with no built-in analog.</strong> Proposing policy tightening from observed activity logs would need a custom script parsing session transcripts and hook events, diffing granted permissions against what was actually invoked, and surfacing over-permissioned rules to prune — essentially a permission-usage auditor for <span class="tok">settings.json</span>, which does not currently exist as a Claude Code feature or known community skill.</p>
+
+  <p class="prose"><strong>A gateway for the secrets-in-tool-calls half.</strong> For keeping raw API keys out of the agent's context — as opposed to filesystem/bash permission scoping — a OneCLI-style gateway in front of MCP server calls is the closer fit than anything in Claude Code's own permission model, which gates <em>actions</em>, not what credentials a tool call carries.</p>
+
+  <p class="prose"><strong>The cheap approximation, and its ceiling.</strong> Without building real broker infrastructure, the closest available move is swapping in a narrower <span class="tok">settings.local.json</span> per task type via a wrapper script or a <span class="tok">SessionStart</span>/<span class="tok">PreToolUse</span> hook that tightens the active rule set for the kind of task starting. That gets partway to &ldquo;task-scoped&rdquo; — but not to &ldquo;expiring&rdquo; or &ldquo;sender-constrained.&rdquo;</p>
+</div>
+
+<div class="section wrap" style="padding-top: 56px;">
+  <div class="section__head"><h2 class="section__label">Where it already ships elsewhere</h2></div>
+
+  <p class="prose" style="margin-top: 32px;"><strong>Microsoft Agent Framework / Microsoft Entra Agent ID</strong> — verified via Microsoft Learn and the Security Blog. Agent identities are distinct from human or managed identities, credentials are configured on an identity &ldquo;blueprint&rdquo; rather than per-instance, and Microsoft's own production guidance explicitly recommends just-in-time elevation — narrowly-scoped, time-bound grants for the duration of one workflow — over standing broad access. The closest verified real-world analog to AAM's task-scoped credential outside Cloudflare's own writeup, and it is shipping, not a proposal.</p>
+
+  <p class="prose"><strong>LangGraph Platform</strong> — verified via LangChain docs. <span class="tok">@auth.authenticate</span> and <span class="tok">@auth.on</span> handlers scope what a given run's credentials can touch, with resource-level filtering so a user only sees or modifies matching threads, assistants and runs. Closer to per-run scoping than Claude Code's static file-based allowlist — but a feature of the managed Platform deployment layer, not of running a LangGraph graph locally.</p>
+
+  <p class="prose"><strong>OpenAI Agents SDK</strong> — verified via SDK docs and the OpenAI developer community. Ships tool- and agent-level guardrails for input/output validation, but no built-in ephemeral-credential or task-scoping primitive. A thread on OpenAI's own developer forum names this explicitly as an open gap: agents pass through API keys with full access, no scoping, no revocation short of rotating keys for everyone — developers solve it with external tooling, not with the SDK.</p>
+</div>
+
+<div class="section wrap" style="padding-top: 80px;">
+  <div class="plog">
+    <div class="plog__head">
+      <h2 class="plog__title">Perspectives log</h2>
+      <div class="plog__blurb">Sources that complicate or contradict the score above. Kept on the record whether or not they were convenient.</div>
+    </div>
+
+    <div class="plog__entry">
+      <div class="plog__meta">
+        <div class="plog__date">2026-08-28</div>
+        <div class="tag tag--nuances">Nuances</div>
+        <div class="plog__src">AWS Architecture Blog, via TLDR Dev<br><a href="https://aws.amazon.com/blogs/architecture/closing-the-ai-agent-trust-gap-with-graduated-autonomy/">Graduated autonomy</a></div>
+      </div>
+      <div>
+        <div class="plog__paper">Closing the AI Agent Trust Gap with Graduated Autonomy</div>
+        <p class="plog__body">Proposes a dynamic, reputation-based permission model instead of a fixed scope — agents start read-only and earn expanded write/execute access through a weighted 0-100 score across five dimensions (accuracy, safety, consistency, compliance, efficiency) over a rolling 50-action window, promoting slowly through four tiers (T1 probation → T4 autonomous) but demoting instantly on a violation. A different axis from AAM's task-scoped-credential thesis and Vercel Connect's auto-expiring tokens: those narrow <em>what</em> an agent can reach per task, this narrows <em>how much</em> an agent can do based on its own track record. The two are composable rather than competing.</p>
+      </div>
+    </div>
+
+    <div class="plog__entry">
+      <div class="plog__meta">
+        <div class="plog__date">2026-08-28</div>
+        <div class="tag tag--challenges">Challenges</div>
+        <div class="plog__src">Simon Willison, via TLDR AI<br><a href="https://simonwillison.net/2026/Aug/27/breaking-claude-code-opus-5-auto-mode/">Breaking auto mode</a></div>
+      </div>
+      <div>
+        <div class="plog__paper">Breaking Claude Code Opus 5 Auto Mode</div>
+        <p class="plog__body">Security researcher Johann Rehberger reports an 80% success rate tricking Claude Code's auto-mode safety classifier via a poisoned zip file, and notes the classifier sometimes blocked the very cleanup command Claude tried to run after detecting the compromise — direct evidence that a model-level safety classifier is not a substitute for this note's sandboxing/credential-scoping thesis, reinforcing the &ldquo;the weakest layer is the one you built yourself&rdquo; point already logged from Anthropic's own containment writeup.</p>
+      </div>
+    </div>
+
+    <div class="plog__entry">
+      <div class="plog__meta">
+        <div class="plog__date">2026-08-26</div>
+        <div class="tag tag--challenges">Challenges</div>
+        <div class="plog__src">Trail of Bits blog, via TLDR Dev<br><a href="https://blog.trailofbits.com/2026/08/26/vms-wont-contain-cyber-capable-agents/">VMs won't contain agents</a></div>
+      </div>
+      <div>
+        <div class="plog__paper">VMs won't contain cyber-capable agents</div>
+        <p class="plog__body">Argues advanced AI agents can escape VM sandboxes quickly by chaining known and unknown host-system vulnerabilities, so traditional virtualization should not be assumed to hold as a containment boundary — a direct counterpoint to the VM-isolation half of Anthropic's &ldquo;How we contain Claude&rdquo; entry below (full VM isolation for Cowork). The recommended fix is the same shape as this note's existing thesis — minimal-attack-surface virtualization and rapid patching over trusting the hypervisor boundary itself — but the claim is worth flagging rather than resolving: it means the &ldquo;battle-tested hypervisors… held&rdquo; claim in the Anthropic entry may not generalize to more capable or adversarial agents than what Anthropic tested.</p>
+      </div>
+    </div>
+
+    <div class="plog__entry">
+      <div class="plog__meta">
+        <div class="plog__date">2026-08-26</div>
+        <div class="tag tag--nuances">Nuances</div>
+        <div class="plog__src">Anthropic Engineering<br><a href="https://www.anthropic.com/engineering/how-we-contain-claude">How we contain Claude</a></div>
+      </div>
+      <div>
+        <div class="plog__paper">How we contain Claude</div>
+        <p class="plog__body">Anthropic's own containment writeup for Claude Code/Cowork layers OS-level sandboxing (cut Claude Code permission prompts 84% while enabling unattended execution) with full VM isolation for Cowork, where credentials stay in the host keychain and the guest only gets scoped session tokens — a first-party instance of AAM's task-scoped-credential thesis. Its sharpest addition: &ldquo;the weakest layer is the one you built yourself&rdquo; — Anthropic found custom proxies and allowlist filters kept failing where battle-tested hypervisors and syscall filters held, and also matches isolation <em>strength</em> to user expertise (bash-literate developers get evaluable approval prompts; knowledge workers get deterministic environmental boundaries instead).</p>
+      </div>
+    </div>
+
+    <div class="plog__entry">
+      <div class="plog__meta">
+        <div class="plog__date">2026-08-26</div>
+        <div class="tag tag--aligns">Aligns</div>
+        <div class="plog__src">Vercel blog, via TLDR AI<br><a href="https://vercel.com/blog/the-end-of-credential-sprawl-for-agents">End of credential sprawl</a></div>
+      </div>
+      <div>
+        <div class="plog__paper">The end of credential sprawl for agents</div>
+        <p class="plog__body">Vercel Connect replaces long-lived API tokens with runtime-issued credentials scoped to individual tasks that expire automatically, now GA with 100+ connectors — a second shipped, general-purpose (not enterprise-bespoke) instance of AAM's task-specific, short-lived-credential design, reinforcing that this pattern is moving from research claim to standard product feature.</p>
+      </div>
+    </div>
+
+    <div class="plog__entry">
+      <div class="plog__meta">
+        <div class="plog__date">2026-08-19</div>
+        <div class="tag tag--nuances">Nuances</div>
+        <div class="plog__src">GitHub, via TLDR Dev<br><a href="https://github.com/lajosdeme/mole">Mole</a></div>
+      </div>
+      <div>
+        <div class="plog__paper">Mole</div>
+        <p class="plog__body">An open-source deep-research agent that enforces a hard spending budget and requires claims to be verified against citations before answering. A Constraint-mechanism instance like AAM, but applied to a research/verification agent rather than a coding agent, and the constraint targets <em>spend</em> and <em>claim provenance</em> rather than <em>tool/credential scope</em> — a different slice of Tools × Constraint than either AAM's task-scoped credentials or Corsair's per-call approval modes. Worth noting on a future dive whether a spending-budget-plus-citation-check pattern has a coding-agent analog.</p>
+      </div>
+    </div>
+
+    <div class="plog__entry">
+      <div class="plog__meta">
+        <div class="plog__date">2026-08-19</div>
+        <div class="tag tag--aligns">Aligns</div>
+        <div class="plog__src">arXiv paper, via TLDR AI<br><a href="https://arxiv.org/abs/2608.16402">arxiv 2608.16402</a></div>
+      </div>
+      <div>
+        <div class="plog__paper">A Policy Algebra for Trust-Preserving Agentic AI Execution</div>
+        <p class="plog__body">Proposes enforcing an agent's permissions continuously throughout a task rather than only at the start — e.g. a refund agent staying capped at its spending limit and escalating to human approval mid-task, not just when the task is granted. The authors report their runtime stopped or corrected 94.8% of rule-breaking actions while still completing 86.9% of legitimate tasks — a quantified instance of this note's runtime, task-scoped enforcement thesis, distinct from the design-time (MCP server) and static-approval (Corsair) instances logged here.</p>
+      </div>
+    </div>
+
+    <div class="plog__entry">
+      <div class="plog__meta">
+        <div class="plog__date">2026-08-13</div>
+        <div class="tag tag--nuances">Nuances</div>
+        <div class="plog__src">blog.pamelafox.org, via TLDR AI<br><a href="https://blog.pamelafox.org/2026/08/building-safe-mcp-servers-for-your.html">Safe MCP servers</a></div>
+      </div>
+      <div>
+        <div class="plog__paper">Building safe MCP servers for your PostgreSQL database</div>
+        <p class="plog__body">Lays out the same Tools × Constraint tradeoff from the server-design side rather than the credential-broker side — a spectrum from flexible agent-generated SQL (maximum capability, maximum blast radius) to tightly constrained, typed query tools (narrower capability, bounded risk). A design-time technique for narrowing what a tool <em>can</em> do at all, distinct from AAM's runtime task-scoped-credential approach to limiting what an agent's existing tools <em>may</em> access — the two compose rather than compete.</p>
+      </div>
+    </div>
+
+    <div class="plog__entry">
+      <div class="plog__meta">
+        <div class="plog__date">2026-08-12</div>
+        <div class="tag tag--aligns">Aligns</div>
+        <div class="plog__src">GitHub repo, via TLDR Dev<br><a href="https://github.com/corsairdev/corsair">Corsair</a></div>
+      </div>
+      <div>
+        <div class="plog__paper">Corsair</div>
+        <p class="plog__body">A unified integration layer for agents connecting to third-party apps, with configurable approval modes per interaction so sensitive operations (sending email, making API calls) require explicit user confirmation rather than running under whatever standing access the agent has. A shipped, general-purpose instance of Tools × Constraint enforcement at the individual-action level — closer in grain to Claude Code's own permission prompts than to AAM's task-scoped-credential architecture. Worth checking on a future dive whether its approval scoping is per-call (static) or genuinely task/session-scoped.</p>
+      </div>
+    </div>
+
+    <div class="plog__entry">
+      <div class="plog__meta">
+        <div class="plog__date">2026-08-11</div>
+        <div class="tag tag--nuances">Nuances</div>
+        <div class="plog__src">The Hacker News<br><a href="https://thehackernews.com/2026/08/malicious-mcp-servers-can-split.html">GhostSplice</a></div>
+      </div>
+      <div>
+        <div class="plog__paper">Malicious MCP servers can split a malicious instruction across fragments</div>
+        <p class="plog__body">The &ldquo;GhostSplice&rdquo; attack shows malicious MCP servers can split a malicious instruction across a tool description, a tool result, and a server message — each fragment individually benign, only dangerous combined — raising average model compliance from 42% to 82% across 11 models tested (some going 0%→100%). A distinct attack surface from AAM's credential-scoping claim: splitting does not require elevated access, just unchecked tool-output-to-tool-argument flow, so credential scoping alone would not stop it. The researchers' fix is treating server output as data, not instructions, and blocking values from flowing unchecked between tool calls.</p>
+      </div>
+    </div>
+
+    <div class="plog__entry">
+      <div class="plog__meta">
+        <div class="plog__date">2026-08-10</div>
+        <div class="tag tag--aligns">Aligns</div>
+        <div class="plog__src">TLDR Dev<br>URL not captured at scan time</div>
+      </div>
+      <div>
+        <div class="plog__paper">OneCLI</div>
+        <p class="plog__body">An OSS credential gateway that injects API keys into agents without exposing raw keys, with pattern-based routing for multi-agent setups — a concrete, shipped mechanism for the task-scoped-credential half of AAM's design (agents never hold the standing credential itself, only a scoped injection). Logged as aligning at scan time, with the caveat that it was worth checking whether OneCLI's routing is genuinely task-specific and short-lived or just a static per-agent key mapping. It was later verified as the weaker version — see the endnote below.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="wrap">
+  <div class="endnote">
+    <div class="endnote__label">The distinguishing claim, sharpened rather than resolved</div>
+    <div class="endnote__body">The claim this note flagged at promotion — <em>task-specific, short-lived</em> credentials versus a static ceiling — held up under research and got sharper rather than settled. <strong>OneCLI, the concrete shipped tool logged in the Perspectives log above, turned out to implement the weaker version.</strong> Verified directly against its own architecture docs: OneCLI does per-agent static credential mapping with pattern-based routing, not per-task expiring tokens. It solves &ldquo;don't expose raw keys to the agent's context&rdquo; — a real, adjacent problem — but not &ldquo;narrow scope per task and expire it,&rdquo; which is AAM's actual claim. The two are easy to conflate and worth keeping distinct on any future entry. The honest takeaway from the whole dive is <em>pattern</em>, not <em>tool</em>: the broker, token-exchange and sender-constrained machinery is enterprise/multi-tenant infrastructure a single-user setup likely should not build — but the shape of the idea, don't let permission scope only ever accumulate, narrow it per task where cheap to do so, is adoptable today without waiting for it.</div>
+  </div>
+</div>
+</article>
+
+</body>
+</html>

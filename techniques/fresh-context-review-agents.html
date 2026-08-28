@@ -1,0 +1,322 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Fresh-Context Review Agents — Field Guide</title>
+<meta name="description" content="A reviewer that never saw the code get written catches more than the agent that wrote it — measurably, in a controlled experiment. It buys quality and cheaper triage with wall-clock. Scored: cost 0, quality +1, speed −1, attention +1.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600;700&family=IBM+Plex+Serif:ital,wght@0,400;0,600;1,400&display=swap">
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+
+<header class="masthead masthead--compact wrap">
+  <a class="masthead__name" href="../index.html">Field Guide</a>
+  <nav class="nav">
+    <a href="../index.html#method">Method</a>
+    <a href="../index.html#index">Index</a>
+    <a href="../index.html#index">Rejected</a>
+    <a href="../index.html#about">About</a>
+  </nav>
+</header>
+
+<article>
+<div class="post-head wrap">
+  <div class="post-kicker">
+    <div class="post-kicker__bar bar--dial"><i></i><i></i><i></i><i class="off"></i><i class="off"></i></div>
+    <div class="post-kicker__class">Class: Dial</div>
+    <div class="post-kicker__sep"></div>
+    <div class="post-kicker__meta">Last updated <time datetime="2026-08-17">17 Aug 2026</time></div>
+  </div>
+
+  <div class="post-grid">
+    <div>
+      <h1 class="post-title">Fresh-Context Review Agents</h1>
+      <p class="standfirst">Reviewing code, plans and findings with an isolated agent that sees only the artifact — never the conversation that produced it. The mechanism is <em>decontamination</em>: an agent that watched the code get written reviews its own reasoning; a fresh agent reviews the code. Same model, meaningfully different results.</p>
+    </div>
+    <aside class="conf-box">
+      <div class="conf-box__label">Confidence</div>
+      <div class="conf-box__meter"><span class="on"></span><span class="on"></span><span></span></div>
+      <div class="conf-box__scale"><span class="on">guess</span><span class="on">researched</span><span>measured</span></div>
+      <div class="conf-box__value">researched</div>
+      <div class="conf-box__body">Desk research only — the Cross-Context Review paper, the framing-bias paper, and Anthropic's own product docs. No hands-on trial in this codebase, so not <span class="tok">measured</span>.</div>
+    </aside>
+  </div>
+</div>
+
+<div class="section wrap" style="padding-top: 56px;">
+  <div class="baseline">
+    <div class="baseline__label">Compared to what</div>
+    <div class="baseline__text">&ldquo;Baseline: the author-agent reviewing its own diff in the same (possibly long, compacted) session before merging — the status quo this note's Overview describes as &lsquo;worthless&rsquo; self-review.&rdquo;</div>
+  </div>
+</div>
+
+<div class="section wrap" style="padding-top: 56px;">
+  <div class="section__head section__head--spread">
+    <h2 class="section__label">The deltas</h2>
+    <div class="section__note">+ is always better for you &middot; never summed</div>
+  </div>
+
+  <div class="delta-cards">
+    <div class="delta-card">
+      <div class="delta-card__label">cost-delta</div>
+      <div class="delta-card__val">0</div>
+      <div class="track"><i class="track__cell"></i><i class="track__cell"></i><i class="track__zero"></i><i class="track__cell"></i><i class="track__cell"></i></div>
+      <div class="delta-card__read">Roughly a wash &mdash; a bounded add, not a scaling one.</div>
+    </div>
+    <div class="delta-card delta-card--pos">
+      <div class="delta-card__label">quality-delta</div>
+      <div class="delta-card__val">+1</div>
+      <div class="track"><i class="track__cell"></i><i class="track__cell"></i><i class="track__zero"></i><i class="track__cell track__cell--pos"></i><i class="track__cell"></i></div>
+      <div class="delta-card__read">A measured lift on a genuinely bad baseline.</div>
+    </div>
+    <div class="delta-card delta-card--neg">
+      <div class="delta-card__label">speed-delta</div>
+      <div class="delta-card__val">&minus;1</div>
+      <div class="track"><i class="track__cell"></i><i class="track__cell track__cell--neg"></i><i class="track__zero"></i><i class="track__cell"></i><i class="track__cell"></i></div>
+      <div class="delta-card__read">The axis it spends. Wall-clock before merge.</div>
+    </div>
+    <div class="delta-card delta-card--pos">
+      <div class="delta-card__label">attention-delta</div>
+      <div class="delta-card__val">+1</div>
+      <div class="track"><i class="track__cell"></i><i class="track__cell"></i><i class="track__zero"></i><i class="track__cell track__cell--pos"></i><i class="track__cell"></i></div>
+      <div class="delta-card__read">Findings to triage instead of a diff to re-read.</div>
+    </div>
+  </div>
+
+  <div class="meta-row">
+    <div class="meta"><span class="meta__k">dial</span><span class="meta__v">true</span></div>
+    <div class="meta"><span class="meta__k">effort</span><span class="meta__v">low</span></div>
+    <div class="meta"><span class="meta__k">levers</span><span class="meta__v">loop, context</span></div>
+    <div class="meta"><span class="meta__k">mechanisms</span><span class="meta__v">independence, feedback, noise-reduction</span></div>
+  </div>
+</div>
+
+<div class="section wrap" style="padding-top: 56px;">
+  <div class="section__head section__head--spread">
+    <h2 class="section__label">Score history</h2>
+    <div class="section__note">What moved, when, and why</div>
+  </div>
+
+  <p class="prose" style="margin-bottom: 28px;">Scores here are not fixed at a publication date. When evidence arrives that changes an assessment, the score changes and the change is recorded — including the times it was re-examined and held.</p>
+
+  <div class="history">
+    <div class="history__entry">
+      <div class="history__date"><time datetime="2026-08-17">17 Aug 2026</time></div>
+      <div>
+        <div class="history__what">First tracked state</div>
+        <div class="history__vector">
+          <span class="hv"><i>cost</i><b>0</b></span>
+          <span class="hv"><i>quality</i><b class="pos">+1</b></span>
+          <span class="hv"><i>speed</i><b class="neg">&minus;1</b></span>
+          <span class="hv"><i>attention</i><b class="pos">+1</b></span>
+          <span class="hv"><i>confidence</i><b>researched</b></span>
+        </div>
+        <p class="history__why">Scored against the author-agent reviewing its own diff in the same, possibly long and compacted, session before merging.</p>
+      </div>
+    </div>
+  </div>
+
+  <p class="history__note">History tracking began 28 Aug 2026. Any revisions before that date were not recorded, and are not reconstructed here.</p>
+</div>
+
+<div class="section wrap" style="padding-top: 56px;">
+  <div class="when">
+    <div class="when__col">
+      <div class="when__kicker when__kicker--pos">What the knob buys</div>
+      <div class="when__title">Three knobs, not one setting</div>
+      <div class="when__body">This carries the <span class="tok">dial</span> marker, so there is no regime that makes it the wrong call and no second panel naming one — what changes with the regime is where you set it. Effort level (<span class="tok">low</span>&thinsp;&rarr;&thinsp;<span class="tok">max</span>) trades false-positive rate against coverage per review. Local <span class="tok">/code-review</span> versus the hosted &ldquo;ultrareview&rdquo; trades depth against cost. And what the reviewer is shown — diff-only, diff&nbsp;+&nbsp;relevant files, or diff&nbsp;+&nbsp;task description — tunes isolation against context, which the framing-bias finding turns from a preference into a real per-task decision. These are genuine per-task knobs, not a fixed architectural commitment.</div>
+    </div>
+    <div class="when__col">
+      <div class="when__kicker when__kicker--neg">What the knob costs</div>
+      <div class="when__title">speed-delta: &minus;1</div>
+      <div class="when__body">An explicit review pass — even a backgrounded one — adds wall-clock before merge that same-session &ldquo;looks fine, ship it&rdquo; does not. Claude Code's hosted reviews average 20 minutes; the local subagent is faster but still not instant. This is the axis the technique spends to buy quality, and it is charged at every position of the dial. It is expected for a verification step rather than a flaw — but it is the reason a hard latency-bound regime is the weakest fit, narrowed only partly by findings arriving asynchronously rather than blocking.</div>
+    </div>
+  </div>
+</div>
+
+<div class="section wrap">
+  <div class="section__head"><h2 class="section__label">Why each delta reads the way it does</h2></div>
+
+  <div style="margin-top: 44px;">
+    <div class="arg">
+      <div class="arg__axis">
+        <div class="arg__name">dial</div>
+        <div class="arg__val">true</div>
+        <div class="arg__note">A trade by vector, a dial by marker</div>
+      </div>
+      <div>
+        <p class="prose">The note's own verdict is <strong>&ldquo;Class: trade, with a dial.&rdquo;</strong> Both halves are recorded here, and both are correct. Read off the delta vector this is a <em>trade</em>: it is not no-regret, because it spends wall-clock (and some tokens) to buy quality and to convert delegated-generation's verification burden into something cheaper to triage. The frontmatter also carries <span class="tok">dial: true</span>.</p>
+        <p class="prose">Those are not in tension. The program's rubric is explicit that <span class="tok">dial</span> is the only <em>non-derivable</em> class marker and is <strong>orthogonal</strong> to the other two: no-regret and trade are read off the vector and are mutually exclusive with each other, while <span class="tok">dial</span> sits on top of either. Recording both is following the rubric, not contradicting it — this page leads with the marker the vector cannot express, and the trade is spelled out in the deltas below it.</p>
+        <p class="prose">The knobs are real ones: review effort level, local versus hosted depth, and — the one this note argues is under-explored — how much narrative context the reviewer is handed at all.</p>
+      </div>
+    </div>
+
+    <div class="arg">
+      <div class="arg__axis">
+        <div class="arg__name">quality-delta</div>
+        <div class="arg__val arg__val--pos">+1</div>
+        <div class="arg__note">Not +2, deliberately</div>
+      </div>
+      <div>
+        <p class="prose">The Cross-Context Review experiment is the first non-anecdotal evidence for this note's core claim. A fresh session containing only the artifact plus a standard review prompt (CCR) was tested against same-session self-review (SR), <em>repeated</em> same-session self-review (SR2), and same-session review with the original generation prompt attached (SA). Across 30 artifacts with 150 deliberately injected errors, CCR scored <strong>28.6% F1</strong> against 24.6% (SR), 21.7% (SR2) and 23.8% (SA) — all differences significant at p&nbsp;&le;&nbsp;0.008. The edge was largest on critical-severity errors (+11 points) and on code artifacts specifically (+4.7 F1 points over SR).</p>
+        <p class="prose">The SR2 result is the load-bearing detail. Reviewing twice in the same session did <em>not</em> beat reviewing once — which rules out &ldquo;more review passes&rdquo; as the explanation and isolates the benefit to context separation itself. Without production history, a model has no memory of authoring the artifact, so sycophancy and self-preference bias lose their trigger.</p>
+        <p class="prose">It stops at <span class="tok">+1</span> for two reasons. The absolute F1 numbers are still low — under 30% even for the best condition, meaning most injected errors were missed by every condition. And the framing-bias paper shows freshness alone does not fix everything: metadata framing still collapses detection in a fresh-context reviewer. A real, measured lift on a genuinely bad baseline; not a solved problem.</p>
+      </div>
+    </div>
+
+    <div class="arg">
+      <div class="arg__axis">
+        <div class="arg__name">cost-delta</div>
+        <div class="arg__val">0</div>
+        <div class="arg__note">A wash against this baseline, not against none</div>
+      </div>
+      <div>
+        <p class="prose">A second full review pass over the diff is additional tokens the self-review baseline does not spend. But it is small relative to the size of the original generation — reviewing a diff is cheaper than writing it — and it is a fixed, bounded add rather than something that scales with retries the way multi-agent debate does.</p>
+        <p class="prose">One real exception, kept on the record rather than smoothed away: Anthropic's <em>hosted</em> Code Review is billed separately at <strong>$15–25 per review</strong>, which is a genuine cost if adopted at that tier. The local <span class="tok">/code-review</span> subagent path is ordinary session token spend. Net: roughly a wash against a baseline where <em>some</em> review already happens — and a clear cost if compared to <em>no</em> review at all, which is not the baseline stated here.</p>
+        <p class="prose">Paired with <span class="tok">effort: low</span>, that makes this one of the cheapest interventions on this site to <em>adopt</em>: most harnesses already ship review subagents or slash-command reviews, so it is config rather than infrastructure. What it actually spends is wall-clock. It is not literally free of tokens — the review pass is real spend — it just does not show up as a net regression against the stated baseline.</p>
+      </div>
+    </div>
+
+    <div class="arg">
+      <div class="arg__axis">
+        <div class="arg__name">speed-delta</div>
+        <div class="arg__val arg__val--neg">&minus;1</div>
+        <div class="arg__note">The axis it spends</div>
+      </div>
+      <div>
+        <p class="prose">An explicit review pass, even backgrounded, adds wall-clock before merge that same-session &ldquo;looks fine, ship it&rdquo; does not. Claude Code's hosted reviews average 20 minutes; the local subagent is faster but still not instant. This is the axis the technique spends to buy quality — expected for a verification step, not a flaw.</p>
+      </div>
+    </div>
+
+    <div class="arg">
+      <div class="arg__axis">
+        <div class="arg__name">attention-delta</div>
+        <div class="arg__val arg__val--pos">+1</div>
+        <div class="arg__note">The mitigation another note asked for</div>
+      </div>
+      <div>
+        <p class="prose">This is the axis <em>Context Management via Subagents</em> flagged as the bottleneck it <em>creates</em> — delegated generation means more human verification burden — and this note is its stated mitigation. A structured findings list (file:line, severity, one-sentence summary, <span class="tok">ReportFindings</span>-shaped output) is faster for a human to triage than re-reading a full diff cold.</p>
+        <p class="prose">Anthropic's hosted product goes further: severity-ranked, deduplicated, verified-against-actual-behavior findings posted inline, with a one-click 👍/👎 loop instead of prose to parse. It does not eliminate the human check — it makes each check cheaper, which is the specific claim the subagent note needed a mitigation for.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="section wrap" style="padding-top: 80px;">
+  <div class="plog">
+    <div class="plog__head">
+      <h2 class="plog__title">Perspectives log</h2>
+      <div class="plog__blurb">Sources that complicate or contradict the score above. Kept on the record whether or not they were convenient.</div>
+    </div>
+
+    <div class="plog__entry">
+      <div class="plog__meta">
+        <div class="plog__date">2026-08-17</div>
+        <div class="tag tag--aligns">Aligns</div>
+        <div class="plog__src">rhonabwy.com, via TLDR Dev<br><a href="https://rhonabwy.com/2026/08/15/software-engineering-fundamentals-matter-more-than-ever/">Software engineering fundamentals matter more than ever</a></div>
+      </div>
+      <div>
+        <div class="plog__paper">Software engineering fundamentals matter more than ever</div>
+        <p class="plog__body">Argues software engineering fundamentals (careful reasoning, maintainable design, debuggability) matter more, not less, as AI tools take on more code generation — consistent with this note's core bet that human oversight and judgment remain load-bearing even as review agents get delegated more work.</p>
+      </div>
+    </div>
+
+    <div class="plog__entry">
+      <div class="plog__meta">
+        <div class="plog__date">2026-08-14</div>
+        <div class="tag tag--nuances">Nuances</div>
+        <div class="plog__src">geoffreylitt.com, via TLDR Dev<br><a href="https://www.geoffreylitt.com/2026/07/02/understanding-is-the-new-bottleneck">Understanding is the New Bottleneck</a></div>
+      </div>
+      <div>
+        <div class="plog__paper">Understanding is the New Bottleneck</div>
+        <p class="plog__body">Argues that as agents take on more coding, humans still need deliberate techniques — structured code explainers, interactive exploration environments, shared team discussion spaces — to keep their own understanding of the generated code current enough to actually review it. Complements rather than repeats the 2026-08-06 DX-newsletter <em>challenges</em> entry below: that piece argues automated review erodes shared understanding, this one offers concrete (if unproven) mitigations for the same erosion rather than just naming the problem.</p>
+      </div>
+    </div>
+
+    <div class="plog__entry">
+      <div class="plog__meta">
+        <div class="plog__date">2026-08-14</div>
+        <div class="tag tag--aligns">Aligns</div>
+        <div class="plog__src">allaboutcoding.ghinda.com, via TLDR Dev<br><a href="https://allaboutcoding.ghinda.com/one-week-of-coding-and-reviewing-with-llm-agents/">One week of coding and reviewing with LLM agents</a></div>
+      </div>
+      <div>
+        <div class="plog__paper">One week of coding and reviewing with LLM agents</div>
+        <p class="plog__body">A week-long experiment building and reviewing backend code with LLM agents reports concrete productivity and error-detection findings, and specifically describes human oversight's role shifting rather than disappearing — consistent with this note's core bet that review stays valuable even as generation gets delegated, though as a single-practitioner report rather than a controlled study.</p>
+      </div>
+    </div>
+
+    <div class="plog__entry">
+      <div class="plog__meta">
+        <div class="plog__date">2026-08-06</div>
+        <div class="tag tag--challenges">Challenges</div>
+        <div class="plog__src">DX newsletter<br><a href="https://newsletter.getdx.com/p/what-are-code-reviews-even-for">What are code reviews even for?</a></div>
+      </div>
+      <div>
+        <div class="plog__paper">What are code reviews even for?</div>
+        <p class="plog__body">Argues code review's real function is building shared team understanding of a system, and automating it away removes that — AI accelerates &ldquo;cognitive and intent debt&rdquo; that doesn't show up on any dashboard until it's far more expensive to recover than to have preserved. A direct counter-argument to this note's core bet, not just a caveat.</p>
+      </div>
+    </div>
+
+    <div class="plog__entry">
+      <div class="plog__meta">
+        <div class="plog__date">2026-08-05</div>
+        <div class="tag tag--aligns">Aligns</div>
+        <div class="plog__src">TLDR Dev, sponsor content — AgentField<br><a href="https://agentfield.ai/github/pr-af/">AgentField PR-AF</a></div>
+      </div>
+      <div>
+        <div class="plog__paper">AgentField PR-AF</div>
+        <p class="plog__body">AgentField's self-hosted PR-AF tool reportedly ranks #2 of 42 on Martian's Code-Review-Bench at ~10x lower cost per review than commercial tools, crediting a per-PR review strategy, parallel reviewer agents, and every finding verified against the actual source before posting (explicitly marketed as &ldquo;no hallucinated comments&rdquo;). Sponsor-placed, so treat the ranking claim as unverified marketing rather than an independent benchmark — but the architecture described (plan-then-verify, parallel reviewers) is a real-world instance of this note's core mechanism.</p>
+      </div>
+    </div>
+
+    <div class="plog__entry">
+      <div class="plog__meta">
+        <div class="plog__date">2026-08-04</div>
+        <div class="tag tag--aligns">Aligns</div>
+        <div class="plog__src">Wealthfront Engineering<br><a href="https://eng.wealthfront.com/2026/08/03/experiments-with-ai-code-review/">Experiments with AI code review</a></div>
+      </div>
+      <div>
+        <div class="plog__paper">Experiments with AI code review</div>
+        <p class="plog__body">Multi-year experience report on adopting AI-augmented code review in production — started skeptical, converged on a structured process using Opus 4 and Gemini for bug detection, and iterative prompt/process refinement measurably cut false positives and shortened review turnaround. Anecdotal rather than a controlled study, but a real production deployment confirming the note's core bet.</p>
+      </div>
+    </div>
+
+    <div class="plog__entry">
+      <div class="plog__meta">
+        <div class="plog__date">2026-08-04</div>
+        <div class="tag tag--aligns">Aligns</div>
+        <div class="plog__src">Cross-Context Review paper, arXiv<br><a href="https://arxiv.org/html/2603.12123">arxiv 2603.12123</a></div>
+      </div>
+      <div>
+        <div class="plog__paper">Cross-Context Review: Improving LLM Output Quality by Separating Production and Review Sessions</div>
+        <p class="plog__body">Controlled experiment (30 artifacts, 150 injected errors, 4 review conditions) found fresh-session review beats same-session self-review on F1 (28.6% vs 24.6%), and that repeating the review in the same session doesn't recover the gap — isolating &ldquo;context separation&rdquo; as the actual mechanism, not just &ldquo;review more.&rdquo;</p>
+      </div>
+    </div>
+
+    <div class="plog__entry">
+      <div class="plog__meta">
+        <div class="plog__date">2026-08-04</div>
+        <div class="tag tag--nuances">Nuances</div>
+        <div class="plog__src">Contextual Bias in LLM-Assisted Security Code Review, arXiv<br><a href="https://arxiv.org/html/2603.18740">arxiv 2603.18740</a></div>
+      </div>
+      <div>
+        <div class="plog__paper">Measuring and Exploiting Contextual Bias in LLM-Assisted Security Code Review</div>
+        <p class="plog__body">Even a single fresh-encounter reviewer is highly susceptible to framing bias from PR metadata (titles/descriptions), with detection rates collapsing under a &ldquo;looks safe&rdquo; framing and recovering fully once metadata is redacted — so freshness alone isn't sufficient; what the reviewer is shown (diff-only vs. diff+narrative) matters as much as whether the session is fresh. One model's detection fell from 97% to 3.6% under a &ldquo;looks fine&rdquo; framing.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="wrap">
+  <div class="endnote">
+    <div class="endnote__label">What would move this to measured</div>
+    <div class="endnote__body">Everything above is desk research — the CCR paper, the framing-bias paper, and Anthropic's own product docs — with no hands-on trial in this codebase. Moving to <span class="tok">measured</span> means running the note's own comparison on real diffs from actual work rather than synthetic injected errors, and two hypotheses are queued for it. First: diff-only versus diff-plus-task-description reviewer performance, sharpened by the framing-bias finding into a real prediction — a task description is exactly the kind of &ldquo;looks fine&rdquo; narrative framing that collapsed detection rates in that paper, so diff-only may not just be <em>more isolated</em>, it may be <em>more accurate</em>. Second: whether CrewAI-style same-agent guardrails quietly give up the isolation benefit unless a separate reviewer agent is deliberately wired, since CrewAI's default <span class="tok">LLMGuardrail</span> reuses the acting agent's own LLM.</div>
+  </div>
+</div>
+</article>
+
+</body>
+</html>

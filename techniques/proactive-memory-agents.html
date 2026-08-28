@@ -1,0 +1,251 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Proactive Memory Agents — Field Guide</title>
+<meta name="description" content="A parallel memory agent that decides when to interrupt a long-horizon agent with a reminder — spending tokens and wall-clock to buy quality and your own vigilance. Scored: cost −1, quality +1, speed −1, attention +1.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600;700&family=IBM+Plex+Serif:ital,wght@0,400;0,600;1,400&display=swap">
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+
+<header class="masthead masthead--compact wrap">
+  <a class="masthead__name" href="../index.html">Field Guide</a>
+  <nav class="nav">
+    <a href="../index.html#method">Method</a>
+    <a href="../index.html#index">Index</a>
+    <a href="../index.html#index">Rejected</a>
+    <a href="../index.html#about">About</a>
+  </nav>
+</header>
+
+<article>
+<div class="post-head wrap">
+  <div class="post-kicker">
+    <div class="post-kicker__bar"><i style="flex-grow:1; background: var(--neg);"></i><i style="flex-grow:1; background: var(--pos);"></i></div>
+    <div class="post-kicker__class">Class: Trade</div>
+    <div class="post-kicker__sep"></div>
+    <div class="post-kicker__meta">Last updated <time datetime="2026-08-04">4 Aug 2026</time></div>
+  </div>
+
+  <div class="post-grid">
+    <div>
+      <h1 class="post-title">Proactive Memory Agents</h1>
+      <p class="standfirst">The hard half of memory is not storage — it is <em>when to speak</em>. A parallel watcher that decides each step whether to inject a reminder, and stays silent otherwise.</p>
+    </div>
+    <aside class="conf-box">
+      <div class="conf-box__label">Confidence</div>
+      <div class="conf-box__meter"><span class="on"></span><span class="on"></span><span></span></div>
+      <div class="conf-box__scale"><span class="on">guess</span><span class="on">researched</span><span>measured</span></div>
+      <div class="conf-box__value">researched</div>
+      <div class="conf-box__body">The evidence is the paper's own ablations, on their benchmarks — Terminal-Bench 2.0 and &tau;&sup2;-Bench, not a Claude Code coding session. Their result, not mine, so the transfer is not verified.</div>
+    </aside>
+  </div>
+</div>
+
+<div class="section wrap" style="padding-top: 56px;">
+  <div class="baseline">
+    <div class="baseline__label">Compared to what</div>
+    <div class="baseline__text">An agent with no memory-injection mechanism beyond what's already in its own context window (i.e., today's Claude Code auto-memory/CLAUDE.md pattern — load-once-at-session-start, no in-session selective reminders), scored against actually building and running a parallel proactive-memory-agent watcher process.</div>
+  </div>
+</div>
+
+<div class="section wrap" style="padding-top: 56px;">
+  <div class="section__head section__head--spread">
+    <h2 class="section__label">The deltas</h2>
+    <div class="section__note">+ is always better for you &middot; never summed</div>
+  </div>
+
+  <div class="delta-cards">
+    <div class="delta-card delta-card--neg">
+      <div class="delta-card__label">cost-delta</div>
+      <div class="delta-card__val">&minus;1</div>
+      <div class="track"><i class="track__cell"></i><i class="track__cell track__cell--neg"></i><i class="track__zero"></i><i class="track__cell"></i><i class="track__cell"></i></div>
+      <div class="delta-card__read">More expensive. A second process running continuously, plus a real one-time build.</div>
+    </div>
+    <div class="delta-card delta-card--pos">
+      <div class="delta-card__label">quality-delta</div>
+      <div class="delta-card__val">+1</div>
+      <div class="track"><i class="track__cell"></i><i class="track__cell"></i><i class="track__zero"></i><i class="track__cell track__cell--pos"></i><i class="track__cell"></i></div>
+      <div class="delta-card__read">Better &mdash; on their benchmarks, not yet on mine.</div>
+    </div>
+    <div class="delta-card delta-card--neg">
+      <div class="delta-card__label">speed-delta</div>
+      <div class="delta-card__val">&minus;1</div>
+      <div class="track"><i class="track__cell"></i><i class="track__cell track__cell--neg"></i><i class="track__zero"></i><i class="track__cell"></i><i class="track__cell"></i></div>
+      <div class="delta-card__read">Slower. An extra call per step, even when it stays silent.</div>
+    </div>
+    <div class="delta-card delta-card--pos">
+      <div class="delta-card__label">attention-delta</div>
+      <div class="delta-card__val">+1</div>
+      <div class="track"><i class="track__cell"></i><i class="track__cell"></i><i class="track__zero"></i><i class="track__cell track__cell--pos"></i><i class="track__cell"></i></div>
+      <div class="delta-card__read">Demands less of you. This is the point of the technique.</div>
+    </div>
+  </div>
+
+  <div class="meta-row">
+    <div class="meta"><span class="meta__k">dial</span><span class="meta__v">false</span></div>
+    <div class="meta"><span class="meta__k">effort</span><span class="meta__v">high</span></div>
+    <div class="meta"><span class="meta__k">levers</span><span class="meta__v">context, loop</span></div>
+    <div class="meta"><span class="meta__k">mechanisms</span><span class="meta__v">information</span></div>
+  </div>
+</div>
+
+<div class="section wrap" style="padding-top: 56px;">
+  <div class="section__head section__head--spread">
+    <h2 class="section__label">Score history</h2>
+    <div class="section__note">What moved, when, and why</div>
+  </div>
+
+  <p class="prose" style="margin-bottom: 28px;">Scores here are not fixed at a publication date. When evidence arrives that changes an assessment, the score changes and the change is recorded — including the times it was re-examined and held.</p>
+
+  <div class="history">
+    <div class="history__entry">
+      <div class="history__date"><time datetime="2026-08-04">4 Aug 2026</time></div>
+      <div>
+        <div class="history__what">First tracked state</div>
+        <div class="history__vector">
+          <span class="hv"><i>cost</i><b class="neg">&minus;1</b></span>
+          <span class="hv"><i>quality</i><b class="pos">+1</b></span>
+          <span class="hv"><i>speed</i><b class="neg">&minus;1</b></span>
+          <span class="hv"><i>attention</i><b class="pos">+1</b></span>
+          <span class="hv"><i>confidence</i><b>researched</b></span>
+        </div>
+        <p class="history__why">Scored against an agent with no memory-injection mechanism beyond its own context window — the load-once-at-session-start pattern — versus actually building and running a parallel watcher process.</p>
+      </div>
+    </div>
+  </div>
+
+  <p class="history__note">History tracking began 28 Aug 2026. Any revisions before that date were not recorded, and are not reconstructed here.</p>
+</div>
+
+<div class="section wrap" style="padding-top: 56px;">
+  <div class="when">
+    <div class="when__col">
+      <div class="when__kicker when__kicker--pos">Reach for it when</div>
+      <div class="when__title">You are attention-bound or quality-bound</div>
+      <div class="when__body">Long, unattended sessions where drift is expensive to catch late. It spends cost and speed to buy quality and attention, and this is the regime where that side of the trade is the right one.</div>
+    </div>
+    <div class="when__col">
+      <div class="when__kicker when__kicker--neg">It is indefensible when</div>
+      <div class="when__title">You are cost-bound</div>
+      <div class="when__body">Under a cost-bound regime the second agent's overhead isn't justified. No judgment call required — the overhead is continuous and the benefit is a failure mode you may not hit.</div>
+    </div>
+  </div>
+</div>
+
+<div class="section wrap" style="padding-top: 56px;">
+  <div class="baseline">
+    <div class="baseline__label">effort: high &mdash; what the setup cost consists of</div>
+    <div class="baseline__text">Two things, per the note's own cost reasoning. First, <strong>building and running the watcher</strong>: a second agent — or, per the TGL alternative below, a small trained classifier — running continuously alongside the main one. Second, <strong>the trigger policy itself</strong>: either fine-tuning a model, which is the paper's approach (SFT + GRPO on Qwen3.5-27B over a dataset called SETA, to train the injection-timing policy rather than relying on prompting alone), or building and maintaining a bespoke trigger policy of your own. Real one-time build cost, not free.</div>
+  </div>
+</div>
+
+<div class="section wrap">
+  <div class="section__head"><h2 class="section__label">Why each delta reads the way it does</h2></div>
+
+  <div style="margin-top: 44px;">
+    <div class="arg">
+      <div class="arg__axis">
+        <div class="arg__name">quality-delta</div>
+        <div class="arg__val arg__val--pos">+1</div>
+        <div class="arg__note">Their benchmarks, not mine</div>
+      </div>
+      <div>
+        <p class="prose">The paper's own ablations are the evidence: selective proactive injection beat passive retrieval, constant injection, and advisor-only guidance, with real pass@1 gains on two benchmarks. Reported gains were <strong>+8.3 pp pass@1 on Terminal-Bench 2.0</strong> and <strong>+6.8 pp on &tau;&sup2;-Bench</strong>, and held for both weaker and stronger action agents.</p>
+        <p class="prose">Scored <span class="tok">researched</span> rather than <span class="tok">measured</span> — this is their result, not mine, and it's on their benchmarks, not a Claude Code coding session, so the transfer isn't verified.</p>
+        <p class="prose">The failure mode being addressed is specific. The paper names it <em>behavioral state decay</em>: task requirements, environment facts, prior attempts, diagnoses, and open subgoals get buried mid-context or pushed out of the window entirely, so they stop influencing decisions even though they're still "in" the trajectory somewhere.</p>
+      </div>
+    </div>
+
+    <div class="arg">
+      <div class="arg__axis">
+        <div class="arg__name">cost-delta</div>
+        <div class="arg__val arg__val--neg">&minus;1</div>
+        <div class="arg__note">Ongoing spend plus a build</div>
+      </div>
+      <div>
+        <p class="prose">This is a second agent (or, per the TGL alternative in the perspectives log, a small trained classifier) running continuously alongside the main one, plus either fine-tuning a model — the paper's approach — or building and maintaining a bespoke trigger policy. Non-trivial ongoing token/compute spend and real one-time build cost, not free.</p>
+      </div>
+    </div>
+
+    <div class="arg">
+      <div class="arg__axis">
+        <div class="arg__name">speed-delta</div>
+        <div class="arg__val arg__val--neg">&minus;1</div>
+        <div class="arg__note">Silence still costs a call</div>
+      </div>
+      <div>
+        <p class="prose">A parallel process or extra model call per step adds wall-clock, even if it usually stays silent — same shape as any watcher/verifier pattern.</p>
+      </div>
+    </div>
+
+    <div class="arg">
+      <div class="arg__axis">
+        <div class="arg__name">attention-delta</div>
+        <div class="arg__val arg__val--pos">+1</div>
+        <div class="arg__note">The reason to build it at all</div>
+      </div>
+      <div>
+        <p class="prose">This is the point of the technique: it's explicitly designed to catch drift and forgotten-subgoal failures <em>before</em> they cost the human a debugging session or a wasted review, trading machine cost for less of your own vigilance during long tasks.</p>
+      </div>
+    </div>
+
+    <div class="arg">
+      <div class="arg__axis">
+        <div class="arg__name">dial</div>
+        <div class="arg__val">false</div>
+        <div class="arg__note">A standing choice</div>
+      </div>
+      <div>
+        <p class="prose">Nothing here hands you a per-task knob — it's a standing architectural choice (build the watcher or don't), not something switched per task the way reasoning-effort or model routing are.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="section wrap">
+  <div class="section__head"><h2 class="section__label">What the architecture actually is</h2></div>
+
+  <div style="margin-top: 44px;">
+    <p class="prose">A parallel, plug-and-play memory agent that runs alongside an <em>unmodified</em> action agent — it doesn't touch the action agent's weights or prompt structure. It maintains a structured memory bank from the recent trajectory and, each step, decides to inject a memory-grounded reminder or stay silent.</p>
+    <p class="prose">Selective/proactive injection beats passive retrieval, constant injection, and advisor-only guidance in their ablations — the timing of the reminder matters as much as its content. This is the paper's real claim: not "add memory" but "add a policy for when to speak."</p>
+    <p class="prose">Claude Code's built-in memory system (CLAUDE.md + auto memory) is <strong>not</strong> an implementation of this pattern — it's closer to the "passive retrieval" baseline the paper's ablations beat. Per the official docs, verified 4 Aug 2026: CLAUDE.md and auto memory's <span class="tok">MEMORY.md</span> (first 200 lines / 25KB) are loaded once, at the start of every session — not selectively injected mid-task based on a live read of whether the agent is currently drifting or repeating a mistake. The closest built-in levers are hooks that fire <em>during</em> a session — <span class="tok">PostToolUse</span>, <span class="tok">UserPromptSubmit</span>, <span class="tok">PreCompact</span>/<span class="tok">SessionEnd</span> — but none of these ship a <em>policy</em> for deciding when a reminder is warranted.</p>
+    <p class="prose">Nor do the surveyed frameworks. LangGraph ships a <span class="tok">Store</span> with semantic search, Microsoft Agent Framework adds memory via context providers, CrewAI bundles short-term/long-term/entity memory with RAG retrieval, the OpenAI Agents SDK leaves recall entirely to what you bolt on, and Kiro's steering files load into every session the same way CLAUDE.md does. Net: none of them ship the paper's actual mechanism — a trained policy deciding <em>when</em> to interrupt with a reminder — as a first-class feature. All of them solve "where do I store/retrieve memory," which is the easier half of the problem.</p>
+  </div>
+</div>
+
+<div class="section wrap" style="padding-top: 80px;">
+  <div class="plog">
+    <div class="plog__head">
+      <h2 class="plog__title">Perspectives log</h2>
+      <div class="plog__blurb">Sources that complicate or contradict the score above. Kept on the record whether or not they were convenient.</div>
+    </div>
+
+    <div class="plog__entry">
+      <div class="plog__meta">
+        <div class="plog__date">2026-08-04</div>
+        <div class="tag tag--challenges">Challenges</div>
+        <div class="plog__src"><a href="https://arxiv.org/pdf/2605.30152">arxiv 2605.30152</a></div>
+      </div>
+      <div>
+        <div class="plog__paper">Do Proactive Agents Really Need an LLM to Decide When to Wake and What to Anchor?</div>
+        <p class="plog__body">Argues the trigger decision this paper's whole architecture is built around — when to intervene — doesn't need an LLM at all. They frame user/agent activity as a structured event stream an OS or harness already maintains in graph form, and train a small Temporal Graph Learning (TGL) model to output a per-event trigger probability and routing score in one forward pass; the LLM is only invoked <em>after</em> the trigger fires, to phrase the handoff. Reported: TGL improves F1 over LLM-as-trigger baselines on 14 backbones (mean +16.7 points) while running roughly 4&ndash;7x faster on GPU and 12&ndash;83x faster on consumer hardware, with a ~220MiB on-device footprint. This is a direct challenge to this note's paper's SFT+GRPO-tuned-LLM approach to the same "when to speak" problem — same mechanism (selective proactive injection), argued at a much cheaper lever (a small classifier vs. a fine-tuned 27B model as the gate).</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="wrap">
+  <div class="endnote">
+    <div class="endnote__label">Where the score could move</div>
+    <div class="endnote__body">The perspectives entry matters to the vector, not just the framing. If the TGL-style cheap-classifier alternative holds up outside its original (OS-activity-stream) domain, the <span class="tok">cost-delta</span> could move toward neutral or positive, since it replaces a fine-tuned-LLM gate with a ~220MiB model — that would push this from "trade" toward "no-regret" for the injection-timing piece specifically, though the memory-bank maintenance itself still costs something regardless. Nothing has been remeasured yet, so the vector above stands as recorded.</div>
+  </div>
+</div>
+</article>
+
+</body>
+</html>

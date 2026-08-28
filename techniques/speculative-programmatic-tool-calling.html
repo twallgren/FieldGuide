@@ -1,0 +1,266 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Speculative Programmatic Tool Calling — Field Guide</title>
+<meta name="description" content="Overlapping tool execution with token generation buys a modest 1–1.2x speedup in code-executing harnesses, paid for in speculative tool-server load. Scored: cost −1, quality 0, speed +1, attention 0.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600;700&family=IBM+Plex+Serif:ital,wght@0,400;0,600;1,400&display=swap">
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+
+<header class="masthead masthead--compact wrap">
+  <a class="masthead__name" href="../index.html">Field Guide</a>
+  <nav class="nav">
+    <a href="../index.html#method">Method</a>
+    <a href="../index.html#index">Index</a>
+    <a href="../index.html#index">Rejected</a>
+    <a href="../index.html#about">About</a>
+  </nav>
+</header>
+
+<article>
+<div class="post-head wrap">
+  <div class="post-kicker">
+    <div class="post-kicker__bar"><i style="flex-grow:1; background: var(--neg);"></i><i style="flex-grow:1; background: var(--pos);"></i></div>
+    <div class="post-kicker__class">Class: Trade</div>
+    <div class="post-kicker__sep"></div>
+    <div class="post-kicker__meta">Last updated <time datetime="2026-08-28">28 Aug 2026</time></div>
+  </div>
+
+  <div class="post-grid">
+    <div>
+      <h1 class="post-title">Speculative Programmatic Tool Calling</h1>
+      <p class="standfirst">A shadow REPL races ahead of the model, launching tool calls whose inputs are already computable before the real code path asks for them. The latency win is real, modest, and <em>conditional</em> — it exists only where there is idle time to fill.</p>
+    </div>
+    <aside class="conf-box">
+      <div class="conf-box__label">Confidence</div>
+      <div class="conf-box__meter"><span class="on"></span><span class="on"></span><span></span></div>
+      <div class="conf-box__scale"><span class="on">guess</span><span class="on">researched</span><span>measured</span></div>
+      <div class="conf-box__value">researched</div>
+      <div class="conf-box__body">Single-source and largely unreplicated. The 1&ndash;1.2x figure is the source author's own benchmark; the prior art it cites was confirmed to exist but its numbers were not independently verified in this pass.</div>
+    </aside>
+  </div>
+</div>
+
+<div class="section wrap" style="padding-top: 56px;">
+  <div class="baseline">
+    <div class="baseline__label">Compared to what</div>
+    <div class="baseline__text">Sequential execution in a code-executing harness — the model finishes generating a code block, then the REPL runs it and waits on each tool call in turn, with no overlap between generation and tool execution.</div>
+  </div>
+</div>
+
+<div class="section wrap" style="padding-top: 56px;">
+  <div class="section__head section__head--spread">
+    <h2 class="section__label">The deltas</h2>
+    <div class="section__note">+ is always better for you &middot; never summed</div>
+  </div>
+
+  <div class="delta-cards">
+    <div class="delta-card delta-card--neg">
+      <div class="delta-card__label">cost-delta</div>
+      <div class="delta-card__val">&minus;1</div>
+      <div class="track"><i class="track__cell"></i><i class="track__cell track__cell--neg"></i><i class="track__zero"></i><i class="track__cell"></i><i class="track__cell"></i></div>
+      <div class="delta-card__read">More expensive. Launched-but-discarded calls are real load.</div>
+    </div>
+    <div class="delta-card">
+      <div class="delta-card__label">quality-delta</div>
+      <div class="delta-card__val">0</div>
+      <div class="track"><i class="track__cell"></i><i class="track__cell"></i><i class="track__zero"></i><i class="track__cell"></i><i class="track__cell"></i></div>
+      <div class="delta-card__read">Neutral. Designed to preserve correctness, not improve it.</div>
+    </div>
+    <div class="delta-card delta-card--pos">
+      <div class="delta-card__label">speed-delta</div>
+      <div class="delta-card__val">+1</div>
+      <div class="track"><i class="track__cell"></i><i class="track__cell"></i><i class="track__zero"></i><i class="track__cell track__cell--pos"></i><i class="track__cell"></i></div>
+      <div class="delta-card__read">Faster &mdash; 1&ndash;1.2x, and only sometimes.</div>
+    </div>
+    <div class="delta-card">
+      <div class="delta-card__label">attention-delta</div>
+      <div class="delta-card__val">0</div>
+      <div class="track"><i class="track__cell"></i><i class="track__cell"></i><i class="track__zero"></i><i class="track__cell"></i><i class="track__cell"></i></div>
+      <div class="delta-card__read">Harness-internal plumbing. Invisible once built.</div>
+    </div>
+  </div>
+
+  <div class="meta-row">
+    <div class="meta"><span class="meta__k">dial</span><span class="meta__v">false</span></div>
+    <div class="meta"><span class="meta__k">effort</span><span class="meta__v">high</span></div>
+    <div class="meta"><span class="meta__k">levers</span><span class="meta__v">loop</span></div>
+    <div class="meta"><span class="meta__k">mechanisms</span><span class="meta__v">compute</span></div>
+  </div>
+</div>
+
+<div class="section wrap" style="padding-top: 56px;">
+  <div class="section__head section__head--spread">
+    <h2 class="section__label">Score history</h2>
+    <div class="section__note">What moved, when, and why</div>
+  </div>
+
+  <p class="prose" style="margin-bottom: 28px;">Scores here are not fixed at a publication date. When evidence arrives that changes an assessment, the score changes and the change is recorded — including the times it was re-examined and held.</p>
+
+  <div class="history">
+    <div class="history__entry">
+      <div class="history__date"><time datetime="2026-08-28">28 Aug 2026</time></div>
+      <div>
+        <div class="history__what">First tracked state</div>
+        <div class="history__vector">
+          <span class="hv"><i>cost</i><b class="neg">&minus;1</b></span>
+          <span class="hv"><i>quality</i><b>0</b></span>
+          <span class="hv"><i>speed</i><b class="pos">+1</b></span>
+          <span class="hv"><i>attention</i><b>0</b></span>
+          <span class="hv"><i>confidence</i><b>researched</b></span>
+        </div>
+        <p class="history__why">Scored against sequential execution in a code-executing harness, with no overlap between generation and tool execution. Scored by an unattended triage-and-dive pass — the deltas rest on published evidence and judgment, not on outcomes observed directly. Confirm or revise before treating these numbers as settled.</p>
+      </div>
+    </div>
+  </div>
+
+  <p class="history__note">History tracking began 28 Aug 2026. Any revisions before that date were not recorded, and are not reconstructed here.</p>
+</div>
+
+<div class="section wrap" style="padding-top: 56px;">
+  <div class="when">
+    <div class="when__col">
+      <div class="when__kicker when__kicker--pos">Reach for it when</div>
+      <div class="when__title">You are latency-bound, with a code-executing harness already in place</div>
+      <div class="when__body">REPL-based agents, RLMs, CodeAct-style loops — the shape that streams partial code for a shadow REPL to speculate against. It pays off in the narrow regime where tool round-trip time is comparable to or exceeds remaining generation time: it wins exactly when there is idle time to fill.</div>
+    </div>
+    <div class="when__col">
+      <div class="when__kicker when__kicker--neg">It gives nothing back when</div>
+      <div class="when__title">Tool latency is already low relative to generation time</div>
+      <div class="when__body">The technique's own named limitation — no idle time, no win, and the speculative tool-server load is paid anyway. And it is not adoptable at all under Claude Code's current architecture without first verifying what the <span class="tok">PreToolUse</span> wrapper is actually speculating on. That unknown, not the regime fit, is what is load-bearing here.</div>
+    </div>
+  </div>
+</div>
+
+<div class="section wrap">
+  <div class="section__head"><h2 class="section__label">Why each delta reads the way it does</h2></div>
+
+  <div style="margin-top: 44px;">
+    <div class="arg">
+      <div class="arg__axis">
+        <div class="arg__name">speed-delta</div>
+        <div class="arg__val arg__val--pos">+1</div>
+        <div class="arg__note">Not +2, deliberately</div>
+      </div>
+      <div>
+        <p class="prose">The source's own benchmark — Qwen3-30B-A3B-Instruct on OOLONG/OOLONG-Pairs, 5 trials, 8&times;H100 under vLLM, verified by reading the post directly — reports a modest and honestly-scoped <strong>1&ndash;1.2x runtime speedup</strong>, explicitly conditioned on tool latency, generation speed, and serving load rather than claimed as universal.</p>
+        <p class="prose">That is a real but narrow win, not the kind of step-change a <span class="tok">+2</span> should represent. And it evaporates entirely when tool latency is already low relative to generation time — a limitation the technique names about itself rather than one imposed from outside.</p>
+      </div>
+    </div>
+
+    <div class="arg">
+      <div class="arg__axis">
+        <div class="arg__name">cost-delta</div>
+        <div class="arg__val arg__val--neg">&minus;1</div>
+        <div class="arg__note">The price of guessing early</div>
+      </div>
+      <div>
+        <p class="prose">The shadow REPL launches tool calls speculatively before the real code path confirms they are needed. The paper's own worst case is tool-server congestion from launched-but-discarded speculative calls — extra infrastructure and API load with no guarantee of a cache hit. Shadow-REPL deepcopies accumulate memory overhead alongside it.</p>
+        <p class="prose">This is a real, acknowledged cost the technique trades for latency, not a rounding error.</p>
+      </div>
+    </div>
+
+    <div class="arg">
+      <div class="arg__axis">
+        <div class="arg__name">quality-delta</div>
+        <div class="arg__val">0</div>
+        <div class="arg__note">A pure latency play</div>
+      </div>
+      <div>
+        <p class="prose">The technique is explicitly designed to preserve correctness: it refuses to speculate across unresolved conditionals and loops where the execution path is not yet determined, and blocks unsafe operations such as <span class="tok">open()</span>. Implemented as designed, it should not change output correctness.</p>
+        <p class="prose">No claim was found, from the source or elsewhere, that it improves quality.</p>
+      </div>
+    </div>
+
+    <div class="arg">
+      <div class="arg__axis">
+        <div class="arg__name">attention-delta</div>
+        <div class="arg__val">0</div>
+        <div class="arg__note">Invisible once built</div>
+      </div>
+      <div>
+        <p class="prose">This is harness-internal plumbing — invisible to the user once built, neither costing nor saving their attention during normal use. The complexity lives entirely in the execution engine: instrumented tool functions and parallel shadow environments. There is no model-side requirement; any model that generates code in a REPL works.</p>
+      </div>
+    </div>
+
+    <div class="arg">
+      <div class="arg__axis">
+        <div class="arg__name">dial</div>
+        <div class="arg__val">false</div>
+        <div class="arg__note">Architecture, not a knob</div>
+      </div>
+      <div>
+        <p class="prose">Nothing in the source describes this as a per-task switch. It is an architectural feature of the harness's execution engine — on or off for the whole system rather than tunable per task. Contrast <a href="model-routing.html">model routing</a> or reasoning-effort levels, which the program's own dial definition is built around.</p>
+      </div>
+    </div>
+
+    <div class="arg">
+      <div class="arg__axis">
+        <div class="arg__name">effort</div>
+        <div class="arg__val">high</div>
+        <div class="arg__note">One-time setup</div>
+      </div>
+      <div>
+        <p class="prose">The whole burden is on the harness: a shadow REPL that speculatively executes partial code as the model streams, instrumented tool functions that can launch asynchronously and cache their results, parallel shadow environments, and the safety machinery that decides when speculation is not allowed. A conventional single-turn tool-call harness — the shape most coding agents actually use — has no partial-code stream to speculate against at all, so there is no cheap version of this to try first.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="section wrap" style="padding-top: 80px;">
+  <div class="plog">
+    <div class="plog__head">
+      <h2 class="plog__title">Perspectives log</h2>
+      <div class="plog__blurb">No perspectives have been logged for this technique — no third-party source has been recorded arguing for or against the score above. The sources the note does cite are listed here as sources, without stance, because none was assigned to them.</div>
+    </div>
+
+    <div class="plog__entry">
+      <div class="plog__meta">
+        <div class="plog__date">2026-08-25</div>
+        <div class="plog__src">alexzhang13.github.io, via TLDR AI<br><a href="https://alexzhang13.github.io/blog/2026/spec-ptc/">Speculative Programmatic Tool Calling</a></div>
+      </div>
+      <div>
+        <div class="plog__paper">The primary source</div>
+        <p class="plog__body">The write-up the 1&ndash;1.2x figure, the benchmark setup, and every named failure mode come from. Read directly during this pass.</p>
+      </div>
+    </div>
+
+    <div class="plog__entry">
+      <div class="plog__meta">
+        <div class="plog__date">2026-08-28</div>
+        <div class="plog__src">GitHub<br><a href="https://github.com/alexzhang13/spec-ptc">spec-ptc</a></div>
+      </div>
+      <div>
+        <div class="plog__paper">The reference implementation</div>
+        <p class="plog__body">Verified directly on 2026-08-28 for license (MIT), maturity (177 stars, 19 commits), and the <span class="tok">plugins/claude_code.py</span> Claude Code integration.</p>
+      </div>
+    </div>
+
+    <div class="plog__entry">
+      <div class="plog__meta">
+        <div class="plog__date">&mdash;</div>
+        <div class="plog__src">OpenAI API docs<br><a href="https://developers.openai.com/api/docs/guides/tools-programmatic-tool-calling">Programmatic tool calling</a></div>
+      </div>
+      <div>
+        <div class="plog__paper">The related-but-distinct mechanism</div>
+        <p class="plog__body">The OpenAI Agents SDK's Programmatic Tool Calling: a supported Responses model generates JavaScript that calls eligible tools, combines outputs, and returns one result, executed in a fresh isolated V8 runtime per call. That is programmatic <em>composition</em> of tool calls into one model turn, not speculative pre-execution during generation — it saves round-trips by batching, where sPTC saves latency by racing ahead of commitment. Complementary, not competing. No date recorded in the note for this source.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="wrap">
+  <div class="endnote">
+    <div class="endnote__label">The load-bearing unknown</div>
+    <div class="endnote__body">The sPTC repo ships a <span class="tok">plugins/claude_code.py</span> wrapper — a <span class="tok">PreToolUse</span> hook that asks a background <span class="tok">spec-ptc-daemon</span> whether it already holds a result for the pending call, returning it in place of running the tool on a hit and falling through to a normal invocation on a miss. It is real, verified by reading the file. What is <em>not</em> resolved is what it speculates on. A <span class="tok">PreToolUse</span> hook only sees a tool call after the model has fully committed to making it — the exact moment the shadow-REPL technique is built to race ahead of — and the repo does not document what triggers speculation in the Claude Code integration. Without a streaming-generation hook to race against, the mechanism the plugin realizes there may be closer to <strong>result caching keyed on repeated identical calls</strong> than to the speculative-execution win described for code-executing harnesses. That distinction decides whether the technique is worth trying in Claude Code at all, and this pass could not settle it from the plugin file alone; the cheapest next step is reading the daemon's source before installing anything. Flagged, not resolved.</div>
+  </div>
+</div>
+</article>
+
+</body>
+</html>

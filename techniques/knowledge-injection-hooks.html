@@ -1,0 +1,264 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Knowledge-Injection Hooks — Field Guide</title>
+<meta name="description" content="A hook that checks a knowledge base on every prompt and injects pointers to what matches — buying structural discovery with a per-turn token and latency tax. Scored: cost −1, quality +1, speed −1, attention +1.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600;700&family=IBM+Plex+Serif:ital,wght@0,400;0,600;1,400&display=swap">
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+
+<header class="masthead masthead--compact wrap">
+  <a class="masthead__name" href="../index.html">Field Guide</a>
+  <nav class="nav">
+    <a href="../index.html#method">Method</a>
+    <a href="../index.html#index">Index</a>
+    <a href="../index.html#index">Rejected</a>
+    <a href="../index.html#about">About</a>
+  </nav>
+</header>
+
+<article>
+<div class="post-head wrap">
+  <div class="post-kicker">
+    <div class="post-kicker__bar"><i style="flex-grow:1; background: var(--neg);"></i><i style="flex-grow:1; background: var(--pos);"></i></div>
+    <div class="post-kicker__class">Class: Trade</div>
+    <div class="post-kicker__sep"></div>
+    <div class="post-kicker__meta">Last updated <time datetime="2026-08-28">28 Aug 2026</time></div>
+  </div>
+
+  <div class="post-grid">
+    <div>
+      <h1 class="post-title">Knowledge-Injection Hooks</h1>
+      <p class="standfirst">A hook fires on every prompt, checks the knowledge base, and injects what matches — <em>retrieval at the right moment instead of loading everything up front or hoping the agent thinks to look.</em> The discovery problem gets solved structurally; every turn pays for it.</p>
+    </div>
+    <aside class="conf-box">
+      <div class="conf-box__label">Confidence</div>
+      <div class="conf-box__meter"><span class="on"></span><span class="on"></span><span></span></div>
+      <div class="conf-box__scale"><span class="on">guess</span><span class="on">researched</span><span>measured</span></div>
+      <div class="conf-box__value">researched</div>
+      <div class="conf-box__body">Someone else measured this. I have not run it myself. Read every delta below as a reading of the evidence, not as a result I produced.</div>
+    </aside>
+  </div>
+</div>
+
+<div class="section wrap" style="padding-top: 56px;">
+  <div class="baseline">
+    <div class="baseline__label">Compared to what</div>
+    <div class="baseline__text">Manual/agent-driven retrieval — the status quo this note starts from, where the agent must think to consult a skill or notes file, or the user pastes context in by hand.</div>
+  </div>
+</div>
+
+<div class="section wrap" style="padding-top: 56px;">
+  <div class="section__head section__head--spread">
+    <h2 class="section__label">The deltas</h2>
+    <div class="section__note">+ is always better for you &middot; never summed</div>
+  </div>
+
+  <div class="delta-cards">
+    <div class="delta-card delta-card--neg">
+      <div class="delta-card__label">cost-delta</div>
+      <div class="delta-card__val">&minus;1</div>
+      <div class="track"><i class="track__cell"></i><i class="track__cell track__cell--neg"></i><i class="track__zero"></i><i class="track__cell"></i><i class="track__cell"></i></div>
+      <div class="delta-card__read">More expensive &mdash; tokens, every turn, forever.</div>
+    </div>
+    <div class="delta-card delta-card--pos">
+      <div class="delta-card__label">quality-delta</div>
+      <div class="delta-card__val">+1</div>
+      <div class="track"><i class="track__cell"></i><i class="track__cell"></i><i class="track__zero"></i><i class="track__cell track__cell--pos"></i><i class="track__cell"></i></div>
+      <div class="delta-card__read">Better. Not <span class="tok">+2</span> &mdash; false positives mislead.</div>
+    </div>
+    <div class="delta-card delta-card--neg">
+      <div class="delta-card__label">speed-delta</div>
+      <div class="delta-card__val">&minus;1</div>
+      <div class="track"><i class="track__cell"></i><i class="track__cell track__cell--neg"></i><i class="track__zero"></i><i class="track__cell"></i><i class="track__cell"></i></div>
+      <div class="delta-card__read">Slower &mdash; a synchronous step before every prompt.</div>
+    </div>
+    <div class="delta-card delta-card--pos">
+      <div class="delta-card__label">attention-delta</div>
+      <div class="delta-card__val">+1</div>
+      <div class="track"><i class="track__cell"></i><i class="track__cell"></i><i class="track__zero"></i><i class="track__cell track__cell--pos"></i><i class="track__cell"></i></div>
+      <div class="delta-card__read">Asks less of you. The axis it is built for.</div>
+    </div>
+  </div>
+
+  <div class="meta-row">
+    <div class="meta"><span class="meta__k">dial</span><span class="meta__v">false</span></div>
+    <div class="meta"><span class="meta__k">effort</span><span class="meta__v">medium</span></div>
+    <div class="meta"><span class="meta__k">levers</span><span class="meta__v">loop, context</span></div>
+    <div class="meta"><span class="meta__k">mechanisms</span><span class="meta__v">information, noise-reduction</span></div>
+  </div>
+</div>
+
+<div class="section wrap" style="padding-top: 56px;">
+  <div class="section__head section__head--spread">
+    <h2 class="section__label">Score history</h2>
+    <div class="section__note">What moved, when, and why</div>
+  </div>
+
+  <p class="prose" style="margin-bottom: 28px;">Scores here are not fixed at a publication date. When evidence arrives that changes an assessment, the score changes and the change is recorded — including the times it was re-examined and held.</p>
+
+  <div class="history">
+    <div class="history__entry">
+      <div class="history__date"><time datetime="2026-08-28">28 Aug 2026</time></div>
+      <div>
+        <div class="history__what">First tracked state</div>
+        <div class="history__vector">
+          <span class="hv"><i>cost</i><b class="neg">&minus;1</b></span>
+          <span class="hv"><i>quality</i><b class="pos">+1</b></span>
+          <span class="hv"><i>speed</i><b class="neg">&minus;1</b></span>
+          <span class="hv"><i>attention</i><b class="pos">+1</b></span>
+          <span class="hv"><i>confidence</i><b>researched</b></span>
+        </div>
+        <p class="history__why">Scored against manual/agent-driven retrieval — the status quo where the agent must think to consult a skill or notes file, or the user pastes context in by hand.</p>
+      </div>
+    </div>
+  </div>
+
+  <p class="history__note">History tracking began 28 Aug 2026. Any revisions before that date were not recorded, and are not reconstructed here.</p>
+</div>
+
+<div class="section wrap" style="padding-top: 56px;">
+  <div class="when">
+    <div class="when__col">
+      <div class="when__kicker when__kicker--pos">Reach for it when</div>
+      <div class="when__title">You are attention-bound or quality-bound</div>
+      <div class="when__body">Strong under attention-bound — it matches the stated current regime — and under quality-bound, where discovery correctness compounds into durability.</div>
+    </div>
+    <div class="when__col">
+      <div class="when__kicker when__kicker--neg">It is weak or negative when</div>
+      <div class="when__title">You are cost-bound or latency-bound</div>
+      <div class="when__body">The added per-turn overhead is a real tax under both — unless failed manual retrieval was previously causing expensive rework.</div>
+    </div>
+  </div>
+</div>
+
+<div class="section wrap">
+  <div class="section__head"><h2 class="section__label">Why each delta reads the way it does</h2></div>
+
+  <div style="margin-top: 44px;">
+    <div class="arg">
+      <div class="arg__axis">
+        <div class="arg__name">quality-delta</div>
+        <div class="arg__val arg__val--pos">+1</div>
+        <div class="arg__note">Not +2, deliberately</div>
+      </div>
+      <div>
+        <p class="prose">Structural discovery genuinely beats hope-based discovery — closing the loop deterministically at the Loop lever is a real improvement over a rules-file plea. The baseline's failure mode is precise: knowledge only helped if the agent chose to consult the right skill file. A hook makes consultation automatic and structural.</p>
+        <p class="prose">It stops at <span class="tok">+1</span> because the note's own <em>precision matters more than recall</em> caveat is a real risk — false-positive injections actively mislead — and there is no measured false-positive rate yet to say how often that bites.</p>
+      </div>
+    </div>
+
+    <div class="arg">
+      <div class="arg__axis">
+        <div class="arg__name">cost-delta</div>
+        <div class="arg__val arg__val--neg">&minus;1</div>
+        <div class="arg__note">Scales with the matcher</div>
+      </div>
+      <div>
+        <p class="prose">Every hook firing spends tokens on the injected pointer text, and a non-trivial matcher — embeddings, a local model — adds compute and latency overhead on every single turn. This lands on exactly the Constraint/Information-at-Context row in the lever taxonomy: <em>tokens, every turn, forever.</em></p>
+        <p class="prose">Kept to plain grep plus pointers rather than payloads, this is a small cost. It grows with matcher sophistication. That is also why the injection discipline matters: inject <em>pointers, not payloads</em> where possible — "relevant: skill X, note Y" costs a few tokens and lets the agent pull what it needs, while injecting full documents recreates the context-bloat problem this solves.</p>
+      </div>
+    </div>
+
+    <div class="arg">
+      <div class="arg__axis">
+        <div class="arg__name">speed-delta</div>
+        <div class="arg__val arg__val--neg">&minus;1</div>
+        <div class="arg__note">Synchronous, before every prompt</div>
+      </div>
+      <div>
+        <p class="prose">It adds a synchronous step before every prompt is processed — Claude Code's own docs cap <span class="tok">UserPromptSubmit</span> at a 30s timeout — so per-turn wall-clock goes up even if it saves iteration cycles later by avoiding failed searches.</p>
+        <p class="prose">That timeout is also a failure-cost concern, not just a latency one. A hook that times out has its output — including <span class="tok">additionalContext</span> — silently discarded; the prompt still reaches Claude, just without the injection. An embedding or local-model matcher needs to stay comfortably under that budget or the hook fails silently rather than loudly.</p>
+      </div>
+    </div>
+
+    <div class="arg">
+      <div class="arg__axis">
+        <div class="arg__name">attention-delta</div>
+        <div class="arg__val arg__val--pos">+1</div>
+        <div class="arg__note">The axis it is built for</div>
+      </div>
+      <div>
+        <p class="prose">This is the axis the technique is built for. It removes a manual "go find the right skill" step from the user or the agent on every relevant turn, directly attacking the discovery problem the technique starts from.</p>
+      </div>
+    </div>
+
+    <div class="arg">
+      <div class="arg__axis">
+        <div class="arg__name">dial</div>
+        <div class="arg__val">false</div>
+        <div class="arg__note">Standing configuration</div>
+      </div>
+      <div>
+        <p class="prose">No per-task knob is exposed by anything verified here — it is a standing repo/hook configuration, not something toggled per task. A verbosity or injection-depth control is imaginable but unconfirmed in practice.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="section wrap" style="padding-top: 56px;">
+  <div class="section__head"><h2 class="section__label">The other way to solve this</h2></div>
+  <p class="prose" style="margin-top: 28px;"><a href="fine-tuning-open-weight-models.html">Fine-tuning open-weight models</a> is the bake-it-into-weights alternative to the same problem: getting tribal knowledge to a place the agent can use it. The two are direct alternatives, and they are scored against each other from opposite ends — that page takes <em>this</em> technique as its baseline, scoring itself against "the current context-injection approach (skill/steering files re-sent every session)."</p>
+  <p class="prose">Read together, the delta vectors mirror: the fine-tune buys back the recurring per-session cost this hook pattern pays every turn, and pays for it with knowledge that can no longer be diffed, reviewed, or selectively corrected — which is precisely what a pointer to a skill file preserves.</p>
+</div>
+
+<div class="section wrap" style="padding-top: 80px;">
+  <div class="plog">
+    <div class="plog__head">
+      <h2 class="plog__title">Perspectives log</h2>
+      <div class="plog__blurb">Sources that complicate or contradict the score above. Kept on the record whether or not they were convenient.</div>
+    </div>
+
+    <div class="plog__entry">
+      <div class="plog__meta">
+        <div class="plog__date">2026-08-28</div>
+        <div class="tag tag--aligns">Aligns</div>
+        <div class="plog__src">Postman blog, via TLDR Dev<br><a href="https://blog.postman.com/why-ai-coding-agents-need-context-graphs/">blog.postman.com</a></div>
+      </div>
+      <div>
+        <div class="plog__paper">Why AI Coding Agents Need Context Graphs</div>
+        <p class="plog__body">Argues coding agents fail in real codebases because scattered team context — ownership, relationships between typed entities — isn't discoverable at prompt time, and the fix is publishing an externally queryable context graph with ownership metadata over MCP. A structured, queryable-on-demand knowledge source distinct from this note's skill-file/embedding matchers, but the same underlying pattern: make relevant knowledge reachable at the moment it's needed rather than requiring the agent to already know to look.</p>
+      </div>
+    </div>
+
+    <div class="plog__entry">
+      <div class="plog__meta">
+        <div class="plog__date">2026-08-24</div>
+        <div class="tag tag--aligns">Aligns</div>
+        <div class="plog__src">Mistral, via TLDR AI<br><a href="https://mistral.ai/news/agentic-search/">mistral.ai</a></div>
+      </div>
+      <div>
+        <div class="plog__paper">Agentic Search</div>
+        <p class="plog__body">Mistral's Agentic Search replaces one-shot retrieval with a five-operation loop (search, open, navigate, read, grep) so the model can inspect long documents, follow references, and verify an answer instead of accepting the first retrieved chunks — a Loop/Tools-lever version of "get the right knowledge in" that this note tracks mainly at the Context lever (matchers/injection hooks). Vendor-run tests report FinanceBench correctness rising from 26.7% to 86% with the loop enabled, with a different harness adding another 10.5 points on the same model — a large, if vendor-authored, quantified case that <em>how</em> retrieval happens (single-shot vs. navigable loop) can matter as much as <em>what</em> gets retrieved.</p>
+      </div>
+    </div>
+
+    <div class="plog__entry">
+      <div class="plog__meta">
+        <div class="plog__date">2026-08-14</div>
+        <div class="tag tag--nuances">Nuances</div>
+        <div class="plog__src">GitHub, via TLDR Dev<br><a href="https://github.com/sourcebot-dev/sourcebot">sourcebot-dev/sourcebot</a></div>
+      </div>
+      <div>
+        <div class="plog__paper">Sourcebot</div>
+        <p class="plog__body">Sourcebot, a self-hosted codebase-understanding tool (complex Q&amp;A, code search, cross-repo navigation), is a candidate <em>source</em> an injection hook could query rather than a hook itself — it addresses this note's "what to retrieve from" side (a searchable knowledge base beyond hand-written skills/notes) without touching the matcher/injection mechanism the note is actually about.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="wrap">
+  <div class="endnote">
+    <div class="endnote__label">Placement</div>
+    <div class="endnote__body">The intervention sits across <span class="tok">loop</span> and <span class="tok">context</span> — the hook fires structurally in the turn loop, and what it changes is what is in the context window — with <span class="tok">information</span> and <span class="tok">noise-reduction</span> as mechanisms. That placement is not just locally plausible: this is a named, first-class abstraction in at least one other framework. Microsoft Agent Framework's <span class="tok">AIContextProvider</span>/<span class="tok">ContextProvider</span> is explicitly "a pluggable context-assembly step that injects additional context into an agent's prompt at runtime with its own token budget," which is this pattern almost verbatim. That convergence is evidence the Loop×Context placement is right.</div>
+  </div>
+</div>
+</article>
+
+</body>
+</html>

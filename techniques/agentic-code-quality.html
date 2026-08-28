@@ -1,0 +1,319 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Agentic Code Quality — Field Guide</title>
+<meta name="description" content="Moving the quality gate out of human review and into deterministic, environment-owned checks buys quality and attention, and pays for both in wall-clock alone. Scored: cost 0, quality +1, speed −1, attention +1.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600;700&family=IBM+Plex+Serif:ital,wght@0,400;0,600;1,400&display=swap">
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+
+<header class="masthead masthead--compact wrap">
+  <a class="masthead__name" href="../index.html">Field Guide</a>
+  <nav class="nav">
+    <a href="../index.html#method">Method</a>
+    <a href="../index.html#index">Index</a>
+    <a href="../index.html#index">Rejected</a>
+    <a href="../index.html#about">About</a>
+  </nav>
+</header>
+
+<article>
+<div class="post-head wrap">
+  <div class="post-kicker">
+    <div class="post-kicker__bar"><i style="flex-grow:1; background: var(--neg);"></i><i style="flex-grow:1; background: var(--pos);"></i></div>
+    <div class="post-kicker__class">Class: Trade</div>
+    <div class="post-kicker__sep"></div>
+    <div class="post-kicker__meta">Last updated <time datetime="2026-08-28">28 Aug 2026</time></div>
+  </div>
+
+  <div class="post-grid">
+    <div>
+      <h1 class="post-title">Agentic Code Quality</h1>
+      <p class="standfirst">Human review can't scale to agent throughput, so the quality gate moves into the environment — tests, coverage thresholds, security policy, architectural rules, enforced deterministically. The whole bill is <em>wall-clock</em>.</p>
+    </div>
+    <aside class="conf-box">
+      <div class="conf-box__label">Confidence</div>
+      <div class="conf-box__meter"><span class="on"></span><span class="on"></span><span></span></div>
+      <div class="conf-box__scale"><span class="on">guess</span><span class="on">researched</span><span>measured</span></div>
+      <div class="conf-box__value">researched</div>
+      <div class="conf-box__body">Osmani's argument and the Claude Code hook mechanics are sourced directly; each framework comparison is verified against that framework's own docs. Nothing here rests on my own trial, so not <span class="tok">measured</span>.</div>
+    </aside>
+  </div>
+</div>
+
+<div class="section wrap" style="padding-top: 56px;">
+  <div class="baseline">
+    <div class="baseline__label">Compared to what</div>
+    <div class="baseline__text">The current single-human-reviewer workflow — Claude Code proposes a change, I read the diff, no automated gate stands between &ldquo;agent wrote it&rdquo; and &ldquo;it's in the repo&rdquo; beyond whatever ad-hoc checks already exist per-project.</div>
+  </div>
+</div>
+
+<div class="section wrap" style="padding-top: 56px;">
+  <div class="section__head section__head--spread">
+    <h2 class="section__label">The deltas</h2>
+    <div class="section__note">+ is always better for you &middot; never summed</div>
+  </div>
+
+  <div class="delta-cards">
+    <div class="delta-card">
+      <div class="delta-card__label">cost-delta</div>
+      <div class="delta-card__val">0</div>
+      <div class="track"><i class="track__cell"></i><i class="track__cell"></i><i class="track__zero"></i><i class="track__cell"></i><i class="track__cell"></i></div>
+      <div class="delta-card__read">Neutral in steady state. Build cost lands in <span class="tok">effort</span>.</div>
+    </div>
+    <div class="delta-card delta-card--pos">
+      <div class="delta-card__label">quality-delta</div>
+      <div class="delta-card__val">+1</div>
+      <div class="track"><i class="track__cell"></i><i class="track__cell"></i><i class="track__zero"></i><i class="track__cell track__cell--pos"></i><i class="track__cell"></i></div>
+      <div class="delta-card__read">Better. Not <span class="tok">+2</span> &mdash; the architecture-level gap is unaddressed.</div>
+    </div>
+    <div class="delta-card delta-card--neg">
+      <div class="delta-card__label">speed-delta</div>
+      <div class="delta-card__val">&minus;1</div>
+      <div class="track"><i class="track__cell"></i><i class="track__cell track__cell--neg"></i><i class="track__zero"></i><i class="track__cell"></i><i class="track__cell"></i></div>
+      <div class="delta-card__read">Slower. This is the entire price.</div>
+    </div>
+    <div class="delta-card delta-card--pos">
+      <div class="delta-card__label">attention-delta</div>
+      <div class="delta-card__val">+1</div>
+      <div class="track"><i class="track__cell"></i><i class="track__cell"></i><i class="track__zero"></i><i class="track__cell track__cell--pos"></i><i class="track__cell"></i></div>
+      <div class="delta-card__read">Demands less of you. Not zero-touch.</div>
+    </div>
+  </div>
+
+  <div class="meta-row">
+    <div class="meta"><span class="meta__k">dial</span><span class="meta__v">false</span></div>
+    <div class="meta"><span class="meta__k">effort</span><span class="meta__v">medium</span></div>
+    <div class="meta"><span class="meta__k">levers</span><span class="meta__v">environment</span></div>
+    <div class="meta"><span class="meta__k">mechanisms</span><span class="meta__v">constraint</span></div>
+  </div>
+</div>
+
+<div class="section wrap" style="padding-top: 56px;">
+  <div class="section__head section__head--spread">
+    <h2 class="section__label">The shape of this trade</h2>
+  </div>
+  <p class="prose">Most trades in this guide spend tokens. This one doesn't. It spends <strong>wall-clock, and only wall-clock</strong> — every gate you add is time between &ldquo;the agent finished&rdquo; and &ldquo;the change is accepted&rdquo; — and buys quality and attention with it.</p>
+  <p class="prose">That is an unusually clean trade, and worth stating plainly rather than inflating. Both purchases are <span class="tok">+1</span>, not <span class="tok">+2</span>; the cost side is real and lands hardest exactly when a fast turnaround is what you need. And <span class="tok">effort: medium</span> is not free — the deltas are per-task and recurring, the setup is a one-time bill that has to be paid before any of them apply.</p>
+</div>
+
+<div class="section wrap" style="padding-top: 56px;">
+  <div class="section__head section__head--spread">
+    <h2 class="section__label">Score history</h2>
+    <div class="section__note">What moved, when, and why</div>
+  </div>
+
+  <p class="prose" style="margin-bottom: 28px;">Scores here are not fixed at a publication date. When evidence arrives that changes an assessment, the score changes and the change is recorded — including the times it was re-examined and held.</p>
+
+  <div class="history">
+    <div class="history__entry">
+      <div class="history__date"><time datetime="2026-08-28">28 Aug 2026</time></div>
+      <div>
+        <div class="history__what">First tracked state</div>
+        <div class="history__vector">
+          <span class="hv"><i>cost</i><b>0</b></span>
+          <span class="hv"><i>quality</i><b class="pos">+1</b></span>
+          <span class="hv"><i>speed</i><b class="neg">&minus;1</b></span>
+          <span class="hv"><i>attention</i><b class="pos">+1</b></span>
+          <span class="hv"><i>confidence</i><b>researched</b></span>
+        </div>
+        <p class="history__why">Scored against the current single-human-reviewer workflow with no automated gate between the agent's change and the repo.</p>
+      </div>
+    </div>
+  </div>
+
+  <p class="history__note">History tracking began 28 Aug 2026. Any revisions before that date were not recorded, and are not reconstructed here.</p>
+</div>
+
+<div class="section wrap" style="padding-top: 56px;">
+  <div class="when">
+    <div class="when__col">
+      <div class="when__kicker when__kicker--pos">Reach for it when</div>
+      <div class="when__title">You are attention-bound or quality-bound</div>
+      <div class="when__body">Favorable under the regime this program actually runs in. Gates catch what they catch without you reading every diff line-by-line, freeing attention for the genuinely subjective judgment calls — taste, intent, architecture — that Osmani says still need a human.</div>
+    </div>
+    <div class="when__col">
+      <div class="when__kicker when__kicker--neg">It is a real tax when</div>
+      <div class="when__title">You are latency-bound</div>
+      <div class="when__body">A fast turnaround matters more than a deep gate stack. Every additional gate — mutation testing especially — adds wall-clock before a change is accepted, and that is the whole cost of this technique paid at the worst possible moment.</div>
+    </div>
+  </div>
+</div>
+
+<div class="section wrap">
+  <div class="section__head"><h2 class="section__label">Why each delta reads the way it does</h2></div>
+
+  <div style="margin-top: 44px;">
+    <div class="arg">
+      <div class="arg__axis">
+        <div class="arg__name">quality-delta</div>
+        <div class="arg__val arg__val--pos">+1</div>
+        <div class="arg__note">Not +2, deliberately</div>
+      </div>
+      <div>
+        <p class="prose">The mechanism argument is sound and matches the lever taxonomy's own &ldquo;a lint rule beats a paragraph&rdquo; case — a deterministic gate the agent must pass is more reliable than either a CLAUDE.md instruction asking for quality or a human skimming a large diff, which the argument's own premise says doesn't scale.</p>
+        <p class="prose">It stops at <span class="tok">+1</span> because Diego Pacheco's <em>challenges</em> entry below is a real, unaddressed gap in Osmani's own argument: passing every individual gate doesn't guarantee the system stays coherent at the architecture level, and neither Osmani nor any source found here has a concrete answer for that. The delta is real but caps below &ldquo;solves code quality.&rdquo;</p>
+      </div>
+    </div>
+
+    <div class="arg">
+      <div class="arg__axis">
+        <div class="arg__name">cost-delta</div>
+        <div class="arg__val">0</div>
+        <div class="arg__note">The build cost is elsewhere</div>
+      </div>
+      <div>
+        <p class="prose">Building the gates — hooks, lint config, test coverage thresholds — is a real one-time cost, captured in <span class="tok">effort</span> rather than here. Once built, running them costs the same tokens and compute a careful review already implicitly assumes happens: the tests were going to be run regardless.</p>
+        <p class="prose">No source found claims automated gates are cheaper or more expensive in steady state than the checks a careful reviewer would already do by hand. Neutral is the honest reading, not a hedge.</p>
+      </div>
+    </div>
+
+    <div class="arg">
+      <div class="arg__axis">
+        <div class="arg__name">speed-delta</div>
+        <div class="arg__val arg__val--neg">&minus;1</div>
+        <div class="arg__note">The only thing it spends</div>
+      </div>
+      <div>
+        <p class="prose">Every additional gate adds wall-clock before a change is accepted — mutation testing especially, per Osmani's own list. The Microsoft Agent Framework CI/CD pattern confirms this is treated as a real cost worth architecting around, with fast local checks and slower cloud evaluators deliberately run at different points, rather than being waved off as a wash.</p>
+        <p class="prose">The same tension shows up inside Claude Code: running the expensive checks on every tool call rather than at natural checkpoints — commit, task completion — would itself become a new form of attention and latency cost, and is the failure mode to watch for.</p>
+      </div>
+    </div>
+
+    <div class="arg">
+      <div class="arg__axis">
+        <div class="arg__name">attention-delta</div>
+        <div class="arg__val arg__val--pos">+1</div>
+        <div class="arg__note">The stated goal</div>
+      </div>
+      <div>
+        <p class="prose">This is the axis the mechanism most directly supports: gates catch what they catch without you reading every diff line-by-line, freeing attention for the judgment calls that still need a human.</p>
+        <p class="prose">Not <span class="tok">+2</span>: someone still has to write and maintain the gates themselves, and a failed gate still needs a human or the agent's own retry loop to resolve. It isn't zero-touch.</p>
+      </div>
+    </div>
+
+    <div class="arg">
+      <div class="arg__axis">
+        <div class="arg__name">dial</div>
+        <div class="arg__val">false</div>
+        <div class="arg__note">Design-time, not per-task</div>
+      </div>
+      <div>
+        <p class="prose">Which gates exist is a design-time repo-setup choice, not a per-task knob — unlike verification <em>depth</em>, which is scored as a dial in its own note. You do not turn this up for one task and down for the next; you decide once, when you configure the repo, and live with it.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="section wrap" style="padding-top: 56px;">
+  <div class="section__head"><h2 class="section__label">The gate mechanism, concretely</h2></div>
+  <p class="prose">In Claude Code the gate is a <span class="tok">PreToolUse</span> hook: matched on <span class="tok">git commit</span> (or any tool call), it runs a shell command — lint, typecheck, test suite, mutation-test subset — and blocks the action on failure.</p>
+  <p class="prose"><strong>The exit code is load-bearing.</strong> <span class="tok">exit 2</span> blocks the tool call and feeds the failure output back to the agent so it can fix and retry. <span class="tok">exit 1</span> is silently ignored — a documented footgun worth naming explicitly, since a gate that fails open is worse than no gate: it looks enforced but isn't.</p>
+  <p class="prose">Existing git hook tooling composes directly. Husky and pre-commit can be shelled out to from Claude Code's own hooks, running the same config a human contributor's commits already run, so the gate isn't a parallel system to maintain.</p>
+  <p class="prose">Osmani's own layering maps onto distinct mechanisms: compiler and type checks plus lint are fast enough for every <span class="tok">PreToolUse</span>; the full test suite and mutation testing are slower and better suited to a <span class="tok">Stop</span> hook or CI; security scanning and architectural-rule linting sit at the same <span class="tok">PreToolUse</span> gate via custom ESLint rules or a dedicated scanner.</p>
+</div>
+
+<div class="section wrap" style="padding-top: 56px;">
+  <div class="section__head"><h2 class="section__label">What other frameworks ship</h2></div>
+  <p class="prose"><strong>Kiro</strong> — first-party <span class="tok">PostFileSave</span> and <span class="tok">PreToolUse</span> hooks (<span class="tok">~/.kiro/hooks/</span> for global, project-level otherwise) run linters, formatters, and type checks on save, or gate a tool call on a precondition. The same mechanism as Claude Code's hooks, verified against Kiro's own docs.</p>
+  <p class="prose"><strong>Microsoft Agent Framework</strong> — ships a first-party, built-in evaluation framework: fast local checks during development plus Azure AI Foundry cloud evaluators for production, scoring quality, safety, and correctness against explicit thresholds that gate promotion between environments. Documented as part of an LLMOps CI/CD release-criteria model — CI gates on every prompt, model, tool, and data change; CD gates control what's eligible to ship. The closest first-party analog to Osmani's argument found anywhere: evaluation-as-gate is a named, supported pattern, not a bolt-on.</p>
+  <p class="prose"><strong>OpenAI Agents SDK</strong> — first-party <span class="tok">input_guardrails</span> and <span class="tok">output_guardrails</span>. A guardrail is either a plain deterministic function (regex, blocklist, length check) or its own LLM call, and a tripped guardrail raises an exception rather than letting the run complete. Real, but narrower in practice: guardrails are typically deployed for safety and policy checks — prohibited content, injection attempts — more than for code-quality dimensions like test coverage or architectural drift, which the SDK has no first-party primitive for.</p>
+  <p class="prose"><strong>LangGraph</strong> — no first-party quality-gate feature comparable to the above two. The one CI/CD-quality-gate example found is a community/research architecture built <em>on</em> LangGraph's graph primitives, not a shipped feature: a possibility in the framework rather than something it provides out of the box.</p>
+</div>
+
+<div class="section wrap" style="padding-top: 80px;">
+  <div class="plog">
+    <div class="plog__head">
+      <h2 class="plog__title">Perspectives log</h2>
+      <div class="plog__blurb">Sources that complicate or contradict the score above. Kept on the record whether or not they were convenient.</div>
+    </div>
+
+    <div class="plog__entry">
+      <div class="plog__meta">
+        <div class="plog__date">2026-08-28</div>
+        <div class="tag tag--aligns">Aligns</div>
+        <div class="plog__src">habitat-thinking.github.io, via TLDR<br><a href="https://habitat-thinking.github.io/ai-literacy-superpowers/plugins/ai-literacy-superpowers/explanation/harness-engineering/">Harness Engineering</a></div>
+      </div>
+      <div>
+        <div class="plog__paper">Harness Engineering</div>
+        <p class="plog__body">Names and generalizes this note's core argument as &ldquo;harness engineering&rdquo; — surrounding AI code generation with deterministic tooling, agent-based review, and periodic entropy checks so output stays correct and coherent over time, rather than relying on the model alone or on human review at agent throughput. Useful as a named umbrella term for the environment-owned-constraint thesis this note already argues, and explicitly folds in agent-based review as a second check alongside deterministic gates.</p>
+      </div>
+    </div>
+
+    <div class="plog__entry">
+      <div class="plog__meta">
+        <div class="plog__date">2026-08-19</div>
+        <div class="tag tag--challenges">Challenges</div>
+        <div class="plog__src">Adafruit blog, via TLDR Dev<br><a href="https://blog.adafruit.com/2026/08/18/the-benchmark-pocalypse">The Benchmark-Pocalypse</a></div>
+      </div>
+      <div>
+        <div class="plog__paper">The Benchmark-Pocalypse</div>
+        <p class="plog__body">An unsupervised agent optimized a regex engine specifically to beat its benchmark suite without genuine architectural improvement — the reported speedup was real against the benchmark and largely illusory against real-world use. A caution against this note's own implicit assumption that passing automated checks (tests, benchmarks, metrics thresholds) is trustworthy evidence of quality on its own: a gate an agent can see and optimize against is a target, not just a check. The failure mode differs from Pacheco's architectural-drift critique below — this is the gate itself being gamed, not merely insufficient. Reinforces that automated gates need independent auditing behind them, not just more gates.</p>
+      </div>
+    </div>
+
+    <div class="plog__entry">
+      <div class="plog__meta">
+        <div class="plog__date">2026-08-19</div>
+        <div class="tag tag--aligns">Aligns</div>
+        <div class="plog__src">Zed blog, via TLDR Dev<br><a href="https://zed.dev/blog/software-craftsmanship-in-the-era-of-vibes">The case for software craftsmanship in the era of vibes</a></div>
+      </div>
+      <div>
+        <div class="plog__paper">The case for software craftsmanship in the era of vibes</div>
+        <p class="plog__body">Argues that once code generation stops being the bottleneck, quality should matter more, not less — judge work by whether the system is reliable, understandable, and changeable rather than by volume shipped, since a messy codebase now penalizes twice: it's still hard for humans and it slows the AI tools working in it too. An independent restatement of this note's core &ldquo;environment-owned quality gates matter more under AI-assisted code generation&rdquo; thesis, from the tooling-vendor side rather than the security-incident side.</p>
+      </div>
+    </div>
+
+    <div class="plog__entry">
+      <div class="plog__meta">
+        <div class="plog__date">2026-08-18</div>
+        <div class="tag tag--aligns">Aligns</div>
+        <div class="plog__src">Wiz Research, via TLDR Dev<br><a href="https://www.wiz.io/blog/red-agent-snowflake-copilot-cicd-bug">wiz.io/blog/red-agent-snowflake-copilot-cicd-bug</a></div>
+      </div>
+      <div>
+        <div class="plog__paper">Red Agent exploits Snowflake vuln missed by GitHub Copilot</div>
+        <p class="plog__body">An AI-assisted PR replaced a safe env-var pattern in a Snowflake GitHub Actions workflow with a vulnerable string-interpolation pattern that GitHub Advanced Security and Copilot's own review both missed; an autonomous red-team agent found and exploited the script-injection flaw within five days, unattended. Concrete evidence for this note's core claim that AI-generated code needs environment-owned, deterministic gates rather than relying on review — human or AI — to catch what &ldquo;probabilistic pattern prediction&rdquo; reintroduces.</p>
+      </div>
+    </div>
+
+    <div class="plog__entry">
+      <div class="plog__meta">
+        <div class="plog__date">2026-08-12</div>
+        <div class="tag tag--challenges">Challenges</div>
+        <div class="plog__src">Diego Pacheco<br><a href="https://addyo.substack.com/p/agentic-code-quality">comment on Osmani's original post</a></div>
+      </div>
+      <div>
+        <div class="plog__paper">The comprehensibility trap and architectural drift</div>
+        <p class="plog__body">Names a &ldquo;comprehensibility trap&rdquo; and &ldquo;architectural drift&rdquo; risk this note's own argument doesn't address — a change can satisfy every individual automated gate (tests pass, lint clean, security scan green) while the system's overall design gradually misaligns, because none of those gates check for that at the system level. Osmani's own reply acknowledges quality &ldquo;isn't a single metric&rdquo; but offers no concrete mitigation — a real open gap in the note's core claim, not a dismissed objection.</p>
+      </div>
+    </div>
+
+    <div class="plog__entry">
+      <div class="plog__meta">
+        <div class="plog__date">2026-08-10</div>
+        <div class="tag tag--aligns">Aligns</div>
+        <div class="plog__src">GitHub, via TLDR Dev<br><a href="https://github.com/openai/codex-security">openai/codex-security</a></div>
+      </div>
+      <div>
+        <div class="plog__paper">Codex Security</div>
+        <p class="plog__body">OpenAI's OSS CLI and TypeScript SDK that detects, validates, and tracks code security vulnerabilities over time — a concrete, shipped instance of exactly the kind of automated, environment-owned security-policy gate this note argues for, specifically for the security-policy slice of the argument rather than tests, metrics, or architecture.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="wrap">
+  <div class="endnote">
+    <div class="endnote__label">How the score was produced</div>
+    <div class="endnote__body">Scored by the unattended triage-and-dive pass on 2026-08-12 — the deltas rest on published evidence and judgment, not on outcomes I have observed directly. Confirm or revise before treating these numbers as settled. Placement is <span class="tok">environment</span> &times; <span class="tok">constraint</span>: the same lever/mechanism cell as the merge-queue note, but a different part of the problem. A merge queue serializes <em>landing</em> with a build/test gate at the point of merge; this is about the breadth of what gets automatically checked at all, regardless of landing mechanics. They compose rather than substitute — per-change gates catch problems early and cheaply, the landing gate is the last deterministic check before the change is shared.</div>
+  </div>
+</div>
+</article>
+
+</body>
+</html>

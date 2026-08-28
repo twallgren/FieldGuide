@@ -1,0 +1,245 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Task Runners for Coding Tasks — Field Guide</title>
+<meta name="description" content="Giving a repo one consistent command surface (just test, just build, just lint) so an agent never has to discover how to run things. Scored against a well-maintained CLAUDE.md command list: cost 0, quality +1, speed +1, attention 0, on a guess.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600;700&family=IBM+Plex+Serif:ital,wght@0,400;0,600;1,400&display=swap">
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+
+<header class="masthead masthead--compact wrap">
+  <a class="masthead__name" href="../index.html">Field Guide</a>
+  <nav class="nav">
+    <a href="../index.html#method">Method</a>
+    <a href="../index.html#index">Index</a>
+    <a href="../index.html#index">Rejected</a>
+    <a href="../index.html#about">About</a>
+  </nav>
+</header>
+
+<article>
+<div class="post-head wrap">
+  <div class="post-kicker">
+    <div class="post-kicker__bar"><i style="flex-grow:1; background: var(--pos);"></i></div>
+    <div class="post-kicker__class">Class: No-regret</div>
+    <div class="post-kicker__sep"></div>
+    <div class="post-kicker__meta">Last updated <time datetime="2026-08-14">14 Aug 2026</time></div>
+  </div>
+
+  <div class="post-grid">
+    <div>
+      <h1 class="post-title">Task Runners for Coding Tasks</h1>
+      <p class="standfirst">Make/Just/Mise-style runners give a repo one consistent command surface — <span class="tok">just test</span>, <span class="tok">just build</span>, <span class="tok">just lint</span> — instead of stack-specific incantations that differ from repo to repo. For an agent, that removes a discovery step it would otherwise pay for in tool calls and wrong guesses.</p>
+    </div>
+    <aside class="conf-box">
+      <div class="conf-box__label">Confidence</div>
+      <div class="conf-box__meter"><span class="on"></span><span></span><span></span></div>
+      <div class="conf-box__scale"><span class="on">guess</span><span>researched</span><span>measured</span></div>
+      <div class="conf-box__value">guess</div>
+      <div class="conf-box__body">The lowest rung. <span class="tok">guess</span> means <em>my prior</em> — nobody measured this, the author included. No source directly measured task-runner-specific token or tool-call savings; <span class="tok">just-mcp</span>'s own docs don't quantify it. The deltas below rest on mechanism reasoning, not a study.</div>
+    </aside>
+  </div>
+</div>
+
+<div class="section wrap" style="padding-top: 56px;">
+  <div class="baseline">
+    <div class="baseline__label">Compared to what</div>
+    <div class="baseline__text">A well-maintained <span class="tok">CLAUDE.md</span>/<span class="tok">AGENTS.md</span> command list (exact build/test/lint invocations documented in prose) with no dedicated task runner underneath — the sharper comparison the note's own "How this could apply to me" section asked for, not the weaker "agent guesses from <span class="tok">package.json</span>" baseline.</div>
+  </div>
+</div>
+
+<div class="section wrap" style="padding-top: 56px;">
+  <div class="section__head section__head--spread">
+    <h2 class="section__label">The deltas</h2>
+    <div class="section__note">+ is always better for you &middot; never summed</div>
+  </div>
+
+  <div class="delta-cards">
+    <div class="delta-card">
+      <div class="delta-card__label">cost-delta</div>
+      <div class="delta-card__val">0</div>
+      <div class="track"><i class="track__cell"></i><i class="track__cell"></i><i class="track__zero"></i><i class="track__cell"></i><i class="track__cell"></i></div>
+      <div class="delta-card__read">Neutral. A recipe list and a documented command section cost about the same.</div>
+    </div>
+    <div class="delta-card delta-card--pos">
+      <div class="delta-card__label">quality-delta</div>
+      <div class="delta-card__val">+1</div>
+      <div class="track"><i class="track__cell"></i><i class="track__cell"></i><i class="track__zero"></i><i class="track__cell track__cell--pos"></i><i class="track__cell"></i></div>
+      <div class="delta-card__read">Better &mdash; durability, not discovery. A recipe can't drift out of sync.</div>
+    </div>
+    <div class="delta-card delta-card--pos">
+      <div class="delta-card__label">speed-delta</div>
+      <div class="delta-card__val">+1</div>
+      <div class="track"><i class="track__cell"></i><i class="track__cell"></i><i class="track__zero"></i><i class="track__cell track__cell--pos"></i><i class="track__cell"></i></div>
+      <div class="delta-card__read">Faster &mdash; removes a one-time per-session discovery step.</div>
+    </div>
+    <div class="delta-card">
+      <div class="delta-card__label">attention-delta</div>
+      <div class="delta-card__val">0</div>
+      <div class="track"><i class="track__cell"></i><i class="track__cell"></i><i class="track__zero"></i><i class="track__cell"></i><i class="track__cell"></i></div>
+      <div class="delta-card__read">Neutral. Setup cost is comparable either way.</div>
+    </div>
+  </div>
+
+  <div class="meta-row">
+    <div class="meta"><span class="meta__k">dial</span><span class="meta__v">false</span></div>
+    <div class="meta"><span class="meta__k">effort</span><span class="meta__v">low</span></div>
+    <div class="meta"><span class="meta__k">levers</span><span class="meta__v">environment</span></div>
+    <div class="meta"><span class="meta__k">mechanisms</span><span class="meta__v">noise-reduction</span></div>
+  </div>
+</div>
+
+<div class="section wrap" style="padding-top: 56px;">
+  <div class="section__head section__head--spread">
+    <h2 class="section__label">Score history</h2>
+    <div class="section__note">What moved, when, and why</div>
+  </div>
+
+  <p class="prose" style="margin-bottom: 28px;">Scores here are not fixed at a publication date. When evidence arrives that changes an assessment, the score changes and the change is recorded — including the times it was re-examined and held.</p>
+
+  <div class="history">
+    <div class="history__entry">
+      <div class="history__date"><time datetime="2026-08-14">14 Aug 2026</time></div>
+      <div>
+        <div class="history__what">First tracked state</div>
+        <div class="history__vector">
+          <span class="hv"><i>cost</i><b>0</b></span>
+          <span class="hv"><i>quality</i><b class="pos">+1</b></span>
+          <span class="hv"><i>speed</i><b class="pos">+1</b></span>
+          <span class="hv"><i>attention</i><b>0</b></span>
+          <span class="hv"><i>confidence</i><b>guess</b></span>
+        </div>
+        <p class="history__why">Scored by the unattended triage-and-dive pass on 2026-08-12, against a well-maintained <span class="tok">CLAUDE.md</span>/<span class="tok">AGENTS.md</span> command list. The note's own caveat on these numbers: they rest on published evidence and judgment, not on outcomes the user has observed directly — confirm or revise before treating them as settled.</p>
+      </div>
+    </div>
+  </div>
+
+  <p class="history__note">History tracking began 28 Aug 2026. Any revisions before that date were not recorded, and are not reconstructed here.</p>
+</div>
+
+<div class="section wrap" style="padding-top: 56px;">
+  <div class="when">
+    <div class="when__col">
+      <div class="when__kicker when__kicker--pos">What it does</div>
+      <div class="when__title">Nothing gets worse</div>
+      <div class="when__body">None of the four recurring deltas goes negative against the sharper <span class="tok">CLAUDE.md</span>-list baseline, so there is no regime under which this is the wrong call and no second panel naming one. Two honest qualifiers, neither of them a hidden cost. First, the class is low-magnitude: the real win is drift-resistance, modest enough that the note reads it as "worth doing opportunistically when touching a repo's setup anyway" rather than "worth a dedicated migration project." Second, the confidence rung — this is a no-regret asserted on a <span class="tok">guess</span>, a hypothesis that nothing gets worse rather than a finding that nothing did.</div>
+    </div>
+    <div class="when__col">
+      <div class="when__kicker when__kicker--neg">What it costs to set up</div>
+      <div class="when__title">effort: low</div>
+      <div class="when__body">Writing a <span class="tok">justfile</span> — kept separate from the delta vector per program convention, because it amortizes and the deltas don't. The note rates the setup as comparable to writing the <span class="tok">CLAUDE.md</span> command section it replaces, which is why the attention delta sits at zero rather than going negative.</div>
+    </div>
+  </div>
+</div>
+
+<div class="section wrap">
+  <div class="section__head"><h2 class="section__label">Why each delta reads the way it does</h2></div>
+
+  <div style="margin-top: 44px;">
+    <div class="arg">
+      <div class="arg__axis">
+        <div class="arg__name">quality-delta</div>
+        <div class="arg__val arg__val--pos">+1</div>
+        <div class="arg__note">Durability, not discovery</div>
+      </div>
+      <div>
+        <p class="prose">The real advantage is durability, not discovery: a <span class="tok">justfile</span> recipe <em>is</em> the actual runnable command, so it can't silently drift out of sync with the real build/test/lint invocations the way prose in a <span class="tok">CLAUDE.md</span> can — someone changes the test command, forgets to update the docs, the agent runs the stale one.</p>
+        <p class="prose">Not higher: nothing prevents a <span class="tok">CLAUDE.md</span> list from being kept accurate too, and no source measured how often that drift actually happens in practice. This is a mechanism argument, not an observed failure rate.</p>
+      </div>
+    </div>
+
+    <div class="arg">
+      <div class="arg__axis">
+        <div class="arg__name">speed-delta</div>
+        <div class="arg__val arg__val--pos">+1</div>
+        <div class="arg__note">One discovery step, once per session</div>
+      </div>
+      <div>
+        <p class="prose">Removes the one-time per-session discovery step the note's own overview names — reading <span class="tok">package.json</span>, a <span class="tok">Makefile</span>, or CI config, or guessing — once a user has standardized across repos.</p>
+        <p class="prose">Explicitly <strong>not</strong> the same mechanism as the "faster CLI tools" finding logged in the Agent Fleet Dashboards sibling research this pass: ripgrep-vs-grep is raw binary speed, a different and better-evidenced technique (measured 2–3x) this note should not claim credit for.</p>
+      </div>
+    </div>
+
+    <div class="arg">
+      <div class="arg__axis">
+        <div class="arg__name">cost-delta</div>
+        <div class="arg__val">0</div>
+        <div class="arg__note">No token advantage claimed</div>
+      </div>
+      <div>
+        <p class="prose">Both approaches put a short, resident set of documented commands in context either way — a <span class="tok">justfile</span> recipe list and a <span class="tok">CLAUDE.md</span> command section cost roughly the same in tokens. No source found claiming a token-cost advantage for a dedicated runner over good documentation.</p>
+      </div>
+    </div>
+
+    <div class="arg">
+      <div class="arg__axis">
+        <div class="arg__name">attention-delta</div>
+        <div class="arg__val">0</div>
+        <div class="arg__note">Comparable setup either way</div>
+      </div>
+      <div>
+        <p class="prose">Setup cost is comparable either way — write a <span class="tok">justfile</span> versus write a <span class="tok">CLAUDE.md</span> command section — and there is no meaningfully different demand on the user's attention per-task once either exists.</p>
+      </div>
+    </div>
+
+    <div class="arg">
+      <div class="arg__axis">
+        <div class="arg__name">dial</div>
+        <div class="arg__val">false</div>
+        <div class="arg__note">Repo structure, not a knob</div>
+      </div>
+      <div>
+        <p class="prose">This sits on the Environment lever: repo structure the user owns and can standardize across projects, not a harness feature or a prompt instruction. There is no per-task setting to turn up or down. The mechanism is noise-reduction — it doesn't add new capability or constrain behavior, it removes a source of per-repo friction and uncertainty at the point where an agent decides how to run something.</p>
+      </div>
+    </div>
+
+    <div class="arg">
+      <div class="arg__axis">
+        <div class="arg__name">confidence</div>
+        <div class="arg__val">guess</div>
+        <div class="arg__note">The rung that governs the rest</div>
+      </div>
+      <div>
+        <p class="prose">No source directly measured task-runner-specific token or tool-call savings. <span class="tok">just-mcp</span>'s own docs don't quantify it, and the general agent-tool-overhead research found in this pass — subagent-description injection, on-demand MCP tool loading — measures different mechanisms entirely. The deltas above rest on mechanism reasoning (executable versus prose durability), not a study.</p>
+        <p class="prose">In the rubric, <span class="tok">guess</span> is defined as <em>my prior</em>; <span class="tok">researched</span> would mean someone else measured it, and <span class="tok">measured</span> would mean it was measured here, in an experiment note with a trial count. Neither applies. Nobody has run the comparison — not the sources, not the author. Read this page as a hypothesis with its reasoning shown, not as a result.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="section wrap" style="padding-top: 80px;">
+  <div class="plog">
+    <div class="plog__head">
+      <h2 class="plog__title">Perspectives log</h2>
+      <div class="plog__blurb">Sources that complicate or contradict the score above. Kept on the record whether or not they were convenient.</div>
+    </div>
+
+    <div class="plog__entry">
+      <div class="plog__meta">
+        <div class="plog__date">2026-08-14</div>
+        <div class="tag tag--nuances">Nuances</div>
+        <div class="plog__src">cursor.com, via TLDR AI<br><a href="https://cursor.com/blog/builds">cursor.com/blog/builds</a></div>
+      </div>
+      <div>
+        <div class="plog__paper">Cursor: background pre-built dev environments</div>
+        <p class="plog__body">Cursor now continuously pre-builds dev environments in the background at no extra cost, reporting up to 3x faster agent starts versus cold provisioning — a real Environment-lever speed win, but a different mechanism than this note's argument (pre-warmed environment provisioning vs. command-surface consistency). Both attack agent-start friction from different angles; this one doesn't touch the drift-resistance case this note makes.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="wrap">
+  <div class="endnote">
+    <div class="endnote__label">The comparison that actually matters</div>
+    <div class="endnote__body">The finding from this dive is that the honest comparison isn't "task runner vs. nothing," it's "task runner vs. a good <span class="tok">CLAUDE.md</span>/<span class="tok">AGENTS.md</span> command list" — and the gap between them is real but small. AGENTS.md, the open cross-framework convention, is explicitly recommended to carry "command-first instructions with exact invocations" for build/test/lint, meaning every framework that reads it gets most of this note's claimed benefit from the documentation layer alone, with or without a runner underneath. So the highest-value move isn't adopting <span class="tok">just</span> everywhere; it's auditing whether your own repos' <span class="tok">CLAUDE.md</span> files actually contain exact, current invocations before reaching for a new tool on top of that. A <span class="tok">justfile</span> earns its keep specifically in repos already juggling multiple inconsistent scripts across languages and stacks, not as a blanket default.</div>
+  </div>
+</div>
+</article>
+
+</body>
+</html>
