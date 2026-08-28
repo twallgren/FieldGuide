@@ -188,7 +188,10 @@ h1, h2, h3, p { margin: 0; }
       text-transform: uppercase; color: var(--muted); }
 .th--delta { width: 42px; font-size: 10px; letter-spacing: 0.1em; text-align: center; }
 .trow__title { font-family: var(--serif); font-size: 18px; font-weight: 600; }
-.trow__title a { color: inherit; border-bottom-color: var(--hairline-2); }
+/* A linked title means a full entry exists behind the row; an unlinked one
+   is scored but not yet written up. That distinction is a fact about the
+   site, so it should be visible without hovering. */
+.trow__title a { color: inherit; border-bottom: 2px solid var(--ink); padding-bottom: 1px; }
 .trow__title a:hover { color: var(--neg); border-bottom-color: var(--neg); }
 .trow__flag { font-size: 11px; font-weight: 600; letter-spacing: 0.14em;
               text-transform: uppercase; margin-top: 4px; }
@@ -319,6 +322,10 @@ h1, h2, h3, p { margin: 0; }
        letter-spacing: 0.16em; text-transform: uppercase; padding: 5px 10px; }
 .tag--challenges { background: var(--neg-inv); color: var(--ink); }
 .tag--nuances { border: 1px solid var(--muted-inv); color: var(--body-inv); padding: 4px 10px; }
+/* The vault's stance vocabulary is aligns / challenges / nuances. All three
+   need a treatment, or an agreeing source gets mislabelled as a caveat.
+   Challenges is the loudest on purpose: disagreement is the differentiator. */
+.tag--aligns { border: 1px solid var(--pos-inv); color: var(--pos-inv); padding: 4px 10px; }
 
 .endnote { border-top: 2px solid var(--ink); padding-top: 22px; margin-top: 40px;
            display: grid; grid-template-columns: 210px 1fr; gap: 36px; }

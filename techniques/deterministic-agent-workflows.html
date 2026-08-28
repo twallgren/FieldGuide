@@ -1,0 +1,283 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Deterministic Agent Workflows — Field Guide</title>
+<meta name="description" content="Freeze a multi-step pattern the agent already worked out into versioned code, and spend model tokens only on the genuinely novel leaf. All four deltas positive, but the class is dial: cost +1, quality +1, speed +1, attention +1.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600;700&family=IBM+Plex+Serif:ital,wght@0,400;0,600;1,400&display=swap">
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+
+<header class="masthead masthead--compact wrap">
+  <a class="masthead__name" href="../index.html">Field Guide</a>
+  <nav class="nav">
+    <a href="../index.html#method">Method</a>
+    <a href="../index.html#index">Index</a>
+    <a href="../index.html#index">Rejected</a>
+    <a href="../index.html#about">About</a>
+  </nav>
+</header>
+
+<article>
+<div class="post-head wrap">
+  <div class="post-kicker">
+    <div class="post-kicker__bar" style="gap: 3px;"><i style="flex-grow:1; background: var(--ink);"></i><i style="flex-grow:1; background: var(--ink);"></i><i style="flex-grow:1; background: var(--ink);"></i><i style="flex-grow:1; background: var(--hairline);"></i><i style="flex-grow:1; background: var(--hairline);"></i></div>
+    <div class="post-kicker__class">Class: Dial</div>
+    <div class="post-kicker__sep"></div>
+    <div class="post-kicker__meta">Last updated <time datetime="2026-08-26">26 Aug 2026</time></div>
+  </div>
+
+  <div class="post-grid">
+    <div>
+      <h1 class="post-title">Deterministic Agent Workflows</h1>
+      <p class="standfirst">When an agent figures out a multi-step task once, freeze the successful pattern into deterministic, versioned code — so later runs execute reliably without re-reasoning, and tokens go only to the genuinely novel parts.</p>
+    </div>
+    <aside class="conf-box">
+      <div class="conf-box__label">Confidence</div>
+      <div class="conf-box__meter"><span class="on"></span><span class="on"></span><span></span></div>
+      <div class="conf-box__scale"><span class="on">guess</span><span class="on">researched</span><span>measured</span></div>
+      <div class="conf-box__value">researched</div>
+      <div class="conf-box__body">Desk research only — official docs, vendor docs, one third-party technical blog. No hands-on trial run of Dynamic Workflows or Swamp Club yet, so not <span class="tok">measured</span>.</div>
+    </aside>
+  </div>
+</div>
+
+<div class="section wrap" style="padding-top: 56px;">
+  <div class="baseline">
+    <div class="baseline__label">Compared to what</div>
+    <div class="baseline__text">The same multi-step, stable-shape task run conversationally — Claude re-deciding the orchestration (what to call next, in what order, what to keep) turn-by-turn every single run, as opposed to that orchestration being captured once as a script and reused.</div>
+  </div>
+</div>
+
+<div class="section wrap" style="padding-top: 56px;">
+  <div class="section__head section__head--spread">
+    <h2 class="section__label">The deltas</h2>
+    <div class="section__note">+ is always better for you &middot; never summed</div>
+  </div>
+
+  <div class="delta-cards">
+    <div class="delta-card delta-card--pos">
+      <div class="delta-card__label">cost-delta</div>
+      <div class="delta-card__val">+1</div>
+      <div class="track"><i class="track__cell"></i><i class="track__cell"></i><i class="track__zero"></i><i class="track__cell track__cell--pos"></i><i class="track__cell"></i></div>
+      <div class="delta-card__read">Cheaper &mdash; but only amortized over repeat use.</div>
+    </div>
+    <div class="delta-card delta-card--pos">
+      <div class="delta-card__label">quality-delta</div>
+      <div class="delta-card__val">+1</div>
+      <div class="track"><i class="track__cell"></i><i class="track__cell"></i><i class="track__zero"></i><i class="track__cell track__cell--pos"></i><i class="track__cell"></i></div>
+      <div class="delta-card__read">Better. One source of run-to-run variance removed.</div>
+    </div>
+    <div class="delta-card delta-card--pos">
+      <div class="delta-card__label">speed-delta</div>
+      <div class="delta-card__val">+1</div>
+      <div class="track"><i class="track__cell"></i><i class="track__cell"></i><i class="track__zero"></i><i class="track__cell track__cell--pos"></i><i class="track__cell"></i></div>
+      <div class="delta-card__read">Faster wall-clock when the work decomposes.</div>
+    </div>
+    <div class="delta-card delta-card--pos">
+      <div class="delta-card__label">attention-delta</div>
+      <div class="delta-card__val">+1</div>
+      <div class="track"><i class="track__cell"></i><i class="track__cell"></i><i class="track__zero"></i><i class="track__cell track__cell--pos"></i><i class="track__cell"></i></div>
+      <div class="delta-card__read">Less supervision per run, once authored.</div>
+    </div>
+  </div>
+
+  <div class="meta-row">
+    <div class="meta"><span class="meta__k">dial</span><span class="meta__v">true</span></div>
+    <div class="meta"><span class="meta__k">effort</span><span class="meta__v">medium</span></div>
+    <div class="meta"><span class="meta__k">levers</span><span class="meta__v">loop</span></div>
+    <div class="meta"><span class="meta__k">mechanisms</span><span class="meta__v">constraint, decomposition</span></div>
+  </div>
+</div>
+
+<div class="section wrap" style="padding-top: 56px;">
+  <div class="section__head section__head--spread">
+    <h2 class="section__label">Score history</h2>
+    <div class="section__note">What moved, when, and why</div>
+  </div>
+
+  <p class="prose" style="margin-bottom: 28px;">Scores here are not fixed at a publication date. When evidence arrives that changes an assessment, the score changes and the change is recorded — including the times it was re-examined and held.</p>
+
+  <div class="history">
+    <div class="history__entry">
+      <div class="history__date"><time datetime="2026-08-26">26 Aug 2026</time></div>
+      <div>
+        <div class="history__what">First tracked state</div>
+        <div class="history__vector">
+          <span class="hv"><i>cost</i><b class="pos">+1</b></span>
+          <span class="hv"><i>quality</i><b class="pos">+1</b></span>
+          <span class="hv"><i>speed</i><b class="pos">+1</b></span>
+          <span class="hv"><i>attention</i><b class="pos">+1</b></span>
+          <span class="hv"><i>confidence</i><b>researched</b></span>
+        </div>
+        <p class="history__why">Scored against the same multi-step, stable-shape task run conversationally, with Claude re-deciding the orchestration turn-by-turn every run.</p>
+      </div>
+    </div>
+  </div>
+
+  <p class="history__note">History tracking began 28 Aug 2026. Any revisions before that date were not recorded, and are not reconstructed here.</p>
+</div>
+
+<div class="section wrap" style="padding-top: 56px;">
+  <div class="when">
+    <div class="when__col">
+      <div class="when__kicker when__kicker--pos">The knob it hands you</div>
+      <div class="when__title">Who holds the plan</div>
+      <div class="when__body">Claude Code's own docs frame the distinction exactly as <em>who holds the plan</em>: with subagents, skills, and agent teams, Claude decides turn-by-turn; with a workflow, the script decides. That choice — invoke a workflow or <span class="tok">ultracode</span> at all versus staying conversational — is the knob, and <span class="tok">workflowSizeGuideline</span> (<span class="tok">small</span> / <span class="tok">medium</span> / <span class="tok">large</span> / <span class="tok">unrestricted</span>) is a literal second detent on it: advice to Claude on how many agents to plan for, not a hard cap, with the runtime caps still applying underneath.</div>
+    </div>
+    <div class="when__col">
+      <div class="when__kicker when__kicker--neg">What each way buys</div>
+      <div class="when__title">Freeze it, or leave it conversational</div>
+      <div class="when__body">Turn it toward the script when the work is cost-bound and the shape is stable: a narrow, well-tested frozen flow reused many times. Turn it back toward conversation for a one-off exploratory task — a single large workflow run can cost more than the equivalent conversation, because of fan-out breadth. Which flows to freeze is the judgment call: high-frequency, stable-shape tasks (report generation, data validation, ticket filing) freeze well; investigation and diagnosis may not.</div>
+    </div>
+  </div>
+</div>
+
+<div class="section wrap">
+  <div class="section__head"><h2 class="section__label">Why each delta reads the way it does</h2></div>
+
+  <div style="margin-top: 44px;">
+    <div class="arg">
+      <div class="arg__axis">
+        <div class="arg__name">dial</div>
+        <div class="arg__val">true</div>
+        <div class="arg__note">Not no-regret, despite four positives</div>
+      </div>
+      <div>
+        <p class="prose">All four deltas are positive, which would normally read as a no-regret. It isn't one, and <span class="tok">dial</span> is the only class marker that does not fall out of the delta vector — so the reasoning has to be stated rather than derived.</p>
+        <p class="prose">The decisive evidence is that Claude Code exposes this as a literal per-task knob — <span class="tok">workflowSizeGuideline</span> (<span class="tok">small</span>/<span class="tok">medium</span>/<span class="tok">large</span>/<span class="tok">unrestricted</span>) and the choice to invoke <span class="tok">ultracode</span> or a workflow at all versus staying conversational — and the right setting genuinely depends on regime: cost-bound work wants a narrow, well-tested frozen flow reused many times; a one-off exploratory task is better left conversational, since a single large workflow run can cost more than the equivalent conversation.</p>
+        <p class="prose">And it is <strong>not</strong> no-regret because the upfront authoring effort and the one-off-run cost are real regressions when the task shape isn't stable or won't repeat.</p>
+      </div>
+    </div>
+
+    <div class="arg">
+      <div class="arg__axis">
+        <div class="arg__name">cost-delta</div>
+        <div class="arg__val arg__val--pos">+1</div>
+        <div class="arg__note">Amortized, not immediate</div>
+      </div>
+      <div>
+        <p class="prose">Once a flow is frozen and reused, you stop paying reasoning tokens to re-derive the same control flow every run, and only the genuinely novel leaf work spends model tokens — the core mechanism this technique describes, and Claude Code's own workflow-vs-subagent comparison table confirms "the orchestration itself" is what becomes repeatable.</p>
+        <p class="prose">Not <span class="tok">+2</span>: this is specifically an <em>amortized, repeat-use</em> saving. Claude Code's own docs warn a single one-off Dynamic Workflow run can use "meaningfully more tokens than working through the same task in conversation" because of fan-out breadth — up to 1,000 subagents. The win is real only once the same script gets rerun, not on first authoring.</p>
+      </div>
+    </div>
+
+    <div class="arg">
+      <div class="arg__axis">
+        <div class="arg__name">quality-delta</div>
+        <div class="arg__val arg__val--pos">+1</div>
+        <div class="arg__note">Capped by rot</div>
+      </div>
+      <div>
+        <p class="prose">Determinism removes one source of run-to-run variance — the orchestration path itself no longer drifts — and Claude Code's docs note a frozen script can bake in a repeatable quality pattern, for example independent adversarial review before reporting, every run instead of that check happening only when the model happens to think of it.</p>
+        <p class="prose">Capped at <span class="tok">+1</span>, not <span class="tok">+2</span>, because a frozen flow can also silently go stale as the underlying system changes — frozen flows rot, and versioning and re-validation matter the same as for any code. That is a durability risk this delta does not cancel out.</p>
+      </div>
+    </div>
+
+    <div class="arg">
+      <div class="arg__axis">
+        <div class="arg__name">speed-delta</div>
+        <div class="arg__val arg__val--pos">+1</div>
+        <div class="arg__note">Off the conversation's critical path</div>
+      </div>
+      <div>
+        <p class="prose">Frozen orchestration runs outside the conversation — Claude Code's workflow runtime executes in the background and the session stays responsive — and can fan out up to 16 concurrent agents instead of one turn at a time. Genuinely faster wall-clock for tasks that decompose into parallel leaf work.</p>
+      </div>
+    </div>
+
+    <div class="arg">
+      <div class="arg__axis">
+        <div class="arg__name">attention-delta</div>
+        <div class="arg__val arg__val--pos">+1</div>
+        <div class="arg__note">Not higher, and the reason is upfront</div>
+      </div>
+      <div>
+        <p class="prose">Once authored, a frozen flow needs less supervision per run — you approve the plan once, then it either runs unattended or you check in via <span class="tok">/workflows</span> rather than steering every turn.</p>
+        <p class="prose">Not higher, because authoring and reviewing the script and watching token spend — Claude Code explicitly flags "Large workflow" runs — is real upfront and ongoing attention cost that a pure conversational run does not have.</p>
+      </div>
+    </div>
+
+    <div class="arg">
+      <div class="arg__axis">
+        <div class="arg__name">effort</div>
+        <div class="arg__val">medium</div>
+        <div class="arg__note">One-time, and separate from the deltas</div>
+      </div>
+      <div>
+        <p class="prose">Writing, reviewing, and validating the frozen script — or the Swamp Club model/definition pair — is a one-time cost distinct from the per-run deltas above. Claude Code lowers it by writing the script for you, but a human still needs to review it before trusting it on a repeated, unattended task.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="section wrap" style="padding-top: 80px;">
+  <div class="plog">
+    <div class="plog__head">
+      <h2 class="plog__title">Perspectives log</h2>
+      <div class="plog__blurb">Sources that complicate or contradict the score above. Kept on the record whether or not they were convenient.</div>
+    </div>
+
+    <div class="plog__entry">
+      <div class="plog__meta">
+        <div class="plog__date">2026-08-26</div>
+        <div class="tag tag--nuances">Nuances</div>
+        <div class="plog__src">scottspence.com<br><a href="https://scottspence.com/posts/agentic-engineering-practical-guide">via TLDR Dev</a></div>
+      </div>
+      <div>
+        <div class="plog__paper">Agentic Engineering: A Practical Guide</div>
+        <p class="plog__body">Argues the deterministic checks this technique already favors — tests, linters, type-checkers as feedback during execution — aren't sufficient alone: the checks must be paired with independent review, never letting the agent grade its own work, since "the same mistaken assumption can survive planning, implementation and self-review if all three stages share the same context." A concrete failure mode for why frozen/deterministic flows still need an outside check rather than trusting the agent's own pass/fail signal.</p>
+      </div>
+    </div>
+
+    <div class="plog__entry">
+      <div class="plog__meta">
+        <div class="plog__date">2026-08-06</div>
+        <div class="tag tag--nuances">Nuances</div>
+        <div class="plog__src">Data4Sci blog<br><a href="https://data4sci.com/blog/building-an-advanced-agentic-harness">data4sci.com</a></div>
+      </div>
+      <div>
+        <div class="plog__paper">Building an Advanced Agentic Harness</div>
+        <p class="plog__body">Proposes typed tools, DAG-structured plans, tiered memory, and verification hierarchies as the composable primitives of a production-grade agentic harness — a more elaborate, general-purpose take on "freezing the pattern" than Swamp Club's model/definition/workflow split, aimed at planning, recovery, and self-evaluation rather than just repeated-task automation.</p>
+      </div>
+    </div>
+
+    <div class="plog__entry">
+      <div class="plog__meta">
+        <div class="plog__date">2026-08-04</div>
+        <div class="tag tag--aligns">Aligns</div>
+        <div class="plog__src">example42 blog<br><a href="https://example42.com/blog/2026/05/22/reading-the-swamp/">Reading the Swamp</a></div>
+      </div>
+      <div>
+        <div class="plog__paper">Reading the Swamp</div>
+        <p class="plog__body">Alessandro Franceschi's read of Swamp Club is a deep, sourced endorsement of the freeze-the-pattern idea specifically — he frames Swamp's type/definition split as "the Puppet resource abstraction layer, reborn for agents" and its core value as moving continuity for a "brilliant amnesiac" agent out of the human's head and into versioned, git-tracked substrate rather than letting one-off scripts rot. His only hesitation was Extensions (agent-capability packages) feeling like an ecosystem/trust question, not a doubt about the freeze pattern itself.</p>
+      </div>
+    </div>
+
+    <div class="plog__entry">
+      <div class="plog__meta">
+        <div class="plog__date">2026-07-30</div>
+        <div class="tag tag--aligns">Aligns</div>
+        <div class="plog__src">TLDR<br><a href="https://tldr.tech">tldr.tech</a></div>
+      </div>
+      <div>
+        <div class="plog__paper">Treat Prompt Changes Like Code Deploys</div>
+        <p class="plog__body">Argues prompts are dependencies that shift downstream behavior with no failing build or obvious signal, and should be tested with a gate that defaults to blocking — the same "versioning and re-validation matter, same as any code" point this technique already makes, but sharpened into a concrete practice (test plus gate) rather than just a caution.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="wrap">
+  <div class="endnote">
+    <div class="endnote__label">Where the confidence has to move next</div>
+    <div class="endnote__body">This is <span class="tok">researched</span>, not <span class="tok">measured</span> — desk research against official and vendor docs plus one third-party technical blog, with no trial run behind it. The named next step is to convert one repetitive flow into a saved Dynamic Workflow and measure tokens-per-outcome against the current conversational version over a handful of real runs. Until that happens, the <span class="tok">+1</span> on cost is a reading of someone else's documentation, not a result produced here.</div>
+  </div>
+</div>
+</article>
+
+</body>
+</html>

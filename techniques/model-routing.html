@@ -1,0 +1,354 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Model Routing — Field Guide</title>
+<meta name="description" content="Routing each request — or each turn — to the model that fits it converts a fixed cost into a tunable one. A dial, not a saving, and it bills you in attention. Scored: cost +1, quality 0, speed +1, attention −1.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600;700&family=IBM+Plex+Serif:ital,wght@0,400;0,600;1,400&display=swap">
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+
+<header class="masthead masthead--compact wrap">
+  <a class="masthead__name" href="../index.html">Field Guide</a>
+  <nav class="nav">
+    <a href="../index.html#method">Method</a>
+    <a href="../index.html#index">Index</a>
+    <a href="../index.html#index">Rejected</a>
+    <a href="../index.html#about">About</a>
+  </nav>
+</header>
+
+<article>
+<div class="post-head wrap">
+  <div class="post-kicker">
+    <div class="post-kicker__bar bar--dial"><i></i><i></i><i></i><i class="off"></i><i class="off"></i></div>
+    <div class="post-kicker__class">Class: Dial</div>
+    <div class="post-kicker__sep"></div>
+    <div class="post-kicker__meta">Last updated <time datetime="2026-08-24">24 Aug 2026</time></div>
+  </div>
+
+  <div class="post-grid">
+    <div>
+      <h1 class="post-title">Model Routing</h1>
+      <p class="standfirst">Sending each request — and, in the interesting version, each <em>turn</em> — to the model that actually fits it. The point is not that it is cheaper. The point is that it converts a fixed cost into one you can turn up or down per task.</p>
+    </div>
+    <aside class="conf-box">
+      <div class="conf-box__label">Confidence</div>
+      <div class="conf-box__meter"><span class="on"></span><span class="on"></span><span></span></div>
+      <div class="conf-box__scale"><span class="on">guess</span><span class="on">researched</span><span>measured</span></div>
+      <div class="conf-box__value">researched</div>
+      <div class="conf-box__body">Someone else measured this — RouteLLM, Cursor, Nvidia, Netlify. I have not run it myself. Read every delta below as a reading of the evidence, not as a result I produced.</div>
+    </aside>
+  </div>
+</div>
+
+<div class="section wrap" style="padding-top: 56px;">
+  <div class="baseline">
+    <div class="baseline__label">Compared to what</div>
+    <div class="baseline__text">Running every turn of an agentic coding session on a single frontier model (the &ldquo;old pipeline&rdquo;), no per-task model or effort variation.</div>
+  </div>
+</div>
+
+<div class="section wrap" style="padding-top: 56px;">
+  <div class="section__head section__head--spread">
+    <h2 class="section__label">The deltas</h2>
+    <div class="section__note">+ is always better for you &middot; never summed</div>
+  </div>
+
+  <div class="delta-cards">
+    <div class="delta-card delta-card--pos">
+      <div class="delta-card__label">cost-delta</div>
+      <div class="delta-card__val">+1</div>
+      <div class="track"><i class="track__cell"></i><i class="track__cell"></i><i class="track__zero"></i><i class="track__cell track__cell--pos"></i><i class="track__cell"></i></div>
+      <div class="delta-card__read">Cheaper &mdash; and a misroute claws some of it back.</div>
+    </div>
+    <div class="delta-card">
+      <div class="delta-card__label">quality-delta</div>
+      <div class="delta-card__val">0</div>
+      <div class="track"><i class="track__cell"></i><i class="track__cell"></i><i class="track__zero"></i><i class="track__cell"></i><i class="track__cell"></i></div>
+      <div class="delta-card__read">Neutral, contingent on router quality.</div>
+    </div>
+    <div class="delta-card delta-card--pos">
+      <div class="delta-card__label">speed-delta</div>
+      <div class="delta-card__val">+1</div>
+      <div class="track"><i class="track__cell"></i><i class="track__cell"></i><i class="track__zero"></i><i class="track__cell track__cell--pos"></i><i class="track__cell"></i></div>
+      <div class="delta-card__read">Faster on the routed turns, not the session.</div>
+    </div>
+    <div class="delta-card delta-card--neg">
+      <div class="delta-card__label">attention-delta</div>
+      <div class="delta-card__val">&minus;1</div>
+      <div class="track"><i class="track__cell"></i><i class="track__cell track__cell--neg"></i><i class="track__zero"></i><i class="track__cell"></i><i class="track__cell"></i></div>
+      <div class="delta-card__read">Demands more of you. The undercounted cost.</div>
+    </div>
+  </div>
+
+  <div class="meta-row">
+    <div class="meta"><span class="meta__k">dial</span><span class="meta__v">true</span></div>
+    <div class="meta"><span class="meta__k">effort</span><span class="meta__v">low</span></div>
+    <div class="meta"><span class="meta__k">levers</span><span class="meta__v">model, inference-config, loop</span></div>
+    <div class="meta"><span class="meta__k">mechanisms</span><span class="meta__v">capability</span></div>
+  </div>
+</div>
+
+<div class="section wrap" style="padding-top: 56px;">
+  <div class="section__head section__head--spread">
+    <h2 class="section__label">Score history</h2>
+    <div class="section__note">What moved, when, and why</div>
+  </div>
+
+  <p class="prose" style="margin-bottom: 28px;">Scores here are not fixed at a publication date. When evidence arrives that changes an assessment, the score changes and the change is recorded — including the times it was re-examined and held.</p>
+
+  <div class="history">
+    <div class="history__entry">
+      <div class="history__date"><time datetime="2026-08-24">24 Aug 2026</time></div>
+      <div>
+        <div class="history__what">First tracked state</div>
+        <div class="history__vector">
+          <span class="hv"><i>cost</i><b class="pos">+1</b></span>
+          <span class="hv"><i>quality</i><b>0</b></span>
+          <span class="hv"><i>speed</i><b class="pos">+1</b></span>
+          <span class="hv"><i>attention</i><b class="neg">&minus;1</b></span>
+          <span class="hv"><i>confidence</i><b>researched</b></span>
+        </div>
+        <p class="history__why">Scored against running every turn of an agentic coding session on a single frontier model, with no per-task model or effort variation.</p>
+      </div>
+    </div>
+  </div>
+
+  <p class="history__note">History tracking began 28 Aug 2026. Any revisions before that date were not recorded, and are not reconstructed here.</p>
+</div>
+
+<div class="section wrap" style="padding-top: 56px;">
+  <div class="when">
+    <div class="when__col">
+      <div class="when__kicker when__kicker--pos">What the knob buys</div>
+      <div class="when__title">It turns both ways</div>
+      <div class="when__body">This is a dial, so there is no regime in which it is the wrong call and no second panel naming one — what changes with the regime is which way you turn it. Cost-bound or latency-bound: push mechanical turns down the stack — search, summarization, classification, subagent legwork onto a cheap model, <span class="tok">effort: low</span> alongside it. Quality-bound: leave the frontier model on everything and turn the dial the other way, spending more compute per decision where it counts. The same underlying mechanism — subagent <span class="tok">model:</span> fields, <span class="tok">effort:</span> fields — serves both regimes without new infrastructure, which is exactly why it is worth more than either endpoint on its own.</div>
+    </div>
+    <div class="when__col">
+      <div class="when__kicker when__kicker--neg">What the knob costs</div>
+      <div class="when__title">attention-delta: &minus;1</div>
+      <div class="when__body">A knob is only free if nobody has to hold it. Manual routing — subagent frontmatter, effort flags, <span class="tok">opusplan</span>, fallback chains — requires you to decide the assignment up front and periodically re-verify it as tasks change. That is attention a single-model baseline never asks for, and it is charged in every position of the dial, not only the cheap end. This is the one users of this pattern tend to undercount.</div>
+    </div>
+  </div>
+</div>
+
+<div class="section wrap">
+  <div class="section__head"><h2 class="section__label">Why each delta reads the way it does</h2></div>
+
+  <div style="margin-top: 44px;">
+    <div class="arg">
+      <div class="arg__axis">
+        <div class="arg__name">dial</div>
+        <div class="arg__val">true</div>
+        <div class="arg__note">The class marker that decides everything</div>
+      </div>
+      <div>
+        <p class="prose">This is a dial, not a straightforward no-regret or trade. It does not fit no-regret — attention-delta is negative. It does not fit a single trade either: the delta vector is not spending one axis to buy one other, since cost, speed and attention all move, in different directions, depending on how it is configured.</p>
+        <p class="prose">What model routing actually hands you is a <em>per-task knob</em>: run cheap and fast when cost-bound, run frontier-everywhere when quality-bound, with the same mechanism serving both. The program's own evaluation rubric already names this technique as the canonical dial — routing is not primarily a saving, it converts a fixed cost into a tunable one.</p>
+      </div>
+    </div>
+
+    <div class="arg">
+      <div class="arg__axis">
+        <div class="arg__name">cost-delta</div>
+        <div class="arg__val arg__val--pos">+1</div>
+        <div class="arg__note">Not +2, deliberately</div>
+      </div>
+      <div>
+        <p class="prose">Routing mechanical, high-volume turns — search, summarization, classification, subagent legwork — to a cheaper model measurably cuts spend. RouteLLM's own benchmarks show large reductions, up to roughly 85% on their specific eval; Claude Code's per-subagent <span class="tok">model</span> override is free to configure.</p>
+        <p class="prose">It stops at <span class="tok">+1</span> for two reasons. A misroute — a subagent needing more capability than its pinned cheap model has — creates retries that partially claw the savings back. And Fast mode, which often gets bundled into the same conversation as &ldquo;routing,&rdquo; is a 2x-price lever that actively costs <em>more</em>, not less.</p>
+      </div>
+    </div>
+
+    <div class="arg">
+      <div class="arg__axis">
+        <div class="arg__name">quality-delta</div>
+        <div class="arg__val">0</div>
+        <div class="arg__note">Contingent, not guaranteed</div>
+      </div>
+      <div>
+        <p class="prose">Done well, routing should not touch output quality: the frontier model still handles the reasoning-heavy turns, and the cheap model only absorbs work a frontier model was already overkill for. Done badly — misrouting genuinely hard subtasks to a weak model — quality drops. The net expected effect against the stated baseline is neutral, contingent on router and config quality. Router quality is the crux, which is the same reason a misroute shows up on the cost axis as well.</p>
+      </div>
+    </div>
+
+    <div class="arg">
+      <div class="arg__axis">
+        <div class="arg__name">speed-delta</div>
+        <div class="arg__val arg__val--pos">+1</div>
+        <div class="arg__note">Turn-scoped, not session-scoped</div>
+      </div>
+      <div>
+        <p class="prose">Cheaper models are typically also faster per token, so routing mechanical turns to them shortens wall-clock for those turns. It is not <span class="tok">+2</span> because the win is turn-scoped: a session dominated by the hard, frontier-routed turns will not see much aggregate speedup. Router overhead is a real cost rather than a rounding error here — classifier-based routers add a scoring pass, and industry commentary flags that it needs to stay well under about 100ms or the latency savings from picking a faster model get eaten by the routing decision itself.</p>
+      </div>
+    </div>
+
+    <div class="arg">
+      <div class="arg__axis">
+        <div class="arg__name">attention-delta</div>
+        <div class="arg__val arg__val--neg">&minus;1</div>
+        <div class="arg__note">The tax nobody quotes</div>
+      </div>
+      <div>
+        <p class="prose">Manual routing requires the human to decide the assignment up front and periodically verify it is still right as tasks change — attention spent that a single-model baseline does not demand.</p>
+        <p class="prose">A learned router — RouteLLM-style, or Kiro's <span class="tok">Auto</span> — would push this back toward neutral by taking the assignment decision off the human. But none of the frameworks surveyed here ship a learned router <em>inside</em> Claude Code itself; all of the available knobs are manual or rule-based, set in advance by a person or a subagent definition. So the attention cost of the first concrete step — per-subagent overrides — is real, and it is not eliminated by the more automated alternatives shipping elsewhere in the ecosystem.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="section wrap" style="padding-top: 80px;">
+  <div class="plog">
+    <div class="plog__head">
+      <h2 class="plog__title">Perspectives log</h2>
+      <div class="plog__blurb">Sources that complicate or contradict the score above. Kept on the record whether or not they were convenient.</div>
+    </div>
+
+    <div class="plog__entry">
+      <div class="plog__meta">
+        <div class="plog__date">2026-08-24</div>
+        <div class="tag tag--aligns">Aligns</div>
+        <div class="plog__src">dbreunig.com, via TLDR<br><a href="https://www.dbreunig.com/2026/08/23/fable-the-end-of-moore-s-law.html">Fable &amp; The End of the Free Lunch</a></div>
+      </div>
+      <div>
+        <div class="plog__paper">Fable &amp; The End of the Free Lunch</div>
+        <p class="plog__body">Argues Fable's step-up in capability came at a cost high enough that, unlike previous model generations, it is no longer a &ldquo;free lunch&rdquo; to wait for the next release to cover the gap — developers are now starting to think about which work goes to which model and how to give a weaker/cheaper model enough context to perform well, rather than defaulting everything to the frontier model. A direct restatement of this note's core premise (route by task, don't default to the most expensive model) from the angle of &ldquo;the free ride from raw scaling just ended,&rdquo; making the routing decision more consequential than it was a year ago.</p>
+      </div>
+    </div>
+
+    <div class="plog__entry">
+      <div class="plog__meta">
+        <div class="plog__date">2026-08-19</div>
+        <div class="tag tag--aligns">Aligns</div>
+        <div class="plog__src">sankalp.bearblog.dev, via TLDR Dev<br><a href="https://sankalp.bearblog.dev/autoresearch/">Auto-research kernel optimization</a></div>
+      </div>
+      <div>
+        <div class="plog__paper">Auto-research kernel optimization</div>
+        <p class="plog__body">A practitioner's writeup of an agent-driven GPU-kernel-optimization contest achieving a 232x speedup over baseline via continual profiling plus iterative refinement with Codex (placing 12th of 183). A concrete instance of spending more inference compute per decision — many iterative passes on one hard problem — rather than spreading a fixed budget across more tasks. Evidence that the &ldquo;spend more compute where it counts&rdquo; half of the dial can pay off dramatically on the right task, though this is one contest result, not a controlled comparison against a fixed-effort baseline.</p>
+      </div>
+    </div>
+
+    <div class="plog__entry">
+      <div class="plog__meta">
+        <div class="plog__date">2026-08-19</div>
+        <div class="tag tag--nuances">Nuances</div>
+        <div class="plog__src">deadline-dividend.onrender.com, via TLDR AI<br><a href="https://deadline-dividend.onrender.com/">The Deadline Dividend</a></div>
+      </div>
+      <div>
+        <div class="plog__paper">The Deadline Dividend</div>
+        <p class="plog__body">Argues that when inference gets faster, the saved time should not just be banked as lower latency — under a fixed deadline, it can instead be reinvested as more reasoning, verification or retry budget within the same time window. This reframes the effort/reasoning-budget discussion: instead of picking a fixed effort level per task type, a faster model lets more effort fit inside the same latency-bound window than before, without weakening the latency-bound regime commitment — a version of the dial that trades a <em>model-speed</em> gain for <em>quality</em> rather than for lower latency.</p>
+      </div>
+    </div>
+
+    <div class="plog__entry">
+      <div class="plog__meta">
+        <div class="plog__date">2026-08-17</div>
+        <div class="tag tag--aligns">Aligns</div>
+        <div class="plog__src">LiquidAI Hugging Face Space, hands-on<br><a href="https://huggingface.co/spaces/LiquidAI/prompt-routing">LiquidAI Prompt Routing</a></div>
+      </div>
+      <div>
+        <div class="plog__paper">LiquidAI Prompt Router</div>
+        <p class="plog__body">A concrete, small-scale instance of the &ldquo;cheap classifier decides&rdquo; pattern — a 350M-parameter bidirectional encoder (LFM2.5-Encoder-350M-Prompt-Router) that scores a whole prompt against user-defined routing lanes in a single CPU-only pass, with the interactive demo explicitly framed around a &ldquo;Device assistant&rdquo; scenario. The missing edge-native example under this note's own hybrid local+online cross-reference (local model as router in front of cloud agents): RouteLLM and Cursor's Compass are the production-scale and closed examples already logged here, while this is small, open-weight, and cheap enough to run as a pre-flight hook on a laptop rather than a hosted service.</p>
+      </div>
+    </div>
+
+    <div class="plog__entry">
+      <div class="plog__meta">
+        <div class="plog__date">2026-08-17</div>
+        <div class="tag tag--nuances">Nuances</div>
+        <div class="plog__src">w4g1.dev, via TLDR Dev<br><a href="https://w4g1.dev/blog/models-are-getting-dumber-on-purpose">Models are getting dumber on purpose</a></div>
+      </div>
+      <div>
+        <div class="plog__paper">Models are getting dumber on purpose</div>
+        <p class="plog__body">Argues recent model generations show a deliberate tradeoff — reasoning capability improving per-parameter while factual recall declines — because labs now expect models to lean on external retrieval and live data rather than memorized facts, cutting hallucination by letting models verify against a source instead of guessing. Bears on routing: a model chosen for recall-heavy tasks needs pairing with retrieval, while a reasoning-heavy task may not.</p>
+      </div>
+    </div>
+
+    <div class="plog__entry">
+      <div class="plog__meta">
+        <div class="plog__date">2026-08-17</div>
+        <div class="tag tag--challenges">Challenges</div>
+        <div class="plog__src">mun-logadan.github.io, via TLDR Dev<br><a href="https://mun-logadan.github.io/why-does-opus-5-feel-worse/">Why does Opus 5 feel worse?</a></div>
+      </div>
+      <div>
+        <div class="plog__paper">Why does Opus 5 feel worse?</div>
+        <p class="plog__body">A practitioner reports Opus 5 feels worse to work with than its predecessors despite higher benchmark capability — it makes bold assumptions instead of asking for clarification, requiring more babysitting. Attributes this to benchmark optimization selecting for confident-guess behavior over appropriate uncertainty. A quality- and attention-cost data point that cuts against routing purely on capability or cost, since a &ldquo;stronger&rdquo; model can demand more human attention in ambiguous real-world tasks.</p>
+      </div>
+    </div>
+
+    <div class="plog__entry">
+      <div class="plog__meta">
+        <div class="plog__date">2026-08-14</div>
+        <div class="tag tag--nuances">Nuances</div>
+        <div class="plog__src">Netlify, via TLDR Dev<br><a href="https://www.netlify.com/blog/one-prompt-11-models-very-different-results/">One prompt, 11 models, very different results</a></div>
+      </div>
+      <div>
+        <div class="plog__paper">One prompt, 11 models, very different results</div>
+        <p class="plog__body">A test of 11 models generating the same static coffee-shop website (DeepSeek, Qwen, Kimi, GPT-5.6 Sol, Claude Opus 5, and others) found large variation in both output quality and credit cost — DeepSeek V4 Flash was cheapest at ~2.4 credits, GPT-5.6 Sol in low-effort mode averaged 141 credits, and higher-tier models like Opus 5 burned a lot of credits without results that clearly justified the cost. Concrete task-level evidence for the &ldquo;route to the cheapest model that clears the bar&rdquo; premise, and a reminder that &ldquo;frontier&rdquo; does not always mean &ldquo;best value&rdquo; even on the low-complexity end of the routing decision.</p>
+      </div>
+    </div>
+
+    <div class="plog__entry">
+      <div class="plog__meta">
+        <div class="plog__date">2026-08-12</div>
+        <div class="tag tag--aligns">Aligns</div>
+        <div class="plog__src">Lovable blog, via TLDR AI<br><a href="https://lovable.dev/blog/the-model-picker-is-a-dead-end">The model picker is a dead end</a></div>
+      </div>
+      <div>
+        <div class="plog__paper">The model picker is a dead end</div>
+        <p class="plog__body">Argues the model picker itself is &ldquo;a dead end&rdquo; — a static, human-chosen model assumes one model handles all tasks optimally, which the author says is flawed. Lovable's alternative (&ldquo;model independence&rdquo;) aligns specific models to specific tasks and adapts as models improve, with a control plane that monitors builds and switches models to optimize performance — the vendor-side mirror of this note's own &ldquo;routing has moved from a technique you build to a knob vendors ship&rdquo; point, from a company whose product <em>is</em> the routing layer rather than the harness underneath it.</p>
+      </div>
+    </div>
+
+    <div class="plog__entry">
+      <div class="plog__meta">
+        <div class="plog__date">2026-08-12</div>
+        <div class="tag tag--aligns">Aligns</div>
+        <div class="plog__src">VentureBeat, via TLDR AI<br><a href="https://venturebeat.com/orchestration/nvidias-switchyard-router-reshuffles-ai-models-mid-task-cutting-task-costs-to-a-third-in-its-own-tests">Nvidia's Switchyard router</a></div>
+      </div>
+      <div>
+        <div class="plog__paper">Nvidia's Switchyard router reshuffles AI models mid-task</div>
+        <p class="plog__body">NeMo Switchyard is an open-source library that routes each step of an agent workflow to whichever model fits it best, paired with Nemotron 3.5 Lightning (a 30B open MoE model for high-volume agent tasks). Nvidia's own testing reports task costs cut &ldquo;to a third&rdquo; versus running Opus 4.8 alone while retaining frontier-level completion, and ~30% faster completion than Qwen3.6-35B at matching accuracy — another concrete per-step router, notable as a vendor shipping the <em>model</em> and the <em>router</em> as one open-source pair rather than a router in front of third-party models. Flagged in the source note as scoring evidence.</p>
+      </div>
+    </div>
+
+    <div class="plog__entry">
+      <div class="plog__meta">
+        <div class="plog__date">2026-08-10</div>
+        <div class="tag tag--aligns">Aligns</div>
+        <div class="plog__src">Cursor blog, via TLDR AI<br><a href="https://cursor.com/blog/how-cursor-router-works">How Cursor Router works</a></div>
+      </div>
+      <div>
+        <div class="plog__paper">How Cursor Router works</div>
+        <p class="plog__body">Cursor Router's design is a concrete two-stage instance of the &ldquo;cheap classifier decides, then routes&rdquo; pattern — a complexity predictor (&ldquo;Compass&rdquo;) first decides if a turn needs a frontier model at all, then a learned taxonomy (task/domain/modifier, trained on hundreds of thousands of production turns using accept-vs-correct as the performance signal) picks which model historically performs best on that category. Reports concrete numbers: &ldquo;above [frontier]-level user satisfaction at 68% lower cost&rdquo; in Auto Intelligence mode, and Auto Balance &ldquo;outperforms Opus 4.8 at 41% lower cost&rdquo; while improving satisfaction — real evidence a learned router can beat manual tiering on both cost and quality simultaneously, not just cost.</p>
+      </div>
+    </div>
+
+    <div class="plog__entry">
+      <div class="plog__meta">
+        <div class="plog__date">2026-08-05</div>
+        <div class="tag tag--aligns">Aligns</div>
+        <div class="plog__src">Google Cloud blog, via TLDR AI<br><a href="https://developers.googleblog.com/a-unified-api-for-ai-model-routing/">A unified API for AI model routing</a></div>
+      </div>
+      <div>
+        <div class="plog__paper">A unified API for AI model routing</div>
+        <p class="plog__body">Google Cloud's API Gateway shipped model routing to public preview — a serverless ingress layer accepting OpenAI-compatible requests and dynamically routing them to Gemini, Claude, or OpenAI OSS-GPT, usable standalone or paired with the Gemini Enterprise Agent Platform. Another confirmation of the &ldquo;routing has moved from a technique you build to a knob vendors ship&rdquo; key point, from a third major cloud vendor alongside Kiro's <span class="tok">Auto</span> mode and Microsoft Foundry's model router.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="wrap">
+  <div class="endnote">
+    <div class="endnote__label">Where the confidence stops</div>
+    <div class="endnote__body">Two limits on the evidence above, carried forward rather than smoothed out. RouteLLM's ~85% cost reduction at ~95% of GPT-4-level quality is specific to its MT-Bench/MMLU evals and its GPT-4-Turbo/Mixtral-8x7B pair — treat it as evidence a router <em>can</em> work, not a guarantee any given router hits those numbers on a coding workload. And the LangGraph and CrewAI per-node/per-agent model claims were cross-checked across secondary sources only, with no single authoritative doc page fetched for either, so those two specifically are researched-but-secondary rather than primary-source-verified.</div>
+  </div>
+</div>
+</article>
+
+</body>
+</html>

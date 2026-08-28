@@ -1,0 +1,330 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Agent Fleet Dashboards — Field Guide</title>
+<meta name="description" content="Fleet dashboards do not make agent work cheaper or better — they make you less of the bottleneck, and they hand you a knob between a free built-in view and a full observability stack. Scored: cost 0, quality 0, speed +1, attention +2.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600;700&family=IBM+Plex+Serif:ital,wght@0,400;0,600;1,400&display=swap">
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+
+<header class="masthead masthead--compact wrap">
+  <a class="masthead__name" href="../index.html">Field Guide</a>
+  <nav class="nav">
+    <a href="../index.html#method">Method</a>
+    <a href="../index.html#index">Index</a>
+    <a href="../index.html#index">Rejected</a>
+    <a href="../index.html#about">About</a>
+  </nav>
+</header>
+
+<article>
+<div class="post-head wrap">
+  <div class="post-kicker">
+    <div class="post-kicker__bar bar--dial"><i></i><i></i><i></i><i class="off"></i><i class="off"></i></div>
+    <div class="post-kicker__class">Class: Dial</div>
+    <div class="post-kicker__sep"></div>
+    <div class="post-kicker__meta">Last updated <time datetime="2026-08-24">24 Aug 2026</time></div>
+  </div>
+
+  <div class="post-grid">
+    <div>
+      <h1 class="post-title">Agent Fleet Dashboards</h1>
+      <p class="standfirst">It is not cheaper. It does not make the work better. What it does is stop <em>you</em> being the bottleneck — the highest attention score in this guide, and the only axis where it moves at all beyond a modest speed gain.</p>
+    </div>
+    <aside class="conf-box">
+      <div class="conf-box__label">Confidence</div>
+      <div class="conf-box__meter"><span class="on"></span><span class="on"></span><span></span></div>
+      <div class="conf-box__scale"><span class="on">guess</span><span class="on">researched</span><span>measured</span></div>
+      <div class="conf-box__value">researched</div>
+      <div class="conf-box__body">Desk research across Anthropic's own Agent View and monitoring docs plus the other frameworks' observability stacks. No local trial run, so not <span class="tok">measured</span>.</div>
+    </aside>
+  </div>
+</div>
+
+<div class="section wrap" style="padding-top: 56px;">
+  <div class="baseline">
+    <div class="baseline__label">Compared to what</div>
+    <div class="baseline__text">Manually tracking Claude Code sessions via terminal tabs/scrollback, with no dashboard layer — i.e. the state of this note before this dive (status: <span class="tok">backlog</span>, all deltas blank).</div>
+  </div>
+</div>
+
+<div class="section wrap" style="padding-top: 56px;">
+  <div class="section__head section__head--spread">
+    <h2 class="section__label">The deltas</h2>
+    <div class="section__note">+ is always better for you &middot; never summed</div>
+  </div>
+
+  <div class="delta-cards">
+    <div class="delta-card">
+      <div class="delta-card__label">cost-delta</div>
+      <div class="delta-card__val">0</div>
+      <div class="track"><i class="track__cell"></i><i class="track__cell"></i><i class="track__zero"></i><i class="track__cell"></i><i class="track__cell"></i></div>
+      <div class="delta-card__read">Neutral. Not a saving — a category spanning free to genuinely costly.</div>
+    </div>
+    <div class="delta-card">
+      <div class="delta-card__label">quality-delta</div>
+      <div class="delta-card__val">0</div>
+      <div class="track"><i class="track__cell"></i><i class="track__cell"></i><i class="track__zero"></i><i class="track__cell"></i><i class="track__cell"></i></div>
+      <div class="delta-card__read">Neutral. Watching the work does not change the work.</div>
+    </div>
+    <div class="delta-card delta-card--pos">
+      <div class="delta-card__label">speed-delta</div>
+      <div class="delta-card__val">+1</div>
+      <div class="track"><i class="track__cell"></i><i class="track__cell"></i><i class="track__zero"></i><i class="track__cell track__cell--pos"></i><i class="track__cell"></i></div>
+      <div class="delta-card__read">Faster &mdash; by removing human-caused stalls only.</div>
+    </div>
+    <div class="delta-card delta-card--pos">
+      <div class="delta-card__label">attention-delta</div>
+      <div class="delta-card__val">+2</div>
+      <div class="track"><i class="track__cell"></i><i class="track__cell"></i><i class="track__zero"></i><i class="track__cell track__cell--pos"></i><i class="track__cell track__cell--pos"></i></div>
+      <div class="delta-card__read">Much less of you. The whole point of the technique.</div>
+    </div>
+  </div>
+
+  <div class="meta-row">
+    <div class="meta"><span class="meta__k">dial</span><span class="meta__v">true</span></div>
+    <div class="meta"><span class="meta__k">effort</span><span class="meta__v">medium</span></div>
+    <div class="meta"><span class="meta__k">levers</span><span class="meta__v">human-process</span></div>
+    <div class="meta"><span class="meta__k">mechanisms</span><span class="meta__v">information</span></div>
+  </div>
+</div>
+
+<div class="section wrap" style="padding-top: 56px;">
+  <div class="section__head section__head--spread">
+    <h2 class="section__label">Score history</h2>
+    <div class="section__note">What moved, when, and why</div>
+  </div>
+
+  <p class="prose" style="margin-bottom: 28px;">Scores here are not fixed at a publication date. When evidence arrives that changes an assessment, the score changes and the change is recorded — including the times it was re-examined and held.</p>
+
+  <div class="history">
+    <div class="history__entry">
+      <div class="history__date"><time datetime="2026-08-24">24 Aug 2026</time></div>
+      <div>
+        <div class="history__what">First tracked state</div>
+        <div class="history__vector">
+          <span class="hv"><i>cost</i><b>0</b></span>
+          <span class="hv"><i>quality</i><b>0</b></span>
+          <span class="hv"><i>speed</i><b class="pos">+1</b></span>
+          <span class="hv"><i>attention</i><b class="pos">+2</b></span>
+          <span class="hv"><i>confidence</i><b>researched</b></span>
+        </div>
+        <p class="history__why">Scored against manually tracking Claude Code sessions via terminal tabs and scrollback, with no dashboard layer at all.</p>
+      </div>
+    </div>
+  </div>
+
+  <p class="history__note">History tracking began 28 Aug 2026. Any revisions before that date were not recorded, and are not reconstructed here.</p>
+</div>
+
+<div class="section wrap" style="padding-top: 56px;">
+  <div class="when">
+    <div class="when__col">
+      <div class="when__kicker when__kicker--pos">Turn the knob down</div>
+      <div class="when__title">Agent View, and nothing else</div>
+      <div class="when__body">A few concurrent sessions — this program's own experiments — need nothing beyond <span class="tok">claude agents</span>: a terminal table of every background session grouped by state, a peek panel to answer the blocking question inline, and attach/detach on demand. Zero setup, no extra tokens, no infrastructure. At this end the technique trades nothing, which is why it is not a plain trade.</div>
+    </div>
+    <div class="when__col">
+      <div class="when__kicker when__kicker--neg">Turn the knob up</div>
+      <div class="when__title">The OTel pipeline, and what it costs</div>
+      <div class="when__body">A real multi-team fleet — or the cost-attribution goal specifically — justifies wiring <span class="tok">CLAUDE_CODE_ENABLE_TELEMETRY=1</span> to a real backend and standing up collector plus Grafana or SigNoz plus retention. What that buys is historical, per-agent cost analysis Agent View does not cover. What it costs is real setup and real infrastructure. At this end the technique is no longer free.</div>
+    </div>
+  </div>
+</div>
+
+<div class="section wrap">
+  <div class="section__head"><h2 class="section__label">Why each delta reads the way it does</h2></div>
+
+  <div style="margin-top: 44px;">
+    <div class="arg">
+      <div class="arg__axis">
+        <div class="arg__name">attention-delta</div>
+        <div class="arg__val arg__val--pos">+2</div>
+        <div class="arg__note">The highest in the corpus</div>
+      </div>
+      <div>
+        <p class="prose">This is the technique's whole point, and it is now backed by a concrete, shipped mechanism rather than a hypothesis. Agent View's peek panel exists specifically to answer &ldquo;which of my N sessions needs me right now&rdquo; without reading N transcripts. That is the &ldquo;ops pager, not monitoring wall&rdquo; framing from the note's key points, now realized.</p>
+        <p class="prose">The interesting design problem in this space is <em>attention routing</em>: surfacing the one agent that needs a human decision, not showing twenty progress bars. Since the answer is free and built into a tool already in use, this is close to a pure win on this axis — which is what earns a <span class="tok">+2</span> where the other three axes sit at neutral or a single step.</p>
+      </div>
+    </div>
+
+    <div class="arg">
+      <div class="arg__axis">
+        <div class="arg__name">speed-delta</div>
+        <div class="arg__val arg__val--pos">+1</div>
+        <div class="arg__note">Not +2, deliberately</div>
+      </div>
+      <div>
+        <p class="prose">Faster time-to-notice-and-reply reduces the dead time an agent sits blocked waiting for input, which shortens wall-clock to an accepted outcome. Not <span class="tok">+2</span> because the dashboard doesn't speed up inference or tool execution themselves — it only removes human-caused stalls, and only for the fraction of a run that's actually blocked on a human.</p>
+      </div>
+    </div>
+
+    <div class="arg">
+      <div class="arg__axis">
+        <div class="arg__name">cost-delta</div>
+        <div class="arg__val">0</div>
+        <div class="arg__note">Neutral, and the spread is why</div>
+      </div>
+      <div>
+        <p class="prose">Agent View itself costs nothing beyond what the sessions would have cost anyway — no extra tokens, no extra infra. But the technique as a category ranges from that free case to a genuinely costly one (standing up an OTel collector plus Grafana or SigNoz plus retention), so scoring the category as a flat win would hide that spread.</p>
+        <p class="prose">Net: neutral, with the real cost story living in <span class="tok">effort</span>, not in this per-task delta. Read plainly — adopting this does not make your agent work cheaper.</p>
+      </div>
+    </div>
+
+    <div class="arg">
+      <div class="arg__axis">
+        <div class="arg__name">quality-delta</div>
+        <div class="arg__val">0</div>
+        <div class="arg__note">Recorded 0, not guessed positive</div>
+      </div>
+      <div>
+        <p class="prose">Visibility into what agents are doing doesn't change what they produce. There's a plausible second-order argument — catching a stuck or off-track agent sooner prevents wasted output — but that's a Group 3 / Failure-cost effect, months-observable and not something this desk research can substantiate. It is recorded as <span class="tok">0</span> rather than guessed positive.</p>
+      </div>
+    </div>
+
+    <div class="arg">
+      <div class="arg__axis">
+        <div class="arg__name">dial</div>
+        <div class="arg__val arg__val--pos">true</div>
+        <div class="arg__note">Not a no-regret, not a trade</div>
+      </div>
+      <div>
+        <p class="prose">The technique spans a genuinely free tier — Agent View, use it or don't, no cost either way — through to a heavy custom fleet-observability stack, and which end makes sense is a per-situation call. A few concurrent sessions during this program's own experiments need nothing beyond Agent View; a real multi-team fleet, or the cost-attribution goal specifically, would justify the OTel pipeline.</p>
+        <p class="prose">That is exactly the &ldquo;regimes change, and I know which knob does which&rdquo; shape the evaluation dimensions flag as the strongest kind of finding — not a flat no-regret, because the heavy end has real setup cost, and not a single-axis trade, because the free end trades nothing.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="section wrap" style="padding-top: 80px;">
+  <div class="plog">
+    <div class="plog__head">
+      <h2 class="plog__title">Perspectives log</h2>
+      <div class="plog__blurb">Sources that complicate or contradict the score above. Kept on the record whether or not they were convenient.</div>
+    </div>
+
+    <div class="plog__entry">
+      <div class="plog__meta">
+        <div class="plog__date">2026-08-24</div>
+        <div class="tag tag--aligns">Aligns</div>
+        <div class="plog__src">GitHub, via TLDR Dev<br><a href="https://github.com/proliferate-ai/proliferate">proliferate-ai/proliferate</a></div>
+      </div>
+      <div>
+        <div class="plog__paper">Proliferate</div>
+        <p class="plog__body">Proliferate is an open-source, self-hostable AI IDE that runs multiple coding agents (Claude Code, Codex, etc.) in parallel within isolated workspaces, with reusable workflows and multi-tool integration — a shipped instance of the note's fleet-visibility problem at the IDE layer rather than the terminal layer (Saggar) or dashboard layer (Agent Manager, agent-fleet-o) already logged here, and notable for treating &ldquo;run N agents in isolated workspaces&rdquo; as the IDE's core feature rather than an add-on.</p>
+      </div>
+    </div>
+
+    <div class="plog__entry">
+      <div class="plog__meta">
+        <div class="plog__date">2026-08-19</div>
+        <div class="tag tag--aligns">Aligns</div>
+        <div class="plog__src">saggar.marginalutility.dev, via TLDR Dev<br><a href="https://saggar.marginalutility.dev/">saggar.marginalutility.dev</a></div>
+      </div>
+      <div>
+        <div class="plog__paper">Saggar</div>
+        <p class="plog__body">Saggar is a native macOS terminal manager that organizes shells, tests, and AI coding agents across multiple projects, surfacing sessions that need a user decision in a unified priority queue while keeping unobtrusive active work out of the way, plus a mobile companion for remote monitoring — a shipped, single-user-scale instance of exactly the visibility problem this note tracks, distinct from the enterprise/cross-tool tools already logged (Agent Manager, agent-fleet-o) and closer to Claude Code's own built-in fleet feature in grain.</p>
+      </div>
+    </div>
+
+    <div class="plog__entry">
+      <div class="plog__meta">
+        <div class="plog__date">2026-08-14</div>
+        <div class="tag tag--challenges">Challenges</div>
+        <div class="plog__src">Anthropic research, via TLDR AI<br><a href="https://www.anthropic.com/research/multiagent-systems">anthropic.com/research</a></div>
+      </div>
+      <div>
+        <div class="plog__paper">Anthropic research on multi-agent systems</div>
+        <p class="plog__body">Anthropic's own research on multi-agent systems finds that individually benign agent behaviors can compound into systemic failures — confabulation, reward hacking, and unexpected dynamics — once many agents interact in shared environments, emerging faster than human institutions can oversee them. This is a caution against this note's implicit framing that better visibility (Agent View, cost-per-agent metrics) is sufficient to safely operate a fleet: some failure modes may only appear at scale and may not present as any single agent needing a human decision.</p>
+      </div>
+    </div>
+
+    <div class="plog__entry">
+      <div class="plog__meta">
+        <div class="plog__date">2026-08-12</div>
+        <div class="tag tag--nuances">Nuances</div>
+        <div class="plog__src">sahansera.dev, via TLDR<br><a href="https://sahansera.dev/scaling-an-agentic-coding-sdk-what-concurrency-actually-costs/">What concurrency actually costs</a></div>
+      </div>
+      <div>
+        <div class="plog__paper">Scaling an agentic coding SDK: what concurrency actually costs</div>
+        <p class="plog__body">An engineering writeup on what concurrency actually costs when scaling an agentic coding SDK (&ldquo;a large number of partially trusted computers operating at once&rdquo;) adds an infrastructure-cost dimension this note doesn't currently score — visibility into a fleet (this note's subject) and the underlying compute/isolation cost of <em>running</em> one are adjacent but distinct problems; the note's <span class="tok">cost-delta: 0</span> was scored for the dashboard layer specifically, not the fleet's own compute cost, which this source suggests is the larger and less-visible number.</p>
+      </div>
+    </div>
+
+    <div class="plog__entry">
+      <div class="plog__meta">
+        <div class="plog__date">2026-08-10</div>
+        <div class="tag tag--aligns">Aligns</div>
+        <div class="plog__src">Claude Code docs, via TLDR/TLDR Dev/TLDR AI<br><a href="https://code.claude.com/docs/en/cross-session-messaging">Cross-session messaging</a></div>
+      </div>
+      <div>
+        <div class="plog__paper">Cross-session messaging in Claude Code</div>
+        <p class="plog__body">Claude Code shipped cross-session messaging (v2.1.224+, macOS/Linux) — sessions can send and receive messages from other running sessions so one can alert another when something breaks or hand off an unblocking solution mid-task. This is the coordination-state gap the LoopX entry below flags, now closed as a first-party feature rather than a third-party OSS tool.</p>
+      </div>
+    </div>
+
+    <div class="plog__entry">
+      <div class="plog__meta">
+        <div class="plog__date">2026-08-07</div>
+        <div class="tag tag--aligns">Aligns</div>
+        <div class="plog__src">TLDR AI<br><a href="https://github.com/huangruiteng/loopx">huangruiteng/loopx</a></div>
+      </div>
+      <div>
+        <div class="plog__paper">LoopX</div>
+        <p class="plog__body">LoopX, an OSS tool for keeping long-running AI agent teams aligned via shared goals, to-dos, logs, and handoffs, is adjacent to this note but focused on <em>coordination state</em> across agents rather than visibility into one agent's status — closer to the Real-Time Agent Coordination Tool's differentiator than to Agent View's dashboard function.</p>
+      </div>
+    </div>
+
+    <div class="plog__entry">
+      <div class="plog__meta">
+        <div class="plog__date">2026-08-04</div>
+        <div class="tag tag--nuances">Nuances</div>
+        <div class="plog__src">TLDR AI<br><a href="https://kiro.dev/blog/one-agent/">kiro.dev/blog/one-agent</a></div>
+      </div>
+      <div>
+        <div class="plog__paper">Kiro: one agent</div>
+        <p class="plog__body">Kiro's blog on its &ldquo;one agent&rdquo; architecture describes protocol-separating the agent process from its IDE/CLI/Web clients, so agent logic evolves independently of any one surface. That's a design-time harness-architecture choice, not a fleet-visibility feature like Agent View or agent-fleet-o — worth distinguishing &ldquo;how the agent process is built&rdquo; from &ldquo;how N running agents are supervised,&rdquo; since this note currently conflates competitive analysis across both.</p>
+      </div>
+    </div>
+
+    <div class="plog__entry">
+      <div class="plog__meta">
+        <div class="plog__date">2026-08-03</div>
+        <div class="tag tag--aligns">Aligns</div>
+        <div class="plog__src">TLDR AI<br><a href="https://github.com/escapeboy/agent-fleet-o">escapeboy/agent-fleet-o</a></div>
+      </div>
+      <div>
+        <div class="plog__paper">agent-fleet-o</div>
+        <p class="plog__body">agent-fleet-o, an OSS self-hosted multi-agent mission control, extends the &ldquo;Agent Manager&rdquo; pattern below with visual DAG workflows, 450+ MCP tool integrations, and human-in-the-loop approvals — a more built-out example of the same landscape gap, and further competitive analysis for the Real-Time Agent Coordination Tool.</p>
+      </div>
+    </div>
+
+    <div class="plog__entry">
+      <div class="plog__meta">
+        <div class="plog__date">2026-07-31</div>
+        <div class="tag tag--aligns">Aligns</div>
+        <div class="plog__src">TLDR Dev<br><a href="https://tldr.tech/dev">tldr.tech/dev</a></div>
+      </div>
+      <div>
+        <div class="plog__paper">Agent Manager</div>
+        <p class="plog__body">&ldquo;Agent Manager,&rdquo; a new OSS terminal UI, implements exactly the landscape gap this note flags — live status tracking, session grouping, and resource monitoring for AI coding agent sessions inside tmux — worth a look as competitive analysis for the Real-Time Agent Coordination Tool.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="wrap">
+  <div class="endnote">
+    <div class="endnote__label">What the cost score does not cover</div>
+    <div class="endnote__body">The <span class="tok">cost-delta: 0</span> above was scored for the dashboard layer specifically — the cost of <em>seeing</em> a fleet. It was not scored for the compute and isolation cost of <em>running</em> one, which the concurrency writeup logged above suggests is the larger and less-visible number. Those are adjacent but distinct problems, and this note scores only the first. The gap is recorded rather than folded into a single figure that would have read as more complete than it is.</div>
+  </div>
+</div>
+</article>
+
+</body>
+</html>

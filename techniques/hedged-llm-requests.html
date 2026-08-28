@@ -1,0 +1,239 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Hedged LLM Requests — Field Guide</title>
+<meta name="description" content="Fire the same request twice, take whichever returns first, cancel the loser. A per-task knob that buys tail latency with token spend — and does nothing for the median. Scored: cost −1, quality 0, speed +2, attention 0.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600;700&family=IBM+Plex+Serif:ital,wght@0,400;0,600;1,400&display=swap">
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+
+<header class="masthead masthead--compact wrap">
+  <a class="masthead__name" href="../index.html">Field Guide</a>
+  <nav class="nav">
+    <a href="../index.html#method">Method</a>
+    <a href="../index.html#index">Index</a>
+    <a href="../index.html#index">Rejected</a>
+    <a href="../index.html#about">About</a>
+  </nav>
+</header>
+
+<article>
+<div class="post-head wrap">
+  <div class="post-kicker">
+    <div class="post-kicker__bar bar--dial"><i></i><i></i><i></i><i class="off"></i><i class="off"></i></div>
+    <div class="post-kicker__class">Class: Dial</div>
+    <div class="post-kicker__sep"></div>
+    <div class="post-kicker__meta">Last updated <time datetime="2026-08-24">24 Aug 2026</time></div>
+  </div>
+
+  <div class="post-grid">
+    <div>
+      <h1 class="post-title">Hedged LLM Requests</h1>
+      <p class="standfirst">Send the same request twice in parallel, take whichever response returns first, cancel the other. It is <em>tail-latency insurance</em> — it barely touches the median request, and it buys the clipped tail with token spend.</p>
+    </div>
+    <aside class="conf-box">
+      <div class="conf-box__label">Confidence</div>
+      <div class="conf-box__meter"><span class="on"></span><span class="on"></span><span></span></div>
+      <div class="conf-box__scale"><span class="on">guess</span><span class="on">researched</span><span>measured</span></div>
+      <div class="conf-box__value">researched</div>
+      <div class="conf-box__body">The cost/speed shape rests on the source's own production numbers plus corroborating independent hedging literature, not on my own measurement. No experiment has been run, so not <span class="tok">measured</span>.</div>
+    </aside>
+  </div>
+</div>
+
+<div class="section wrap" style="padding-top: 56px;">
+  <div class="baseline">
+    <div class="baseline__label">Compared to what</div>
+    <div class="baseline__text">A single request per call, no hedging — the current default for any LLM call the user's tooling makes.</div>
+  </div>
+</div>
+
+<div class="section wrap" style="padding-top: 56px;">
+  <div class="section__head section__head--spread">
+    <h2 class="section__label">The deltas</h2>
+    <div class="section__note">+ is always better for you &middot; never summed</div>
+  </div>
+
+  <div class="delta-cards">
+    <div class="delta-card delta-card--neg">
+      <div class="delta-card__label">cost-delta</div>
+      <div class="delta-card__val">&minus;1</div>
+      <div class="track"><i class="track__cell"></i><i class="track__cell track__cell--neg"></i><i class="track__zero"></i><i class="track__cell"></i><i class="track__cell"></i></div>
+      <div class="delta-card__read">More expensive. Roughly two calls made, one used.</div>
+    </div>
+    <div class="delta-card">
+      <div class="delta-card__label">quality-delta</div>
+      <div class="delta-card__val">0</div>
+      <div class="track"><i class="track__cell"></i><i class="track__cell"></i><i class="track__zero"></i><i class="track__cell"></i><i class="track__cell"></i></div>
+      <div class="delta-card__read">Neutral. Same prompt, same model &mdash; nothing about the output changes.</div>
+    </div>
+    <div class="delta-card delta-card--pos">
+      <div class="delta-card__label">speed-delta</div>
+      <div class="delta-card__val">+2</div>
+      <div class="track"><i class="track__cell"></i><i class="track__cell"></i><i class="track__zero"></i><i class="track__cell track__cell--pos"></i><i class="track__cell track__cell--pos"></i></div>
+      <div class="delta-card__read">Much faster &mdash; on the tail only.</div>
+    </div>
+    <div class="delta-card">
+      <div class="delta-card__label">attention-delta</div>
+      <div class="delta-card__val">0</div>
+      <div class="track"><i class="track__cell"></i><i class="track__cell"></i><i class="track__zero"></i><i class="track__cell"></i><i class="track__cell"></i></div>
+      <div class="delta-card__read">Neutral. Once wired up, it is invisible to you.</div>
+    </div>
+  </div>
+
+  <p class="prose" style="margin-top: 28px;">Two zeros and a &minus;1. The <span class="tok">speed-delta: +2</span> is the only strong positive on the vector, and it is the whole case for the technique: this buys latency with spend, and nothing else moves.</p>
+
+  <div class="meta-row">
+    <div class="meta"><span class="meta__k">dial</span><span class="meta__v">true</span></div>
+    <div class="meta"><span class="meta__k">effort</span><span class="meta__v">low</span></div>
+    <div class="meta"><span class="meta__k">levers</span><span class="meta__v">inference-config</span></div>
+    <div class="meta"><span class="meta__k">mechanisms</span><span class="meta__v">independence</span></div>
+  </div>
+</div>
+
+<div class="section wrap" style="padding-top: 56px;">
+  <div class="section__head section__head--spread">
+    <h2 class="section__label">Score history</h2>
+    <div class="section__note">What moved, when, and why</div>
+  </div>
+
+  <p class="prose" style="margin-bottom: 28px;">Scores here are not fixed at a publication date. When evidence arrives that changes an assessment, the score changes and the change is recorded — including the times it was re-examined and held.</p>
+
+  <div class="history">
+    <div class="history__entry">
+      <div class="history__date"><time datetime="2026-08-24">24 Aug 2026</time></div>
+      <div>
+        <div class="history__what">First tracked state</div>
+        <div class="history__vector">
+          <span class="hv"><i>cost</i><b class="neg">&minus;1</b></span>
+          <span class="hv"><i>quality</i><b>0</b></span>
+          <span class="hv"><i>speed</i><b class="pos">+2</b></span>
+          <span class="hv"><i>attention</i><b>0</b></span>
+          <span class="hv"><i>confidence</i><b>researched</b></span>
+        </div>
+        <p class="history__why">Scored against a single request per call, no hedging — the default for any LLM call the user's tooling makes.</p>
+      </div>
+    </div>
+  </div>
+
+  <p class="history__note">History tracking began 28 Aug 2026. Any revisions before that date were not recorded, and are not reconstructed here.</p>
+</div>
+
+<div class="section wrap" style="padding-top: 56px;">
+  <div class="when">
+    <div class="when__col">
+      <div class="when__kicker when__kicker--pos">Turn the knob up when</div>
+      <div class="when__title">You are latency-bound</div>
+      <div class="when__body">A live demo, an interactive session where a stalled tool call is expensive in attention (staring at a spinner), or a time-boxed pitch-facing moment. Turning it up spends roughly a doubled token bill on that one call and buys back the worst outliers: the source measured 9.8s → 3.5s at the p99 end of its own production traffic.</div>
+    </div>
+    <div class="when__col">
+      <div class="when__kicker when__kicker--neg">Turn the knob down when</div>
+      <div class="when__title">The tail is not the constraint</div>
+      <div class="when__body">This is a dial, so the other end is not a failure mode — it is the default you already run, per call, and it costs nothing to sit there. The note is blunt about the regime, though: hedging is <em>indefensible under cost-bound regimes where the tail isn't the constraint</em>, and the median request, which was already fast, gains almost nothing from turning it up.</div>
+    </div>
+  </div>
+  <p class="prose" style="margin-top: 28px;">This panel departs from the usual pair. A trade gets a regime where it is simply the wrong call; a dial does not have one, because the knob is per-task and its low setting <em>is</em> the baseline. So the second column names where you leave it down rather than pretending there is a regime in which having the knob is a mistake.</p>
+</div>
+
+<div class="section wrap">
+  <div class="section__head"><h2 class="section__label">Why each delta reads the way it does</h2></div>
+
+  <div style="margin-top: 44px;">
+    <div class="arg">
+      <div class="arg__axis">
+        <div class="arg__name">speed-delta</div>
+        <div class="arg__val arg__val--pos">+2</div>
+        <div class="arg__note">Tail only</div>
+      </div>
+      <div>
+        <p class="prose">Hedging is a per-task knob, not a standing win: it clips p99-style tail latency sharply — the source's own 9.8s → 3.5s, corroborated in shape though not in exact magnitude by independent hedging literature — while doing almost nothing for the median request, which was already fast.</p>
+        <p class="prose">It is scored <span class="tok">+2</span> under the tail framing specifically, because that is the only regime where the technique does anything. That is exactly the "gives me a knob I didn't have" case the evaluation rubric flags as worth more than either endpoint. The mechanism is tail-latency insurance, not average-case speedup: it clips the requests that hit a slow model instance, a congested endpoint, or a transient stall.</p>
+        <p class="prose">The source reports the win came at standard-tier pricing — beating what a paid low-latency/priority tier would have cost.</p>
+      </div>
+    </div>
+
+    <div class="arg">
+      <div class="arg__axis">
+        <div class="arg__name">cost-delta</div>
+        <div class="arg__val arg__val--neg">&minus;1</div>
+        <div class="arg__note">Evidence-backed, conditional</div>
+      </div>
+      <div>
+        <p class="prose">Hedging roughly doubles token spend per hedged call unless the losing request is caught and cancelled before it finishes generating. The source does not fully specify cancellation timing, so the true cost hit could range from near-zero (fast cancellation) to a full doubling (slow cancellation — e.g. a streaming response that is mostly done before the winner returns).</p>
+        <p class="prose">Scored <span class="tok">&minus;1</span> rather than <span class="tok">&minus;2</span> because cancellation-before-completion is the documented, achievable case, not the worst case. Cancellation timing is what determines how much of that doubled cost is actually avoidable.</p>
+      </div>
+    </div>
+
+    <div class="arg">
+      <div class="arg__axis">
+        <div class="arg__name">quality-delta</div>
+        <div class="arg__val">0</div>
+        <div class="arg__note">Nothing about the output changes</div>
+      </div>
+      <div>
+        <p class="prose">The technique does not change what the model produces — same prompt, same model, take whichever response arrives. The two duplicate calls are typically identical, not diverse attempts, which is what separates this from <strong>Multi-Agent Debate</strong> and <strong>Low-Cost Model Swarms</strong>: those are Independence-mechanism techniques at the Model/Loop levers aimed at raising accuracy, while hedging is Independence at the Inference-config lever aimed purely at wall-clock.</p>
+      </div>
+    </div>
+
+    <div class="arg">
+      <div class="arg__axis">
+        <div class="arg__name">attention-delta</div>
+        <div class="arg__val">0</div>
+        <div class="arg__note">Invisible once wired</div>
+      </div>
+      <div>
+        <p class="prose">Once wired up it is invisible to the user — no ongoing attention cost, unlike a technique that surfaces more decisions per turn. The setup itself is scored separately and low: <span class="tok">effort: low</span>.</p>
+      </div>
+    </div>
+
+    <div class="arg">
+      <div class="arg__axis">
+        <div class="arg__name">dial</div>
+        <div class="arg__val arg__val--pos">true</div>
+        <div class="arg__note">The knob is per-call</div>
+      </div>
+      <div>
+        <p class="prose">Hedging is fired unconditionally and proactively on the calls you choose to hedge, which is what makes it a knob rather than a mode: you decide, per slow call, whether to spend a second request. That distinguishes it from <strong>Model Routing</strong> (which model to use) and from retry-on-failure patterns, which react to an error rather than racing two attempts from the start.</p>
+        <p class="prose">Claude Code has no built-in option to hedge its own model calls — the underlying request to Anthropic's API is made by the harness and is not user-configurable at that layer. This is a pattern to implement around a <em>specific slow tool call</em>, not a harness setting to flip: a custom MCP tool or hook script wrapping a known-slow external API in the standard pattern (fire the primary, fire an identical second, take the first to resolve via <span class="tok">asyncio.wait(..., return_when=asyncio.FIRST_COMPLETED)</span>, cancel the loser).</p>
+        <p class="prose">Workflow-level fan-out — firing two identical <span class="tok">agent()</span> calls and taking the first — is a much blunter, more expensive instrument: it duplicates a full agent turn rather than one HTTP request, so it only makes sense when a specific agent call is measured as having a heavy latency tail, not as a default. LangGraph has no built-in hedging primitive but supports the pattern directly inside a custom async node; the OpenAI Agents SDK shows no evidence of a built-in request-hedging feature, only parallel agent fan-out and error-triggered backoff. Microsoft Agent Framework and Kiro are <strong>not verified</strong> — no direct evidence was found either way, and that is recorded as unverified rather than assumed absent.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="section wrap" style="padding-top: 80px;">
+  <div class="plog">
+    <div class="plog__head">
+      <h2 class="plog__title">Perspectives log</h2>
+      <div class="plog__blurb">Sources that complicate or contradict the score above. Kept on the record whether or not they were convenient.</div>
+    </div>
+
+    <div class="plog__entry">
+      <div class="plog__meta">
+        <div class="plog__date">2026-08-24</div>
+        <div class="tag tag--aligns">Aligns</div>
+        <div class="plog__src">Dean &amp; Barroso<br><a href="https://research.google/pubs/pub40801/">The Tail at Scale</a></div>
+      </div>
+      <div>
+        <div class="plog__paper">"The Tail at Scale"; independent adaptive-hedging reports</div>
+        <p class="plog__body">Cross-checking the source's specific 9.8s→3.5s p99 figure against the broader hedged-request literature — the original distributed-systems argument for hedging, plus at least one independently-reported adaptive-hedging win of a similarly-shaped magnitude (P99 64ms→17ms on a non-LLM workload) — shows the <em>mechanism and shape of the win</em> (hedging clips tail latency specifically, barely touches the median) replicates across independent sources, even though the exact number stays single-source: not independently reproduced for an LLM workload specifically.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="wrap">
+  <div class="endnote">
+    <div class="endnote__label">Dial or trade — the note says both</div>
+    <div class="endnote__body">The frontmatter carries <span class="tok">dial: true</span> and the evaluation calls the speed score's class a dial, but the same evaluation's regime-fit line says "this is a <strong>trade</strong> overall (spends cost to buy tail speed)." Both readings are in the source and neither is edited out here: the vector is a trade's shape, and the knob is what the rubric says is worth more than either endpoint. Two further things the note flags about itself — the deltas were scored by an unattended triage-and-dive pass on 2026-08-24 and rest on published evidence and judgment, not on outcomes the user has observed directly; and the user's current regime is attention-bound and quality-bound, not latency-bound, so this is not where the technique earns its keep today. Worth prototyping only if a specific tool call in the workflow is measured as having a heavy tail, not as a blanket policy.</div>
+  </div>
+</div>
+</article>
+
+</body>
+</html>

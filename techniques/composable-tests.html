@@ -1,0 +1,244 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Composable Tests — Field Guide</title>
+<meta name="description" content="Kent Beck's argument that test suites should be built from small, orthogonal, non-redundant tests — read as an Environment-lever change to an agent's feedback loop. Scored: cost +1, quality 0, speed +2, attention +1, on a guess.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600;700&family=IBM+Plex+Serif:ital,wght@0,400;0,600;1,400&display=swap">
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+
+<header class="masthead masthead--compact wrap">
+  <a class="masthead__name" href="../index.html">Field Guide</a>
+  <nav class="nav">
+    <a href="../index.html#method">Method</a>
+    <a href="../index.html#index">Index</a>
+    <a href="../index.html#index">Rejected</a>
+    <a href="../index.html#about">About</a>
+  </nav>
+</header>
+
+<article>
+<div class="post-head wrap">
+  <div class="post-kicker">
+    <div class="post-kicker__bar"><i style="flex-grow:1; background: var(--pos);"></i></div>
+    <div class="post-kicker__class">Class: No-regret</div>
+    <div class="post-kicker__sep"></div>
+    <div class="post-kicker__meta">Last updated <time datetime="2026-08-24">24 Aug 2026</time></div>
+  </div>
+
+  <div class="post-grid">
+    <div>
+      <h1 class="post-title">Composable Tests</h1>
+      <p class="standfirst">Kent Beck's argument that a suite should be built from small, orthogonal, non-redundant tests that compose. Not AI-specific — tracked here because suite speed and failure localization change the economics of an <em>agent's</em> feedback loop.</p>
+    </div>
+    <aside class="conf-box">
+      <div class="conf-box__label">Confidence</div>
+      <div class="conf-box__meter"><span class="on"></span><span></span><span></span></div>
+      <div class="conf-box__scale"><span class="on">guess</span><span>researched</span><span>measured</span></div>
+      <div class="conf-box__value">guess</div>
+      <div class="conf-box__body">The lowest rung. <span class="tok">guess</span> means <em>my prior</em> — nobody measured this, including me. No source in this pass measured the claim that orthogonal composition speeds up an agent's feedback loop; the direction of every delta below is reasoning, not evidence. Discount it accordingly.</div>
+    </aside>
+  </div>
+</div>
+
+<div class="section wrap" style="padding-top: 56px;">
+  <div class="baseline">
+    <div class="baseline__label">Compared to what</div>
+    <div class="baseline__text">An ad-hoc test suite with overlapping, redundant assertions across similar-looking test cases — the common byproduct of tests written incrementally, case-by-case, including by an agent generating tests without seeing the suite as a whole.</div>
+  </div>
+</div>
+
+<div class="section wrap" style="padding-top: 56px;">
+  <div class="section__head section__head--spread">
+    <h2 class="section__label">The deltas</h2>
+    <div class="section__note">+ is always better for you &middot; never summed</div>
+  </div>
+
+  <div class="delta-cards">
+    <div class="delta-card delta-card--pos">
+      <div class="delta-card__label">cost-delta</div>
+      <div class="delta-card__val">+1</div>
+      <div class="track"><i class="track__cell"></i><i class="track__cell"></i><i class="track__zero"></i><i class="track__cell track__cell--pos"></i><i class="track__cell"></i></div>
+      <div class="delta-card__read">Cheaper &mdash; modest and indirect.</div>
+    </div>
+    <div class="delta-card">
+      <div class="delta-card__label">quality-delta</div>
+      <div class="delta-card__val">0</div>
+      <div class="track"><i class="track__cell"></i><i class="track__cell"></i><i class="track__zero"></i><i class="track__cell"></i><i class="track__cell"></i></div>
+      <div class="delta-card__read">Neutral. It changes the suite's economics, not what the suite verifies.</div>
+    </div>
+    <div class="delta-card delta-card--pos">
+      <div class="delta-card__label">speed-delta</div>
+      <div class="delta-card__val">+2</div>
+      <div class="track"><i class="track__cell"></i><i class="track__cell"></i><i class="track__zero"></i><i class="track__cell track__cell--pos"></i><i class="track__cell track__cell--pos"></i></div>
+      <div class="delta-card__read">Much faster &mdash; on one illustrative example, not a benchmark.</div>
+    </div>
+    <div class="delta-card delta-card--pos">
+      <div class="delta-card__label">attention-delta</div>
+      <div class="delta-card__val">+1</div>
+      <div class="track"><i class="track__cell"></i><i class="track__cell"></i><i class="track__zero"></i><i class="track__cell track__cell--pos"></i><i class="track__cell"></i></div>
+      <div class="delta-card__read">Demands less of you. Failures localize to one cause.</div>
+    </div>
+  </div>
+
+  <div class="meta-row">
+    <div class="meta"><span class="meta__k">dial</span><span class="meta__v">false</span></div>
+    <div class="meta"><span class="meta__k">effort</span><span class="meta__v">medium</span></div>
+    <div class="meta"><span class="meta__k">levers</span><span class="meta__v">environment</span></div>
+    <div class="meta"><span class="meta__k">mechanisms</span><span class="meta__v">feedback</span></div>
+  </div>
+</div>
+
+<div class="section wrap" style="padding-top: 56px;">
+  <div class="section__head section__head--spread">
+    <h2 class="section__label">Score history</h2>
+    <div class="section__note">What moved, when, and why</div>
+  </div>
+
+  <p class="prose" style="margin-bottom: 28px;">Scores here are not fixed at a publication date. When evidence arrives that changes an assessment, the score changes and the change is recorded — including the times it was re-examined and held.</p>
+
+  <div class="history">
+    <div class="history__entry">
+      <div class="history__date"><time datetime="2026-08-24">24 Aug 2026</time></div>
+      <div>
+        <div class="history__what">First tracked state</div>
+        <div class="history__vector">
+          <span class="hv"><i>cost</i><b class="pos">+1</b></span>
+          <span class="hv"><i>quality</i><b>0</b></span>
+          <span class="hv"><i>speed</i><b class="pos">+2</b></span>
+          <span class="hv"><i>attention</i><b class="pos">+1</b></span>
+          <span class="hv"><i>confidence</i><b>guess</b></span>
+        </div>
+        <p class="history__why">Scored by an unattended triage-and-dive pass, against an ad-hoc suite with overlapping, redundant assertions. The note's own caveat on these numbers: they rest on published evidence and judgment, not on outcomes the user has observed directly — confirm or revise before treating them as settled.</p>
+      </div>
+    </div>
+  </div>
+
+  <p class="history__note">History tracking began 28 Aug 2026. Any revisions before that date were not recorded, and are not reconstructed here.</p>
+</div>
+
+<div class="section wrap" style="padding-top: 56px;">
+  <div class="when">
+    <div class="when__col">
+      <div class="when__kicker when__kicker--pos">What it does</div>
+      <div class="when__title">Nothing gets worse</div>
+      <div class="when__body">None of the four recurring deltas goes negative, so there is no regime under which this is the wrong call and no second panel naming one. Beck's own framing is explicitly "make the whole suite better," not a tradeoff between properties. The honest qualifier is the confidence rung rather than a hidden cost: this is a no-regret asserted on a <span class="tok">guess</span>, which is a weaker claim than a no-regret backed by measurement — the shape of the verdict is unconditional, the evidence under it is not.</div>
+    </div>
+    <div class="when__col">
+      <div class="when__kicker when__kicker--neg">What it costs to set up</div>
+      <div class="when__title">effort: medium</div>
+      <div class="when__body">The only cost is a one-time refactor — consolidating redundant assertions into fewer, more targeted tests — kept separate from the delta vector per program convention, because it amortizes and the deltas don't. There is no shipped tooling that enforces test composability; it is a codebase-authoring discipline, not a harness feature.</div>
+    </div>
+  </div>
+</div>
+
+<div class="section wrap">
+  <div class="section__head"><h2 class="section__label">Why each delta reads the way it does</h2></div>
+
+  <div style="margin-top: 44px;">
+    <div class="arg">
+      <div class="arg__axis">
+        <div class="arg__name">speed-delta</div>
+        <div class="arg__val arg__val--pos">+2</div>
+        <div class="arg__note">One worked example, not a benchmark</div>
+      </div>
+      <div>
+        <p class="prose">Beck's own worked example — 4 computation variants × 5 reporting variants — goes from 20 brute-force tests to 10 composed ones for equivalent confidence, roughly halving suite wall-clock for that shape of problem.</p>
+        <p class="prose">That figure is illustrative, not a measured benchmark across real codebases, and no independent source in this research pass reproduced a comparable number. General CI-speed literature agrees that redundancy reduction and parallelization both cut suite time, but none of it validates Beck's specific ratio.</p>
+      </div>
+    </div>
+
+    <div class="arg">
+      <div class="arg__axis">
+        <div class="arg__name">attention-delta</div>
+        <div class="arg__val arg__val--pos">+1</div>
+        <div class="arg__note">Judgment, not measurement</div>
+      </div>
+      <div>
+        <p class="prose">Orthogonal tests localize failures to one cause; overlapping tests mean a break requires figuring out which of several similar-looking failures is the real signal. This is judgment, not measured — plausible but untested against the user's own suites.</p>
+      </div>
+    </div>
+
+    <div class="arg">
+      <div class="arg__axis">
+        <div class="arg__name">cost-delta</div>
+        <div class="arg__val arg__val--pos">+1</div>
+        <div class="arg__note">Modest and indirect</div>
+      </div>
+      <div>
+        <p class="prose">Faster, better-localized runs mean fewer agent turns spent re-running or diagnosing redundant failures. Modest and indirect — the saving arrives via the loop, not from any single call getting cheaper.</p>
+      </div>
+    </div>
+
+    <div class="arg">
+      <div class="arg__axis">
+        <div class="arg__name">quality-delta</div>
+        <div class="arg__val">0</div>
+        <div class="arg__note">Economics, not coverage</div>
+      </div>
+      <div>
+        <p class="prose">This changes the suite's economics, not what the suite verifies. Assuming coverage is preserved during consolidation — Beck's own caveat, echoed by a commenter he cites who worries about losing intermediate-state assertions — artifact correctness shouldn't move in either direction.</p>
+      </div>
+    </div>
+
+    <div class="arg">
+      <div class="arg__axis">
+        <div class="arg__name">dial</div>
+        <div class="arg__val">false</div>
+        <div class="arg__note">An investment, not a knob</div>
+      </div>
+      <div>
+        <p class="prose">This is a one-time suite-design investment, not a per-task knob. It is a design-time technique — how the suite is built — not a runtime constraint the harness enforces.</p>
+      </div>
+    </div>
+
+    <div class="arg">
+      <div class="arg__axis">
+        <div class="arg__name">confidence</div>
+        <div class="arg__val">guess</div>
+        <div class="arg__note">The rung that governs the rest</div>
+      </div>
+      <div>
+        <p class="prose">The direction of every delta is well-reasoned from first principles and cross-checked against general test-suite and CI literature. But no source — Beck's post, the Shopify entry logged below, or this pass's search — measured the specific claim that orthogonal composition speeds up an <em>agent's</em> feedback loop. That is this program's own inference from Beck's general testing-craft argument, not something anyone benchmarked in an agentic-coding context.</p>
+        <p class="prose">In the rubric, <span class="tok">guess</span> is defined as <em>my prior</em>; <span class="tok">researched</span> would mean someone else measured it and <span class="tok">measured</span> would mean it was measured here, in an experiment note with a trial count. Neither applies. Read this page as a hypothesis with its reasoning shown, not as a result.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="section wrap" style="padding-top: 80px;">
+  <div class="plog">
+    <div class="plog__head">
+      <h2 class="plog__title">Perspectives log</h2>
+      <div class="plog__blurb">Sources that complicate or contradict the score above. Kept on the record whether or not they were convenient.</div>
+    </div>
+
+    <div class="plog__entry">
+      <div class="plog__meta">
+        <div class="plog__date">2026-08-24</div>
+        <div class="tag tag--nuances">Nuances</div>
+        <div class="plog__src">Shopify Engineering, via TLDR Dev<br><a href="https://shopify.engineering/mobile-e2e-testing">shopify.engineering</a></div>
+      </div>
+      <div>
+        <div class="plog__paper">Mobile E2E testing (TLDR Dev, 2026-08-21)</div>
+        <p class="plog__body">Shopify raised its mobile E2E suite's stability to 98% not by restructuring test composition (this note's angle) but by replacing a footgun-prone Appium/WebdriverIO wrapper — arbitrary pauses, assertions on view-hierarchy nodes instead of what's visually rendered — with a strict builder-style API that forces an assertion on every step, escape hatches prefixed <span class="tok">UNSAFE_</span>, and computer-vision element-finding that matches what a user actually sees. Same Environment × Feedback cell, different mechanism: this note's fix is suite-design (fewer, better-composed tests); Shopify's is tooling-design (an API shape that makes flaky assertions hard to write in the first place).</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="wrap">
+  <div class="endnote">
+    <div class="endnote__label">Why this is tracked at all</div>
+    <div class="endnote__body">Beck is making a general testing-craft argument, not an AI one. It is on the board because it is a concrete, sourced instance of the "test-suite speed &amp; determinism as an agent lever" coverage-gap candidate — Environment × Feedback, a cell with zero primary-lever coverage in the lever taxonomy. It is also the one place on this site where an unconditional class marker sits on top of the weakest confidence rung, and the note itself does not reconcile those two things. Nothing here resolves it; it is flagged rather than smoothed over.</div>
+  </div>
+</div>
+</article>
+
+</body>
+</html>

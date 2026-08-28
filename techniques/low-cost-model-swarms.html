@@ -1,0 +1,258 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Low-Cost Model Swarms — Field Guide</title>
+<meta name="description" content="Many cheap models, mechanically aggregated. The quality bet cashes out on checkable tasks; the cost bet is the one that has actually been measured, and it lost. Scored: cost −1, quality +1, speed −1, attention −1.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600;700&family=IBM+Plex+Serif:ital,wght@0,400;0,600;1,400&display=swap">
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+
+<header class="masthead masthead--compact wrap">
+  <a class="masthead__name" href="../index.html">Field Guide</a>
+  <nav class="nav">
+    <a href="../index.html#method">Method</a>
+    <a href="../index.html#index">Index</a>
+    <a href="../index.html#index">Rejected</a>
+    <a href="../index.html#about">About</a>
+  </nav>
+</header>
+
+<article>
+<div class="post-head wrap">
+  <div class="post-kicker">
+    <div class="post-kicker__bar"><i style="flex-grow:3; background: var(--neg);"></i><i style="flex-grow:1; background: var(--pos);"></i></div>
+    <div class="post-kicker__class">Class: Trade</div>
+    <div class="post-kicker__sep"></div>
+    <div class="post-kicker__meta">Last updated <time datetime="2026-08-04">4 Aug 2026</time></div>
+  </div>
+
+  <div class="post-grid">
+    <div>
+      <h1 class="post-title">Low-Cost Model Swarms</h1>
+      <p class="standfirst">The bet is that orchestration quality can substitute for raw model quality. On checkable tasks it cashes out — but the cost half of the bet is the half that has actually been measured, and in the most natural implementation it <em>lost</em>.</p>
+    </div>
+    <aside class="conf-box">
+      <div class="conf-box__label">Confidence</div>
+      <div class="conf-box__meter"><span class="on"></span><span class="on"></span><span></span></div>
+      <div class="conf-box__scale"><span class="on">guess</span><span class="on">researched</span><span>measured</span></div>
+      <div class="conf-box__value">researched</div>
+      <div class="conf-box__body">Someone else measured this. I have not run it myself. Read every delta below as a reading of the evidence, not as a result I produced.</div>
+    </aside>
+  </div>
+</div>
+
+<div class="section wrap" style="padding-top: 56px;">
+  <div class="baseline">
+    <div class="baseline__label">Compared to what</div>
+    <div class="baseline__text">A single call/session to one frontier model, no swarm.</div>
+  </div>
+</div>
+
+<div class="section wrap" style="padding-top: 56px;">
+  <div class="section__head section__head--spread">
+    <h2 class="section__label">The deltas</h2>
+    <div class="section__note">+ is always better for you &middot; never summed</div>
+  </div>
+
+  <div class="delta-cards">
+    <div class="delta-card delta-card--neg">
+      <div class="delta-card__label">cost-delta</div>
+      <div class="delta-card__val">&minus;1</div>
+      <div class="track"><i class="track__cell"></i><i class="track__cell track__cell--neg"></i><i class="track__zero"></i><i class="track__cell"></i><i class="track__cell"></i></div>
+      <div class="delta-card__read">More expensive &mdash; in the implementation that has actually been measured.</div>
+    </div>
+    <div class="delta-card delta-card--pos">
+      <div class="delta-card__label">quality-delta</div>
+      <div class="delta-card__val">+1</div>
+      <div class="track"><i class="track__cell"></i><i class="track__cell"></i><i class="track__zero"></i><i class="track__cell track__cell--pos"></i><i class="track__cell"></i></div>
+      <div class="delta-card__read">Better on tasks with a checkable target. Task-dependent, not a blanket win.</div>
+    </div>
+    <div class="delta-card delta-card--neg">
+      <div class="delta-card__label">speed-delta</div>
+      <div class="delta-card__val">&minus;1</div>
+      <div class="track"><i class="track__cell"></i><i class="track__cell track__cell--neg"></i><i class="track__zero"></i><i class="track__cell"></i><i class="track__cell"></i></div>
+      <div class="delta-card__read">Slower. The parallel part is not where the clock goes.</div>
+    </div>
+    <div class="delta-card delta-card--neg">
+      <div class="delta-card__label">attention-delta</div>
+      <div class="delta-card__val">&minus;1</div>
+      <div class="track"><i class="track__cell"></i><i class="track__cell track__cell--neg"></i><i class="track__zero"></i><i class="track__cell"></i><i class="track__cell"></i></div>
+      <div class="delta-card__read">Demands more of you: members, judge criteria, and disagreements to resolve.</div>
+    </div>
+  </div>
+
+  <div class="meta-row">
+    <div class="meta"><span class="meta__k">dial</span><span class="meta__v">false</span></div>
+    <div class="meta"><span class="meta__k">effort</span><span class="meta__v">medium</span></div>
+    <div class="meta"><span class="meta__k">levers</span><span class="meta__v">model, loop</span></div>
+    <div class="meta"><span class="meta__k">mechanisms</span><span class="meta__v">independence, compute</span></div>
+  </div>
+</div>
+
+<div class="section wrap" style="padding-top: 56px;">
+  <div class="section__head section__head--spread">
+    <h2 class="section__label">Score history</h2>
+    <div class="section__note">What moved, when, and why</div>
+  </div>
+
+  <p class="prose" style="margin-bottom: 28px;">Scores here are not fixed at a publication date. When evidence arrives that changes an assessment, the score changes and the change is recorded — including the times it was re-examined and held.</p>
+
+  <div class="history">
+    <div class="history__entry">
+      <div class="history__date"><time datetime="2026-08-04">4 Aug 2026</time></div>
+      <div>
+        <div class="history__what">First tracked state</div>
+        <div class="history__vector">
+          <span class="hv"><i>cost</i><b class="neg">&minus;1</b></span>
+          <span class="hv"><i>quality</i><b class="pos">+1</b></span>
+          <span class="hv"><i>speed</i><b class="neg">&minus;1</b></span>
+          <span class="hv"><i>attention</i><b class="neg">&minus;1</b></span>
+          <span class="hv"><i>confidence</i><b>researched</b></span>
+        </div>
+        <p class="history__why">Scored against a single call/session to one frontier model, no swarm.</p>
+      </div>
+    </div>
+  </div>
+
+  <p class="history__note">History tracking began 28 Aug 2026. Any revisions before that date were not recorded, and are not reconstructed here.</p>
+</div>
+
+<div class="section wrap" style="padding-top: 56px;">
+  <div class="when">
+    <div class="when__col">
+      <div class="when__kicker when__kicker--pos">Reach for it when</div>
+      <div class="when__title">You are quality-bound</div>
+      <div class="when__body">Code review, data validation — anything with a verifiable pass/fail. Independence and quality are what this buys, and a checkable target is what lets a mechanical judge actually pick the winner.</div>
+    </div>
+    <div class="when__col">
+      <div class="when__kicker when__kicker--neg">It is indefensible when</div>
+      <div class="when__title">You are cost-bound or latency-bound</div>
+      <div class="when__body">Given the measured overhead, this is the wrong side of the trade under either a budget or a deadline. No judgment call required.</div>
+    </div>
+  </div>
+</div>
+
+<div class="section wrap">
+  <div class="section__head"><h2 class="section__label">Why each delta reads the way it does</h2></div>
+
+  <div style="margin-top: 44px;">
+    <div class="arg">
+      <div class="arg__axis">
+        <div class="arg__name">cost-delta</div>
+        <div class="arg__val arg__val--neg">&minus;1</div>
+        <div class="arg__note">The premise, measured</div>
+      </div>
+      <div>
+        <p class="prose">The premise — "cheap models = cheap swarm" — only holds if the orchestration overhead stays small relative to the per-call savings. The one concrete measurement found shows the opposite in the most natural implementation path. Systima's Claude Code fan-out benchmark reports <strong>2.6x&ndash;5.9x more metered tokens</strong> than sequential single-agent work, from duplicated system prompts and tool schemas plus cache misses on parallel cold spawns.</p>
+        <p class="prose">True local or open-weight members called directly — bypassing the per-subagent harness tax — could still come out ahead, but no measurement of that specific configuration was found. The only claim pointing that way is a vendor blog (MindStudio) asserting 5&ndash;10x savings from pinning cheap subagent models, with no disclosed methodology.</p>
+        <p class="prose">Net: worse than baseline in the implementation that has actually been measured; <em>unproven, not disproven</em>, for the "real" local-swarm version this note is about.</p>
+      </div>
+    </div>
+
+    <div class="arg">
+      <div class="arg__axis">
+        <div class="arg__name">quality-delta</div>
+        <div class="arg__val arg__val--pos">+1</div>
+        <div class="arg__note">Task-dependent, not blanket</div>
+      </div>
+      <div>
+        <p class="prose">There is genuine benchmark support for aggregation substituting for raw capability: a 6-proposer mixture-of-agents setup with weak open-weight proposers plus an aggregator beat GPT-4o by <strong>~7.5 points on AlpacaEval 2.0</strong> (arXiv 2406.04692). On tasks with a scoreable or checkable target, the bet cashes out.</p>
+        <p class="prose">It is capped by the co-failure ceiling finding (arXiv 2606.27288) — gains shrink as member failures correlate — and by the note's own standing caveat that open-ended design is exactly where judges share the generators' blind spots. The technique works best on checkable outputs: bugs that reproduce, tests that pass. Net positive, but task-dependent.</p>
+      </div>
+    </div>
+
+    <div class="arg">
+      <div class="arg__axis">
+        <div class="arg__name">speed-delta</div>
+        <div class="arg__val arg__val--neg">&minus;1</div>
+        <div class="arg__note">The judge is serial</div>
+      </div>
+      <div>
+        <p class="prose">Parallel fan-out should in principle beat sequential multi-step work on wall-clock. But the only real measurement found reported <strong>no speed win on any task timed</strong> in Claude Code, because the aggregation/judge step is still a serial bottleneck after the parallel part finishes.</p>
+      </div>
+    </div>
+
+    <div class="arg">
+      <div class="arg__axis">
+        <div class="arg__name">attention-delta</div>
+        <div class="arg__val arg__val--neg">&minus;1</div>
+        <div class="arg__note">The most common bad trade</div>
+      </div>
+      <div>
+        <p class="prose">Setting up N members, writing judge and aggregation criteria, and resolving cases where the swarm disagrees is more upfront and ongoing attention than reviewing one frontier model's output. This is the token-cost-for-attention-cost trade the program's Evaluation Dimensions note flags as the most common bad trade in "cheaper" techniques — here it arrives without even the token saving to show for it.</p>
+      </div>
+    </div>
+
+    <div class="arg">
+      <div class="arg__axis">
+        <div class="arg__name">dial</div>
+        <div class="arg__val">false</div>
+        <div class="arg__note">Width is not the subject</div>
+      </div>
+      <div>
+        <p class="prose">Swarm width (N) is adjustable — but that is true of the underlying mechanism, not a knob this note is specifically about. Same treatment <a href="multi-agent-debate.html">Multi-Agent Debate</a> gets in the Evaluation Dimensions worked example.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="section wrap" style="padding-top: 80px;">
+  <div class="plog">
+    <div class="plog__head">
+      <h2 class="plog__title">Perspectives log</h2>
+      <div class="plog__blurb">Sources that complicate or contradict the score above. Kept on the record whether or not they were convenient.</div>
+    </div>
+
+    <div class="plog__entry">
+      <div class="plog__meta">
+        <div class="plog__date">2026-08-04</div>
+        <div class="tag tag--challenges">Challenges</div>
+        <div class="plog__src">Systima<br><a href="https://systima.ai/blog/subagent-tax">systima.ai</a></div>
+      </div>
+      <div>
+        <div class="plog__paper">The Subagent Tax</div>
+        <p class="plog__body">Measured Claude Code subagent fan-out at 2.6x&ndash;5.9x the metered tokens of sequential single-agent work (Opus/Sonnet/Fable, 2 and 5 subagent configurations) and found no speed improvement on any timed task — direct evidence against the "cheap-model swarm = obviously cheaper or faster" assumption when the swarm is implemented as same-harness Task-tool subagents.</p>
+      </div>
+    </div>
+
+    <div class="plog__entry">
+      <div class="plog__meta">
+        <div class="plog__date">2026-08-04</div>
+        <div class="tag tag--aligns">Aligns</div>
+        <div class="plog__src">MindStudio blog<br><a href="https://www.mindstudio.ai/blog/smart-orchestrator-cheaper-sub-agent-models-claude-code">mindstudio.ai</a></div>
+      </div>
+      <div>
+        <div class="plog__paper">Smart Orchestrator Model to Direct Cheaper Sub-Agent Models in Claude Code</div>
+        <p class="plog__body">Claims an Opus-orchestrator / Haiku-subagent split cuts token costs 5&ndash;10x "without meaningful quality loss" — a vendor-blog claim with no disclosed methodology or trial count, in direct tension with the Systima measurement above; treat as unverified marketing framing, not a measured result, until something with a stated methodology confirms it.</p>
+      </div>
+    </div>
+
+    <div class="plog__entry">
+      <div class="plog__meta">
+        <div class="plog__date">2026-08-04</div>
+        <div class="tag tag--nuances">Nuances</div>
+        <div class="plog__src">arXiv 2606.27288<br><a href="https://arxiv.org/html/2606.27288">arxiv.org</a></div>
+      </div>
+      <div>
+        <div class="plog__paper">When Does Combining Language Models Help? A Co-Failure Ceiling on Routing, Voting, and Mixture-of-Agents</div>
+        <p class="plog__body">Ensemble/voting gains are bounded by how correlated the members' failures are, not just by member count — a caveat on the independence mechanism this technique is filed under, since frontier and near-frontier models increasingly share training recipes and blind spots.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="wrap">
+  <div class="endnote">
+    <div class="endnote__label">The distinction being kept</div>
+    <div class="endnote__body">This overlaps <a href="multi-agent-debate.html">Multi-Agent Debate</a>, and the distinction held here is deliberate: <strong>swarms</strong> are many <em>cheap</em> models with mechanical aggregation — votes, judges; <strong>debate</strong> is fewer, stronger agents iterating to consensus. They share the <span class="tok">independence</span> and <span class="tok">compute</span> mechanisms, and the co-failure ceiling finding cuts at both — a swarm assembled from several distillations of the same base does not get the independence the technique assumes it is buying.</div>
+  </div>
+</div>
+</article>
+
+</body>
+</html>
