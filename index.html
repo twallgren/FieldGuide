@@ -1,0 +1,257 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Field Guide — scored evaluations of AI-engineering techniques</title>
+<meta name="description" content="Every technique scored on four signed axes against a stated baseline, with an explicit confidence level and the sources that disagree. Including the ones that did not earn their place.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600;700&family=IBM+Plex+Serif:ital,wght@0,400;0,600;1,400&display=swap">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="masthead wrap">
+  <div class="masthead__id">
+    <a class="masthead__name" href="/">Field Guide</a>
+    <div class="masthead__tag">Scored evaluations of AI-engineering techniques</div>
+  </div>
+  <nav class="nav">
+    <a href="#method">Method</a>
+    <a href="#index">Index</a>
+    <a href="#index">Rejected</a>
+    <a href="#about">About</a>
+  </nav>
+</header>
+
+<section class="hero wrap">
+  <div>
+    <h1 class="hero__title">Most of them are trades. Some of them are not worth it.</h1>
+    <p class="lede">Almost everything written about AI workflows <em>adds</em> to the pile — another technique, another tool, another thing you are now behind on. This does the opposite.</p>
+    <p class="lede">Every technique here is scored on four signed axes against a stated baseline, carries an explicit confidence level, records the sources that disagree, and is allowed to conclude that it did not earn its place.</p>
+  </div>
+  <div class="stats">
+    <div class="stat"><div class="stat__num">25</div><div class="stat__label">Techniques scored</div></div>
+    <div class="stat"><div class="stat__num">3</div><div class="stat__label">Left deliberately blank</div></div>
+    <div class="stat"><div class="stat__num">0</div><div class="stat__label">Composite scores</div></div>
+  </div>
+</section>
+
+<section class="section wrap" id="method">
+  <div class="section__head"><span class="section__num">01</span><h2 class="section__label">The four axes</h2></div>
+
+  <div class="slab" style="margin-top: 48px;">
+    <div class="slab__kicker">The one rule</div>
+    <div class="slab__rule">+ is always better for you.<br>On every axis.</div>
+    <div class="slab__cols">
+      <p><span class="tok" style="color: var(--pos-inv);">cost-delta: +2</span> means <em>much cheaper</em>. Not &ldquo;much cost.&rdquo;</p>
+      <p><span class="tok" style="color: var(--neg-inv);">attention-delta: &minus;1</span> means <em>it demands more of your attention</em>.</p>
+    </div>
+  </div>
+
+  <div class="axes">
+    <div class="axis">
+      <div><div class="axis__name">cost-delta</div><div class="axis__proxy">Tokens per accepted outcome</div></div>
+      <div class="axis__q">How much of the budget did the outcome consume — retries included, not tokens per call?</div>
+      <div class="axis__regime">
+        <div class="track"><i class="track__cell"></i><i class="track__cell"></i><i class="track__zero"></i><i class="track__cell track__cell--pos"></i><i class="track__cell track__cell--pos"></i></div>
+        <div class="axis__binds">Binds when cost-bound</div>
+      </div>
+    </div>
+    <div class="axis">
+      <div><div class="axis__name">quality-delta</div><div class="axis__proxy">Accuracy &amp; durability</div></div>
+      <div class="axis__q">Is the artifact actually better — including the parts nobody said out loud, and six months from now?</div>
+      <div class="axis__regime">
+        <div class="track"><i class="track__cell"></i><i class="track__cell"></i><i class="track__zero"></i><i class="track__cell track__cell--pos"></i><i class="track__cell"></i></div>
+        <div class="axis__binds">Binds when quality-bound</div>
+      </div>
+    </div>
+    <div class="axis">
+      <div><div class="axis__name">speed-delta</div><div class="axis__proxy">Wall-clock to accepted</div></div>
+      <div class="axis__q">How long from start to accepted? Faster output you trust less is not faster.</div>
+      <div class="axis__regime">
+        <div class="track"><i class="track__cell"></i><i class="track__cell track__cell--neg"></i><i class="track__zero"></i><i class="track__cell"></i><i class="track__cell"></i></div>
+        <div class="axis__binds">Binds when latency-bound</div>
+      </div>
+    </div>
+    <div class="axis">
+      <div><div class="axis__name">attention-delta</div><div class="axis__proxy">Interventions &amp; context switches</div></div>
+      <div class="axis__q">How much of <em>you</em> did it consume? The most common bad trade is a technique that looks cheaper only because it moved work onto you.</div>
+      <div class="axis__regime">
+        <div class="track"><i class="track__cell track__cell--neg"></i><i class="track__cell track__cell--neg"></i><i class="track__zero"></i><i class="track__cell"></i><i class="track__cell"></i></div>
+        <div class="axis__binds">Binds when attention-bound</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="legend">
+    <div class="legend__label">Scale</div>
+    <div class="legend__item"><span class="legend__val legend__val--neg">&minus;2</span><span>much worse</span></div>
+    <div class="legend__item"><span class="legend__val legend__val--neg">&minus;1</span><span>worse</span></div>
+    <div class="legend__item"><span class="legend__val legend__val--zero">0</span><span>neutral</span></div>
+    <div class="legend__item"><span class="legend__val legend__val--pos">+1</span><span>better</span></div>
+    <div class="legend__item"><span class="legend__val legend__val--pos">+2</span><span>much better</span></div>
+    <div class="legend__item"><span class="legend__val">&nbsp;</span><span>blank &mdash; not yet evaluated, and saying so</span></div>
+  </div>
+</section>
+
+<section class="section wrap">
+  <div class="section__head"><span class="section__num">02</span><h2 class="section__label">Three classes</h2></div>
+  <p class="prose" style="margin: 20px 0 40px;">Two of the three classes fall out of the delta vector on their own. <span class="tok">Dial</span> never does — a technique that hands you a knob looks unremarkable in its scores — so it is marked by hand, and it is the class worth hunting for.</p>
+
+  <div class="classes">
+    <div class="class-card">
+      <div class="class-card__head"><div class="class-card__name">NO-REGRET</div><div class="class-card__count">5</div></div>
+      <div class="bar bar--pos"></div>
+      <div class="class-card__body">Nothing gets worse. Adopt unconditionally — no regime needed, no argument required.</div>
+      <div class="class-card__eg">Cache-Stable Agent Thread Architecture &middot; Composable Tests &middot; Skills vs MCP Servers</div>
+    </div>
+    <div class="class-card">
+      <div class="class-card__head"><div class="class-card__name">TRADE</div><div class="class-card__count">11</div></div>
+      <div class="bar bar--trade"><i></i><i></i></div>
+      <div class="class-card__body">Spends one axis to buy another. Only evaluable against a regime — correct in one, indefensible in the next.</div>
+      <div class="class-card__eg">Multi-Agent Debate &middot; Low-Cost Model Swarms &middot; Fine-Tuning Open-Weight Models</div>
+    </div>
+    <div class="class-card">
+      <div class="class-card__head"><div class="class-card__name">DIAL</div><div class="class-card__count">9</div></div>
+      <div class="bar bar--dial"><i></i><i></i><i></i><i class="off"></i><i class="off"></i></div>
+      <div class="class-card__body">Hands you a per-task knob you did not have. Worth more than either endpoint, because regimes change inside a single day.</div>
+      <div class="class-card__eg">Model Routing &middot; Hedged LLM Requests &middot; Deterministic Agent Workflows</div>
+    </div>
+  </div>
+</section>
+
+<section class="section wrap">
+  <div class="section__head"><span class="section__num">03</span><h2 class="section__label">Two disciplines that make this falsifiable</h2></div>
+  <div class="disciplines">
+    <div class="discipline">
+      <div class="discipline__title">Every delta is against a stated baseline.</div>
+      <p>A delta is meaningless without <em>compared to what</em>. Every evaluation names its baseline in a block you cannot scroll past, before any number appears.</p>
+    </div>
+    <div class="discipline">
+      <div class="discipline__title">The scale is ordinal. It is never summed.</div>
+      <p>Two <span class="tok">+1</span>s do not equal a <span class="tok">+2</span>. There is no overall rating here and there will not be one. If a summary number starts to feel necessary, that is a signal the regime was never specified.</p>
+    </div>
+  </div>
+</section>
+
+<section class="section wrap" id="index">
+  <div class="section__head"><span class="section__num">04</span><h2 class="section__label">The index</h2></div>
+
+  <div class="index">
+    <div class="trow trow--head">
+      <div class="th">Technique</div>
+      <div class="th">Class</div>
+      <div class="deltas">
+        <div class="th th--delta">Cost</div><div class="th th--delta">Qual</div>
+        <div class="th th--delta">Speed</div><div class="th th--delta">Attn</div>
+      </div>
+      <div class="th">Confidence</div>
+    </div>
+
+    <div class="trow">
+      <div class="trow__title">Cache-Stable Agent Thread Architecture</div>
+      <div class="trow__class">No-regret</div>
+      <div class="deltas"><div class="delta delta--pos">+2</div><div class="delta">0</div><div class="delta delta--pos">+1</div><div class="delta">0</div></div>
+      <div class="conf"><i class="conf__bar conf__bar--on"></i><i class="conf__bar conf__bar--on"></i><i class="conf__bar"></i><span class="conf__label">Researched</span></div>
+    </div>
+
+    <div class="trow">
+      <div class="trow__title">Deterministic Agent Workflows</div>
+      <div class="trow__class">Dial</div>
+      <div class="deltas"><div class="delta delta--pos">+1</div><div class="delta delta--pos">+1</div><div class="delta delta--pos">+1</div><div class="delta delta--pos">+1</div></div>
+      <div class="conf"><i class="conf__bar conf__bar--on"></i><i class="conf__bar conf__bar--on"></i><i class="conf__bar"></i><span class="conf__label">Researched</span></div>
+    </div>
+
+    <div class="trow trow--featured">
+      <div>
+        <div class="trow__title"><a href="posts/multi-agent-debate.html">Multi-Agent Debate</a></div>
+        <div class="trow__flag trow__flag--note">Complicates the consensus &rarr;</div>
+      </div>
+      <div class="trow__class">Trade</div>
+      <div class="deltas"><div class="delta delta--neg">&minus;2</div><div class="delta delta--pos">+1</div><div class="delta delta--neg">&minus;1</div><div class="delta delta--neg">&minus;1</div></div>
+      <div class="conf"><i class="conf__bar conf__bar--on"></i><i class="conf__bar conf__bar--on"></i><i class="conf__bar"></i><span class="conf__label">Researched</span></div>
+    </div>
+
+    <div class="trow">
+      <div class="trow__title">Model Routing</div>
+      <div class="trow__class">Dial</div>
+      <div class="deltas"><div class="delta delta--pos">+1</div><div class="delta">0</div><div class="delta delta--pos">+1</div><div class="delta delta--neg">&minus;1</div></div>
+      <div class="conf"><i class="conf__bar conf__bar--on"></i><i class="conf__bar conf__bar--on"></i><i class="conf__bar"></i><span class="conf__label">Researched</span></div>
+    </div>
+
+    <div class="trow">
+      <div class="trow__title">Hedged LLM Requests</div>
+      <div class="trow__class">Dial</div>
+      <div class="deltas"><div class="delta delta--neg">&minus;1</div><div class="delta">0</div><div class="delta delta--pos">+2</div><div class="delta">0</div></div>
+      <div class="conf"><i class="conf__bar conf__bar--on"></i><i class="conf__bar conf__bar--on"></i><i class="conf__bar"></i><span class="conf__label">Researched</span></div>
+    </div>
+
+    <div class="trow">
+      <div class="trow__title">Low-Cost Model Swarms</div>
+      <div class="trow__class">Trade</div>
+      <div class="deltas"><div class="delta delta--neg">&minus;1</div><div class="delta delta--pos">+1</div><div class="delta delta--neg">&minus;1</div><div class="delta delta--neg">&minus;1</div></div>
+      <div class="conf"><i class="conf__bar conf__bar--on"></i><i class="conf__bar conf__bar--on"></i><i class="conf__bar"></i><span class="conf__label">Researched</span></div>
+    </div>
+
+    <div class="trow">
+      <div class="trow__title">Fine-Tuning Open-Weight Models</div>
+      <div class="trow__class">Trade</div>
+      <div class="deltas"><div class="delta delta--pos">+1</div><div class="delta delta--neg">&minus;1</div><div class="delta">0</div><div class="delta delta--pos">+1</div></div>
+      <div class="conf"><i class="conf__bar conf__bar--on"></i><i class="conf__bar conf__bar--on"></i><i class="conf__bar"></i><span class="conf__label">Researched</span></div>
+    </div>
+
+    <div class="trow">
+      <div class="trow__title">Agent Fleet Dashboards</div>
+      <div class="trow__class">Dial</div>
+      <div class="deltas"><div class="delta">0</div><div class="delta">0</div><div class="delta delta--pos">+1</div><div class="delta delta--pos">+2</div></div>
+      <div class="conf"><i class="conf__bar conf__bar--on"></i><i class="conf__bar conf__bar--on"></i><i class="conf__bar"></i><span class="conf__label">Researched</span></div>
+    </div>
+
+    <div class="trow">
+      <div class="trow__title">Composable Tests</div>
+      <div class="trow__class">No-regret</div>
+      <div class="deltas"><div class="delta delta--pos">+1</div><div class="delta">0</div><div class="delta delta--pos">+2</div><div class="delta delta--pos">+1</div></div>
+      <div class="conf"><i class="conf__bar conf__bar--on"></i><i class="conf__bar"></i><i class="conf__bar"></i><span class="conf__label conf__label--warn">Guess</span></div>
+    </div>
+
+    <div class="trow trow--last">
+      <div>
+        <div class="trow__title trow__title--muted">Speculative Programmatic Tool Calling</div>
+        <div class="trow__flag trow__flag--muted">Read, not yet evaluated</div>
+      </div>
+      <div class="trow__class trow__class--none">&mdash;</div>
+      <div class="deltas"><div class="delta delta--blank"></div><div class="delta delta--blank"></div><div class="delta delta--blank"></div><div class="delta delta--blank"></div></div>
+      <div class="conf"><i class="conf__bar"></i><i class="conf__bar"></i><i class="conf__bar"></i><span class="conf__label">None</span></div>
+    </div>
+
+    <p class="index__note">A blank row is not an oversight. A guess recorded as a fact would be worse than nothing, so unevaluated techniques sit in the index with their scores empty until they are earned.</p>
+  </div>
+</section>
+
+<section class="section wrap" id="about">
+  <div class="slab">
+    <div class="slab__kicker">Confidence is stated on every evaluation</div>
+    <div class="conf-key">
+      <div>
+        <div class="conf-key__meter"><span class="on"></span><span></span><span></span></div>
+        <div class="conf-key__name">guess</div>
+        <div class="conf-key__body">My prior, and nothing more. Labelled so you can discount it.</div>
+      </div>
+      <div>
+        <div class="conf-key__meter"><span class="on"></span><span class="on"></span><span></span></div>
+        <div class="conf-key__name">researched</div>
+        <div class="conf-key__body">Someone else measured it. I read the evidence, including the parts that disagree.</div>
+      </div>
+      <div>
+        <div class="conf-key__meter"><span class="on"></span><span class="on"></span><span class="on"></span></div>
+        <div class="conf-key__name">measured</div>
+        <div class="conf-key__body">I ran it, in an experiment with a trial count on the record. One run is a demo, not a result.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+</body>
+</html>

@@ -1,0 +1,95 @@
+# Training crawlers — disallowed.
+# This content may not be used as training data for machine learning models.
+
+User-agent: GPTBot
+Disallow: /
+
+User-agent: ClaudeBot
+Disallow: /
+
+User-agent: anthropic-ai
+Disallow: /
+
+User-agent: Claude-Web
+Disallow: /
+
+User-agent: CCBot
+Disallow: /
+
+User-agent: Bytespider
+Disallow: /
+
+User-agent: FacebookBot
+Disallow: /
+
+User-agent: meta-externalagent
+Disallow: /
+
+User-agent: Amazonbot
+Disallow: /
+
+User-agent: Applebot-Extended
+Disallow: /
+
+User-agent: Google-Extended
+Disallow: /
+
+User-agent: Diffbot
+Disallow: /
+
+User-agent: Omgilibot
+Disallow: /
+
+User-agent: Omgili
+Disallow: /
+
+User-agent: ImagesiftBot
+Disallow: /
+
+User-agent: YouBot
+Disallow: /
+
+User-agent: cohere-ai
+Disallow: /
+
+User-agent: cohere-training-data-crawler
+Disallow: /
+
+User-agent: AI2Bot
+Disallow: /
+
+User-agent: AI2Bot-Dolma
+Disallow: /
+
+User-agent: PanguBot
+Disallow: /
+
+User-agent: Timpibot
+Disallow: /
+
+User-agent: Webzio-Extended
+Disallow: /
+
+User-agent: Kangaroo Bot
+Disallow: /
+
+User-agent: SemrushBot-OCOB
+Disallow: /
+
+# Note: Google-Extended and Applebot-Extended are training opt-out tokens,
+# not crawlers. Disallowing them removes this site from Gemini and Apple
+# Intelligence training WITHOUT affecting Google Search or Siri/Spotlight
+# indexing, which follow Googlebot and Applebot respectively.
+
+# ---------------------------------------------------------------------
+# Everything else — allowed, deliberately.
+#
+# Search engines and AI assistants that FETCH AT QUERY TIME to answer a
+# question and cite the source are not training on this; they are how a
+# reader finds it. Blocking them would work against the point of
+# publishing. This includes OAI-SearchBot, ChatGPT-User, PerplexityBot,
+# Claude-User, Claude-SearchBot and DuckAssistBot.
+# ---------------------------------------------------------------------
+
+User-agent: *
+Allow: /

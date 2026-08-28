@@ -1,0 +1,229 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Multi-Agent Debate — Field Guide</title>
+<meta name="description" content="The accuracy purchase is real, but conditional — and the configuration almost everyone actually runs is the one least likely to earn it. Scored: cost −2, quality +1, speed −1, attention −1.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600;700&family=IBM+Plex+Serif:ital,wght@0,400;0,600;1,400&display=swap">
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+
+<header class="masthead masthead--compact wrap">
+  <a class="masthead__name" href="../index.html">Field Guide</a>
+  <nav class="nav">
+    <a href="../index.html#method">Method</a>
+    <a href="../index.html#index">Index</a>
+    <a href="../index.html#index">Rejected</a>
+    <a href="../index.html#about">About</a>
+  </nav>
+</header>
+
+<article>
+<div class="post-head wrap">
+  <div class="post-kicker">
+    <div class="post-kicker__bar"><i style="flex-grow:1; background: var(--neg);"></i><i style="flex-grow:1; background: var(--pos);"></i></div>
+    <div class="post-kicker__class">Class: Trade</div>
+    <div class="post-kicker__sep"></div>
+    <div class="post-kicker__meta">Topic &middot; <time datetime="2026-08-18">2026-08-18</time></div>
+  </div>
+
+  <div class="post-grid">
+    <div>
+      <h1 class="post-title">Multi-Agent Debate</h1>
+      <p class="standfirst">The accuracy purchase is real, but it is <em>conditional</em> — and the configuration almost everyone actually runs is the one least likely to earn it.</p>
+    </div>
+    <aside class="conf-box">
+      <div class="conf-box__label">Confidence</div>
+      <div class="conf-box__meter"><span class="on"></span><span class="on"></span><span></span></div>
+      <div class="conf-box__scale"><span class="on">guess</span><span class="on">researched</span><span>measured</span></div>
+      <div class="conf-box__value">researched</div>
+      <div class="conf-box__body">Someone else measured this. I have not run it myself. Read every delta below as a reading of the evidence, not as a result I produced.</div>
+    </aside>
+  </div>
+</div>
+
+<div class="section wrap" style="padding-top: 56px;">
+  <div class="baseline">
+    <div class="baseline__label">Compared to what</div>
+    <div class="baseline__text">A single agent, one reasoning pass, on the same wide-solution-space decision — one architecture or design call. No debate, no persona fan-out.</div>
+  </div>
+</div>
+
+<div class="section wrap" style="padding-top: 56px;">
+  <div class="section__head section__head--spread">
+    <h2 class="section__label">The deltas</h2>
+    <div class="section__note">+ is always better for you &middot; never summed</div>
+  </div>
+
+  <div class="delta-cards">
+    <div class="delta-card delta-card--neg">
+      <div class="delta-card__label">cost-delta</div>
+      <div class="delta-card__val">&minus;2</div>
+      <div class="track"><i class="track__cell track__cell--neg"></i><i class="track__cell track__cell--neg"></i><i class="track__zero"></i><i class="track__cell"></i><i class="track__cell"></i></div>
+      <div class="delta-card__read">Much more expensive.</div>
+    </div>
+    <div class="delta-card delta-card--pos">
+      <div class="delta-card__label">quality-delta</div>
+      <div class="delta-card__val">+1</div>
+      <div class="track"><i class="track__cell"></i><i class="track__cell"></i><i class="track__zero"></i><i class="track__cell track__cell--pos"></i><i class="track__cell"></i></div>
+      <div class="delta-card__read">Better &mdash; conditionally. Not <span class="tok">+2</span>, and the reason matters.</div>
+    </div>
+    <div class="delta-card delta-card--neg">
+      <div class="delta-card__label">speed-delta</div>
+      <div class="delta-card__val">&minus;1</div>
+      <div class="track"><i class="track__cell"></i><i class="track__cell track__cell--neg"></i><i class="track__zero"></i><i class="track__cell"></i><i class="track__cell"></i></div>
+      <div class="delta-card__read">Slower, even with the teammates running in parallel.</div>
+    </div>
+    <div class="delta-card delta-card--neg">
+      <div class="delta-card__label">attention-delta</div>
+      <div class="delta-card__val">&minus;1</div>
+      <div class="track"><i class="track__cell"></i><i class="track__cell track__cell--neg"></i><i class="track__zero"></i><i class="track__cell"></i><i class="track__cell"></i></div>
+      <div class="delta-card__read">Demands more of you. Not fire-and-forget.</div>
+    </div>
+  </div>
+
+  <div class="meta-row">
+    <div class="meta"><span class="meta__k">dial</span><span class="meta__v">false</span></div>
+    <div class="meta"><span class="meta__k">effort</span><span class="meta__v">medium</span></div>
+    <div class="meta"><span class="meta__k">levers</span><span class="meta__v">loop</span><span class="meta__x">primary &middot; model secondary</span></div>
+    <div class="meta"><span class="meta__k">mechanisms</span><span class="meta__v">independence, compute</span></div>
+  </div>
+</div>
+
+<div class="section wrap" style="padding-top: 56px;">
+  <div class="when">
+    <div class="when__col">
+      <div class="when__kicker when__kicker--pos">Reach for it when</div>
+      <div class="when__title">You are quality-bound</div>
+      <div class="when__body">Migrations, security surfaces, public APIs — a wide-solution-space decision where being wrong is expensive and you have budget and clock to spend.</div>
+    </div>
+    <div class="when__col">
+      <div class="when__kicker when__kicker--neg">It is indefensible when</div>
+      <div class="when__title">You are cost-bound</div>
+      <div class="when__body">Fixed budget, high-volume batch work, background agents. This is a trade, and under a budget it is the wrong side of it — no judgment call required.</div>
+    </div>
+  </div>
+</div>
+
+<div class="section wrap">
+  <div class="section__head"><h2 class="section__label">Why each delta reads the way it does</h2></div>
+
+  <div style="margin-top: 44px;">
+    <div class="arg">
+      <div class="arg__axis">
+        <div class="arg__name">quality-delta</div>
+        <div class="arg__val arg__val--pos">+1</div>
+        <div class="arg__note">Not +2, deliberately</div>
+      </div>
+      <div>
+        <p class="prose">A genuine improvement, but a conditional one. The systematic study logged below — five methods across nine benchmarks and four models — found debate frequently fails to beat single-agent Chain-of-Thought or Self-Consistency at equal or lower cost. The advantage concentrates in weaker models, on harder problems, and most actionably in <strong>heterogeneous</strong> debaters: different model families, not one model wearing different personas.</p>
+        <p class="prose">Architecture and design decisions — the use case this note is scoped to — are exactly the hard, wide-solution-space case the study's own caveat says debate has room to help. That is why the delta is positive rather than neutral.</p>
+        <p class="prose">It stops at <span class="tok">+1</span> because a conditional win is not a reliable one — and because a same-model, same-persona-prompt debate, which is the cheapest and by far the most common way anyone actually runs this today, is the configuration <em>least</em> likely to earn it.</p>
+      </div>
+    </div>
+
+    <div class="arg">
+      <div class="arg__axis">
+        <div class="arg__name">cost-delta</div>
+        <div class="arg__val arg__val--neg">&minus;2</div>
+        <div class="arg__note">Scales with team size</div>
+      </div>
+      <div>
+        <p class="prose">Multi-round, multi-teammate debate spins up N full separate agent contexts and burns tokens on cross-talk <em>on top of</em> the underlying reasoning. Token cost scales roughly linearly with team size before a single convergence round is counted. The tooling's own documentation does not hedge about this: agent teams use significantly more tokens than a single session.</p>
+      </div>
+    </div>
+
+    <div class="arg">
+      <div class="arg__axis">
+        <div class="arg__name">speed-delta</div>
+        <div class="arg__val arg__val--neg">&minus;1</div>
+        <div class="arg__note">Parallelism only offsets it</div>
+      </div>
+      <div>
+        <p class="prose">Teammates working simultaneously claw back some of the wall-clock a strictly sequential multi-pass approach would cost. But the convergence rounds and the final judge-synthesis step still add real time over a single one-shot session, so it nets worse rather than neutral. Parallel is not free when the parts have to agree at the end.</p>
+      </div>
+    </div>
+
+    <div class="arg">
+      <div class="arg__axis">
+        <div class="arg__name">attention-delta</div>
+        <div class="arg__val arg__val--neg">&minus;1</div>
+        <div class="arg__note">The tax nobody quotes</div>
+      </div>
+      <div>
+        <p class="prose">This is not a fire-and-forget technique. The guidance is explicitly to monitor and steer the team rather than let it run unattended: you review multiple teammate transcripts, and you approve permission prompts that bubble up to the lead from every one of them. It asks more of the human than a single session does — which is precisely the trade that gets left out when a technique is sold on accuracy alone.</p>
+      </div>
+    </div>
+
+    <div class="arg">
+      <div class="arg__axis">
+        <div class="arg__name">dial</div>
+        <div class="arg__val">false</div>
+        <div class="arg__note">A mode, not a knob</div>
+      </div>
+      <div>
+        <p class="prose">Debate is a heavier mode you invoke for a specific decision, not a smoothly tunable per-task knob like model routing or reasoning-effort levels. Team size and round count <em>are</em> adjustable — but the research says the thing that actually decides whether the trade pays off, model heterogeneity, is not a dial at all. It is a yes/no setup decision you make once, before any of the tunable parts matter.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="section wrap" style="padding-top: 80px;">
+  <div class="plog">
+    <div class="plog__head">
+      <h2 class="plog__title">Perspectives log</h2>
+      <div class="plog__blurb">Sources that complicate or contradict the score above. Kept on the record whether or not they were convenient.</div>
+    </div>
+
+    <div class="plog__entry">
+      <div class="plog__meta">
+        <div class="plog__date">2026-08-18</div>
+        <div class="tag tag--challenges">Challenges</div>
+        <div class="plog__src">Cao et al.<br><a href="https://arxiv.org/abs/2607.21627">arxiv 2607.21627</a></div>
+      </div>
+      <div>
+        <div class="plog__paper">Do Modules Stay in Their Lane? Role Drift in Compound LLM Systems</div>
+        <p class="plog__body">In two compound multi-module pipelines, 86% of the apparent accuracy gain vanished once a question-decomposer module was held to its assigned role — it had been smuggling the answer into its sub-questions rather than genuinely decomposing. Aggregate accuracy can badly overstate what a role-decomposed system actually learned. The practical takeaway for any decomposed pipeline, debate included: end-to-end scores alone do not verify that each role is doing its job.</p>
+      </div>
+    </div>
+
+    <div class="plog__entry">
+      <div class="plog__meta">
+        <div class="plog__date">2026-08-04</div>
+        <div class="tag tag--challenges">Challenges</div>
+        <div class="plog__src">Zhang, Cui, Chen et al.<br><a href="https://arxiv.org/abs/2502.08788">arxiv 2502.08788</a></div>
+      </div>
+      <div>
+        <div class="plog__paper">Stop Overvaluing Multi-Agent Debate — We Must Rethink Evaluation and Embrace Model Heterogeneity</div>
+        <p class="plog__body">Systematic benchmarking shows debate frequently fails to beat single-agent Chain-of-Thought or Self-Consistency at equal or lower cost. The field's evaluation practices — narrow benchmarks, weak baselines — have overstated its value. Model heterogeneity is the single fix that most consistently restores the advantage.</p>
+      </div>
+    </div>
+
+    <div class="plog__entry">
+      <div class="plog__meta">
+        <div class="plog__date">2026-08-04</div>
+        <div class="tag tag--nuances">Nuances</div>
+        <div class="plog__src">Claude Code docs<br>Agent teams</div>
+      </div>
+      <div>
+        <div class="plog__paper">Orchestrate teams of Claude Code sessions</div>
+        <p class="plog__body">Confirms the mechanism qualitatively — with independent investigators actively trying to disprove each other, the theory that survives is likelier to be the actual root cause. But it is explicit that agent teams use significantly more tokens than a single session, and recommends monitoring and steering over unattended running. The technique taxes the human, not only the token budget.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="wrap">
+  <div class="endnote">
+    <div class="endnote__label">Placement unchanged</div>
+    <div class="endnote__body">The research confirms rather than contradicts the existing placement in the lever taxonomy — <span class="tok">loop</span> as the primary lever, since the orchestration and round structure is what is being configured, with <span class="tok">independence</span> and <span class="tok">compute</span> as mechanisms: multiple attempts plus more reasoning per decision, which is exactly what the heterogeneity finding says has to be genuinely uncorrelated in order to pay off.</div>
+  </div>
+</div>
+</article>
+
+</body>
+</html>
