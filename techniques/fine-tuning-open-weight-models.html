@@ -1,0 +1,246 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Fine-Tuning Open-Weight Models — Field Guide</title>
+<meta name="description" content="Moving tribal knowledge into the weights buys back the per-session token and context budget — and pays for it with knowledge that can no longer be diffed, reviewed, or selectively corrected. Scored: cost +1, quality −1, speed 0, attention +1.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600;700&family=IBM+Plex+Serif:ital,wght@0,400;0,600;1,400&display=swap">
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+
+<header class="masthead masthead--compact wrap">
+  <a class="masthead__name" href="../index.html">Field Guide</a>
+  <nav class="nav">
+    <a href="../index.html#method">Method</a>
+    <a href="../index.html#index">Index</a>
+    <a href="../index.html#index">Rejected</a>
+    <a href="../index.html#about">About</a>
+  </nav>
+</header>
+
+<article>
+<div class="post-head wrap">
+  <div class="post-kicker">
+    <div class="post-kicker__bar"><i style="flex-grow:1; background: var(--neg);"></i><i style="flex-grow:1; background: var(--pos);"></i></div>
+    <div class="post-kicker__class">Class: Trade</div>
+    <div class="post-kicker__sep"></div>
+    <div class="post-kicker__meta">Last updated <time datetime="2026-08-04">04 Aug 2026</time></div>
+  </div>
+
+  <div class="post-grid">
+    <div>
+      <h1 class="post-title">Fine-Tuning Open-Weight Models</h1>
+      <p class="standfirst">Putting tribal knowledge in the weights ends the per-session context tax — and buys that with knowledge you can no longer diff, review, or selectively correct. <em>The output gets worse on the axis that matters most when correctness matters.</em></p>
+    </div>
+    <aside class="conf-box">
+      <div class="conf-box__label">Confidence</div>
+      <div class="conf-box__meter"><span class="on"></span><span class="on"></span><span></span></div>
+      <div class="conf-box__scale"><span class="on">guess</span><span class="on">researched</span><span>measured</span></div>
+      <div class="conf-box__value">researched</div>
+      <div class="conf-box__body">Someone else measured this. I have not run it myself. Read every delta below as a reading of the evidence, not as a result I produced.</div>
+    </aside>
+  </div>
+</div>
+
+<div class="section wrap" style="padding-top: 56px;">
+  <div class="baseline">
+    <div class="baseline__label">Compared to what</div>
+    <div class="baseline__text">The current context-injection approach (skill/steering files re-sent every session) for the same tribal-knowledge material, scored on a solo-engineer setup.</div>
+  </div>
+</div>
+
+<div class="section wrap" style="padding-top: 56px;">
+  <div class="section__head section__head--spread">
+    <h2 class="section__label">The deltas</h2>
+    <div class="section__note">+ is always better for you &middot; never summed</div>
+  </div>
+
+  <div class="delta-cards">
+    <div class="delta-card delta-card--pos">
+      <div class="delta-card__label">cost-delta</div>
+      <div class="delta-card__val">+1</div>
+      <div class="track"><i class="track__cell"></i><i class="track__cell"></i><i class="track__zero"></i><i class="track__cell track__cell--pos"></i><i class="track__cell"></i></div>
+      <div class="delta-card__read">Cheaper &mdash; the recurring injection cost goes away.</div>
+    </div>
+    <div class="delta-card delta-card--neg">
+      <div class="delta-card__label">quality-delta</div>
+      <div class="delta-card__val">&minus;1</div>
+      <div class="track"><i class="track__cell"></i><i class="track__cell track__cell--neg"></i><i class="track__zero"></i><i class="track__cell"></i><i class="track__cell"></i></div>
+      <div class="delta-card__read">Worse. Not a caveat &mdash; a regression you are paying with.</div>
+    </div>
+    <div class="delta-card">
+      <div class="delta-card__label">speed-delta</div>
+      <div class="delta-card__val">0</div>
+      <div class="track"><i class="track__cell"></i><i class="track__cell"></i><i class="track__zero"></i><i class="track__cell"></i><i class="track__cell"></i></div>
+      <div class="delta-card__read">No confident net direction either way.</div>
+    </div>
+    <div class="delta-card delta-card--pos">
+      <div class="delta-card__label">attention-delta</div>
+      <div class="delta-card__val">+1</div>
+      <div class="track"><i class="track__cell"></i><i class="track__cell"></i><i class="track__zero"></i><i class="track__cell track__cell--pos"></i><i class="track__cell"></i></div>
+      <div class="delta-card__read">Asks less of you. The strategy's actual thesis.</div>
+    </div>
+  </div>
+
+  <div class="meta-row">
+    <div class="meta"><span class="meta__k">dial</span><span class="meta__v">false</span></div>
+    <div class="meta"><span class="meta__k">effort</span><span class="meta__v">medium</span></div>
+    <div class="meta"><span class="meta__k">levers</span><span class="meta__v">model</span></div>
+    <div class="meta"><span class="meta__k">mechanisms</span><span class="meta__v">capability, information</span></div>
+  </div>
+</div>
+
+<div class="section wrap" style="padding-top: 56px;">
+  <div class="section__head section__head--spread">
+    <h2 class="section__label">Score history</h2>
+    <div class="section__note">What moved, when, and why</div>
+  </div>
+
+  <p class="prose" style="margin-bottom: 28px;">Scores here are not fixed at a publication date. When evidence arrives that changes an assessment, the score changes and the change is recorded — including the times it was re-examined and held.</p>
+
+  <div class="history">
+    <div class="history__entry">
+      <div class="history__date"><time datetime="2026-08-28">28 Aug 2026</time></div>
+      <div>
+        <div class="history__what">First tracked state</div>
+        <div class="history__vector">
+          <span class="hv"><i>cost</i><b class="pos">+1</b></span>
+          <span class="hv"><i>quality</i><b class="neg">&minus;1</b></span>
+          <span class="hv"><i>speed</i><b>0</b></span>
+          <span class="hv"><i>attention</i><b class="pos">+1</b></span>
+          <span class="hv"><i>confidence</i><b>researched</b></span>
+        </div>
+        <p class="history__why">Scored against the current context-injection approach — skill/steering files re-sent every session — for the same tribal-knowledge material, on a solo-engineer setup.</p>
+      </div>
+    </div>
+  </div>
+
+  <p class="history__note">History tracking began 28 Aug 2026. Any revisions before that date were not recorded, and are not reconstructed here.</p>
+</div>
+
+<div class="section wrap" style="padding-top: 56px;">
+  <div class="when">
+    <div class="when__col">
+      <div class="when__kicker when__kicker--pos">Reach for it when</div>
+      <div class="when__title">You are cost-bound or attention-bound</div>
+      <div class="when__body">The two axes it actually improves. And only for the slice of knowledge it fits: style, vocabulary and conventions — the stable material, not the facts that change.</div>
+    </div>
+    <div class="when__col">
+      <div class="when__kicker when__kicker--neg">It is indefensible when</div>
+      <div class="when__title">You are quality-bound</div>
+      <div class="when__body">Indefensible under quality-bound regimes for anything beyond stable style and vocabulary, where the unreviewability cost dominates.</div>
+    </div>
+  </div>
+</div>
+
+<div class="section wrap">
+  <div class="section__head"><h2 class="section__label">Why each delta reads the way it does</h2></div>
+
+  <div style="margin-top: 44px;">
+    <div class="arg">
+      <div class="arg__axis">
+        <div class="arg__name">quality-delta</div>
+        <div class="arg__val arg__val--neg">&minus;1</div>
+        <div class="arg__note">The output is worse</div>
+      </div>
+      <div>
+        <p class="prose">Weights aren't diffable, reviewable, or selectively correctable the way a skill file is. This is the note's own stated catch, and the World Model Optimizer research pass sharpened it further — that tool's distillation path is opaque even about <em>which</em> technique it uses.</p>
+        <p class="prose">Set against the baseline's full reviewability, that is a real regression for anything where correctness matters, and worse for facts-that-change than for style and vocabulary. Knowledge in weights goes stale silently: the old "scan for conflicts" jobs have no weight-space equivalent short of retraining.</p>
+        <p class="prose">This is not a hypothetical cost to be noted and moved past. It is the thing being spent.</p>
+      </div>
+    </div>
+
+    <div class="arg">
+      <div class="arg__axis">
+        <div class="arg__name">cost-delta</div>
+        <div class="arg__val arg__val--pos">+1</div>
+        <div class="arg__note">Not +2 &mdash; retraining recurs</div>
+      </div>
+      <div>
+        <p class="prose">Once trained, a fine-tune removes the recurring per-session token cost of injecting the equivalent skill-file content, and MLX makes the training itself compute-free on hardware already owned (no GPU rental), so the marginal spend is mostly time, not dollars.</p>
+        <p class="prose">It stops at <span class="tok">+1</span> because knowledge that changes forces retraining, which reintroduces recurring cost that files and retrieval never pay.</p>
+      </div>
+    </div>
+
+    <div class="arg">
+      <div class="arg__axis">
+        <div class="arg__name">speed-delta</div>
+        <div class="arg__val">0</div>
+        <div class="arg__note">Two effects, cancelling</div>
+      </div>
+      <div>
+        <p class="prose">A trained model likely resolves style and vocabulary questions slightly faster per turn — less context to assemble and process than injecting the equivalent skill file. But that is roughly offset by the added latency of the offline curate-train-evaluate cycle whenever the corpus needs updating. No confident net direction either way.</p>
+      </div>
+    </div>
+
+    <div class="arg">
+      <div class="arg__axis">
+        <div class="arg__name">attention-delta</div>
+        <div class="arg__val arg__val--pos">+1</div>
+        <div class="arg__note">The stated thesis</div>
+      </div>
+      <div>
+        <p class="prose">This is the strategy's actual thesis: once trained, the knowledge is "just known," so there is nothing to curate, inject, or keep in the context window each session. The same "zero per-session cost" the technique leads with — now specifically an attention and context-budget win rather than a dollar one.</p>
+      </div>
+    </div>
+
+    <div class="arg">
+      <div class="arg__axis">
+        <div class="arg__name">dial</div>
+        <div class="arg__val">false</div>
+        <div class="arg__note">An architecture decision</div>
+      </div>
+      <div>
+        <p class="prose">It is not a dial — it is an architecture decision made per knowledge-category (fine-tune the stable stuff, keep files for facts-that-change), not a per-task knob flipped at run time. Nor is it no-regret: the quality cost above is real rather than hypothetical, which is what makes this a trade and forces the regime question before anyone reaches for it.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="section wrap" style="padding-top: 80px;">
+  <div class="plog">
+    <div class="plog__head">
+      <h2 class="plog__title">Perspectives log</h2>
+      <div class="plog__blurb">Sources that complicate or contradict the score above. Kept on the record whether or not they were convenient.</div>
+    </div>
+
+    <div class="plog__entry">
+      <div class="plog__meta">
+        <div class="plog__date">2026-08-04</div>
+        <div class="tag tag--nuances">Nuances</div>
+        <div class="plog__src">World Model Optimizer README/repo<br><a href="https://github.com/experientiallabs/world-model-optimizer">experientiallabs/world-model-optimizer</a></div>
+      </div>
+      <div>
+        <div class="plog__paper">World Model Optimizer</div>
+        <p class="plog__body">Reading the tool's own docs (not just the secondhand TLDR summary) sharpens the tension already logged below — WMO's distillation step runs through an opaque "Tinker API" with no documented technique (LoRA vs. full fine-tune isn't stated), and its main deliverable isn't a standalone fine-tuned model but a <em>router</em> that splits requests between a frontier model and the distilled small model to cut cost (claims 27% lower cost than frontier-only on RouterBench). That's a materially different bet than "replace context injection with weights": it's cost-optimization-via-routing with the small model as one leg, not a knowledge-in-weights play at all. Worth keeping distinct from the curated-LoRA plan rather than treating them as two implementations of the same idea.</p>
+      </div>
+    </div>
+
+    <div class="plog__entry">
+      <div class="plog__meta">
+        <div class="plog__date">2026-07-31</div>
+        <div class="tag tag--nuances">Nuances</div>
+        <div class="plog__src">TLDR Dev<br><a href="https://tldr.tech/dev">tldr.tech/dev</a></div>
+      </div>
+      <div>
+        <div class="plog__paper">World Model Optimizer (TLDR Dev item)</div>
+        <p class="plog__body">The "World Model Optimizer" OSS tool takes a different path to the same goal — instead of curated LoRA distillation from skill files, it turns collected agent <em>traces</em> into smaller optimized models via a closed-loop simulation-training process, with routing based on task traces. Worth weighing against the LoRA-on-curated-Q&amp;A plan as a more automated but less reviewable alternative.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="wrap">
+  <div class="endnote">
+    <div class="endnote__label">Placement</div>
+    <div class="endnote__body">The intervention sits at the <span class="tok">model</span> lever — the change is to the weights themselves, not to the prompt, the loop, or the tooling around them — with <span class="tok">capability</span> and <span class="tok">information</span> as mechanisms: the model is made to <em>know</em> the material rather than be told it each session, which is exactly the substitution that removes the recurring context cost and removes the reviewability at the same time.</div>
+  </div>
+</div>
+</article>
+
+</body>
+</html>

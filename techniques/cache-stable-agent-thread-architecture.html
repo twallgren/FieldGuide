@@ -1,0 +1,233 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Cache-Stable Agent Thread Architecture — Field Guide</title>
+<meta name="description" content="A stable, append-only prompt prefix makes long agent threads dramatically cheaper and somewhat faster without spending quality or attention to get there. Scored: cost +2, quality 0, speed +1, attention 0.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600;700&family=IBM+Plex+Serif:ital,wght@0,400;0,600;1,400&display=swap">
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+
+<header class="masthead masthead--compact wrap">
+  <a class="masthead__name" href="../index.html">Field Guide</a>
+  <nav class="nav">
+    <a href="../index.html#method">Method</a>
+    <a href="../index.html#index">Index</a>
+    <a href="../index.html#index">Rejected</a>
+    <a href="../index.html#about">About</a>
+  </nav>
+</header>
+
+<article>
+<div class="post-head wrap">
+  <div class="post-kicker">
+    <div class="post-kicker__bar"><i style="flex-grow:1; background: var(--pos);"></i></div>
+    <div class="post-kicker__class">Class: No-regret</div>
+    <div class="post-kicker__sep"></div>
+    <div class="post-kicker__meta">Last updated <time datetime="2026-08-04">4 Aug 2026</time></div>
+  </div>
+
+  <div class="post-grid">
+    <div>
+      <h1 class="post-title">Cache-Stable Agent Thread Architecture</h1>
+      <p class="standfirst">Keeping the prompt prefix stable and the history append-only makes a long agent thread much cheaper and somewhat faster — and spends <em>nothing</em> to do it. Scoped to Claude Code and the Claude API.</p>
+    </div>
+    <aside class="conf-box">
+      <div class="conf-box__label">Confidence</div>
+      <div class="conf-box__meter"><span class="on"></span><span class="on"></span><span></span></div>
+      <div class="conf-box__scale"><span class="on">guess</span><span class="on">researched</span><span>measured</span></div>
+      <div class="conf-box__value">researched</div>
+      <div class="conf-box__body">Desk research synthesizing Anthropic's own docs and blog with independent framework sources. No local trial run, so not <span class="tok">measured</span>.</div>
+    </aside>
+  </div>
+</div>
+
+<div class="section wrap" style="padding-top: 56px;">
+  <div class="baseline">
+    <div class="baseline__label">Compared to what</div>
+    <div class="baseline__text">A naive long-running agent thread — tool schemas re-embedded/reordered in the prompt each turn, compaction that rewrites history in place, no deferred-tool mechanism — i.e., a harness that doesn't actively defend the cache prefix.</div>
+  </div>
+</div>
+
+<div class="section wrap" style="padding-top: 56px;">
+  <div class="section__head section__head--spread">
+    <h2 class="section__label">The deltas</h2>
+    <div class="section__note">+ is always better for you &middot; never summed</div>
+  </div>
+
+  <div class="delta-cards">
+    <div class="delta-card delta-card--pos">
+      <div class="delta-card__label">cost-delta</div>
+      <div class="delta-card__val">+2</div>
+      <div class="track"><i class="track__cell"></i><i class="track__cell"></i><i class="track__zero"></i><i class="track__cell track__cell--pos"></i><i class="track__cell track__cell--pos"></i></div>
+      <div class="delta-card__read">Much cheaper.</div>
+    </div>
+    <div class="delta-card">
+      <div class="delta-card__label">quality-delta</div>
+      <div class="delta-card__val">0</div>
+      <div class="track"><i class="track__cell"></i><i class="track__cell"></i><i class="track__zero"></i><i class="track__cell"></i><i class="track__cell"></i></div>
+      <div class="delta-card__read">Neutral. A plumbing lever, not a capability one.</div>
+    </div>
+    <div class="delta-card delta-card--pos">
+      <div class="delta-card__label">speed-delta</div>
+      <div class="delta-card__val">+1</div>
+      <div class="track"><i class="track__cell"></i><i class="track__cell"></i><i class="track__zero"></i><i class="track__cell track__cell--pos"></i><i class="track__cell"></i></div>
+      <div class="delta-card__read">Faster &mdash; real, but partial.</div>
+    </div>
+    <div class="delta-card">
+      <div class="delta-card__label">attention-delta</div>
+      <div class="delta-card__val">0</div>
+      <div class="track"><i class="track__cell"></i><i class="track__cell"></i><i class="track__zero"></i><i class="track__cell"></i><i class="track__cell"></i></div>
+      <div class="delta-card__read">Net neutral, not a clear win either direction.</div>
+    </div>
+  </div>
+
+  <div class="meta-row">
+    <div class="meta"><span class="meta__k">dial</span><span class="meta__v">false</span></div>
+    <div class="meta"><span class="meta__k">effort</span><span class="meta__v">medium</span></div>
+    <div class="meta"><span class="meta__k">levers</span><span class="meta__v">context, tools</span></div>
+    <div class="meta"><span class="meta__k">mechanisms</span><span class="meta__v">&mdash;</span><span class="meta__x">left empty on purpose</span></div>
+  </div>
+</div>
+
+<div class="section wrap" style="padding-top: 56px;">
+  <div class="section__head section__head--spread">
+    <h2 class="section__label">Score history</h2>
+    <div class="section__note">What moved, when, and why</div>
+  </div>
+
+  <p class="prose" style="margin-bottom: 28px;">Scores here are not fixed at a publication date. When evidence arrives that changes an assessment, the score changes and the change is recorded — including the times it was re-examined and held.</p>
+
+  <div class="history">
+    <div class="history__entry">
+      <div class="history__date"><time datetime="2026-08-04">4 Aug 2026</time></div>
+      <div>
+        <div class="history__what">First tracked state</div>
+        <div class="history__vector">
+          <span class="hv"><i>cost</i><b class="pos">+2</b></span>
+          <span class="hv"><i>quality</i><b>0</b></span>
+          <span class="hv"><i>speed</i><b class="pos">+1</b></span>
+          <span class="hv"><i>attention</i><b>0</b></span>
+          <span class="hv"><i>confidence</i><b>researched</b></span>
+        </div>
+        <p class="history__why">Scored against a naive long-running agent thread that does not actively defend the cache prefix.</p>
+      </div>
+    </div>
+  </div>
+
+  <p class="history__note">History tracking began 28 Aug 2026. Any revisions before that date were not recorded, and are not reconstructed here.</p>
+</div>
+
+<div class="section wrap" style="padding-top: 56px;">
+  <div class="when">
+    <div class="when__col">
+      <div class="when__kicker when__kicker--pos">What it does</div>
+      <div class="when__title">Nothing gets worse</div>
+      <div class="when__body">This is a no-regret, so there is no regime under which it is the wrong call and no second panel naming one. Nothing about the architecture spends quality, speed, or attention to buy the cost reduction. One caveat, and it is a scope caveat rather than a trade: the verdict is scoped to Claude Code and the Claude API, and should not be assumed to travel to every provider.</div>
+    </div>
+    <div class="when__col">
+      <div class="when__kicker when__kicker--neg">What it costs to set up</div>
+      <div class="when__title">effort: medium</div>
+      <div class="when__body">In Claude Code the pattern is handled automatically — it is not something you configure, it is something you can break. The one-time cost lands on anyone hand-rolling a harness: keep the tool and system prefix identical and ordered across calls, append rather than rewrite history, and defer any tool schema not needed on turn one.</div>
+    </div>
+  </div>
+</div>
+
+<div class="section wrap">
+  <div class="section__head"><h2 class="section__label">Why each delta reads the way it does</h2></div>
+
+  <div style="margin-top: 44px;">
+    <div class="arg">
+      <div class="arg__axis">
+        <div class="arg__name">cost-delta</div>
+        <div class="arg__val arg__val--pos">+2</div>
+        <div class="arg__note">The biggest single lever here</div>
+      </div>
+      <div>
+        <p class="prose">Cache reads bill at roughly 10% of the standard input-token rate — confirmed in Anthropic's tool-caching docs — and on a long thread most of each request is unchanged history and tool definitions. This is the single biggest lever on the token-cost axis for long-running threads.</p>
+        <p class="prose">Anthropic's own figures — a 100-turn Opus session with compaction dropping from $50–100 to $10–19 with caching — support an 80%-ish reduction in spirit. The widely circulated "92% cache hit rate / 81% cost reduction" figure does <strong>not</strong> appear in Anthropic's primary source; it comes from aggregator posts and should be treated as an unverified secondary-source number, not a confirmed Anthropic stat.</p>
+        <p class="prose">The pattern is corroborated independently rather than resting on one vendor's claim: LangChain's Deep Agents publishes its own measured numbers — 77% token-cost reduction on Claude Haiku, 80% on GPT-4 Mini, 49% on Gemini Flash.</p>
+      </div>
+    </div>
+
+    <div class="arg">
+      <div class="arg__axis">
+        <div class="arg__name">speed-delta</div>
+        <div class="arg__val arg__val--pos">+1</div>
+        <div class="arg__note">Not +2, deliberately</div>
+      </div>
+      <div>
+        <p class="prose">Cache reads process faster than full reprocessing. But wall-clock in most turns is dominated by generation time, not prefix reprocessing — a real but partial speedup, which is why it stops at <span class="tok">+1</span>.</p>
+      </div>
+    </div>
+
+    <div class="arg">
+      <div class="arg__axis">
+        <div class="arg__name">quality-delta</div>
+        <div class="arg__val">0</div>
+        <div class="arg__note">A plumbing lever</div>
+      </div>
+      <div>
+        <p class="prose">Purely an economic lever. It changes what the request costs and how fast the prefix is reprocessed, not what information or capability reaches the model. That is consistent with the lever taxonomy treating this as a pure cache-efficiency payoff sitting outside the eight named mechanisms.</p>
+      </div>
+    </div>
+
+    <div class="arg">
+      <div class="arg__axis">
+        <div class="arg__name">attention-delta</div>
+        <div class="arg__val">0</div>
+        <div class="arg__note">Two effects that cancel</div>
+      </div>
+      <div>
+        <p class="prose">In Claude Code the pattern is handled automatically, so there is no per-task attention cost for a normal user. But the behavioral hygiene it implies — don't switch model or effort mid-session, don't compact mid-task, prefer <span class="tok">/rewind</span> — is itself a vigilance tax if you are hand-rolling a harness. The awareness required roughly offsets the "don't have to think about it" benefit. Net neutral rather than a clear win either direction.</p>
+      </div>
+    </div>
+
+    <div class="arg">
+      <div class="arg__axis">
+        <div class="arg__name">dial</div>
+        <div class="arg__val">false</div>
+        <div class="arg__note">A default, not a knob</div>
+      </div>
+      <div>
+        <p class="prose">There is no per-task setting to turn up or down here. Claude Code implements the architecture by default; what varies is whether you break it. Actions that invalidate the cache include switching <span class="tok">/model</span> or <span class="tok">/effort</span> mid-session, toggling fast mode, connecting or disconnecting a prefix-loaded MCP server, denying an entire tool via permissions, <span class="tok">/compact</span>, and upgrading Claude Code itself. Notably <span class="tok">/rewind</span> does <em>not</em> invalidate — it truncates back to an already-cached prefix, which is why it is cheaper than <span class="tok">/compact</span> when abandoning a path rather than genuinely needing to shrink context.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="section wrap" style="padding-top: 80px;">
+  <div class="plog">
+    <div class="plog__head">
+      <h2 class="plog__title">Perspectives log</h2>
+      <div class="plog__blurb">Sources that complicate or contradict the score above. Kept on the record whether or not they were convenient.</div>
+    </div>
+
+    <div class="plog__entry">
+      <div class="plog__meta">
+        <div class="plog__date">2026-08-04</div>
+        <div class="tag tag--nuances">Nuances</div>
+        <div class="plog__src">digitalapplied.com<br><a href="https://www.digitalapplied.com/blog/prompt-caching-economics-cache-first-agent-architecture-2026">Cache-first agent design</a></div>
+      </div>
+      <div>
+        <div class="plog__paper">Prompt Caching Economics: Cache-First Agent Design</div>
+        <p class="plog__body">OpenAI's July 9, 2026 GPT-5.6 rollout replaced free implicit caching with explicit breakpoints, a 1.25x cache-write premium, and a 30-minute minimum TTL — the cache-stable architecture pattern (stable prefixes, breakpoint budgets) still holds, but whether it's "free" savings or a genuine trade now depends on the provider, not just implementation discipline.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="wrap">
+  <div class="endnote">
+    <div class="endnote__label">A gap left open</div>
+    <div class="endnote__body">The <span class="tok">mechanisms</span> field is empty, and deliberately so. The mechanism here is economic — it is not one of the eight in the lever taxonomy, and it has the same shape as that taxonomy's existing "prompt caching doesn't fit" entry: a Context-lever intervention whose payoff is pure cache efficiency. Forcing a fit would have been the easier write-up and the less honest one, so the field was left blank and the gap flagged upstream instead.</div>
+  </div>
+</div>
+</article>
+
+</body>
+</html>
