@@ -3,6 +3,10 @@
 Scored evaluations of AI-engineering techniques.
 Published at **fieldguide.taylorwallgren.com**.
 
+A living reference, not a blog. Entries are revised as evidence arrives,
+and each carries the history of what its score used to be and why it
+changed.
+
 Every technique is scored on four signed deltas against a stated baseline,
 carries an explicit confidence level, records the sources that disagree,
 and is allowed to conclude that it did not earn its place.
@@ -11,7 +15,7 @@ and is allowed to conclude that it did not earn its place.
 
 ```
 index.html          the method + the index
-posts/              one file per evaluation
+techniques/         one file per technique, maintained over time
 style.css           design tokens + components
 CNAME               fieldguide.taylorwallgren.com
 ```
@@ -36,9 +40,9 @@ This lives on a subdomain rather than a path under the apex so it can move
 to its own domain later with a DNS change and a one-line `CNAME` edit —
 no migration, no broken structure.
 
-## Adding a post
+## Adding or revising an entry
 
-Copy `posts/multi-agent-debate.html` and replace, in order:
+Copy `techniques/multi-agent-debate.html` and replace, in order:
 
 - `<title>` and the `<meta name="description">`
 - the kicker: class (`no-regret` / `trade` / `dial`), date, and the
@@ -53,8 +57,15 @@ Copy `posts/multi-agent-debate.html` and replace, in order:
 - the `.arg` blocks, one per axis
 - the `.plog__entry` list, tagged `challenges` or `nuances`
 
-Then add a `.trow` to the index in `index.html`, and update the class
-counts on the three `.class-card`s.
+Then add a `.trow` to the index in `index.html` with its **Updated** stamp,
+and update the class counts on the three `.class-card`s.
+
+**When revising an existing entry** — which is the normal case, not the
+exception — change the scores, bump the kicker's `Last updated` date and
+the index stamp, and add a `.history__entry` at the top of the Score
+history section saying what moved and why. A re-examination that changes
+nothing still gets an entry; a catalogue that logs only movement looks
+less stable than it is.
 
 ## Where the scores come from
 
