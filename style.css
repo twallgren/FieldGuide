@@ -184,8 +184,6 @@ h1, h2, h3, p { margin: 0; }
         align-items: center; padding: 16px 0; border-bottom: 1px solid var(--hairline); }
 .trow--head { align-items: end; padding: 0 0 10px; border-bottom: 2px solid var(--ink); }
 .trow--last { border-bottom: 2px solid var(--ink); }
-.trow--featured { background: var(--wash); border-left: 4px solid var(--ink);
-                  padding: 16px 12px; margin: 0 -12px; }
 .th { font-size: 11px; font-weight: 600; letter-spacing: 0.16em;
       text-transform: uppercase; color: var(--muted); }
 .th--delta { width: 42px; font-size: 10px; letter-spacing: 0.1em; text-align: center; }
@@ -194,7 +192,6 @@ h1, h2, h3, p { margin: 0; }
 .trow__title a:hover { color: var(--neg); border-bottom-color: var(--neg); }
 .trow__flag { font-size: 11px; font-weight: 600; letter-spacing: 0.14em;
               text-transform: uppercase; margin-top: 4px; }
-.trow__flag--note { color: var(--neg); }
 .trow__flag--muted { color: var(--muted); }
 .trow__class { font-size: 11px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; }
 .trow__class--none { color: var(--faint); }
