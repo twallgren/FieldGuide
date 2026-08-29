@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Questions about the method — Field Guide</title>
+<meta name="description" content="Why the deltas are never summed, why adoption cost sits outside the class, what the confidence levels mean, and why some entries are deliberately blank.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600;700&family=IBM+Plex+Serif:ital,wght@0,400;0,600;1,400&display=swap">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="masthead masthead--compact wrap">
+  <a class="masthead__name" href="index.html">Field Guide</a>
+  <nav class="nav">
+    <a href="index.html#method">Method</a>
+    <a href="index.html#index">Index</a>
+    <a href="method.html">Questions</a>
+    <a href="index.html#about">About</a>
+  </nav>
+</header>
+
+<section class="hero wrap">
+  <div>
+    <h1 class="hero__title">Questions about the method</h1>
+    <p class="lede">The scoring system makes several choices that look like omissions until you know why they were made. These are the objections a careful reader raises, answered in the order they usually come up.</p>
+  </div>
+</section>
+
+<section class="section wrap">
+  <div class="section__head"><span class="section__num">01</span><h2 class="section__label">Why not add the four deltas into one score?</h2></div>
+  <p class="prose">Because the scale is ordinal, not additive. Two <span class="tok">+1</span>s are not a <span class="tok">+2</span>, and <span class="tok">+2</span> on cost does not cancel <span class="tok">&minus;2</span> on quality — they are different currencies. A single number would also destroy the only information that matters for a decision: <em>which</em> axis moved. &ldquo;Net <span class="tok">+1</span>&rdquo; cannot tell you whether something got cheaper or got better, and those lead to opposite decisions under different constraints.</p>
+  <p class="prose">There is a second reason, and it is the more useful one. If a summary number starts to feel necessary, that is a signal the regime was never specified. Once you know whether you are short on budget, on clock, on correctness, or on your own attention, you know which single axis to read, and the composite becomes unnecessary. The urge to sum is a symptom, not a missing feature.</p>
+</section>
+
+<section class="section wrap">
+  <div class="section__head"><span class="section__num">02</span><h2 class="section__label">Why is adoption cost not in the score?</h2></div>
+  <p class="prose">It is on every page — as <span class="tok">effort</span>, deliberately on a different scale from the four deltas, and never folded into the class.</p>
+  <p class="prose">The deltas are <em>recurring</em>: they describe what happens every time you use the technique. Effort is a one-time cost that amortizes. Mixing them would mean a technique whose only downside is a weekend of setup gets classed the same as one that makes your output permanently worse, which is plainly wrong. It would also make the classes meaningless in practice, since almost everything has a setup step — nearly every entry would become a &ldquo;trade&rdquo; and the word would stop carrying information.</p>
+  <p class="prose">So the rule is: a technique whose only cost is that it takes a weekend to set up is a <strong>no-regret that costs a weekend</strong>. Say what adoption costs, prominently and in its own right. Do not launder it into the class. <a href="techniques/skills-vs-mcp-servers.html">Skills vs MCP Servers</a> was reclassed for exactly this reason, and the change is on its record.</p>
+</section>
+
+<section class="section wrap">
+  <div class="section__head"><span class="section__num">03</span><h2 class="section__label">What do the confidence levels actually mean?</h2></div>
+  <p class="prose">Three levels, and the distance between them is larger than it looks:</p>
+  <div class="disciplines" style="margin-top: 28px;">
+    <div class="discipline">
+      <div class="discipline__title">guess</div>
+      <p>My prior, and nothing more. Nobody measured it, me included. Labelled so you can discount it — and if a page is a guess, its body copy says so in plain words rather than implying evidence was read.</p>
+    </div>
+    <div class="discipline">
+      <div class="discipline__title">researched</div>
+      <p>Someone else measured it and I read the evidence, including the parts that disagree. Most of this site sits here. It is a reading of published work, not a result I produced.</p>
+    </div>
+  </div>
+  <p class="prose" style="margin-top: 28px;"><span class="tok">measured</span> means <em>I</em> ran it, in an experiment with a trial count on the record. Nothing on this site is <span class="tok">measured</span> yet, and rather than hide that, the meter on every page shows two of three bars filled with the third left empty. One run would be a demo, not a result.</p>
+  <p class="prose"><strong>Read the class and the confidence together.</strong> A no-regret at <span class="tok">confidence: guess</span> is a hypothesis that nothing gets worse, not a finding. It is a reason to try something cheaply and watch, not a reason to skip the watching.</p>
+</section>
+
+<section class="section wrap">
+  <div class="section__head"><span class="section__num">04</span><h2 class="section__label">Why are some rows blank?</h2></div>
+  <p class="prose">Because they have not been evaluated, and a guess recorded as a fact would be worse than nothing. A blank row means the technique is being tracked and has not yet earned a score. Leaving it visible is the honest option: the alternative is a silently shorter list that implies the corpus is more complete than it is.</p>
+</section>
+
+<section class="section wrap">
+  <div class="section__head"><span class="section__num">05</span><h2 class="section__label">Why do the scores change?</h2></div>
+  <p class="prose">Because this is a maintained reference, not a set of dated posts. When evidence arrives that changes an assessment, the score changes — and the change is recorded on the entry with what moved it and why, including the times a score was re-examined and held. A catalogue that logs only movement looks less stable than it actually is.</p>
+  <p class="prose">The part worth stating plainly: <strong>a published score being revised downward is the system working, not a failure of it.</strong> Every entry carries the history of what it used to say.</p>
+</section>
+
+<section class="section wrap">
+  <div class="section__head"><span class="section__num">06</span><h2 class="section__label">What is a baseline, and why does every page have one?</h2></div>
+  <p class="prose">A delta is meaningless without <em>compared to what</em>. &ldquo;Cheaper&rdquo; is not a property of a technique; it is a relation between the technique and the thing you would otherwise do. So every entry names its baseline in a block before any number appears, and the deltas are only claims about that comparison.</p>
+  <p class="prose">This is also why two entries can look contradictory and both be right. <a href="techniques/fine-tuning-open-weight-models.html">Fine-Tuning Open-Weight Models</a> is scored against context injection; <a href="techniques/knowledge-injection-hooks.html">Knowledge-Injection Hooks</a> is the same comparison from the other side. Check the baseline before reconciling two numbers.</p>
+</section>
+
+<section class="section wrap">
+  <div class="section__head"><span class="section__num">07</span><h2 class="section__label">Where does this come from, and what is not here?</h2></div>
+  <p class="prose">Each entry is drawn from a private research corpus of technique evaluations. The rubric is published in full on the method page — the site does not ask you to take the scoring on trust.</p>
+  <p class="prose">What is <em>not</em> here: techniques nobody has evaluated yet, and broad topic areas that are not single interventions with a definable baseline. Retrieval is the clearest example — it spans chunking, embedding choice, reranking and query rewriting, and scoring it as one technique would produce numbers whose within-category variance swamps the signal. Where a specific alternative matters to a specific entry, it is named on that entry instead.</p>
+</section>
+
+<section class="section wrap">
+  <div class="slab">
+    <div class="slab__kicker">The short version</div>
+    <div class="slab__rule">Every rule here exists to stop a number claiming more than it earned.</div>
+    <div class="slab__cols">
+      <p>No composite, because the axis that moved is the whole decision. No adoption cost in the class, because one-time and recurring are different things.</p>
+      <p>Confidence stated on every entry, because a prior and a result should not look alike. Blanks left blank, because a guess recorded as fact is worse than nothing.</p>
+    </div>
+  </div>
+</section>
+
+</body>
+</html>

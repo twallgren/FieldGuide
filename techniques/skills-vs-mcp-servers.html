@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Skills vs MCP Servers — Field Guide</title>
-<meta name="description" content="Swapping always-loaded MCP servers for skills plus plain scripts buys token cost and speed at flat quality — but the note scores it a trade, not a no-regret, and the delta vector does not show why. Scored: cost +1, quality 0, speed +1, attention +1.">
+<meta name="description" content="Swapping always-loaded MCP servers for skills plus plain scripts buys token cost and speed at flat quality and neutral attention — a no-regret that costs a medium one-time build, reclassed from trade on 29 Aug 2026. Scored: cost +1, quality 0, speed +1, attention 0.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600;700&family=IBM+Plex+Serif:ital,wght@0,400;0,600;1,400&display=swap">
@@ -17,6 +17,7 @@
   <nav class="nav">
     <a href="../index.html#method">Method</a>
     <a href="../index.html#index">Index</a>
+    <a href="../method.html">Questions</a>
     <a href="../index.html#index">Rejected</a>
     <a href="../index.html#about">About</a>
   </nav>
@@ -26,15 +27,15 @@
 <div class="post-head wrap">
   <div class="post-kicker">
     <div class="post-kicker__bar"><i style="flex-grow:1; background: var(--pos);"></i></div>
-    <div class="post-kicker__class">Class: Trade</div>
+    <div class="post-kicker__class">Class: No-regret</div>
     <div class="post-kicker__sep"></div>
-    <div class="post-kicker__meta">Last updated <time datetime="2026-08-25">25 Aug 2026</time></div>
+    <div class="post-kicker__meta">Last updated <time datetime="2026-08-29">29 Aug 2026</time></div>
   </div>
 
   <div class="post-grid">
     <div>
       <h1 class="post-title">Skills vs MCP Servers</h1>
-      <p class="standfirst">Replacing always-loaded MCP servers with skills and plain scripts genuinely undercuts the token tax — but it is <em>not</em> a blanket replacement, and the harness has already closed part of the gap that motivated it.</p>
+      <p class="standfirst">Replacing always-loaded MCP servers with skills and plain scripts genuinely undercuts the token tax, and none of the four recurring axes gets worse to pay for it. It still costs a medium one-time build, and it is <em>not</em> a blanket replacement — MCP keeps the stateful and auth-brokered work.</p>
     </div>
     <aside class="conf-box">
       <div class="conf-box__label">Confidence</div>
@@ -78,17 +79,17 @@
       <div class="track"><i class="track__cell"></i><i class="track__cell"></i><i class="track__zero"></i><i class="track__cell track__cell--pos"></i><i class="track__cell"></i></div>
       <div class="delta-card__read">Faster. Less resident context to process per turn.</div>
     </div>
-    <div class="delta-card delta-card--pos">
+    <div class="delta-card">
       <div class="delta-card__label">attention-delta</div>
-      <div class="delta-card__val">+1</div>
-      <div class="track"><i class="track__cell"></i><i class="track__cell"></i><i class="track__zero"></i><i class="track__cell track__cell--pos"></i><i class="track__cell"></i></div>
-      <div class="delta-card__read">Fewer moving parts to keep alive, once built.</div>
+      <div class="delta-card__val">0</div>
+      <div class="track"><i class="track__cell"></i><i class="track__cell"></i><i class="track__zero"></i><i class="track__cell"></i><i class="track__cell"></i></div>
+      <div class="delta-card__read">Two real costs that cancel &mdash; not an absence of cost.</div>
     </div>
   </div>
 
   <div class="meta-row">
     <div class="meta"><span class="meta__k">dial</span><span class="meta__v">false</span></div>
-    <div class="meta"><span class="meta__k">effort</span><span class="meta__v">medium</span></div>
+    <div class="meta"><span class="meta__k">effort</span><span class="meta__v">medium</span><span class="meta__x">one-time, and deliberately not in the class</span></div>
     <div class="meta"><span class="meta__k">levers</span><span class="meta__v">tools, context</span></div>
     <div class="meta"><span class="meta__k">mechanisms</span><span class="meta__v">capability, noise-reduction</span></div>
   </div>
@@ -100,9 +101,31 @@
     <div class="section__note">What moved, when, and why</div>
   </div>
 
-  <p class="prose" style="margin-bottom: 28px;">Scores here are not fixed at a publication date. When evidence arrives that changes an assessment, the score changes and the change is recorded — including the times it was re-examined and held.</p>
+  <p class="prose" style="margin-bottom: 28px;">Scores here are not fixed at a publication date. When evidence arrives that changes an assessment, the score changes and the change is recorded — including the times it was re-examined and held. This is the first page on the site where a score has actually moved: the two entries above the first tracked state are real revisions, both made on 29 Aug 2026.</p>
 
   <div class="history">
+    <div class="history__entry">
+      <div class="history__date"><time datetime="2026-08-29">29 Aug 2026</time></div>
+      <div>
+        <div class="history__what">Class reclassed</div>
+        <div class="history__vector">
+          <span class="hv"><i>class</i><b>trade</b><span class="history__arrow">&rarr;</span><b class="pos">no-regret</b></span>
+        </div>
+        <p class="history__why">The trade classing rested on build effort, but effort is a one-time adoption cost and the class derives from the four recurring deltas, none of which is negative. Adoption cost is documented on the page instead.</p>
+      </div>
+    </div>
+
+    <div class="history__entry">
+      <div class="history__date"><time datetime="2026-08-29">29 Aug 2026</time></div>
+      <div>
+        <div class="history__what">attention-delta lowered</div>
+        <div class="history__vector">
+          <span class="hv"><i>attention</i><b class="pos">+1</b><span class="history__arrow">&rarr;</span><b>0</b></span>
+        </div>
+        <p class="history__why">The <span class="tok">+1</span> rested on "fewer moving parts to keep alive", which held for connection and auth but missed the opposite direction: a skill is a moving part, kept alive by hand, as the tool underneath it drifts. MCP externalises that upkeep to the server's author; skills internalise it. The two effects cancel.</p>
+      </div>
+    </div>
+
     <div class="history__entry">
       <div class="history__date"><time datetime="2026-08-25">25 Aug 2026</time></div>
       <div>
@@ -112,7 +135,9 @@
           <span class="hv"><i>quality</i><b>0</b></span>
           <span class="hv"><i>speed</i><b class="pos">+1</b></span>
           <span class="hv"><i>attention</i><b class="pos">+1</b></span>
+          <span class="hv"><i>dial</i><b>false</b></span>
           <span class="hv"><i>confidence</i><b>researched</b></span>
+          <span class="hv"><i>effort</i><b>medium</b></span>
         </div>
         <p class="history__why">Scored against always-loaded MCP servers with full tool schemas resident in context every turn, for the same integrations.</p>
       </div>
@@ -125,14 +150,14 @@
 <div class="section wrap" style="padding-top: 56px;">
   <div class="when">
     <div class="when__col">
-      <div class="when__kicker when__kicker--pos">Reach for it when</div>
-      <div class="when__title">You are cost-bound or latency-bound</div>
-      <div class="when__body">Fewer resident tokens per turn is a direct win under both regimes. This is where the note says the trade is best evaluated.</div>
+      <div class="when__kicker when__kicker--pos">What it does</div>
+      <div class="when__title">Nothing recurring gets worse</div>
+      <div class="when__body">The vector is <span class="tok">+1 / 0 / +1 / 0</span>. None of the four recurring deltas is negative, so nothing gets worse per turn once it is built, and there is no regime under which it is the wrong call. Two caveats survive the reclass, and both are scope rather than trade. It is <strong>not a blanket replacement</strong>: MCP remains the right choice for stateful and auth-brokered integrations, which is what the hybrid rule this note converged on already says. And the <span class="tok">attention-delta: 0</span> is a <strong>cancellation of two real opposing costs, not an absence of cost</strong> — the upkeep is there, it just nets out.</div>
     </div>
     <div class="when__col">
-      <div class="when__kicker when__kicker--neg">It needs a case-by-case call when</div>
-      <div class="when__title">You are quality-bound</div>
-      <div class="when__body">The typed-schema-vs-prose-instructions gap means the swap needs a case-by-case call rather than a default "skills win." And regardless of regime, this is not a blanket replacement: MCP remains the right choice for stateful and auth-brokered integrations.</div>
+      <div class="when__kicker when__kicker--neg">What it costs to set up</div>
+      <div class="when__title">effort: medium</div>
+      <div class="when__body">Real, and deliberately kept out of the class. The one-time cost is authoring the <span class="tok">SKILL.md</span> files and writing the scripts that replace the tool calls, per integration migrated — spent up front, before any delta above starts paying. It amortizes and the deltas do not, which is why the rubric puts it on a different scale and says <span class="tok">effort</span> never determines the class. Note what is <em>not</em> here: keeping a skill current as the tool beneath it drifts is recurring upkeep, so it is priced into <span class="tok">attention-delta</span>, not into this panel.</div>
     </div>
   </div>
 </div>
@@ -150,6 +175,7 @@
       <div>
         <p class="prose">Skills genuinely undercut naive always-loaded MCP on token spend: 30-50 tokens per skill at rest versus tens of thousands for a handful of MCP servers with many tools. The numbers behind that — a five-server MCP setup can cost 50k+ tokens upfront, and the GitHub MCP server alone (43 tools, every schema loaded regardless of use) has been measured at ~62,000 tokens of overhead per 20-turn session before it does anything. Fifty skills is ~2,500 tokens.</p>
         <p class="prose">Not <span class="tok">+2</span>: Claude Code's own deferred tool loading has closed a real chunk of this gap for MCP specifically, and a script still costs tokens to write and maintain (captured separately in <span class="tok">effort</span>) and to invoke when it runs. The delta is real but smaller than it would have looked before deferred loading existed.</p>
+        <p class="prose">That mechanism is <span class="tok">ToolSearch</span>: MCP tools default to name-only in context, with full schemas fetched on demand. The deep-dive session behind this note was a live example — dozens of MCP tools (Gmail, Google Drive, scheduled-tasks) sat as bare names in a <span class="tok">&lt;system-reminder&gt;</span> for the whole session, and only the two actually used had their schemas pulled in. So the original "MCP tools sit in context whether used or not" framing is now <strong>harness-dependent, not structural to MCP itself</strong>: true of Claude Code before deferred loading, and still true of clients that ship no equivalent — which is exactly the baseline above.</p>
       </div>
     </div>
 
@@ -157,7 +183,7 @@
       <div class="arg__axis">
         <div class="arg__name">quality-delta</div>
         <div class="arg__val">0</div>
-        <div class="arg__note">A trade hides inside the zero</div>
+        <div class="arg__note">An uncertainty inside the zero</div>
       </div>
       <div>
         <p class="prose">No source found evidence this changes task accuracy either direction. There is a real but uncertain trade inside it: an MCP tool's typed schema constrains what the model can even attempt to call — the Intervention Levers grid classifies Tools-lever constraint as "free, hard compliance" — while a skill's instructions are read and followed probabilistically, more like a rules file.</p>
@@ -179,11 +205,12 @@
     <div class="arg">
       <div class="arg__axis">
         <div class="arg__name">attention-delta</div>
-        <div class="arg__val arg__val--pos">+1</div>
-        <div class="arg__note">Once built</div>
+        <div class="arg__val">0</div>
+        <div class="arg__note">Was +1 until 29 Aug</div>
       </div>
       <div>
-        <p class="prose">Once built, a skill+script is lower-friction per task than babysitting an MCP server connection and auth for something used occasionally — fewer moving parts to keep alive. This is separate from the one-time authoring cost, which is captured in <span class="tok">effort: medium</span> rather than here.</p>
+        <p class="prose">Two effects that cancel. Skills save the connection and auth babysitting an occasionally-used MCP server demands — fewer live moving parts per task. That much is the whole of what the earlier <span class="tok">+1</span> saw.</p>
+        <p class="prose">But a skill is itself a part that must be kept alive by hand. An MCP server's schemas track its tools because whoever ships the server updates them; a <span class="tok">SKILL.md</span> keeps describing the old interface until a human notices, unless it is distributed through a channel with update support — a plugin or marketplace, rather than a hand-copied file. That maintenance moves from the vendor to me, it <em>recurs</em>, and <span class="tok">attention-delta</span> is the recurring axis, so it belongs here rather than in <span class="tok">effort</span>. A stale skill is also worse than none: confidently wrong about an interface the agent will then try to use. Net neutral.</p>
       </div>
     </div>
 
@@ -319,8 +346,8 @@
 
 <div class="wrap">
   <div class="endnote">
-    <div class="endnote__label">The class and the vector disagree</div>
-    <div class="endnote__body">The delta vector here is <span class="tok">+1 / 0 / +1 / +1</span> — nothing is negative. Read strictly by the rubric, that derives to <strong>no-regret</strong>: nothing gets worse. The note nonetheless states the class as <strong>trade</strong>, and this page follows the note. The two are mutually exclusive, both are derived from the same vector, and this page does not resolve which is right. The note does give its reasoning, verbatim: "<strong>Class: trade</strong>, not no-regret. It spends build effort to buy cost and speed at flat-to-uncertain quality, and — per the hybrid rule this note already converged on and the Perspectives log entry above corroborates — it's not a blanket replacement: MCP remains the right choice for stateful/auth-brokered integrations regardless of regime." The spent axis it names is build effort, which lives in <span class="tok">effort: medium</span> and not in any of the four deltas — so the cost the class is claiming is one the vector structurally cannot show. Whether that is enough to override a derivation the rubric says falls out of the vector is left open here rather than decided.</div>
+    <div class="endnote__label">Why this stopped being a trade</div>
+    <div class="endnote__body">This page previously carried <strong>Class: trade</strong>, on the reasoning that the technique "spends build effort to buy cost and speed." That reasoning named exactly one spent axis — build effort — and build effort is <span class="tok">effort</span>, a one-time adoption cost, not one of the four recurring deltas the class is derived from. The rubric is explicit that <strong><span class="tok">effort</span> never determines the class</strong>: a technique whose only cost is that it takes a weekend to set up is a no-regret that costs a weekend, and if setup counted, nearly everything with a setup step would be a trade and the distinction would stop carrying information. So the class was corrected on 29 Aug 2026, and the adoption cost was put on the page in its own right rather than laundered into the label — that is the second panel above, sitting beside the deltas rather than inside them. Read the class together with <span class="tok">confidence: researched</span>: the vector it is derived from rests on someone else's measurements, not a trial run here.</div>
   </div>
 </div>
 </article>
