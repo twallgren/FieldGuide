@@ -1,0 +1,229 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Knowledge Compressor — Field Guide</title>
+<meta name="description" content="A one-time agentic compression pass over static reference docs, gated by auto-generated test questions, cuts recurring per-read tokens at flat quality and neutral attention — a no-regret that costs a medium one-time setup and rests on a single published source. Scored: cost +1, quality 0, speed +1, attention 0.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600;700&family=IBM+Plex+Serif:ital,wght@0,400;0,600;1,400&display=swap">
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+
+<header class="masthead masthead--compact wrap">
+  <a class="masthead__name" href="../index.html">Field Guide</a>
+  <nav class="nav">
+    <a href="../index.html#method">Method</a>
+    <a href="../index.html#index">Index</a>
+    <a href="../method.html">Questions</a>
+    <a href="../index.html#index">Rejected</a>
+    <a href="../index.html#about">About</a>
+  </nav>
+</header>
+
+<article>
+<div class="post-head wrap">
+  <div class="post-kicker">
+    <div class="post-kicker__bar"><i style="flex-grow:1; background: var(--pos);"></i></div>
+    <div class="post-kicker__class">Class: No-regret</div>
+    <div class="post-kicker__sep"></div>
+    <div class="post-kicker__meta">Last updated <time datetime="2026-08-31">31 Aug 2026</time></div>
+  </div>
+
+  <div class="post-grid">
+    <div>
+      <h1 class="post-title">Knowledge Compressor</h1>
+      <p class="standfirst">A GitHub Next research prototype that compresses technical documentation for LLM consumption <em>before</em> it ever reaches an agent's context — a one-time preprocessing pass over static reference material, not a compaction of conversation history. Compressing once and reusing many times drops the recurring per-read token cost without spending quality or attention to get there.</p>
+    </div>
+    <aside class="conf-box">
+      <div class="conf-box__label">Confidence</div>
+      <div class="conf-box__meter"><span class="on"></span><span class="on"></span><span></span></div>
+      <div class="conf-box__scale"><span class="on">guess</span><span class="on">researched</span><span>measured</span></div>
+      <div class="conf-box__value">researched</div>
+      <div class="conf-box__body">Someone else published the case study. No local trial run recorded against this note, so not <span class="tok">measured</span> — and all four deltas rest on that one source plus general-literature corroboration of the mechanism.</div>
+    </aside>
+  </div>
+</div>
+
+<div class="section wrap" style="padding-top: 56px;">
+  <div class="baseline">
+    <div class="baseline__label">Compared to what</div>
+    <div class="baseline__text">Reference material (house style guides, API docs, standing tool documentation) included in full, uncompressed, every time it's read — the status quo for anything living in a <span class="tok">CLAUDE.md</span> or skill file today.</div>
+  </div>
+</div>
+
+<div class="section wrap" style="padding-top: 56px;">
+  <div class="section__head section__head--spread">
+    <h2 class="section__label">The deltas</h2>
+    <div class="section__note">+ is always better for you &middot; never summed</div>
+  </div>
+
+  <div class="delta-cards">
+    <div class="delta-card delta-card--pos">
+      <div class="delta-card__label">cost-delta</div>
+      <div class="delta-card__val">+1</div>
+      <div class="track"><i class="track__cell"></i><i class="track__cell"></i><i class="track__zero"></i><i class="track__cell track__cell--pos"></i><i class="track__cell"></i></div>
+      <div class="delta-card__read">Cheaper per read &mdash; capped by a break-even that not every document clears.</div>
+    </div>
+    <div class="delta-card">
+      <div class="delta-card__label">quality-delta</div>
+      <div class="delta-card__val">0</div>
+      <div class="track"><i class="track__cell"></i><i class="track__cell"></i><i class="track__zero"></i><i class="track__cell"></i><i class="track__cell"></i></div>
+      <div class="delta-card__read">Parity is the stated goal, not improvement. Not negative: the validation step is a real check.</div>
+    </div>
+    <div class="delta-card delta-card--pos">
+      <div class="delta-card__label">speed-delta</div>
+      <div class="delta-card__val">+1</div>
+      <div class="track"><i class="track__cell"></i><i class="track__cell"></i><i class="track__zero"></i><i class="track__cell track__cell--pos"></i><i class="track__cell"></i></div>
+      <div class="delta-card__read">Faster. Fewer tokens to process per turn.</div>
+    </div>
+    <div class="delta-card">
+      <div class="delta-card__label">attention-delta</div>
+      <div class="delta-card__val">0</div>
+      <div class="track"><i class="track__cell"></i><i class="track__cell"></i><i class="track__zero"></i><i class="track__cell"></i><i class="track__cell"></i></div>
+      <div class="delta-card__read">Neutral, not free &mdash; a staleness risk sits inside the zero.</div>
+    </div>
+  </div>
+
+  <div class="meta-row">
+    <div class="meta"><span class="meta__k">dial</span><span class="meta__v">false</span></div>
+    <div class="meta"><span class="meta__k">effort</span><span class="meta__v">medium</span><span class="meta__x">one-time, and deliberately not in the class</span></div>
+    <div class="meta"><span class="meta__k">levers</span><span class="meta__v">context</span></div>
+    <div class="meta"><span class="meta__k">mechanisms</span><span class="meta__v">noise-reduction</span></div>
+  </div>
+</div>
+
+<div class="section wrap" style="padding-top: 56px;">
+  <div class="section__head section__head--spread">
+    <h2 class="section__label">Score history</h2>
+    <div class="section__note">What moved, when, and why</div>
+  </div>
+
+  <p class="prose" style="margin-bottom: 28px;">Scores here are not fixed at a publication date. When evidence arrives that changes an assessment, the score changes and the change is recorded — including the times it was re-examined and held. This note has been scored once, so there is one entry and nothing before it.</p>
+
+  <div class="history">
+    <div class="history__entry">
+      <div class="history__date"><time datetime="2026-08-31">31 Aug 2026</time></div>
+      <div>
+        <div class="history__what">First tracked state</div>
+        <div class="history__vector">
+          <span class="hv"><i>cost</i><b class="pos">+1</b></span>
+          <span class="hv"><i>quality</i><b>0</b></span>
+          <span class="hv"><i>speed</i><b class="pos">+1</b></span>
+          <span class="hv"><i>attention</i><b>0</b></span>
+          <span class="hv"><i>dial</i><b>false</b></span>
+          <span class="hv"><i>confidence</i><b>researched</b></span>
+          <span class="hv"><i>effort</i><b>medium</b></span>
+        </div>
+        <p class="history__why">Set by the automated triage-and-dive pass, which also moved <span class="tok">status</span> from <span class="tok">backlog</span> to <span class="tok">researching</span>. Scored against reference material included in full, uncompressed, on every read.</p>
+      </div>
+    </div>
+  </div>
+
+  <p class="history__note">History tracking began 28 Aug 2026. Any revisions before that date were not recorded, and are not reconstructed here.</p>
+</div>
+
+<div class="section wrap" style="padding-top: 56px;">
+  <div class="when">
+    <div class="when__col">
+      <div class="when__kicker when__kicker--pos">What it does</div>
+      <div class="when__title">Nothing recurring gets worse</div>
+      <div class="when__body">The vector is <span class="tok">+1 / 0 / +1 / 0</span>. None of the four recurring deltas is negative, so nothing gets worse per read once a document is compressed, and there is no regime under which it is the wrong call. Two things that look like downsides are already priced into the numbers rather than sitting outside them: the ~$2 / ~2,000-reuse break-even is scored as a <strong>cap on the cost win</strong>, not as a separate cost, and the risk that a compressed doc drifts out of sync with its edited source is priced into <span class="tok">attention-delta: 0</span> — neutral rather than negative, but explicitly <em>not free</em>. One scope caveat rather than a trade: this fits stable, frequently-reused reference docs, not a one-off document read twice.</div>
+    </div>
+    <div class="when__col">
+      <div class="when__kicker when__kicker--neg">What it costs to set up</div>
+      <div class="when__title">effort: medium</div>
+      <div class="when__body">Real, one-time, and deliberately kept out of the class. There is no shipped tool to point at — GitHub Next's post gives no release or license status — so the one-time cost is <em>building the pipeline</em>: the question-extraction call, the separate no-context answerability check that discards anything the model can answer from world knowledge alone, and the agentic compression loop with a token-counting tool and a "keep going until a test question fails" stop condition. Then roughly $2 of compression compute per document. It amortizes and the deltas do not, which is why the rubric puts it on a different scale and says <span class="tok">effort</span> never determines the class. Note what is <em>not</em> here: re-compressing a document after its source changes is recurring upkeep, so it is priced into <span class="tok">attention-delta</span>, not into this panel.</div>
+    </div>
+  </div>
+</div>
+
+<div class="section wrap">
+  <div class="section__head"><h2 class="section__label">Why each delta reads the way it does</h2></div>
+
+  <div style="margin-top: 44px;">
+    <div class="arg">
+      <div class="arg__axis">
+        <div class="arg__name">cost-delta</div>
+        <div class="arg__val arg__val--pos">+1</div>
+        <div class="arg__note">Not +2, deliberately</div>
+      </div>
+      <div>
+        <p class="prose">Recurring per-read token cost drops by roughly the compression ratio once a document is compressed — 52% in the one published example, where GitHub Next's own case study cut a documentation article from 996 to 480 tokens while the surviving test questions still checked out. That is a real recurring saving on every subsequent inclusion.</p>
+        <p class="prose">Capped below <span class="tok">+2</span> because the win is conditional. The compression run cost roughly $2, which at then-current pricing means the technique only pays for itself after about 2,000 reuses of the compressed version — so a document edited faster than it accumulates ~2,000 reads never actually recoups the compression cost. Per the rubric's rule that <span class="tok">effort</span> does not determine class, that risk is scored here on the recurring axis, as a cap on the win, rather than folded into <span class="tok">effort</span>.</p>
+        <p class="prose">The cost shape is the opposite of a per-turn injection technique: this is upfront compute traded for a permanently smaller artifact, closer in spirit to build-time work than runtime work.</p>
+      </div>
+    </div>
+
+    <div class="arg">
+      <div class="arg__axis">
+        <div class="arg__name">quality-delta</div>
+        <div class="arg__val">0</div>
+        <div class="arg__note">Parity is the goal</div>
+      </div>
+      <div>
+        <p class="prose">The technique's own goal is parity, not improvement: preserve the same answerable facts in fewer tokens. Scored <span class="tok">0</span> rather than positive because that is the honest ceiling of "compress without losing usefulness."</p>
+        <p class="prose">Not negative, because the validation step is a real check rather than an assertion. Auto-generated questions function as unit tests for the facts a reader needs to retain, each one first validated as actually answerable from the original text; the compression loop then re-tests after every edit and is deliberately pushed until at least one question starts failing, so it does not stop short of the real reduction boundary. Using retained-knowledge Q&amp;A as the gate is what lets the compressor claim "cut in half without substantially reducing usefulness" rather than just "cut in half" — summarization-that-loses-facts is an old, easy failure mode, and the test mechanism is the interesting part, not the compression itself.</p>
+        <p class="prose">With one hole that GitHub Next names itself: a test question can pass even when the model answers from its own world knowledge rather than the now-shorter document, especially for facts that were common knowledge before compression. That overstates safety on well-known topics and understates it on exactly the genuinely novel facts the technique should be judged on.</p>
+      </div>
+    </div>
+
+    <div class="arg">
+      <div class="arg__axis">
+        <div class="arg__name">speed-delta</div>
+        <div class="arg__val arg__val--pos">+1</div>
+        <div class="arg__note">Modest and recurring</div>
+      </div>
+      <div>
+        <p class="prose">Fewer tokens to process per turn is a modest, recurring wall-clock and throughput win, independent of the cost saving.</p>
+      </div>
+    </div>
+
+    <div class="arg">
+      <div class="arg__axis">
+        <div class="arg__name">attention-delta</div>
+        <div class="arg__val">0</div>
+        <div class="arg__note">Neutral, not free</div>
+      </div>
+      <div>
+        <p class="prose">The compression run itself is a one-time batch job, not an ongoing burden. Scored <span class="tok">0</span> rather than positive because of a real recurring risk: a compressed document that drifts out of sync with its edited source has to be noticed and re-compressed — the same staleness failure mode already logged for skill files generally in <a href="skills-vs-mcp-servers.html">Skills vs MCP Servers</a>.</p>
+        <p class="prose">This note does not currently have that risk backed by any usage report, so it is scored as neutral rather than negative. It is not free.</p>
+      </div>
+    </div>
+
+    <div class="arg">
+      <div class="arg__axis">
+        <div class="arg__name">dial</div>
+        <div class="arg__val">false</div>
+        <div class="arg__note">Preprocessing, not a runtime knob</div>
+      </div>
+      <div>
+        <p class="prose">The compression pass runs before the document ever lands in context — a manual or scheduled batch step over specific reference files, not a session-time setting a single task can turn up or down.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="section wrap" style="padding-top: 80px;">
+  <div class="plog">
+    <div class="plog__head">
+      <h2 class="plog__title">Perspectives log</h2>
+      <div class="plog__blurb">Sources that complicate or contradict the score above. Kept on the record whether or not they were convenient.</div>
+    </div>
+
+    <p class="prose">No perspectives have been logged for this entry. The source note records a source link — GitHub Next's own post, dated 2026-08-26 — but no dated perspective entries with a stated stance, so there is nothing to render here, and nothing has been back-filled to fill the space.</p>
+  </div>
+</div>
+
+<div class="wrap">
+  <div class="endnote">
+    <div class="endnote__label">A no-regret resting on one source</div>
+    <div class="endnote__body">The class is derived correctly: the vector is <span class="tok">+1 / 0 / +1 / 0</span> and nothing recurring gets worse. But the rubric is equally explicit that class and <span class="tok">confidence</span> must be read together — a no-regret says <em>adopt unconditionally</em>, and that instruction is only as good as the numbers under it. Here, all four deltas rest on a single published source plus general-literature corroboration of the <em>mechanism</em> rather than the <em>implementation</em>: the prompt-compression literature (LLMLingua's up-to-20x compression at under 2% quality loss on QA benchmarks) supports that semantic-preserving compression at this ratio is achievable in principle, but nobody has independently reproduced GitHub Next's specific pipeline, its self-named validation hole, or its cost and break-even numbers. It was also evaluated on GitHub Next's own case study rather than an independent benchmark, and generalization across content types and languages is explicitly unresolved in the source post. Treat this as "should be no-regret, on the evidence available" rather than settled — the same reading the rubric works through for <a href="composable-tests.html">Composable Tests</a>. Scoring was done by an unattended triage-and-dive pass on 31 Aug 2026; the deltas rest on published evidence and judgment, not on outcomes observed here directly, and should be confirmed or revised before being treated as settled.</div>
+  </div>
+</div>
+</article>
+
+</body>
+</html>

@@ -1,8 +1,7 @@
 {
-  "_comment": "One plain sentence per technique, condensed from its vault note Overview. The deltas carry the verdict; this only stops a reader guessing from the name. Edited by hand; consumed by scripts/obsidian/fieldguide_index.py.",
   "Agent Access Model": "Give agents task-specific, short-lived credentials enforced at the harness, instead of inheriting a human's standing access.",
-  "Agent-Runtime-as-a-Service Substrates": "Vendors selling an agent its own hosted sandbox: isolated execution plus state that survives between runs.",
   "Agent Fleet Dashboards": "Supervise many running agents at once: status, blockers, token burn, and fast attach into any session.",
+  "Agent-Runtime-as-a-Service Substrates": "Vendors selling an agent its own hosted sandbox: isolated execution plus state that survives between runs.",
   "Agentic Code Quality": "Move the quality gate out of human review and into the environment itself — tests, thresholds, automated checks.",
   "Autonomous Work Loops": "Scheduled and self-pacing loops that keep work moving: nightly jobs, recurring scans, watchers that act on changes.",
   "Cache-Stable Agent Thread Architecture": "Structure a long thread so the prompt cache keeps hitting: stable prefix, append-only history, deferred tools.",
@@ -10,6 +9,7 @@
   "Computer-Use Verification for Coding Agents": "Let the agent drive the real UI to verify its own work, and attach the evidence to the pull request.",
   "Context Management via Subagents": "Delegate self-contained work to subagents that burn their own context and return only conclusions.",
   "Deterministic Agent Workflows": "Freeze a proven multi-step pattern into versioned code, so later runs execute instead of re-reasoning.",
+  "Domain-Driven Agents": "Make a legacy codebase legible to agents by applying domain-driven design to it, rather than by upgrading the model.",
   "Fine-Tuning Open-Weight Models": "Put tribal knowledge in the weights instead of re-injecting it into context every session.",
   "Fresh-Context Review Agents": "Review with an agent that sees only the artifact, never the conversation that produced it.",
   "Hedged LLM Requests": "Fire the same request twice in parallel, take whichever returns first, cancel the loser.",
@@ -27,5 +27,6 @@
   "Specula": "Auto-derive TLA+ specifications from code, model-check them for concurrency bugs, and reproduce what it finds.",
   "Speculative Programmatic Tool Calling": "Start executing a tool call before the model has finished deciding it needs one.",
   "Task Runners for Coding Tasks": "Give every repo one command surface — just test, just build — instead of stack-specific incantations.",
-  "Task vs Job Delegation": "The task is not the job: cheap execution exposes what delegating the implementation leaves undone."
+  "Task vs Job Delegation": "The task is not the job: cheap execution exposes what delegating the implementation leaves undone.",
+  "_comment": "One plain sentence per technique, condensed from its vault note Overview. The deltas carry the verdict; this only stops a reader guessing from the name. Edited by hand; consumed by scripts/obsidian/fieldguide_index.py."
 }
