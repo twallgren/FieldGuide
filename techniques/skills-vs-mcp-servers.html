@@ -29,7 +29,7 @@
     <div class="post-kicker__bar"><i style="flex-grow:1; background: var(--pos);"></i></div>
     <div class="post-kicker__class">Class: No-regret</div>
     <div class="post-kicker__sep"></div>
-    <div class="post-kicker__meta">Last updated <time datetime="2026-08-29">29 Aug 2026</time></div>
+    <div class="post-kicker__meta">Last updated <time datetime="2026-09-02">2 Sep 2026</time></div>
   </div>
 
   <div class="post-grid">
@@ -232,6 +232,18 @@
     <div class="plog__head">
       <h2 class="plog__title">Perspectives log</h2>
       <div class="plog__blurb">Sources that complicate or contradict the score above. Kept on the record whether or not they were convenient.</div>
+    </div>
+
+    <div class="plog__entry">
+      <div class="plog__meta">
+        <div class="plog__date">2026-09-02</div>
+        <div class="tag tag--nuances">Nuances</div>
+        <div class="plog__src">okaneland.com, via TLDR<br><a href="https://okaneland.com/study/the-mcp-context-tax/">The MCP Tax: What Each Server Costs Before Your First Prompt</a></div>
+      </div>
+      <div>
+        <div class="plog__paper">The MCP Tax: What Each Server Costs Before Your First Prompt</div>
+        <p class="plog__body">Measures actual MCP schema token weight (roughly 600 tokens for Puppeteer up to ~19,000 for Notion) and finds Claude Code 2.1.204 defers loading a server's schema until a tool from it is actually used, making session-start cost &ldquo;near zero&rdquo; rather than paid on every request. The tax isn't eliminated, just relocated: the full schema cost still lands on first use, and using several servers in one turn stacks their costs together — this sharpens rather than overturns the hybrid rule above, and specifically confirms that the reason to prefer skills has shifted from &ldquo;avoid the token tax&rdquo; (partially solved by deferred loading) toward the procedural-knowledge case, now with concrete per-server numbers.</p>
+      </div>
     </div>
 
     <div class="plog__entry">

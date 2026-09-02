@@ -29,7 +29,7 @@
     <div class="post-kicker__bar"><i style="flex-grow:1; background: var(--pos);"></i></div>
     <div class="post-kicker__class">Class: No-regret</div>
     <div class="post-kicker__sep"></div>
-    <div class="post-kicker__meta">Last updated <time datetime="2026-08-14">14 Aug 2026</time></div>
+    <div class="post-kicker__meta">Last updated <time datetime="2026-09-02">2 Sep 2026</time></div>
   </div>
 
   <div class="post-grid">
@@ -222,6 +222,27 @@
       <div>
         <p class="prose">Nobody measured this — not the author of the note, and not anyone whose work this pass could trace. The surviving <span class="tok">cost-delta</span> claim rests on a general token-ratio estimate from a search-summarized source, not a controlled benchmark that could be traced to a specific study. The zeroed-out deltas rest on the absence of confirming evidence rather than a measurement showing no effect. Both count as judgment.</p>
         <p class="prose">In the rubric, <span class="tok">guess</span> is defined as <em>my prior</em>; <span class="tok">researched</span> would mean someone else measured it, and <span class="tok">measured</span> would mean it was measured here, in an experiment note with a trial count. Neither applies. The rubric is also explicit that class and confidence must be read together: a no-regret at <span class="tok">guess</span> is a hypothesis that nothing gets worse, not a finding, and should not be acted on with the same freedom as one at <span class="tok">researched</span> or <span class="tok">measured</span>.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="section wrap" style="padding-top: 80px;">
+  <div class="plog">
+    <div class="plog__head">
+      <h2 class="plog__title">Perspectives log</h2>
+      <div class="plog__blurb">Sources that complicate or contradict the score above. Kept on the record whether or not they were convenient.</div>
+    </div>
+
+    <div class="plog__entry">
+      <div class="plog__meta">
+        <div class="plog__date">2026-09-02</div>
+        <div class="tag tag--aligns">Aligns</div>
+        <div class="plog__src">hiraditya.github.io, via TLDR<br><a href="https://hiraditya.github.io/posts/a-type-system-is-a-search-oracle/">A Type System Is a Search Oracle</a></div>
+      </div>
+      <div>
+        <div class="plog__paper">A Type System Is a Search Oracle</div>
+        <p class="plog__body">Argues a type system functions as a &ldquo;search oracle&rdquo; for agent code generation — stronger checkers (Rust, and the limit case Lean) reject more incorrect programs at compile time, so an agent can sample-and-verify its way to a correct answer: &ldquo;a verifier you can call cheaply and trust completely turns a mediocre generator into a good one, because brute force becomes admissible.&rdquo; C++ is used as a control: statically typed but permissive (UB, implicit conversions), so compiling carries far less guarantee than Rust. This is a distinct mechanism from this note's own token-cost finding — Environment&times;Capability (how much the compiler can verify) rather than Environment&times;Noise-reduction (tokens per line) — worth weighing against this note's 14 Aug 2026 correction that dropped the capability angle from frontmatter for lack of primary-source support. This is a new, independently-argued case for that angle rather than a repeat of the original unsupported framing, and does not itself move any of the four scored deltas.</p>
       </div>
     </div>
   </div>
