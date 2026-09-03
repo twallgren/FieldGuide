@@ -1,0 +1,230 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Domain-Driven Agents — Field Guide</title>
+<meta name="description" content="Applying domain-driven design to a legacy codebase's own vocabulary — not the model — as the fix for agents that invent a fourth spelling of a concept that already exists three times. Scored: cost 0, quality +1, speed −1, attention −1.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600;700&family=IBM+Plex+Serif:ital,wght@0,400;0,600;1,400&display=swap">
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+
+<header class="masthead masthead--compact wrap">
+  <a class="masthead__name" href="../index.html">Field Guide</a>
+  <nav class="nav">
+    <a href="../index.html#method">Method</a>
+    <a href="../index.html#index">Index</a>
+    <a href="../method.html">Questions</a>
+    <a href="../index.html#index">Rejected</a>
+    <a href="../index.html#about">About</a>
+  </nav>
+</header>
+
+<article>
+<div class="post-head wrap">
+  <div class="post-kicker">
+    <div class="post-kicker__bar"><i style="flex-grow:1; background: var(--neg);"></i><i style="flex-grow:1; background: var(--pos);"></i></div>
+    <div class="post-kicker__class">Class: Trade</div>
+    <div class="post-kicker__sep"></div>
+    <div class="post-kicker__meta">Last updated <time datetime="2026-09-02">2 Sep 2026</time></div>
+  </div>
+
+  <div class="post-grid">
+    <div>
+      <h1 class="post-title">Domain-Driven Agents</h1>
+      <p class="standfirst">A practice, argued by engineer Ernest Bednarczyk, for making legacy codebases legible to coding agents by applying domain-driven design — rather than by upgrading the model. His diagnosis: agents don't fail on legacy systems because the model is weak, they fail because the codebase itself never decided what its own concepts mean. An agent &ldquo;invents a fourth spelling of a concept that already exists three times, because the codebase itself never decided which one was real.&rdquo;</p>
+    </div>
+    <aside class="conf-box">
+      <div class="conf-box__label">Confidence</div>
+      <div class="conf-box__meter"><span class="on"></span><span></span><span></span></div>
+      <div class="conf-box__scale"><span class="on">guess</span><span>researched</span><span>measured</span></div>
+      <div class="conf-box__value">guess</div>
+      <div class="conf-box__body">The lowest rung. <span class="tok">guess</span> means <em>my prior</em> — nobody measured this, the author of this page included. Two independent argument pieces now make the same case, which is why this isn't a pure single-source guess anymore, but neither offers a case study, a benchmark, or a before/after metric. Read every delta below as judgment, not evidence.</div>
+    </aside>
+  </div>
+</div>
+
+<div class="section wrap" style="padding-top: 56px;">
+  <div class="baseline">
+    <div class="baseline__label">Compared to what</div>
+    <div class="baseline__text">A coding agent working on a multi-repo or long-lived codebase with no explicit domain-vocabulary documentation — the agent infers concept meaning from existing, possibly inconsistent, code and comments.</div>
+  </div>
+</div>
+
+<div class="section wrap" style="padding-top: 56px;">
+  <div class="section__head section__head--spread">
+    <h2 class="section__label">The deltas</h2>
+    <div class="section__note">+ is always better for you &middot; never summed</div>
+  </div>
+
+  <div class="delta-cards">
+    <div class="delta-card">
+      <div class="delta-card__label">cost-delta</div>
+      <div class="delta-card__val">0</div>
+      <div class="track"><i class="track__cell"></i><i class="track__cell"></i><i class="track__zero"></i><i class="track__cell"></i><i class="track__cell"></i></div>
+      <div class="delta-card__read">Genuinely unclear, not neutral-by-evidence.</div>
+    </div>
+    <div class="delta-card delta-card--pos">
+      <div class="delta-card__label">quality-delta</div>
+      <div class="delta-card__val">+1</div>
+      <div class="track"><i class="track__cell"></i><i class="track__cell"></i><i class="track__zero"></i><i class="track__cell track__cell--pos"></i><i class="track__cell"></i></div>
+      <div class="delta-card__read">Better &mdash; on two arguments, no measurement.</div>
+    </div>
+    <div class="delta-card delta-card--neg">
+      <div class="delta-card__label">speed-delta</div>
+      <div class="delta-card__val">&minus;1</div>
+      <div class="track"><i class="track__cell"></i><i class="track__cell track__cell--neg"></i><i class="track__zero"></i><i class="track__cell"></i><i class="track__cell"></i></div>
+      <div class="delta-card__read">Slower. Authoring and maintaining the manifest recurs.</div>
+    </div>
+    <div class="delta-card delta-card--neg">
+      <div class="delta-card__label">attention-delta</div>
+      <div class="delta-card__val">&minus;1</div>
+      <div class="track"><i class="track__cell"></i><i class="track__cell track__cell--neg"></i><i class="track__zero"></i><i class="track__cell"></i><i class="track__cell"></i></div>
+      <div class="delta-card__read">Demands more of you &mdash; drift has to be noticed by hand.</div>
+    </div>
+  </div>
+
+  <div class="meta-row">
+    <div class="meta"><span class="meta__k">dial</span><span class="meta__v">false</span></div>
+    <div class="meta"><span class="meta__k">effort</span><span class="meta__v">medium</span></div>
+    <div class="meta"><span class="meta__k">levers</span><span class="meta__v">environment, human-process</span></div>
+    <div class="meta"><span class="meta__k">mechanisms</span><span class="meta__v">noise-reduction, decomposition, information</span></div>
+  </div>
+</div>
+
+<div class="section wrap" style="padding-top: 56px;">
+  <div class="section__head section__head--spread">
+    <h2 class="section__label">Score history</h2>
+    <div class="section__note">What moved, when, and why</div>
+  </div>
+
+  <p class="prose" style="margin-bottom: 28px;">Scores here are not fixed at a publication date. When evidence arrives that changes an assessment, the score changes and the change is recorded — including the times it was re-examined and held.</p>
+
+  <div class="history">
+    <div class="history__entry">
+      <div class="history__date"><time datetime="2026-09-02">2 Sep 2026</time></div>
+      <div>
+        <div class="history__what">First tracked state</div>
+        <div class="history__vector">
+          <span class="hv"><i>cost</i><b>0</b></span>
+          <span class="hv"><i>quality</i><b class="pos">+1</b></span>
+          <span class="hv"><i>speed</i><b class="neg">&minus;1</b></span>
+          <span class="hv"><i>attention</i><b class="neg">&minus;1</b></span>
+          <span class="hv"><i>confidence</i><b>guess</b></span>
+        </div>
+        <p class="history__why">Scored by the unattended triage-and-dive pass on 2026-09-02, after finding independent corroboration (threedots.tech) for the note's original single-source claim. Magnitude and staleness risk remain unverified.</p>
+      </div>
+    </div>
+  </div>
+
+  <p class="history__note">History tracking began 28 Aug 2026. Any revisions before that date were not recorded, and are not reconstructed here.</p>
+</div>
+
+<div class="section wrap" style="padding-top: 56px;">
+  <div class="when">
+    <div class="when__col">
+      <div class="when__kicker when__kicker--pos">Reach for it when</div>
+      <div class="when__title">You are quality-bound on a large, long-lived system</div>
+      <div class="when__body">Favorable where domain-vocabulary drift is a real, live problem — a large, long-lived, multi-repo codebase where an agent keeps inventing a fourth spelling of a concept that already exists three times. It spends ongoing authoring effort to buy agent output quality on exactly that failure mode.</div>
+    </div>
+    <div class="when__col">
+      <div class="when__kicker when__kicker--neg">It is a poor fit when</div>
+      <div class="when__title">You are attention-bound on a small codebase</div>
+      <div class="when__body">A codebase too small for vocabulary drift to have occurred yet gets nothing from a manifest there is nothing yet to disambiguate — only the recurring authoring and drift-watching cost. That describes the user's own current vault-and-scripts ecosystem, per the note's own &ldquo;How this could apply to me.&rdquo;</div>
+    </div>
+  </div>
+</div>
+
+<div class="section wrap">
+  <div class="section__head"><h2 class="section__label">Why each delta reads the way it does</h2></div>
+
+  <div style="margin-top: 44px;">
+    <div class="arg">
+      <div class="arg__axis">
+        <div class="arg__name">quality-delta</div>
+        <div class="arg__val arg__val--pos">+1</div>
+        <div class="arg__note">Two voices, not one — still no measurement</div>
+      </div>
+      <div>
+        <p class="prose">This pass found independent corroboration for the core claim, not just the original single-blog source: threedots.tech's &ldquo;Domain-Driven Design matters more when AI writes your code&rdquo; makes the same argument from a different author, converging on ubiquitous language and explicit bounded contexts as the mechanism.</p>
+        <p class="prose">Neither source offers a case study, benchmark, or production metric — both are argument pieces with anecdotal or toy-scale illustration, not measured comparisons of agent output quality with vs. without a domain manifest. The direction is more credible after this pass — two independent voices, not one — but the magnitude is still unverified, which is why this stops at <span class="tok">+1</span> and <span class="tok">confidence: guess</span> rather than <span class="tok">researched</span>.</p>
+      </div>
+    </div>
+
+    <div class="arg">
+      <div class="arg__axis">
+        <div class="arg__name">cost-delta</div>
+        <div class="arg__val">0</div>
+        <div class="arg__note">Unclear, not neutral-by-evidence</div>
+      </div>
+      <div>
+        <p class="prose">No clear token-spend argument either direction found in either source. A domain manifest read once per session is cheap relative to a full context dump, but neither source quantifies it, and it's plausible a large context-map document could add meaningful per-session token overhead on its own. Genuinely unclear rather than neutral by evidence.</p>
+      </div>
+    </div>
+
+    <div class="arg">
+      <div class="arg__axis">
+        <div class="arg__name">speed-delta</div>
+        <div class="arg__val arg__val--neg">&minus;1</div>
+        <div class="arg__note">Recurring, not one-time</div>
+      </div>
+      <div>
+        <p class="prose">Building and maintaining the manifest, glossary, and dual-declared context maps is real, ongoing authoring work layered on top of normal development — distinct from <span class="tok">effort</span>, which captures one-time setup. The dual-declaration mechanism specifically requires updating <em>both</em> sides of a relationship whenever either changes, which is a recurring tax, not a one-time cost.</p>
+      </div>
+    </div>
+
+    <div class="arg">
+      <div class="arg__axis">
+        <div class="arg__name">attention-delta</div>
+        <div class="arg__val arg__val--neg">&minus;1</div>
+        <div class="arg__note">A stale manifest is worse than none</div>
+      </div>
+      <div>
+        <p class="prose">Same reasoning as speed: keeping a manifest accurate as a codebase evolves requires a human to notice drift and update it — exactly the kind of task that gets skipped under time pressure. A stale manifest actively misleads an agent, arguably worse than having none, though neither source addresses staleness risk directly — this is this pass's own inference, and it is flagged as a judgment call rather than a sourced finding.</p>
+      </div>
+    </div>
+
+    <div class="arg">
+      <div class="arg__axis">
+        <div class="arg__name">dial</div>
+        <div class="arg__val">false</div>
+        <div class="arg__note">A standing artifact, not a switch</div>
+      </div>
+      <div>
+        <p class="prose">This is a standing artifact and practice for a codebase, not a per-task switch. There is no knob a single turn can turn up or down — you either maintain the manifest for a repository or you don't.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="section wrap" style="padding-top: 56px;">
+  <div class="section__head"><h2 class="section__label">The practice, concretely</h2></div>
+  <p class="prose" style="margin-top: 32px;">Four parts. <strong>Strategic/tactical split</strong> — humans decide <em>what</em> changes and own architectural judgment; agents own mechanical implementation and refactoring within a context whose vocabulary is already settled. <strong>Domain manifests</strong> — each repository carries a <span class="tok">.workflow.json</span> declaring its bounded contexts and glossary, the ubiquitous-language documentation DDD calls for, made machine-readable so an agent can load it as context rather than infer it from inconsistent code. <strong>Context maps</strong> — a generator walks a set of repositories and produces unified documentation of all contexts and the edges between them, with the relationship type declared explicitly (conformist, anticorruption layer, and the rest of standard DDD context-mapping vocabulary). <strong>Dual declaration</strong> — each inter-context relationship is declared from <em>both</em> sides, so a generator can automatically flag disagreement between what one repo claims about a dependency and what the other side actually exposes.</p>
+  <p class="prose">In Claude Code, the closest fit is a project's <span class="tok">CLAUDE.md</span> linking to — or a <span class="tok">SessionStart</span> hook injecting a summary of — a checked-in glossary file per bounded context, so the ubiquitous-language declaration is context supplied once per session rather than prose repeated in every prompt. The dual-declaration disagreement check is a better fit for a small script wired into a <span class="tok">PreToolUse</span> or CI check than an agent-authored document — a Constraint/Feedback pairing more than a Context-lever artifact. A skill scoped to &ldquo;implement within bounded context X,&rdquo; loading that context's glossary and explicitly refusing to introduce new domain terms, would operationalize the strategic/tactical split without inventing new tooling.</p>
+  <p class="prose">No framework surveyed — LangGraph, Microsoft Agent Framework among them — treats inconsistent domain vocabulary as a first-class problem the framework itself solves. In every case the manifest and glossary idea is something a team builds on top of whatever orchestration layer it already uses.</p>
+</div>
+
+<div class="section wrap" style="padding-top: 80px;">
+  <div class="plog">
+    <div class="plog__head">
+      <h2 class="plog__title">Perspectives log</h2>
+      <div class="plog__blurb">Sources that complicate or contradict the score above. Kept on the record whether or not they were convenient.</div>
+    </div>
+
+    <p class="prose">None yet. The corroborating second source (threedots.tech) is folded into the quality-delta argument above rather than logged here, since it aligns rather than complicates. Future scans log disagreement here rather than re-deriving it — nothing has been back-filled to make this section look fuller than the record is.</p>
+  </div>
+</div>
+
+<div class="wrap">
+  <div class="endnote">
+    <div class="endnote__label">An open question, not resolved</div>
+    <div class="endnote__body">Staleness risk — a manifest that drifts from the actual code becomes actively misleading rather than neutral — isn't addressed by either source found, and is a real failure mode worth the user's own judgment on whether it undermines the whole approach for a team that wouldn't reliably keep the manifest current. This is squarely aimed at a codebase the user doesn't currently have in this vault-and-scripts ecosystem — a large, multi-repo legacy system with accumulated terminology drift — so there's no obvious place to try it today. Worth revisiting if <span class="tok">~/Documents/code</span> grows enough cross-repo surface that terminology could start to drift between projects without anyone deciding which spelling is canonical.</div>
+  </div>
+</div>
+</article>
+
+</body>
+</html>

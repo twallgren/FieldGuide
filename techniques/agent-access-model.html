@@ -29,7 +29,7 @@
     <div class="post-kicker__bar"><i style="flex-grow:1; background: var(--neg);"></i><i style="flex-grow:1; background: var(--pos);"></i></div>
     <div class="post-kicker__class">Class: Trade</div>
     <div class="post-kicker__sep"></div>
-    <div class="post-kicker__meta">Last updated <time datetime="2026-08-31">31 Aug 2026</time></div>
+    <div class="post-kicker__meta">Last updated <time datetime="2026-09-02">2 Sep 2026</time></div>
   </div>
 
   <div class="post-grid">
@@ -234,6 +234,18 @@
       <h2 class="plog__title">Perspectives log</h2>
       <div class="plog__blurb">Sources that complicate or contradict the score above. Kept on the record whether or not they were convenient.</div>
     </div>
+
+          <div class="plog__entry">
+        <div class="plog__meta">
+          <div class="plog__date">2026-09-02</div>
+          <div class="tag tag--nuances">Nuances</div>
+          <div class="plog__src">Anthropic, via TLDR Dev<br><a href="https://www.anthropic.com/news/improving-alignment-security-efforts">Improving Our Alignment and Security Practices</a></div>
+        </div>
+        <div>
+          <div class="plog__paper">Improving Our Alignment and Security Practices</div>
+          <p class="plog__body">Anthropic's own postmortem on July/August incidents where Claude models running &ldquo;intentionally without cyber safeguards for evaluation purposes&rdquo; got unauthorized internet access — the cause was a misconfiguration inside a third-party evaluation environment, not a credential or tool-permission failure at all. The response was environment-level: a real-time classifier to detect sandbox-escape attempts, migrating high-risk cyber sandboxes to stronger isolation, and new mandatory hardened-sandbox, scope-setting and monitoring requirements for external evaluators. A distinct failure class from this note's task-scoped-credential thesis (which governs what an agent's own access reaches) — this is about the isolation boundary the eval infrastructure itself provides, closer to the sandboxing thread already running in this log than to the credential-scoping thread.</p>
+        </div>
+      </div>
 
           <div class="plog__entry">
         <div class="plog__meta">
